@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Tipos de Datos Â· Python Academy</title>
+  <title>Tipos de Datos · Python Academy</title>
   <meta name="description" content="Tipos de Datos - Curso de Python Academy">
 
   <link
@@ -27,7 +27,6 @@
   <div class="page-loader">
     <div class="loader-spinner"></div>
   </div>
-
 
   <!-- Navbar Moderno -->
   <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
@@ -71,6 +70,7 @@
                   el temario</a></li>
             </ul>
           </li>
+
           <li class="nav-item dropdown">
             <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-code-square me-1"></i> Ejercicios
@@ -84,6 +84,7 @@
                   <li><a class="dropdown-item" href="../ejercicios/ejercicio2.html">Formulario request.files</a></li>
                 </ul>
               </li>
+
               <li class="dropdown-submenu">
                 <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
                     class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a>
@@ -94,6 +95,7 @@
                   <li><a class="dropdown-item" href="../ejercicios/ejercicio6.html">Validar Cédula</a></li>
                 </ul>
               </li>
+
               <li class="dropdown-submenu">
                 <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
                     class="bi bi-list-ul me-2 text-success"></i>Arreglos</a>
@@ -106,6 +108,7 @@
                   <li><a class="dropdown-item" href="../ejercicios/ejercicio12.html">Tablas Dinámicas</a></li>
                 </ul>
               </li>
+
               <li class="dropdown-submenu">
                 <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
                     class="bi bi-diagram-2 me-2 text-success"></i>POO</a>
@@ -123,6 +126,7 @@
               <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver todos los ejercicios</a></li>
             </ul>
           </li>
+
           <li class="nav-item dropdown">
             <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-database me-1"></i> Temas Avanzados
@@ -143,6 +147,7 @@
                     class="bi bi-grid me-2"></i>Ver Resumen</a></li>
             </ul>
           </li>
+
           <li class="nav-item dropdown">
             <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
@@ -151,8 +156,7 @@
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i
                     class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i
-                    class="bi bi-boxes me-2 text-info"></i>Ecosistema</a>
-              </li>
+                    class="bi bi-boxes me-2 text-info"></i>Ecosistema</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i
                     class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i
@@ -165,6 +169,7 @@
               <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
           </li>
+
           <li class="nav-item">
             <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
               Comenzar <i class="bi bi-arrow-right ms-1"></i>
@@ -179,37 +184,29 @@
     Tipos de Datos - Python Academy
 
     <style>
-      /* ===== CODE INLINE (texto dentro de pÃ¡rrafos) ===== */
+      /* ===== CODE INLINE (texto dentro de párrafos) ===== */
       p code,
       li code,
       span code {
         background-color: #f1f5f9;
-        /* gris claro */
         color: #0f172a;
-        /* texto oscuro */
         padding: 2px 6px;
         border-radius: 6px;
         font-size: 0.95em;
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       }
 
-      /* =========================================================
-   INLINE CODE (en texto): aplica a TODO <code> excepto bloques <pre>
-   ========================================================= */
+      /* INLINE CODE: aplica a TODO <code> excepto bloques <pre> */
       :not(pre)>code {
         background-color: #f1f5f9;
-        /* gris claro */
         color: #0f172a;
-        /* texto oscuro */
         padding: 2px 6px;
         border-radius: 6px;
         font-size: 0.95em;
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       }
 
-      /* =========================================================
-    BLOQUES GRANDES (en tu code-card): no tocar el fondo oscuro
-    ========================================================= */
+      /* BLOQUES GRANDES (en tu code-card): no tocar el fondo oscuro */
       .code-card pre code {
         background: transparent !important;
         color: #f9fafb !important;
@@ -440,6 +437,10 @@
         gap: 12px;
         flex-wrap: wrap;
       }
+
+      /* Si NO tienes clase callout-danger en tu CSS global, descomenta esto:
+      .callout-danger { border-left: 6px solid #ef4444; background: #fef2f2; }
+      */
     </style>
 
     <!-- Hero Interno -->
@@ -450,9 +451,9 @@
         <span class="badge-custom animate-on-scroll">TEMA 6</span>
         <h1 class="animate-on-scroll delay-1">Tipos de Datos en Python</h1>
         <p class="animate-on-scroll delay-2">
-          Aprende los tipos bÃ¡sicos: <code>int</code>, <code>float</code>, <code>bool</code>, <code>str</code> y
+          Aprende los tipos básicos: <code>int</code>, <code>float</code>, <code>bool</code>, <code>str</code> y
           <code>None</code>.
-          En cada secciÃ³n tendrÃ¡s un ejemplo interactivo con su salida y el tipo de dato.
+          En cada sección tendrás un ejemplo interactivo con su salida y el tipo de dato.
         </p>
       </div>
     </section>
@@ -469,7 +470,7 @@
               </div>
               <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
               <ul>
-                <li><a href="#intro" class="active">Â¿QuÃ© es un tipo de dato?</a></li>
+                <li><a href="#intro" class="active">¿Qué es un tipo de dato?</a></li>
                 <li><a href="#int">int (enteros)</a></li>
                 <li><a href="#float">float (decimales)</a></li>
                 <li><a href="#bool">bool (True / False)</a></li>
@@ -484,32 +485,30 @@
           <div class="col-lg-8">
 
             <!-- INTRO -->
-            <h3 class="fw-bold mb-3" id="intro">1. Â¿QuÃ© es un tipo de dato?</h3>
+            <h3 class="fw-bold mb-3" id="intro">1. ¿Qué es un tipo de dato?</h3>
             <p>
-              Un <strong>tipo de dato</strong> define quÃ© clase de valor estÃ¡s manejando (nÃºmero, texto,
+              Un <strong>tipo de dato</strong> define qué clase de valor estás manejando (número, texto,
               verdadero/falso, etc.).
               Esto importa porque no puedes hacer las mismas operaciones con todo.
             </p>
             <p>
-              En Python, los tipos de datos no se declaran de forma explÃ­cita.
-              El lenguaje utiliza tipado dinÃ¡mico, lo que significa que Python determina automÃ¡ticamente el tipo de
-              dato segÃºn el valor asignado a la variable, sin necesidad de indicarlo manualmente.
+              En Python, los tipos de datos no se declaran de forma explícita.
+              El lenguaje utiliza tipado dinámico, lo que significa que Python determina automáticamente el tipo de
+              dato según el valor asignado a la variable, sin necesidad de indicarlo manualmente.
             </p>
 
             <div class="callout callout-info mb-4">
               <strong>Tip clave:</strong> usa <code>type()</code> para ver el tipo de cualquier valor.
             </div>
 
-            <!-- ===================================================== -->
             <!-- 2) INT -->
-            <!-- ===================================================== -->
             <h3 class="fw-bold mt-5 mb-3" id="int">2. <code>int</code> (enteros)</h3>
             <p>
-              Guarda nÃºmeros <strong>sin decimales</strong>. Se usa para conteos, edades, cantidades, etc.
+              Guarda números <strong>sin decimales</strong>. Se usa para conteos, edades, cantidades, etc.
             </p>
 
             <div class="callout callout-warning mb-4">
-              <strong>Error tÃ­pico:</strong> pensar que "20" (texto) es igual que 20 (nÃºmero). No lo es.
+              <strong>Error típico:</strong> pensar que "20" (texto) es igual que 20 (número). No lo es.
             </div>
 
             <div class="code-card mb-3">
@@ -542,17 +541,15 @@ print("total:", total, type(total))</code></pre>
               <div class="console" id="output-td-1">Salida pendiente...</div>
             </div>
 
-            <!-- ===================================================== -->
             <!-- 3) FLOAT -->
-            <!-- ===================================================== -->
             <h3 class="fw-bold mt-5 mb-3" id="float">3. <code>float</code> (decimales)</h3>
             <p>
-              Guarda nÃºmeros con decimales. Ãštil para promedios, precios, medidas.
-              Pero puede tener <strong>imprecisiones</strong> por representaciÃ³n binaria.
+              Guarda números con decimales. Útil para promedios, precios, medidas.
+              Pero puede tener <strong>imprecisiones</strong> por representación binaria.
             </p>
 
             <div class="callout callout-danger mb-4">
-              <strong>Ejemplo clÃ¡sico:</strong> <code>0.1 + 0.2</code> puede mostrar <code>0.30000000000000004</code>.
+              <strong>Ejemplo clásico:</strong> <code>0.1 + 0.2</code> puede mostrar <code>0.30000000000000004</code>.
             </div>
 
             <div class="code-card mb-3">
@@ -560,7 +557,7 @@ print("total:", total, type(total))</code></pre>
                 <div class="code-dots" aria-hidden="true">
                   <span class="dot"></span><span class="dot"></span><span class="dot"></span>
                 </div>
-                <p class="code-title">Ejemplo float: precisiÃ³n e type()</p>
+                <p class="code-title">Ejemplo float: precisión y type()</p>
               </div>
 
               <pre><code class="language-python" id="code-td-2">a = 0.1
@@ -570,7 +567,7 @@ suma = a + b
 print("a:", a, type(a))
 print("b:", b, type(b))
 print("suma:", suma, type(suma))
-print("Â¿suma == 0.3?:", suma == 0.3, type(suma == 0.3))</code></pre>
+print("¿suma == 0.3?:", suma == 0.3, type(suma == 0.3))</code></pre>
 
               <div class="play-actions">
                 <button class="btn btn-success rounded-pill px-4" onclick="simEjecutarTD(2)">
@@ -586,13 +583,11 @@ print("Â¿suma == 0.3?:", suma == 0.3, type(suma == 0.3))</code></pre>
               <div class="console" id="output-td-2">Salida pendiente...</div>
             </div>
 
-            <!-- ===================================================== -->
             <!-- 4) BOOL -->
-            <!-- ===================================================== -->
             <h3 class="fw-bold mt-5 mb-3" id="bool">4. <code>bool</code> (True / False)</h3>
             <p>
               Representa verdadero o falso. Se usa en condiciones.
-              Un booleano tambiÃ©n puede aparecer como resultado de comparaciones.
+              Un booleano también puede aparecer como resultado de comparaciones.
             </p>
 
             <div class="callout callout-info mb-4">
@@ -605,7 +600,7 @@ print("Â¿suma == 0.3?:", suma == 0.3, type(suma == 0.3))</code></pre>
                 <div class="code-dots" aria-hidden="true">
                   <span class="dot"></span><span class="dot"></span><span class="dot"></span>
                 </div>
-                <p class="code-title">Ejemplo bool: comparaciones y â€œtrampaâ€ True=1</p>
+                <p class="code-title">Ejemplo bool: comparaciones y “trampa” True=1</p>
               </div>
 
               <pre><code class="language-python" id="code-td-3">activo = True
@@ -630,9 +625,7 @@ print("True + True:", suma_bool, type(suma_bool))</code></pre>
               <div class="console" id="output-td-3">Salida pendiente...</div>
             </div>
 
-            <!-- ===================================================== -->
             <!-- 5) STR -->
-            <!-- ===================================================== -->
             <h3 class="fw-bold mt-5 mb-3" id="str">5. <code>str</code> (texto)</h3>
             <p>
               Guarda texto. Un string se define con comillas: <code>"Hola"</code> o <code>'Hola'</code>.
@@ -640,7 +633,7 @@ print("True + True:", suma_bool, type(suma_bool))</code></pre>
             </p>
 
             <div class="callout callout-warning mb-4">
-              <strong>Error tÃ­pico:</strong> "10" + "5" no suma: concatena <i class="bi bi-arrow-right"></i> "105".
+              <strong>Error típico:</strong> "10" + "5" no suma: concatena <i class="bi bi-arrow-right"></i> "105".
             </div>
 
             <div class="code-card mb-3">
@@ -648,7 +641,7 @@ print("True + True:", suma_bool, type(suma_bool))</code></pre>
                 <div class="code-dots" aria-hidden="true">
                   <span class="dot"></span><span class="dot"></span><span class="dot"></span>
                 </div>
-                <p class="code-title">Ejemplo str: concatenaciÃ³n y type()</p>
+                <p class="code-title">Ejemplo str: concatenación y type()</p>
               </div>
 
               <pre><code class="language-python" id="code-td-4">a = "10"
@@ -673,17 +666,15 @@ print("a + b:", concat, type(concat))</code></pre>
               <div class="console" id="output-td-4">Salida pendiente...</div>
             </div>
 
-            <!-- ===================================================== -->
             <!-- 6) NONE -->
-            <!-- ===================================================== -->
             <h3 class="fw-bold mt-5 mb-3" id="none">6. <strong>None</strong> (sin valor)</h3>
             <p>
-              <strong>None</strong> significa â€œno hay valorâ€. Su tipo es <code>NoneType</code>.
-              Es Ãºtil cuando quieres indicar que algo todavÃ­a no existe o estÃ¡ vacÃ­o.
+              <strong>None</strong> significa “no hay valor”. Su tipo es <code>NoneType</code>.
+              Es útil cuando quieres indicar que algo todavía no existe o está vacío.
             </p>
 
             <div class="callout callout-info mb-4">
-              <strong>Buena prÃ¡ctica:</strong> para comprobarlo se usa <code>is None</code> (no <code>== None</code>).
+              <strong>Buena práctica:</strong> para comprobarlo se usa <code>is None</code> (no <code>== None</code>).
             </div>
 
             <div class="code-card mb-3">
@@ -691,14 +682,14 @@ print("a + b:", concat, type(concat))</code></pre>
                 <div class="code-dots" aria-hidden="true">
                   <span class="dot"></span><span class="dot"></span><span class="dot"></span>
                 </div>
-                <p class="code-title">Ejemplo None: type() y comparaciÃ³n correcta</p>
+                <p class="code-title">Ejemplo None: type() y comparación correcta</p>
               </div>
 
               <pre><code class="language-python" id="code-td-5">x = None
 
 print("x:", x, type(x))
-print("Â¿x is None?:", x is None, type(x is None))
-print("Â¿x == None?:", x == None, type(x == None))  # funciona, pero NO es lo recomendado</code></pre>
+print("¿x is None?:", x is None, type(x is None))
+print("¿x == None?:", x == None, type(x == None))  # funciona, pero NO es lo recomendado</code></pre>
 
               <div class="play-actions">
                 <button class="btn btn-success rounded-pill px-4" onclick="simEjecutarTD(5)">
@@ -726,7 +717,7 @@ print("Â¿x == None?:", x == None, type(x == None))  # funciona, pero NO es lo 
 
             <!-- CUESTIONARIO  -->
             <div class="mt-5 pt-4 border-top" id="cuestionario">
-              <h3 class="fw-bold mb-3 text-center"> Cuestionario Final â€“ Tipos de Datos</h3>
+              <h3 class="fw-bold mb-3 text-center"> Cuestionario Final – Tipos de Datos</h3>
 
               <p class="text-muted text-center mb-4">
                 Responde cada pregunta para avanzar. Cada pregunta solo puede responderse una vez.
@@ -738,7 +729,7 @@ print("Â¿x == None?:", x == None, type(x == None))  # funciona, pero NO es lo 
                     Pregunta <span id="numPreguntaTDQ"></span> de <span id="totalPreguntasTDQ"></span>
                   </div>
                   <span class="quiz-badge">
-                    <i class="bi bi-award"></i> EvaluaciÃ³n final
+                    <i class="bi bi-award"></i> Evaluación final
                   </span>
                 </div>
 
@@ -774,7 +765,6 @@ print("Â¿x == None?:", x == None, type(x == None))  # funciona, pero NO es lo 
     </section>
 
     <script>
-
       const resultadosTD = {
         1: `edad: 20 <class 'int'>
 extra: 5 <class 'int'>
@@ -783,7 +773,7 @@ total: 25 <class 'int'>`,
         2: `a: 0.1 <class 'float'>
 b: 0.2 <class 'float'>
 suma: 0.30000000000000004 <class 'float'>
-Â¿suma == 0.3?: False <class 'bool'>`,
+¿suma == 0.3?: False <class 'bool'>`,
 
         3: `activo: True <class 'bool'>
 comparacion (10 > 3): True <class 'bool'>
@@ -794,8 +784,8 @@ b: 5 <class 'str'>
 a + b: 105 <class 'str'>`,
 
         5: `x: None <class 'NoneType'>
-Â¿x is None?: True <class 'bool'>
-Â¿x == None?: True <class 'bool'>`
+¿x is None?: True <class 'bool'>
+¿x == None?: True <class 'bool'>`
       };
 
       const estadoTD = { 1: false, 2: false, 3: false, 4: false, 5: false };
@@ -806,7 +796,7 @@ a + b: 105 <class 'str'>`,
         wrap.classList.remove("d-none");
         estadoTD[id] = true;
 
-        out.innerHTML = `<span class="console-badge">SimulaciÃ³n</span>\nEjecutando cÃ³digo...\n<i class="bi bi-check-circle-fill text-success"></i>â€¦ Listo. Pulsa â€œMostrar resultadoâ€ para verlo.`;
+        out.innerHTML = `<span class="console-badge">Simulación</span>\nEjecutando código...\n<i class="bi bi-check-circle-fill text-success"></i>… Listo. Pulsa “Mostrar resultado” para verlo.`;
       }
 
       function simMostrarTD(id) {
@@ -820,11 +810,10 @@ a + b: 105 <class 'str'>`,
         }
 
         out.innerHTML = `<span class="console-badge">Simulación</span>\n`;
-
         out.append(document.createTextNode(resultadosTD[id] || "Sin resultado."));
       }
 
-      // Sidebar active
+      // Sidebar active (click)
       document.querySelectorAll(".sidebar-nav a").forEach(a => {
         a.addEventListener("click", () => {
           document.querySelectorAll(".sidebar-nav a").forEach(x => x.classList.remove("active"));
@@ -832,7 +821,7 @@ a + b: 105 <class 'str'>`,
         });
       });
 
-      /* ===================== QUIZ (ALTA COMPLEJIDAD) ===================== */
+      /* ===================== QUIZ ===================== */
       const preguntasTDQ = [
         {
           titulo: "1) ¿Qué imprime exactamente este código?\n\nprint(type(10))",
@@ -841,7 +830,7 @@ a + b: 105 <class 'str'>`,
             { texto: "B) <class 'int'>", correcta: true },
             { texto: "C) integer", correcta: false }
           ],
-          solucion: '<i class="bi bi-check-circle-fill text-success"></i> type(10) imprime &lt;class int&gt;, no solo int.'
+          solucion: 'type(10) imprime <class "int"> (representación de clase), no solo "int".'
         },
         {
           titulo: "2) ¿Qué ocurre con esto?\n\nprint('10' + 5)",
@@ -850,7 +839,7 @@ a + b: 105 <class 'str'>`,
             { texto: "B) Imprime 105", correcta: false },
             { texto: "C) Da TypeError", correcta: true }
           ],
-          solucion: '<i class="bi bi-check-circle-fill text-success"></i> TypeError: no se puede sumar str con int directamente.'
+          solucion: "TypeError: no se puede sumar str con int directamente."
         },
         {
           titulo: "3) ¿Cuál es el tipo de: (0.1 + 0.2)?",
@@ -859,7 +848,7 @@ a + b: 105 <class 'str'>`,
             { texto: "B) float", correcta: true },
             { texto: "C) bool", correcta: false }
           ],
-          solucion: '<i class="bi bi-check-circle-fill text-success"></i> Es float, aunque se muestre con muchos decimales.'
+          solucion: "Es float, aunque se muestre con muchos decimales."
         },
         {
           titulo: "4) ¿Qué imprime?\n\nprint(True + True)",
@@ -868,7 +857,7 @@ a + b: 105 <class 'str'>`,
             { texto: "B) 2", correcta: true },
             { texto: "C) Error", correcta: false }
           ],
-          solucion: '<i class="bi bi-check-circle-fill text-success"></i> True se comporta como 1 en sumas. 1+1=2.'
+          solucion: "True se comporta como 1 en sumas. 1 + 1 = 2."
         },
         {
           titulo: "5) ¿Cuál comparación es la recomendada para None?",
@@ -877,7 +866,7 @@ a + b: 105 <class 'str'>`,
             { texto: "B) x is None", correcta: true },
             { texto: "C) type(x) == None", correcta: false }
           ],
-          solucion: '<i class="bi bi-check-circle-fill text-success"></i> La recomendada es "is None".'
+          solucion: 'La recomendada es "is None".'
         },
         {
           titulo: "6) ¿Qué imprime?\n\na='10'\nb='5'\nprint(a+b, type(a+b))",
@@ -886,7 +875,7 @@ a + b: 105 <class 'str'>`,
             { texto: "B) 105 <class 'str'>", correcta: true },
             { texto: "C) Error", correcta: false }
           ],
-          solucion: '<i class="bi bi-check-circle-fill text-success"></i> Concatenación de strings: 105 y su tipo es str.'
+          solucion: "Concatenación de strings: 105 y su tipo es str."
         },
         {
           titulo: "7) ¿Qué imprime?\n\nprint(type(None))",
@@ -895,7 +884,7 @@ a + b: 105 <class 'str'>`,
             { texto: "B) <class 'NoneType'>", correcta: true },
             { texto: "C) NoneType()", correcta: false }
           ],
-          solucion: '<i class="bi bi-check-circle-fill text-success"></i> type(None) devuelve &lt;class NoneType&gt;.'
+          solucion: "type(None) devuelve <class 'NoneType'>."
         },
         {
           titulo: "8) ¿Cuál afirmación es verdadera?",
@@ -904,7 +893,7 @@ a + b: 105 <class 'str'>`,
             { texto: "B) 10 es int y '10' es str", correcta: true },
             { texto: "C) '10' es float", correcta: false }
           ],
-          solucion: '<i class="bi bi-check-circle-fill text-success"></i> 10 es int. "10" es str.'
+          solucion: "10 es int. '10' es str."
         },
         {
           titulo: "9) ¿Qué tipo devuelve una comparación como (5 > 2)?",
@@ -913,16 +902,16 @@ a + b: 105 <class 'str'>`,
             { texto: "B) int", correcta: false },
             { texto: "C) str", correcta: false }
           ],
-          solucion: '<i class="bi bi-check-circle-fill text-success"></i> Las comparaciones devuelven bool.'
+          solucion: "Las comparaciones devuelven bool."
         },
         {
-          titulo: "10) ¿Qué salida es más probable?\\n\\nprint(0.1 + 0.2 == 0.3)",
+          titulo: "10) ¿Qué salida es más probable?\n\nprint(0.1 + 0.2 == 0.3)",
           opciones: [
             { texto: "A) True", correcta: false },
             { texto: "B) False", correcta: true },
             { texto: "C) Error", correcta: false }
           ],
-          solucion: '<i class="bi bi-check-circle-fill text-success"></i> Puede dar False por precisión float.'
+          solucion: "Puede dar False por precisión de float."
         }
       ];
 
@@ -968,11 +957,11 @@ a + b: 105 <class 'str'>`,
           puntajeTDQ++;
           btn.classList.add("correct");
           feedback.className = "alert alert-success mt-3 mb-2";
-          feedback.innerHTML = '<i class="bi bi-check-circle-fill text-success me-2"></i> Respuesta correcta.'
+          feedback.innerHTML = '<i class="bi bi-check-circle-fill text-success me-2"></i> Respuesta correcta.';
         } else {
           btn.classList.add("wrong");
           feedback.className = "alert alert-warning mt-3 mb-2";
-          feedback.textContent = 'Respuesta incorrecta.'
+          feedback.textContent = "Respuesta incorrecta.";
           solucionDiv.textContent = solucion;
           solucionDiv.classList.remove("d-none");
         }
@@ -994,30 +983,30 @@ a + b: 105 <class 'str'>`,
         const nota = Math.round((puntajeTDQ / preguntasTDQ.length) * 10);
 
         document.querySelector(".quiz-card").innerHTML = `
-      <div class="text-center">
-        <h4 class="fw-bold mb-3"><i class="bi bi-folder-fill text-warning"></i> Resultado Final</h4>
+          <div class="text-center">
+            <h4 class="fw-bold mb-3"><i class="bi bi-folder-fill text-warning"></i> Resultado Final</h4>
 
-        <div class="display-4 fw-bold text-primary mb-2">
-          ${nota}/10
-        </div>
+            <div class="display-4 fw-bold text-primary mb-2">
+              ${nota}/10
+            </div>
 
-        <p class="text-muted mb-1">
-          Respuestas correctas: ${puntajeTDQ} de ${preguntasTDQ.length}
-        </p>
+            <p class="text-muted mb-1">
+              Respuestas correctas: ${puntajeTDQ} de ${preguntasTDQ.length}
+            </p>
 
-        <div class="alert ${nota >= 8 ? 'alert-success' : (nota >= 6 ? 'alert-warning' : 'alert-danger')} mt-4">
-          ${nota >= 8
-            ? '<i class="bi bi-trophy-fill text-warning me-2"></i> Excelente. Dominas los tipos básicos y sus trampas.'
-            : (nota >= 6
-              ? '<i class="bi bi-journal-text"></i> Vas bien, pero repasa float, None y str vs int.'
-              : '<i class="bi bi-exclamation-triangle me-2"></i> Te recomiendo repasar la teoría y volver a intentarlo.')}
-        </div>
+            <div class="alert ${nota >= 8 ? 'alert-success' : (nota >= 6 ? 'alert-warning' : 'alert-danger')} mt-4">
+              ${nota >= 8
+                ? '<i class="bi bi-trophy-fill text-warning me-2"></i> Excelente. Dominas los tipos básicos y sus trampas.'
+                : (nota >= 6
+                  ? '<i class="bi bi-journal-text"></i> Vas bien, pero repasa float, None y str vs int.'
+                  : '<i class="bi bi-exclamation-triangle me-2"></i> Te recomiendo repasar la teoría y volver a intentarlo.')}
+            </div>
 
-        <button class="btn btn-outline-primary mt-3" onclick="reiniciarQuizTDQ()">
-          <i class="bi bi-arrow-repeat me-2"></i> Realizar la evaluación nuevamente
-        </button>
-      </div>
-    `;
+            <button class="btn btn-outline-primary mt-3" onclick="reiniciarQuizTDQ()">
+              <i class="bi bi-arrow-repeat me-2"></i> Realizar la evaluación nuevamente
+            </button>
+          </div>
+        `;
       }
 
       function reiniciarQuizTDQ() {
@@ -1039,8 +1028,8 @@ a + b: 105 <class 'str'>`,
             <i class="bi bi-braces me-2"></i>Python Academy
           </h4>
           <p class="footer-text">
-            Proyecto acadÃ©mico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
-            apasionados por la programaciÃ³n.
+            Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
+            apasionados por la programación.
           </p>
           <div class="d-flex gap-3 mt-4">
             <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
@@ -1050,13 +1039,12 @@ a + b: 105 <class 'str'>`,
         </div>
 
         <div class="col-lg-2 col-md-4">
-          <h5 class="footer-title">NavegaciÃ³n</h5>
+          <h5 class="footer-title">Navegación</h5>
           <ul class="footer-links">
             <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
-            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> TeorÃ­a</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
             <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
             <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
-
           </ul>
         </div>
 
@@ -1070,7 +1058,7 @@ a + b: 105 <class 'str'>`,
         </div>
 
         <div class="col-lg-3 col-md-4">
-          <h5 class="footer-title">TecnologÃ­as</h5>
+          <h5 class="footer-title">Tecnologías</h5>
           <div class="d-flex flex-wrap gap-2 mt-3">
             <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
             <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
@@ -1096,9 +1084,8 @@ a + b: 105 <class 'str'>`,
   <script src="../static/assets/js/main.js"></script>
   <script src="../static/assets/js/sidebar.js"></script>
 
-
   <script>
-    // Sidebar Scroll Spy - Resaltar secciÃ³n activa al hacer scroll
+    // Sidebar Scroll Spy - Resaltar sección activa al hacer scroll
     document.addEventListener('DOMContentLoaded', function () {
       const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
       const sections = [];
@@ -1112,7 +1099,6 @@ a + b: 105 <class 'str'>`,
         }
       });
 
-      // FunciÃ³n para actualizar el link activo
       function updateActiveLink() {
         let currentSection = sections[0];
         const scrollPosition = window.scrollY + 150;
@@ -1127,7 +1113,6 @@ a + b: 105 <class 'str'>`,
         if (currentSection) {
           currentSection.link.classList.add('active');
 
-          // Actualizar barra de progreso
           const progressBar = document.querySelector('.sidebar-progress-bar');
           if (progressBar) {
             const index = sections.indexOf(currentSection);
@@ -1137,7 +1122,6 @@ a + b: 105 <class 'str'>`,
         }
       }
 
-      // Scroll suave al hacer clic en links
       sidebarLinks.forEach(link => {
         link.addEventListener('click', function (e) {
           e.preventDefault();
@@ -1152,7 +1136,6 @@ a + b: 105 <class 'str'>`,
         });
       });
 
-      // Escuchar scroll
       window.addEventListener('scroll', updateActiveLink);
       updateActiveLink();
     });
@@ -1172,4 +1155,3 @@ a + b: 105 <class 'str'>`,
 </body>
 
 </html>
-
