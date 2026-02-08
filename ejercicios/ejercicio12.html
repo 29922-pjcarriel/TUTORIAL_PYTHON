@@ -1,0 +1,979 @@
+<<<<<<< HEAD
+﻿<!DOCTYPE html>
+=======
+<!DOCTYPE html>
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Tablas dinámicas · Python Academy</title>
+  <meta name="description" content="Implementaciñ³n de tablas dinámicas.">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="../static/assets/css/main.css" rel="stylesheet">
+  <link href="../static/assets/css/custom.css" rel="stylesheet">
+<<<<<<< HEAD
+  <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
+=======
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+
+  <style>
+    .hero-ej {
+      background: #f8fafc;
+      border-bottom: 1px solid rgba(0, 0, 0, .08);
+      padding: 52px 0;
+    }
+
+    .hero-ej .badge {
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+    }
+
+    .hero-ej h1 {
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .hero-ej p {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .hero-top-actions {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .btn-pill {
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-weight: 700;
+    }
+
+    .btn-pill-sm {
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-weight: 700;
+    }
+
+    .ej-wrap {
+      padding: 36px 0 70px;
+    }
+
+    .ej-panel {
+      border-radius: 18px;
+      border: 1px solid rgba(0, 0, 0, .08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
+      background: #fff;
+      padding: 26px;
+    }
+
+    .ej-actions {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(0, 0, 0, .08);
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-shell {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-card {
+      width: 100%;
+      max-width: 720px;
+      border-radius: 18px;
+      border: 1px solid rgba(0, 0, 0, .08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .06);
+      background: #fff;
+      padding: 22px;
+    }
+
+    .form-card * {
+      max-width: 100%;
+    }
+
+    .ej-nav-bottom {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(0, 0, 0, .08);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .ej-nav-bottom .btn {
+      min-width: 170px;
+    }
+
+    .explain-card {
+      border: 1px solid rgba(0, 0, 0, .08);
+      border-radius: 16px;
+      padding: 18px;
+      background: #fbfdff;
+    }
+
+    .code-box {
+      background: #0b1220;
+      color: #e6edf3;
+      border-radius: 14px;
+      padding: 14px;
+      overflow: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-size: .92rem;
+      white-space: pre;
+      margin: 0;
+    }
+
+    .hint {
+      font-size: .95rem;
+      color: #556;
+    }
+
+    .python-notice {
+      background: linear-gradient(135deg, #3776ab 0%, #ffd43b 100%);
+      border-radius: 16px;
+      padding: 24px;
+      color: white;
+      margin-top: 20px;
+    }
+
+    .python-notice h5 {
+      color: white;
+      font-weight: 700;
+    }
+
+    .python-notice code {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: white;
+    }
+  </style>
+  <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+
+  <!-- Navbar Moderno -->
+  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="../index.html">
+        <i class="bi bi-braces me-2"></i>Python Academy
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-2">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="../index.html">
+              <i class="bi bi-house me-1"></i> Inicio
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-book me-1"></i> Teoría
+            </a>
+<<<<<<< HEAD
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i class="bi bi-boxes me-2 text-info"></i>Ecosistema</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/mercado.html"><i class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+=======
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i
+                    class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i
+                    class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_htmlpyhon.html"><i
+                    class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_sintaxisComentarios.html"><i
+                    class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_variablesConstantes.html"><i
+                    class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_tiposDatos.html"><i
+                    class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver
+                  todo el temario</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-code-square me-1"></i> Ejercicios
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio1.html"><i
+                    class="bi bi-1-circle me-2 text-success"></i>Formulario POST</a></li>
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio3.html"><i
+                    class="bi bi-calculator me-2 text-success"></i>Factorial</a></li>
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio5.html"><i
+                    class="bi bi-hash me-2 text-success"></i>Números Primos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver
+                  todos los ejercicios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-database me-1"></i> Explicación CRUD
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte I.html"><i
+                    class="bi bi-car-front me-2 text-danger"></i>Vehículo - Parte I</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte II.html"><i
+                    class="bi bi-car-front-fill me-2 text-danger"></i>Vehículo - Parte II</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte III.html"><i
+                    class="bi bi-gear-wide-connected me-2 text-danger"></i>Vehículo - Parte III</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Session y login.html"><i
+                    class="bi bi-lock me-2 text-danger"></i>Session y Login</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../explicacion_crud.html"><i
+                    class="bi bi-grid me-2"></i>Ver Resumen</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../PythonvsPHP.html"><i
+                    class="bi bi-lightning me-2 text-warning"></i>Comparativa Técnica</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonvsPHP.html#tabla"><i
+                    class="bi bi-table me-2 text-warning"></i>Tabla de Datos</a></li>
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <!-- HERO -->
+    <section class="hero-ej">
+      <div class="container text-center">
+
+        <div class="hero-top-actions">
+          <a href="../ejercicios.html" class="btn btn-outline-secondary btn-pill-sm">
+            <i class="bi bi-arrow-left me-1"></i> Volver al menú
+          </a>
+        </div>
+
+        <span class="badge bg-primary mb-3">Arreglos</span>
+        <h1 class="display-5 mb-2">Tablas dinámicas</h1>
+        <p class="lead text-muted">Implementación de tablas dinámicas.</p>
+      </div>
+    </section>
+    <!-- HERO -->
+
+
+    <section class="ej-wrap">
+      <div class="container">
+        <div class="ej-panel">
+          <!-- DEFINICIñ“N -->
+          <div class="explain-card mb-4">
+            <h4 class="fw-bold mb-2">¿Qué son las tablas dinámicas?</h4>
+
+            <p>
+              Una <strong>tabla dinámica</strong> es una tabla que no se construye
+              de forma fija, sino que se genera automáticamente a partir de los
+              datos contenidos en arreglos o matrices.
+            </p>
+
+            <p>
+              El número de filas, columnas y celdas depende directamente de la
+              información almacenada en las estructuras de datos.
+            </p>
+
+            <pre class="code-box">
+tabla[filas][columnas] generadas dinámicamente
+</pre>
+          </div>
+
+          <!-- ENUNCIADO -->
+          <div class="explain-card mb-4">
+            <h4 class="fw-bold mb-2">Enunciado</h4>
+
+            <p>
+              Desarrollar un programa que represente países, provincias y ciudades
+              mediante arreglos multidimensionales y genere dinámicamente tablas
+              HTML que muestren esta información organizada por país.
+            </p>
+
+            <p class="hint mb-0">
+              Objetivo: Comprender cómo los arreglos permiten construir tablas
+              dinámicas sin definir previamente el número de filas y columnas.
+            </p>
+          </div>
+
+          <!-- JUSTIFICACIñ“N -->
+          <div class="explain-card mb-4">
+            <h4 class="fw-bold mb-2">
+              ¿Por qué este ejercicio es de tablas dinámicas?
+            </h4>
+
+            <ul>
+              <li>
+                Las provincias determinan automáticamente el número de columnas
+              </li>
+              <li>Las ciudades determinan automáticamente el número de filas</li>
+              <li>La tabla se adapta a cualquier cantidad de datos</li>
+            </ul>
+
+            <pre class="code-box">
+Columnas = número de provincias
+Filas    = máximo de ciudades
+</pre>
+          </div>
+
+          <!-- RECORRIDO -->
+          <div class="explain-card mb-4">
+            <h4 class="fw-bold mb-2">Recorrido de los datos</h4>
+
+            <p>Para construir la tabla se utilizan recorridos anidados:</p>
+
+            <pre class="code-box">
+for pais:
+    for provincia:
+        for ciudad:
+            generar celda
+</pre>
+
+            <p class="hint">
+              Este tipo de recorrido permite construir tablas completamente
+              adaptables a la informaciñ³n disponible.
+            </p>
+          </div>
+
+          <div class="explain-card mb-4">
+            <h4 class="fw-bold mb-3">Explicación detallada del código (párrafo en párrafo)</h4>
+
+            <!-- 1 -->
+            <h5 class="fw-bold">1) Importación de utilidades Flask</h5>
+            <p>
+              <code>from flask import request, render_template_string</code> importa dos piezas clave para que el
+              ejercicio funcione
+              dentro de tu plataforma. <strong>request</strong> te permite saber si el usuario solo está viendo la
+              página (GET) o si
+              presionó el botón Ejecutar ejercicio (POST). <strong>render_template_string</strong> sirve para devolver
+              HTML
+              construido desde un string en Python, sin necesidad de crear un archivo HTML extra para el resultado.
+            </p>
+            <pre class="code-box">from flask import request, render_template_string</pre>
+
+            <!-- 2 -->
+            <h5 class="fw-bold mt-4">2) Encabezado del ejercicio</h5>
+            <p>
+              Este bloque sirve para identificar el ejercicio, su temática y que fue convertido desde PHP a Python. No
+              cambia la ejecución,
+              pero ayuda a mantener organizado el proyecto y entender rápidamente el objetivo del archivo.
+            </p>
+            <pre class="code-box"># =====================================================
+# EJERCICIO: TABLAS DINÁMICAS - PROVINCIAS
+# CONVERSIÓN 1:1 DESDE PHP A PYTHON
+# =====================================================</pre>
+
+            <!-- 3 -->
+            <h5 class="fw-bold mt-4">3) Plantilla HTML base (variable <code>HTML</code>)</h5>
+            <p>
+              <code>HTML</code> guarda una plantilla en texto que luego Flask renderiza. Allí incluyes estilos y
+              contenido inicial.
+              En GET, se muestra el mensaje para ejecutar. En POST, se muestran las tablas generadas (cuando la
+              plantilla estñ© preparada
+              para recibir <code>tablas</code> y mostrarlas).
+            </p>
+            <pre class="code-box">HTML = """ ... """</pre>
+
+            <!-- 4 -->
+            <h5 class="fw-bold mt-4">4) CSS para tablas y celdas</h5>
+            <p>
+              Se aplican estilos para que las tablas queden centradas, con fondo blanco, bordes limpios y texto
+              alineado.
+              Como las tablas se generan por código, este CSS asegura que todas se vean iguales sin importar cuántas
+              columnas o filas existan.
+            </p>
+            <pre class="code-box">table{
+  margin:auto;
+  background:white;
+  border-collapse: collapse;
+}
+td, th{
+  padding:6px 10px;
+  border:1px solid #333;
+  text-align:center;
+}</pre>
+
+            <!-- 5 -->
+            <h5 class="fw-bold mt-4">5) Capital resaltada con parpadeo (blink)</h5>
+            <p>
+              En cada provincia, la primera ciudad (posición 0) se considera la capital. Para resaltarla se aplica la
+              clase
+              <code>blink</code> que usa una animación CSS. Así el texto alterna visibilidad y llama la atención, igual
+              que en tu PHP original.
+            </p>
+            <pre class="code-box">.blink{
+  animation: blink 1s linear infinite;
+  font-weight:bold;
+  color:black;
+}
+@keyframes blink {
+  50% { opacity:0; }
+}</pre>
+
+            <!-- 6 -->
+            <h5 class="fw-bold mt-4">6) Evitar desbordes (scroll horizontal)</h5>
+            <p>
+              Como el ejercicio puede tener muchas provincias (muchas columnas), en pantallas pequeñ±as la tabla podría
+              salirse del contenedor.
+              Con <code>overflow-x:auto</code> se habilita un scroll horizontal para mantener el diseñ±o estable.
+            </p>
+            <pre class="code-box">.table-wrap{
+  width:100%;
+  overflow-x:auto;
+}</pre>
+
+            <!-- 7 -->
+            <h5 class="fw-bold mt-4">7) Control GET vs POST dentro de <code>ejecutar()</code></h5>
+            <p>
+              La funciñ³n <code>ejecutar()</code> es llamada por tu <code>app.py</code>. Primero se valida el mñ©todo
+              HTTP:
+              si es GET, no se genera nada y solo se muestra el mensaje inicial. Si es POST, se construyen tablas y se
+              retorna el resultado.
+            </p>
+            <pre class="code-box">def ejecutar():
+
+    if request.method == "GET":
+        return render_template_string(HTML, mostrar=False)</pre>
+
+            <!-- 8 -->
+            <h5 class="fw-bold mt-4">8) Estructura principal <code>paises</code></h5>
+            <p>
+              <code>paises</code> es un diccionario anidado (3 niveles): país â†’ provincia â†’ lista de ciudades.
+              Esta estructura permite construir tablas dinámicas porque el nñºmero de provincias define las columnas
+              y el máximo nñºmero de ciudades define las filas.
+            </p>
+            <pre class="code-box">paises = {
+  "ECUADOR": {
+    "Pichincha": ["QUITO", "..."],
+    "Guayas": ["GUAYAQUIL", "..."]
+  }
+}</pre>
+
+            <!-- 9 -->
+            <h5 class="fw-bold mt-4">9) Generación dinámica de tablas</h5>
+            <p>
+              Se recorre cada país y se genera una tabla HTML. Primero se calcula <code>maxFilas</code> con el máximo
+              tamañ±o de listas
+              (para que todas las columnas tengan la misma cantidad de filas). Luego se construye el encabezado con
+              provincias y el cuerpo
+              recorriendo fila por fila.
+            </p>
+            <pre class="code-box">tablas = []
+
+for pais, infoPais in paises.items():
+
+    maxFilas = max(len(c) for c in infoPais.values())
+
+    html = f"&lt;br&gt;&lt;strong&gt;PAIS: {pais}&lt;/strong&gt;&lt;br&gt;"
+    html += "&lt;table&gt;"
+    html += f"&lt;tr&gt;&lt;th colspan='{len(infoPais)}' bgcolor='#EC7063'&gt;{pais}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;"
+
+    for prov in infoPais:
+        html += f"&lt;th&gt;{prov}&lt;/th&gt;"
+    html += "&lt;/tr&gt;"</pre>
+
+            <!-- 10 -->
+            <h5 class="fw-bold mt-4">10) Cuerpo de la tabla (capital + celdas vacías)</h5>
+            <p>
+              En la fila 0 se imprime la capital con <code>blink</code>. En las demás filas se imprime la ciudad si
+              existe.
+              Si no existe (provincia con menos ciudades), se agrega una celda vacía para mantener alineadas las
+              columnas.
+            </p>
+            <pre class="code-box">for i in range(maxFilas):
+    html += "&lt;tr&gt;"
+    for cantones in infoPais.values():
+        if i == 0:
+            html += f"&lt;td class='blink' bgcolor='#D6FAF2'&gt;{cantones[0]}&lt;/td&gt;"
+        else:
+            html += (
+                f"&lt;td bgcolor='#D6FAF2'&gt;{cantones[i]}&lt;/td&gt;"
+                if i &lt; len(cantones)
+                else "&lt;td bgcolor='#D6DEFA'&gt; &lt;/td&gt;"
+            )
+    html += "&lt;/tr&gt;"</pre>
+
+            <!-- 11 -->
+            <h5 class="fw-bold mt-4">11) Render final (enviar tablas a la vista)</h5>
+            <p>
+              Se devuelve la plantilla renderizada y se envían las variables que la vista necesita:
+              <code>mostrar</code> para controlar la presentación y <code>tablas</code> para imprimir los HTML
+              generados.
+              Para que se vean como HTML real, en la plantilla debes imprimirlas usando <code>|safe</code>.
+            </p>
+            <pre class="code-box">return render_template_string(
+    HTML,
+    mostrar=True,
+    paises=paises,
+    tablas=tablas
+)</pre>
+
+          </div>
+
+
+
+          <!-- CÓDIGO COMPLETO -->
+          <div class="explain-card mb-4">
+            <h4 class="fw-bold">Código completo del ejercicio (Python)</h4>
+            <p class="hint">
+              Este es el código completo del ejercicio convertido desde PHP a
+              Python, manteniendo la misma estructura de datos, recorridos y
+              comportamiento visual. Analice el código antes de ejecutarlo.
+            </p>
+
+            <pre class="code-box">
+from flask import Flask, request, render_template_string
+
+app = Flask(__name__)
+
+# =====================================================
+# MATRIZ PRINCIPAL
+# PAÍS → PROVINCIA → CANTONES / CIUDADES
+# =====================================================
+PAISES = {
+    "ECUADOR": {
+        "Pichincha": ["Quito", "Cayambe", "Rumiñahui", "Mejía"],
+        "Guayas": ["Guayaquil", "Durán", "Milagro", "Daule"],
+        "Azuay": ["Cuenca", "Gualaceo", "Paute"]
+    },
+    "COLOMBIA": {
+        "Cundinamarca": ["Bogotá", "Soacha", "Zipaquirá"],
+        "Antioquia": ["Medellín", "Envigado", "Itagüí"],
+        "Valle del Cauca": ["Cali", "Palmira", "Yumbo"]
+    },
+    "USA": {
+        "California": ["Los Angeles", "San Diego", "San Francisco"],
+        "Texas": ["Houston", "Dallas", "Austin"],
+        "Florida": ["Miami", "Orlando", "Tampa", "Jacksonville"]
+    }
+}
+
+# =====================================================
+# TEMPLATE HTML (INLINE PARA FINES ACADÉMICOS)
+# =====================================================
+HTML = """
+&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;Tablas Dinámicas - Flask&lt;/title&gt;
+&lt;style&gt;
+body{
+  font-family: Arial, sans-serif;
+  background:#f4f6f7;
+}
+table{
+  margin:auto;
+  border-collapse:collapse;
+  background:white;
+}
+th, td{
+  border:1px solid #333;
+  padding:8px 12px;
+  text-align:center;
+}
+th{
+  background:#2e86c1;
+  color:white;
+}
+.blink{
+  animation: blink 1s linear infinite;
+  font-weight:bold;
+}
+@keyframes blink{
+  50%{opacity:0;}
+}
+.container{
+  width:90%;
+  margin:auto;
+  text-align:center;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;div class="container"&gt;
+
+&lt;h2&gt;TABLAS DINÁMICAS - PROVINCIAS&lt;/h2&gt;
+
+&lt;form method="POST"&gt;
+  &lt;label&gt;&lt;strong&gt;Seleccione un país:&lt;/strong&gt;&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+  &lt;select name="pais" required&gt;
+    &lt;option value=""&gt;-- Seleccione --&lt;/option&gt;
+    {% for p in paises %}
+      &lt;option value="{{p}}" {% if p == pais_seleccionado %}selected{% endif %}&gt;
+        {{p}}
+      &lt;/option&gt;
+    {% endfor %}
+  &lt;/select&gt;
+  &lt;br&gt;&lt;br&gt;
+  &lt;button type="submit"&gt;Mostrar Tabla&lt;/button&gt;
+&lt;/form&gt;
+
+{% if tabla %}
+  &lt;hr&gt;
+  {{ tabla|safe }}
+{% endif %}
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"""
+
+# =====================================================
+# RUTA PRINCIPAL
+# =====================================================
+@app.route("/", methods=["GET", "POST"])
+def ejecutar():
+
+    tabla_html = None
+    pais_seleccionado = None
+
+    # -----------------------------
+    # POST → EJECUCIÓN DINÁMICA
+    # -----------------------------
+    if request.method == "POST":
+
+        pais_seleccionado = request.form.get("pais")
+        provincias = PAISES[pais_seleccionado]
+
+        max_filas = max(len(cantones) for cantones in provincias.values())
+
+        tabla = f"&lt;h3&gt;País: {pais_seleccionado}&lt;/h3&gt;"
+        tabla += "&lt;table&gt;"
+        tabla += "&lt;tr&gt;"
+
+        for provincia in provincias:
+            tabla += f"&lt;th&gt;{provincia}&lt;/th&gt;"
+        tabla += "&lt;/tr&gt;"
+
+        for i in range(max_filas):
+            tabla += "&lt;tr&gt;"
+            for cantones in provincias.values():
+                if i &lt; len(cantones):
+                    clase = "blink" if i == 0 else ""
+                    tabla += f"&lt;td class='{clase}'&gt;{cantones[i]}&lt;/td&gt;"
+                else:
+                    tabla += "&lt;td&gt; &lt;/td&gt;"
+            tabla += "&lt;/tr&gt;"
+
+        tabla += "&lt;/table&gt;"
+
+        tabla_html = tabla
+
+    return render_template_string(
+        HTML,
+        paises=PAISES.keys(),
+        tabla=tabla_html,
+        pais_seleccionado=pais_seleccionado
+    )
+
+# =====================================================
+# EJECUCIÓN
+# =====================================================
+if __name__ == "__main__":
+    app.run(debug=True)
+</pre>
+          </div>
+
+
+
+          <!-- ✅ FORMULARIO / SALIDA -->
+          <div id="formulario" class="mt-5 animate-in fade-in">
+            <style>
+              .tabla-dinamica {
+                border-collapse: collapse;
+                margin: auto;
+                background: white;
+                width: 100%;
+                max-width: 900px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+              }
+
+              .tabla-dinamica th,
+              .tabla-dinamica td {
+                border: 1px solid #333;
+                padding: 12px;
+                text-align: center;
+              }
+
+              .tabla-dinamica th {
+                background-color: #2e86c1;
+                color: white;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+              }
+
+              .blink-text {
+                animation: blinker 1s linear infinite;
+                font-weight: bold;
+              }
+
+              @keyframes blinker {
+                50% {
+                  opacity: 0;
+                }
+              }
+
+              .bg-city {
+                background-color: #ffffff;
+              }
+            </style>
+
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+              <div class="card-header bg-primary text-white p-3">
+                <h5 class="mb-0"><i class="bi bi-table me-2"></i>Tablas Dinámicas - Simulador Flask</h5>
+              </div>
+              <div class="card-body p-4 bg-light text-center">
+                <div class="mb-4">
+                  <label class="form-label fw-bold">Seleccione un país:</label>
+                  <select id="pais-selector" class="form-select w-50 mx-auto rounded-pill border-primary shadow-sm">
+                    <option value="">-- Seleccione --</option>
+                    <option value="ECUADOR">ECUADOR</option>
+                    <option value="COLOMBIA">COLOMBIA</option>
+                    <option value="USA">USA</option>
+                  </select>
+                </div>
+
+                <button onclick="generarTablasDinamicas()" class="btn btn-primary btn-pill btn-lg px-5 shadow">
+                  <i class="bi bi-play-fill me-1"></i> Mostrar Tabla
+                </button>
+
+                <hr class="my-4">
+
+                <div id="resultado-tablas" class="animate-in slide-in-top d-none">
+                  <!-- La tabla se renderiza aquí -->
+                </div>
+
+                <div id="placeholder-msg" class="py-5 text-muted">
+                  <i class="bi bi-info-circle fs-1 mb-3 d-block"></i>
+                  Selecciona un país y presiona el botón para visualizar la tabla dinámica.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function generarTablasDinamicas() {
+              const PAISES = {
+                "ECUADOR": {
+                  "Pichincha": ["Quito", "Cayambe", "Rumiñahui", "Mejía"],
+                  "Guayas": ["Guayaquil", "Durán", "Milagro", "Daule"],
+                  "Azuay": ["Cuenca", "Gualaceo", "Paute"]
+                },
+                "COLOMBIA": {
+                  "Cundinamarca": ["Bogotá", "Soacha", "Zipaquirá"],
+                  "Antioquia": ["Medellín", "Envigado", "Itagüí"],
+                  "Valle del Cauca": ["Cali", "Palmira", "Yumbo"]
+                },
+                "USA": {
+                  "California": ["Los Angeles", "San Diego", "San Francisco"],
+                  "Texas": ["Houston", "Dallas", "Austin"],
+                  "Florida": ["Miami", "Orlando", "Tampa", "Jacksonville"]
+                }
+              };
+
+              const paisSeleccionado = document.getElementById('pais-selector').value;
+              const container = document.getElementById('resultado-tablas');
+              const placeholder = document.getElementById('placeholder-msg');
+
+              if (!paisSeleccionado) {
+                alert("Por favor, selecciona un país.");
+                return;
+              }
+
+              const provincias = PAISES[paisSeleccionado];
+              const nombresProvs = Object.keys(provincias);
+              let maxFilas = 0;
+              for (const p in provincias) {
+                if (provincias[p].length > maxFilas) maxFilas = provincias[p].length;
+              }
+
+              let html = `
+                <div class="mb-4 text-start">
+                  <h3 class="fw-bold text-primary mb-3">País: ${paisSeleccionado}</h3>
+                  <div class="table-responsive rounded-3 overflow-hidden shadow-sm">
+                    <table class="tabla-dinamica">
+                      <thead>
+                        <tr>
+                          ${nombresProvs.map(p => `<th>${p}</th>`).join('')}
+                        </tr>
+                      </thead>
+                      <tbody>
+              `;
+
+              for (let i = 0; i < maxFilas; i++) {
+                html += '<tr>';
+                for (const p of nombresProvs) {
+                  const ciudad = provincias[p][i];
+                  if (ciudad) {
+                    const clase = i === 0 ? 'blink-text' : '';
+                    html += `<td class="bg-city ${clase}">${ciudad}</td>`;
+                  } else {
+                    html += `<td class="bg-light text-muted"> </td>`;
+                  }
+                }
+                html += '</tr>';
+              }
+
+              html += `
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              `;
+
+              container.innerHTML = html;
+              placeholder.classList.add('d-none');
+              container.classList.remove('d-none');
+              container.scrollIntoView({ behavior: 'smooth' });
+            }
+          </script>
+
+
+          <!-- âœ… ANTERIOR / SIGUIENTE -->
+        </div>
+      </div>
+    </section>
+    <!-- ANTERIOR / SIGUIENTE -->
+    <div class="ej-nav-bottom">
+      <a href="ejercicio11.html" class="btn btn-outline-primary btn-pill"><i class="bi bi-arrow-left me-1"></i>
+        Anterior</a>
+      <a href="ejercicio13.html" class="btn btn-primary btn-pill">Siguiente <i class="bi bi-arrow-right ms-1"></i></a>
+    </div>
+
+    </div>
+    </div>
+    </section>
+  </main>
+
+  <!-- Footer Moderno -->
+  <footer class="footer-modern">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h4 class="footer-brand">
+            <i class="bi bi-braces me-2"></i>Python Academy
+          </h4>
+          <p class="footer-text">
+            Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
+            apasionados por la programación.
+          </p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Navegación</h5>
+          <ul class="footer-links">
+            <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
+            <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
+            <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Temas Populares</h5>
+          <ul class="footer-links">
+            <li><a href="../teoria/teoria_infraestructura.html"><i class="bi bi-chevron-right"></i> Backend</a></li>
+            <li><a href="../teoria/teoria_tiposDatos.html"><i class="bi bi-chevron-right"></i> Tipos de Datos</a></li>
+            <li><a href="../teoria/teoria_poo.html"><i class="bi bi-chevron-right"></i> POO</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Tecnologías</h5>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
+            <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
+            <span class="badge bg-warning bg-opacity-25 text-white px-3 py-2">MySQL</span>
+            <span class="badge bg-info bg-opacity-25 text-white px-3 py-2">HTML5</span>
+            <span class="badge bg-danger bg-opacity-25 text-white px-3 py-2">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="mb-0">
+          © 2026 <strong>Python Academy</strong>. Proyecto académico • Flask & Python
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/assets/vendor/aos/aos.js"></script>
+  <script src="../static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../static/assets/js/main.js"></script>
+  <script src="../static/assets/js/sidebar.js"></script>
+
+  <script src="../static/assets/js/effects.js"></script>
+<<<<<<< HEAD
+  <script src="../static/assets/js/navbar-nested.js"></script>
+=======
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 50
+    });
+  </script>
+</body>
+
+</html>

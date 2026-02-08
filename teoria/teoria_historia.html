@@ -1,0 +1,2063 @@
+<<<<<<< HEAD
+﻿<!DOCTYPE html>
+=======
+<!DOCTYPE html>
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Historia de Python · Python Academy</title>
+  <meta name="description" content="Historia de Python - Curso de Python Academy">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="../static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="../static/assets/css/main.css" rel="stylesheet">
+  <link href="../static/assets/css/custom.css" rel="stylesheet">
+
+  <style>
+    /* Sidebar Sticky Mejorado */
+    .sidebar-nav {
+      position: sticky;
+      top: 100px;
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .sidebar-nav h5 {
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #667eea;
+    }
+
+    .sidebar-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar-nav li {
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 0.6rem 1rem;
+      color: #64748b;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-nav a:hover {
+      background: rgba(102, 126, 234, 0.1);
+      color: #667eea;
+      border-left-color: #667eea;
+      padding-left: 1.2rem;
+    }
+
+    .sidebar-nav a.active {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+      color: #667eea;
+      font-weight: 600;
+      border-left-color: #667eea;
+    }
+
+    /* Scrollbar personalizada */
+    .sidebar-nav::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 4px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb {
+      background: #667eea;
+      border-radius: 4px;
+    }
+
+    /* Indicador de progreso */
+    .sidebar-progress {
+      height: 4px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .sidebar-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+  </style>
+
+  <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+<<<<<<< HEAD
+  <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
+=======
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+</head>
+
+<body>
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+
+  <!-- Navbar Moderno -->
+  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="../index.html">
+        <i class="bi bi-braces me-2"></i>Python Academy
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-2">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="../index.html">
+              <i class="bi bi-house me-1"></i> Inicio
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-book me-1"></i> Teoría
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i
+                    class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i
+                    class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_htmlpyhon.html"><i
+                    class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_sintaxisComentarios.html"><i
+                    class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_variablesConstantes.html"><i
+                    class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_tiposDatos.html"><i
+                    class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver
+                  todo el temario</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-code-square me-1"></i> Ejercicios
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+<<<<<<< HEAD
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
+                    class="bi bi-input-cursor-text me-2 text-success"></i>Procesamiento de formularios</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio1.html">Formulario request.form</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio2.html">Formulario request.files</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
+                    class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio3.html">Factorial</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio4.html">Triángulo de Pascal</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio5.html">Es Primo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio6.html">Validar Cédula</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
+                    class="bi bi-list-ul me-2 text-success"></i>Arreglos</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio7.html">Ejemplo 01</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio8.html">Ejemplo 02</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio9.html">Arreglo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio10.html">Matriz</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio11.html">Cubo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio12.html">Tablas Dinámicas</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
+                    class="bi bi-diagram-2 me-2 text-success"></i>POO</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio13.html">Clases</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio14.html">Herencia</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio15.html">Abstracta</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio16.html">Interfaces</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio17.html">Polimorfismo</a></li>
+                </ul>
+              </li>
+=======
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio1.html"><i
+                    class="bi bi-1-circle me-2 text-success"></i>Formulario POST</a></li>
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio3.html"><i
+                    class="bi bi-calculator me-2 text-success"></i>Factorial</a></li>
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio5.html"><i
+                    class="bi bi-hash me-2 text-success"></i>Números Primos</a></li>
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver
+                  todos los ejercicios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+<<<<<<< HEAD
+              <i class="bi bi-database me-1"></i> Temas Avanzados
+=======
+              <i class="bi bi-database me-1"></i> Explicación CRUD
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte I.html"><i
+                    class="bi bi-car-front me-2 text-danger"></i>Vehículo - Parte I</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte II.html"><i
+                    class="bi bi-car-front-fill me-2 text-danger"></i>Vehículo - Parte II</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte III.html"><i
+                    class="bi bi-gear-wide-connected me-2 text-danger"></i>Vehículo - Parte III</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Session y login.html"><i
+                    class="bi bi-lock me-2 text-danger"></i>Session y Login</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../explicacion_crud.html"><i
+                    class="bi bi-grid me-2"></i>Ver Resumen</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+<<<<<<< HEAD
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i
+                    class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i
+                    class="bi bi-boxes me-2 text-info"></i>Ecosistema</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i
+                    class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i
+                    class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/mercado.html"><i
+                    class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i
+                    class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+=======
+              <li><a class="dropdown-item py-2" href="../PythonvsPHP.html"><i
+                    class="bi bi-lightning me-2 text-warning"></i>Comparativa Técnica</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonvsPHP.html#tabla"><i
+                    class="bi bi-table me-2 text-warning"></i>Tabla de Datos</a></li>
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    Historia de Python - Python
+    Academy
+    <!-- Hero Interno -->
+    <section class="hero-internal">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="container relative">
+        <span class="badge-custom animate-on-scroll">TEMA 2</span>
+        <h1 class="animate-on-scroll delay-1">Historia de Python</h1>
+        <p class="animate-on-scroll delay-2">
+          Desde un proyecto de vacaciones hasta convertirse en el lenguaje más
+          popular del mundo.
+        </p>
+      </div>
+    </section>
+
+    <section class="section py-5">
+      <div class="container">
+        <div class="row justify-content-start">
+          <!-- Sidebar Navigation -->
+          <div class="col-lg-3 d-none d-lg-block">
+            <nav class="sidebar-nav">
+              <div class="sidebar-progress">
+                <div class="sidebar-progress-bar"></div>
+              </div>
+              <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
+              <ul>
+                <li><a href="#que-es-python" class="active">¿Qué es Python?</a></li>
+                <li><a href="#HistoriaPython">Historia de Python</a></li>
+                <li><a href="#arquitectura-web-python">Arquitectura Web de Python</a></li>
+                <li><a href="#html-motores-plantillas">HTML y Motores de Plantillas</a></li>
+                <li><a href="#gigantes-python">Gigantes construidos con Python</a></li>
+                <li><a href="#ecosistema-frameworks">Ecosistema de Frameworks en Python</a></li>
+                <li><a href="#ventajas-desventajas-python">Ventajas y Desventajas de Python</a></li>
+                <li><a href="#cuestionario-historia-python">Cuestionario de Aprendizaje - Historia de Python</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Main Content -->
+          <div class="col-lg-8">
+            <div class="text-center mb-4"></div>
+
+            <h3 class="fw-bold mb-3" id="que-es-python">¿Qué es Python?</h3>
+
+            <p>
+              <strong>Python</strong> es un lenguaje de programación de alto nivel,
+              interpretado y de propósito general, diseñado con un enfoque claro en
+              la <strong>legibilidad</strong> y la <strong>simplicidad</strong>. Su
+              sintaxis cercana al lenguaje humano permite escribir programas claros,
+              ordenados y fáciles de mantener.
+            </p>
+
+            <p>
+              A diferencia de otros lenguajes más complejos, Python prioriza que el
+              desarrollador se concentre en <em>resolver problemas</em> y no en la
+              sintaxis. Esta filosofía lo ha convertido en uno de los lenguajes más
+              utilizados tanto en la academia como en la industria.
+            </p>
+
+            <!-- ================= CARACTERÍSTICAS PRINCIPALES ================= -->
+            <div class="my-5">
+              <h5 class="fw-bold mb-4">Características principales de Python</h5>
+
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                      <div class="fs-3 mb-2"><i class="bi bi-code-slash text-primary"></i></div>
+                      <h6 class="fw-bold">Sintaxis clara y legible</h6>
+                      <p class="text-muted mb-0">
+                        Python utiliza una sintaxis sencilla y cercana al lenguaje
+                        humano, lo que facilita la lectura del código y reduce
+                        errores, especialmente en proyectos grandes.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                      <div class="fs-3 mb-2"><i class="bi bi-lightning-fill text-warning"></i></div>
+                      <h6 class="fw-bold">Lenguaje interpretado</h6>
+                      <p class="text-muted mb-0">
+                        El código se ejecuta directamente sin necesidad de
+                        compilación, lo que permite desarrollar, probar y depurar
+                        aplicaciones de forma más rápida.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                      <div class="fs-3 mb-2"><i class="bi bi-patch-question"></i></div>
+                      <h6 class="fw-bold">Multiparadigma</h6>
+                      <p class="text-muted mb-0">
+                        Python soporta programación procedural, orientada a objetos
+                        y funcional, adaptándose a diferentes estilos y necesidades.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                      <div class="fs-3 mb-2"><i class="bi bi-puzzle text-info"></i></div>
+                      <h6 class="fw-bold">Amplio ecosistema</h6>
+                      <p class="text-muted mb-0">
+                        Cuenta con miles de librerías y frameworks que permiten
+                        desarrollar aplicaciones web, sistemas de datos,
+                        inteligencia artificial y automatización.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                      <div class="fs-3 mb-2"><i class="bi bi-globe text-success"></i></div>
+                      <h6 class="fw-bold">Uso académico y profesional</h6>
+                      <p class="text-muted mb-0">
+                        Python es ampliamente utilizado en universidades y empresas
+                        tecnológicas, lo que garantiza una gran comunidad y
+                        abundantes recursos de aprendizaje.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                      <div class="fs-3 mb-2"><i class="bi bi-rocket-takeoff text-danger"></i></div>
+                      <h6 class="fw-bold">Alta productividad</h6>
+                      <p class="text-muted mb-0">
+                        Permite desarrollar soluciones completas con menos líneas de
+                        código, acelerando el tiempo de desarrollo sin sacrificar
+                        calidad.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- VIDEO CENTRADO Y ELEGANTE -->
+            <div class="my-5">
+              <div class="card shadow-sm border-0 mx-auto" style="max-width: 720px">
+                <div class="card-body p-2">
+                  <div class="ratio ratio-16x9 rounded overflow-hidden">
+                    <iframe src="https://www.youtube.com/embed/x7X9w_GIm1s" title="¿Qué es Python?" allowfullscreen>
+                    </iframe>
+                  </div>
+
+                  <div class="text-center mt-3">
+                    <span class="badge bg-primary mb-2">Video explicativo</span>
+                    <p class="text-muted small mb-0">
+                      Introducción clara y profesional al lenguaje Python
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-info my-4 d-flex align-items-center">
+              <i class="bi bi-info-circle-fill fs-4 me-3"></i>
+              <div>
+                <strong>Dato importante:</strong>
+                Python es uno de los lenguajes más enseñados en universidades debido
+                a su facilidad de aprendizaje y amplia proyección profesional.
+              </div>
+            </div>
+            <!-- ================= HISTORIA DE PYTHON ================= -->
+
+            <h3 class="fw-bold mb-5 text-center" id="HistoriaPython">
+              Historia de Python
+            </h3>
+
+            <style>
+              /* ===== CONTENEDOR GENERAL ===== */
+              .timeline {
+                position: relative;
+                max-width: 1000px;
+                margin: 3rem auto;
+              }
+
+              /* ===== LINEA CENTRAL ===== */
+              .timeline::after {
+                content: "";
+                position: absolute;
+                width: 5px;
+                background: #2563eb;
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                margin-left: -2.5px;
+              }
+
+              /* ===== ITEM ===== */
+              .timeline-item {
+                padding: 0.5rem 1.5rem;
+                position: relative;
+                width: 50%;
+              }
+
+              /* ===== PUNTO CENTRAL ===== */
+              .timeline-item::after {
+                content: "";
+                position: absolute;
+                width: 22px;
+                height: 22px;
+                background: #2563eb;
+                border: 5px solid #e0e7ff;
+                top: 32px;
+                border-radius: 50%;
+                z-index: 1;
+                transition: all 0.3s ease;
+              }
+
+              /* ===== IZQUIERDA ===== */
+              .timeline-left {
+                left: 0;
+                text-align: right;
+              }
+
+              .timeline-left::after {
+                right: -11px;
+              }
+
+              /* ===== DERECHA ===== */
+              .timeline-right {
+                left: 50%;
+                text-align: left;
+              }
+
+              .timeline-right::after {
+                left: -11px;
+              }
+
+              /* ===== CAJA ===== */
+              .timeline-content {
+                background: #f8fafc;
+                padding: 1.2rem;
+                border-radius: 1rem;
+                max-width: 420px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+              }
+
+              /* ===== IMAGEN ===== */
+              .timeline-content img {
+                width: 100%;
+                height: 150px;
+                object-fit: contain;
+                background: #ffffff;
+                border-radius: 0.6rem;
+                padding: 0.4rem;
+                margin-bottom: 0.8rem;
+              }
+
+              /* ===== TEXTO ===== */
+              .timeline-year {
+                font-size: 1.25rem;
+                font-weight: 800;
+                color: #2563eb;
+                margin-bottom: 0.4rem;
+              }
+
+              .timeline-content h6 {
+                font-size: 1rem;
+                font-weight: 700;
+                margin-bottom: 0.3rem;
+              }
+
+              /* ===== HOVER ===== */
+              .timeline-item:hover .timeline-content {
+                box-shadow: 0 14px 30px rgba(37, 99, 235, 0.22);
+                transform: translateY(-4px);
+                background: #ffffff;
+              }
+
+              .timeline-item:hover::after {
+                transform: scale(1.15);
+                background: #1d4ed8;
+              }
+
+              /* ===== ALINEACION ===== */
+              .timeline-left .timeline-content {
+                margin-left: auto;
+              }
+
+              .timeline-right .timeline-content {
+                margin-right: auto;
+              }
+
+              /* ===== RESPONSIVE ===== */
+              @media screen and (max-width: 768px) {
+                .timeline::after {
+                  left: 20px;
+                }
+
+                .timeline-item {
+                  width: 100%;
+                  padding-left: 60px;
+                  padding-right: 25px;
+                  text-align: left;
+                }
+
+                .timeline-left,
+                .timeline-right {
+                  left: 0;
+                }
+
+                .timeline-item::after {
+                  left: 8px;
+                }
+
+                .timeline-content {
+                  max-width: 100%;
+                }
+              }
+            </style>
+
+            <div class="timeline">
+              <!-- 1989 -->
+              <div class="timeline-item timeline-left">
+                <div class="timeline-content">
+                  <div class="timeline-year">1989</div>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Guido_van_Rossum_OSCON_2006.jpg"
+                    alt="Guido van Rossum" />
+                  <h6>El origen de Python</h6>
+                  <p class="text-muted mb-0">
+                    Guido van Rossum inicia el desarrollo de Python durante las
+                    vacaciones de Navidad en los Países Bajos, con el objetivo de
+                    crear un lenguaje simple y legible.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 1991 -->
+              <div class="timeline-item timeline-right">
+                <div class="timeline-content">
+                  <div class="timeline-year">1991</div>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+                    alt="Python logo" />
+                  <h6>Primera versión pública</h6>
+                  <p class="text-muted mb-0">
+                    Python se publica oficialmente, incorporando módulos, funciones
+                    y manejo de excepciones.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 2000 -->
+              <div class="timeline-item timeline-left">
+                <div class="timeline-content">
+                  <div class="timeline-year">2000</div>
+                  <img
+                    src="https://www.edivaldobrito.com.br/wp-content/uploads/2022/09/python-2-saiu-dos-repositorios-do-arch-linux.webp"
+                    alt="Python 2" />
+                  <h6>Python 2.0</h6>
+                  <p class="text-muted mb-0">
+                    Se introducen listas por comprensión, recolección de basura y
+                    mejoras significativas de rendimiento.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 2008 -->
+              <div class="timeline-item timeline-right">
+                <div class="timeline-content">
+                  <div class="timeline-year">2008</div>
+                  <img src="https://flyaps.com/blog/content/images/size/w750/2023/07/social.jpg" alt="Python 3" />
+                  <h6>Python 3.0</h6>
+                  <p class="text-muted mb-0">
+                    Rediseño profundo del lenguaje, priorizando Unicode y claridad
+                    sintáctica, aunque rompe compatibilidad con Python 2.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 2020 -->
+              <div class="timeline-item timeline-left">
+                <div class="timeline-content">
+                  <div class="timeline-year">2020</div>
+                  <img src="https://stackstorm.com/wp/wp-content/uploads/2020/11/Bye-bye-python-3.png"
+                    alt="Python Software Foundation" />
+                  <h6>Fin de Python 2</h6>
+                  <p class="text-muted mb-0">
+                    Python 2 deja de recibir soporte oficial, consolidando Python 3
+                    como estándar global.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Actualidad -->
+              <div class="timeline-item timeline-right">
+                <div class="timeline-content">
+                  <div class="timeline-year">Actualidad</div>
+                  <img
+                    src="https://dnmtechs.com/wp-content/uploads/2023/10/python_dnmtechs_feature_image_20022000080.jpg"
+                    alt="Python ecosystem" />
+                  <h6>Python en la actualidad</h6>
+                  <p class="text-muted mb-0">
+                    Python es uno de los lenguajes más utilizados del mundo,
+                    dominante en desarrollo web, ciencia de datos, inteligencia
+                    artificial y automatización.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-info d-flex align-items-center mt-5">
+              <i class="bi bi-lightbulb-fill fs-4 me-3"></i>
+              <div>
+                <strong>Idea clave:</strong>
+                La historia de Python demuestra que un lenguaje bien diseñado puede
+                evolucionar sin perder simplicidad.
+              </div>
+            </div>
+            <!-- ================= Arquitectura Web de Python ================= -->
+
+            <h3 class="fw-bold mb-3" id="arquitectura-web-python">
+              Arquitectura Web de Python
+            </h3>
+
+            <p>
+              La <strong>arquitectura web de Python</strong> define la forma en que
+              una aplicación escrita en Python recibe, procesa y responde a
+              solicitudes provenientes de un navegador web.
+            </p>
+
+            <p>
+              Esta arquitectura permite separar responsabilidades, mejorar el
+              rendimiento y facilitar el mantenimiento de aplicaciones web modernas.
+            </p>
+            <div class="row g-4 my-4">
+              <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold"><i class="bi bi-globe me-2"></i> Cliente</h6>
+                    <p class="text-muted mb-0">
+                      Navegador o aplicación que envía solicitudes HTTP al servidor
+                      web.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold"><i class="bi bi-display me-2"></i> Servidor</h6>
+                    <p class="text-muted mb-0">
+                      Recibe la solicitud y la envía a la aplicación Python mediante
+                      un estándar de comunicación.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold"><i class="bi bi-code-slash me-2"></i> Aplicación Python</h6>
+                    <p class="text-muted mb-0">
+                      Procesa la lógica del sistema y genera la respuesta para el
+                      cliente.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <h5 class="fw-bold mt-5">¿Qué es WSGI?</h5>
+
+              <p>
+                <strong>WSGI</strong> (Web Server Gateway Interface) es un estándar
+                que define cómo un servidor web se comunica con una aplicación
+                escrita en Python.
+              </p>
+
+              <p>
+                En lugar de que cada framework tenga su propia forma de comunicarse
+                con el servidor, WSGI establece una interfaz común y reutilizable.
+              </p>
+
+              <div class="alert alert-info d-flex align-items-center my-4">
+                <i class="bi bi-plug-fill fs-4 me-3"></i>
+                <div>
+                  <strong>Idea clave:</strong>
+                  WSGI actúa como un <em>puente</em> entre el servidor web (como
+                  Nginx o Apache) y la aplicación Python.
+                </div>
+              </div>
+
+              <h5 class="fw-bold mt-5">WSGI y Flask</h5>
+
+              <p>
+                Flask es un framework web que implementa el estándar WSGI. Esto
+                significa que Flask puede ejecutarse sobre distintos servidores web
+                sin modificar el código.
+              </p>
+
+              <div class="bg-dark text-white p-4 rounded-3 mb-4">
+                <pre class="mb-0"><code class="language-python">from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hola desde Flask"</code></pre>
+              </div>
+
+              <p>
+                En este ejemplo, Flask actúa como la aplicación WSGI que recibe la
+                solicitud del servidor y devuelve una respuesta.
+              </p>
+
+              <div class="row g-4 my-4">
+                <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                      <h6 class="fw-bold"><i class="bi bi-search"></i>’ Seguridad</h6>
+                      <p class="text-muted mb-0">
+                        Permite controlar accesos y aislar la lógica del sistema del
+                        cliente.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                      <h6 class="fw-bold"><i class="bi bi-folder-fill text-warning"></i>ˆ Escalabilidad</h6>
+                      <p class="text-muted mb-0">
+                        Facilita el uso de servidores robustos y balanceo de carga.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--==================HTML y Motores de Pantalla =================-->
+
+              <h3 class="fw-bold mb-3" id="html-motores-plantillas">
+                HTML y Motores de Plantillas
+              </h3>
+
+              <p>
+                <strong>HTML</strong> (HyperText Markup Language) es el lenguaje
+                encargado de definir la <strong>estructura visual</strong>
+                de una página web: textos, enlaces, formularios, tablas y otros
+                elementos que el usuario ve en el navegador.
+              </p>
+
+              <p>
+                En una aplicación web moderna, HTML no funciona de forma aislada. Se
+                combina con el backend para mostrar información dinámica,
+                personalizada y proveniente del servidor.
+              </p>
+              <div class="row g-4 my-4">
+                <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                      <h6 class="fw-bold"><i class="bi bi-file-earmark-code"></i> HTML Estático</h6>
+                      <p class="text-muted mb-0">
+                        El contenido es fijo y no cambia. Cada usuario ve
+                        exactamente la misma información, sin interacción con el
+                        backend.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                      <h6 class="fw-bold"><i class="bi bi-arrow-repeat me-2"></i> HTML Dinámico</h6>
+                      <p class="text-muted mb-0">
+                        El contenido se genera en el servidor. La información cambia
+                        según el usuario, los datos o la lógica del sistema.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h5 class="fw-bold mt-5">¿Qué es un motor de plantillas?</h5>
+
+              <p>
+                Un <strong>motor de plantillas</strong> es una herramienta que
+                permite combinar HTML con datos provenientes del backend, sin
+                mezclar directamente la lógica de programación con la vista.
+              </p>
+
+              <p>
+                Gracias a los motores de plantillas, el backend puede enviar
+                información a HTML y generar páginas dinámicas de forma ordenada.
+              </p>
+
+              <div class="alert alert-info d-flex align-items-center my-4">
+                <i class="bi bi-info-circle-fill fs-4 me-3"></i>
+                <div>
+                  <strong>Idea clave:</strong>
+                  El motor de plantillas actúa como un intermediario entre Python y
+                  HTML.
+                </div>
+              </div>
+              <h5 class="fw-bold mt-4">Jinja2 en Flask</h5>
+
+              <p>
+                <strong>Jinja2</strong> es el motor de plantillas utilizado por
+                Flask. Permite insertar variables, estructuras de control y
+                reutilizar componentes dentro de archivos HTML.
+              </p>
+              <div class="bg-dark text-white p-4 rounded-3 mb-4">
+                <pre class="mb-0"><code class="language-python">from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return render_template("home.html", nombre="Stalin")</code></pre>
+              </div>
+
+              <div class="row g-4 my-4">
+                <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                      <h6 class="fw-bold"><i class="bi bi-stars me-2"></i>Código limpio</h6>
+                      <p class="text-muted mb-0">
+                        Separación clara entre lógica backend y presentación visual.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                      <h6 class="fw-bold"><i class="bi bi-search"></i> Reutilización</h6>
+                      <p class="text-muted mb-0">
+                        Permite reutilizar estructuras como headers, navbars y
+                        footers.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--=======================Gigantes Construidos con python ==================-->
+
+              <h3 class="fw-bold mb-4 text-center" id="gigantes-python">
+                Gigantes construidos con Python
+              </h3>
+
+              <p class="text-muted text-center mb-5">
+                Python no es solo un lenguaje académico. Es una tecnología utilizada
+                por empresas líderes para construir sistemas reales, escalables y
+                utilizados por millones de personas en todo el mundo.
+              </p>
+              <style>
+                .giant-card {
+                  background: #ffffff;
+                  border-radius: 1.2rem;
+                  padding: 1.6rem 1.4rem;
+                  height: 100%;
+                  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+                  transition: all 0.35s ease;
+                  text-align: center;
+                  position: relative;
+                  overflow: hidden;
+                }
+
+                .giant-card::before {
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 5px;
+                }
+
+                .giant-card:hover {
+                  transform: translateY(-6px);
+                  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+                }
+
+                .giant-card img {
+                  height: 70px;
+                  object-fit: contain;
+                  margin-bottom: 1rem;
+                }
+
+                .giant-card h6 {
+                  font-weight: 800;
+                  margin-bottom: 0.4rem;
+                }
+
+                .giant-card p {
+                  font-size: 0.95rem;
+                  color: #555;
+                  margin-bottom: 0;
+                }
+
+                /* Colores por empresa */
+                .giant-google::before {
+                  background: #4285f4;
+                }
+
+                .giant-instagram::before {
+                  background: #e1306c;
+                }
+
+                .giant-netflix::before {
+                  background: #e50914;
+                }
+
+                .giant-spotify::before {
+                  background: #1db954;
+                }
+
+                .giant-dropbox::before {
+                  background: #0061ff;
+                }
+              </style>
+              <div class="row g-4 my-4">
+                <!-- Google -->
+                <div class="col-md-6">
+                  <div class="giant-card giant-google">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+                      alt="Google logo" />
+                    <h6>Google</h6>
+                    <p>
+                      Python es uno de los lenguajes oficiales de Google. Se utiliza
+                      en automatización, análisis de datos, servicios internos y
+                      herramientas de infraestructura.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Instagram -->
+                <div class="col-md-6">
+                  <div class="giant-card giant-instagram">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                      alt="Instagram logo" />
+                    <h6>Instagram</h6>
+                    <p>
+                      Instagram está construido sobre Django. Python permite
+                      gestionar millones de usuarios, feeds dinámicos y sistemas de
+                      mensajería en tiempo real.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Netflix -->
+                <div class="col-md-6">
+                  <div class="giant-card giant-netflix">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                      alt="Netflix logo" />
+                    <h6>Netflix</h6>
+                    <p>
+                      Python se utiliza en análisis de datos, sistemas de
+                      recomendación, automatización y monitoreo de servicios
+                      distribuidos.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Spotify -->
+                <div class="col-md-6">
+                  <div class="giant-card giant-spotify">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
+                      alt="Spotify logo" />
+                    <h6>Spotify</h6>
+                    <p>
+                      Spotify emplea Python en machine learning, procesamiento de
+                      datos y personalización de la experiencia musical del usuario.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Dropbox -->
+                <div class="col-md-6">
+                  <div class="giant-card giant-dropbox">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Dropbox_Icon.svg"
+                      alt="Dropbox logo" />
+                    <h6>Dropbox</h6>
+                    <p>
+                      Gran parte del backend de Dropbox está desarrollado en Python,
+                      destacando su uso en sistemas distribuidos y sincronización de
+                      archivos.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="alert alert-info d-flex align-items-center mt-5">
+                <i class="bi bi-lightbulb-fill fs-4 me-3"></i>
+                <div>
+                  <strong>Idea clave:</strong>
+                  Python permite desarrollar rápido, mantener código legible y
+                  escalar sistemas complejos sin sacrificar productividad.
+                </div>
+              </div>
+
+              <ul class="mt-3">
+                <li>Alta productividad para equipos grandes</li>
+                <li>Integración con inteligencia artificial y datos</li>
+                <li>Ecosistema maduro y probado</li>
+                <li>Facilidad de mantenimiento a largo plazo</li>
+              </ul>
+
+              <!--======================= Ecosistema de Frameworks ==================-->
+
+              <h3 class="fw-bold mb-4 text-center" id="ecosistema-frameworks">
+                Ecosistema de Frameworks en Python
+              </h3>
+
+              <style>
+                .fwk-card {
+                  background: #ffffff;
+                  border-radius: 1.1rem;
+                  padding: 1.6rem 1.4rem;
+                  height: 100%;
+                  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+                  transition: all 0.3s ease;
+                  position: relative;
+                  overflow: hidden;
+                  text-align: center;
+                }
+
+                .fwk-card::before {
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 5px;
+                }
+
+                .fwk-card:hover {
+                  transform: translateY(-6px);
+                  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+                }
+
+                .fwk-card img {
+                  height: 60px;
+                  object-fit: contain;
+                  margin-bottom: 1rem;
+                }
+
+                .fwk-card h6 {
+                  font-weight: 800;
+                  margin-bottom: 0.4rem;
+                }
+
+                .fwk-card p {
+                  font-size: 0.95rem;
+                  color: #555;
+                  margin-bottom: 0;
+                }
+
+                /* Colores por framework */
+                .fwk-django {
+                  background: linear-gradient(135deg, #f0fdf4, #ffffff);
+                }
+
+                .fwk-django::before {
+                  background: #16a34a;
+                }
+
+                .fwk-flask {
+                  background: linear-gradient(135deg, #f8fafc, #ffffff);
+                }
+
+                .fwk-flask::before {
+                  background: #111827;
+                }
+
+                .fwk-fastapi {
+                  background: linear-gradient(135deg, #ecfeff, #ffffff);
+                }
+
+                .fwk-fastapi::before {
+                  background: #06b6d4;
+                }
+
+                .fwk-pyramid {
+                  background: linear-gradient(135deg, #fefce8, #ffffff);
+                }
+
+                .fwk-pyramid::before {
+                  background: #ca8a04;
+                }
+              </style>
+
+              <p>
+                Un <strong>framework</strong> es una estructura de trabajo que
+                proporciona herramientas, reglas y componentes para desarrollar
+                aplicaciones de forma más rápida, organizada y segura.
+              </p>
+
+              <p>
+                En lugar de crear todo desde cero, los frameworks permiten enfocarse
+                en la lógica del negocio, reutilizando soluciones ya probadas.
+              </p>
+              <p class="mt-4">
+                Python cuenta con un <strong>ecosistema amplio y diverso</strong>
+                de frameworks que se adaptan a diferentes tipos de proyectos, desde
+                aplicaciones web completas hasta APIs de alto rendimiento.
+              </p>
+
+              <p class="text-muted text-center mb-5">
+                Python ofrece un ecosistema diverso de frameworks que se adaptan a
+                distintos tipos de proyectos, desde aplicaciones completas hasta
+                APIs de alto rendimiento.
+              </p>
+
+              <div class="row g-4 my-4">
+                <!-- Django -->
+                <div class="col-md-6">
+                  <div class="fwk-card fwk-django">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Django_logo.svg" alt="Django logo" />
+                    <h6>Django</h6>
+                    <p>
+                      Framework completo y robusto. Ideal para aplicaciones grandes,
+                      con autenticación, ORM y panel administrativo integrados.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Flask -->
+                <div class="col-md-6">
+                  <div class="fwk-card fwk-flask">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Flask_logo.svg" alt="Flask logo" />
+                    <h6>Flask</h6>
+                    <p>
+                      Micro-framework ligero y flexible. Perfecto para aprender
+                      backend, proyectos modulares y aplicaciones personalizadas.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- FastAPI -->
+                <div class="col-md-6">
+                  <div class="fwk-card fwk-fastapi">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/FastAPI_logo.svg"
+                      alt="FastAPI logo" />
+                    <h6>FastAPI</h6>
+                    <p>
+                      Framework moderno enfocado en APIs. Destaca por su alto
+                      rendimiento, validación automática y documentación
+                      interactiva.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Pyramid -->
+                <div class="col-md-6">
+                  <div class="fwk-card fwk-pyramid">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Pyramid_logo.svg"
+                      alt="Pyramid logo" />
+                    <h6>Pyramid</h6>
+                    <p>
+                      Framework flexible que puede iniciar pequeño y escalar a
+                      aplicaciones empresariales según las necesidades del proyecto.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="alert alert-info d-flex align-items-center mt-5">
+                <i class="bi bi-lightbulb-fill fs-4 me-3"></i>
+                <div>
+                  <strong>Idea clave:</strong>
+                  No existe un único framework perfecto; Python permite elegir la
+                  herramienta adecuada según el tipo y complejidad del proyecto.
+                </div>
+              </div>
+
+              <h5 class="fw-bold mt-5">¿Cuál framework usar?</h5>
+
+              <div class="card bg-light border-0 my-4">
+                <div class="card-body">
+                  <ul class="mb-0">
+                    <li>
+                      <strong>Django:</strong> aplicaciones grandes y completas
+                    </li>
+                    <li>
+                      <strong>Flask:</strong> aprendizaje, proyectos modulares y
+                      flexibles
+                    </li>
+                    <li>
+                      <strong>FastAPI:</strong> APIs modernas y alto rendimiento
+                    </li>
+                    <li>
+                      <strong>Pyramid:</strong> proyectos que crecen con el tiempo
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!--======================= Ventajas y desventajas ==================-->
+
+              <h3 class="fw-bold mb-4 text-center" id="ventajas-desventajas-python">
+                Ventajas y Desventajas de Python
+              </h3>
+
+              <style>
+                .vd-section {
+                  margin-top: 3rem;
+                }
+
+                .vd-title {
+                  font-weight: 800;
+                  margin-bottom: 1.5rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                }
+
+                .vd-card {
+                  background: #ffffff;
+                  border-radius: 1rem;
+                  padding: 1.4rem;
+                  height: 100%;
+                  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+                  transition: all 0.3s ease;
+                  position: relative;
+                  overflow: hidden;
+                }
+
+                .vd-card::before {
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 6px;
+                  height: 100%;
+                }
+
+                .vd-card:hover {
+                  transform: translateY(-6px);
+                  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.15);
+                }
+
+                /* Ventajas */
+                .vd-ventaja::before {
+                  background: #22c55e;
+                }
+
+                .vd-ventaja {
+                  background: linear-gradient(135deg, #f0fdf4, #ffffff);
+                }
+
+                /* Desventajas */
+                .vd-desventaja::before {
+                  background: #ef4444;
+                }
+
+                .vd-desventaja {
+                  background: linear-gradient(135deg, #fef2f2, #ffffff);
+                }
+
+                .vd-card h6 {
+                  font-weight: 700;
+                  margin-bottom: 0.4rem;
+                }
+
+                .vd-card p {
+                  font-size: 0.95rem;
+                  color: #555;
+                  margin-bottom: 0;
+                }
+              </style>
+
+              <p class="text-muted text-center mb-5">
+                Python es un lenguaje poderoso y versátil, pero como toda
+                tecnología, tiene fortalezas y limitaciones que deben analizarse en
+                un contexto real.
+              </p>
+
+              <div class="row g-5">
+                <!-- ================== VENTAJAS ================== -->
+                <div class="col-md-6 vd-section">
+                  <h5 class="vd-title text-success"><i class="bi bi-check-circle-fill text-success"></i>” Ventajas de
+                    Python</h5>
+
+                  <div class="row g-4">
+                    <div class="col-12">
+                      <div class="vd-card vd-ventaja">
+                        <h6><i class="bi bi-folder-fill text-warning"></i>– Sintaxis clara y legible</h6>
+                        <p>
+                          Python utiliza una sintaxis sencilla y cercana al lenguaje
+                          humano, facilitando el aprendizaje y la lectura del
+                          código.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="vd-card vd-ventaja">
+                        <h6><i class="bi bi-lightning-fill text-warning me-2"></i>Alta productividad</h6>
+                        <p>
+                          Permite desarrollar aplicaciones completas con menos
+                          líneas de código, reduciendo tiempos de desarrollo.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="vd-card vd-ventaja">
+                        <h6><i class="bi bi-puzzle text-info me-2"></i>Ecosistema amplio</h6>
+                        <p>
+                          Cuenta con miles de librerías y frameworks para web,
+                          datos, inteligencia artificial y automatización.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="vd-card vd-ventaja">
+                        <h6><i class="bi bi-globe text-success me-2"></i>Comunidad activa</h6>
+                        <p>
+                          Dispone de una comunidad global que aporta documentación,
+                          soporte y mejoras constantes.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ================== DESVENTAJAS ================== -->
+                <div class="col-md-6 vd-section">
+                  <h5 class="vd-title text-danger"><i class="bi bi-exclamation-triangle me-2"></i>Desventajas de Python
+                  </h5>
+
+                  <div class="row g-4">
+                    <div class="col-12">
+                      <div class="vd-card vd-desventaja">
+                        <h6><i class="bi bi-speedometer me-2"></i>Menor rendimiento</h6>
+                        <p>
+                          Al ser interpretado, Python suele ser más lento que
+                          lenguajes compilados como C o Java.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="vd-card vd-desventaja">
+                        <h6><i class="bi bi-patch-question"></i> Uso de memoria</h6>
+                        <p>
+                          No es la mejor opción para sistemas con recursos limitados
+                          o aplicaciones embebidas críticas.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="vd-card vd-desventaja">
+                        <h6><i class="bi bi-search"></i>’ Tipado dinámico</h6>
+                        <p>
+                          Puede generar errores en tiempo de ejecución si no se
+                          aplican buenas prácticas y validaciones.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="vd-card vd-desventaja">
+                        <h6><i class="bi bi-folder-fill text-warning"></i>± Limitaciones móviles</h6>
+                        <p>
+                          No es el lenguaje principal para desarrollo de
+                          aplicaciones móviles nativas de alto rendimiento.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="alert alert-info d-flex align-items-center mt-5">
+                <i class="bi bi-lightbulb-fill fs-4 me-3"></i>
+                <div>
+                  <strong>Idea clave:</strong>
+                  Python es ideal para la mayoría de aplicaciones modernas, siempre
+                  que se utilice en el contexto adecuado.
+                </div>
+              </div>
+
+              <!--======================= Cuestionario ==================-->
+              <!--======================= Cuestionario ==================-->
+              <h3 class="fw-bold mt-5 mb-4 text-center" id="cuestionario-historia-python">
+                <i class="bi bi-patch-question"></i> Cuestionario de Aprendizaje – Historia de Python
+              </h3>
+
+              <p class="text-muted text-center mb-4">
+                Responde cada pregunta para avanzar. Cada pregunta solo puede
+                responderse una vez.
+              </p>
+
+              <style>
+                .quiz-card {
+                  background: linear-gradient(135deg, #f8fafc, #ffffff);
+                  border-radius: 1.2rem;
+                  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+                  padding: 2rem;
+                  max-width: 700px;
+                  margin: auto;
+                }
+
+                .quiz-option {
+                  width: 100%;
+                  text-align: left;
+                  margin-bottom: 0.6rem;
+                }
+
+                .quiz-option.correct {
+                  background-color: #22c55e !important;
+                  color: white;
+                }
+
+                .quiz-option.wrong {
+                  background-color: #ef4444 !important;
+                  color: white;
+                }
+
+                .quiz-progress {
+                  font-size: 0.9rem;
+                  color: #555;
+                }
+              </style>
+
+              <div class="quiz-card">
+                <!-- Progreso -->
+                <div class="quiz-progress mb-2">
+                  Pregunta <span id="numPregunta"></span> de
+                  <span id="totalPreguntas"></span>
+                </div>
+
+                <!-- Pregunta -->
+                <h5 class="fw-bold mb-3" id="preguntaTitulo"></h5>
+
+                <!-- Opciones -->
+                <div id="opciones"></div>
+
+                <!-- Feedback -->
+                <div id="feedback" class="alert d-none mt-3"></div>
+
+                <!-- Solución -->
+                <div id="solucion" class="alert alert-info d-none mt-2"></div>
+
+                <!-- Botón siguiente -->
+                <div class="text-end mt-3">
+                  <button id="btnSiguiente" class="btn btn-primary d-none" onclick="siguientePregunta()">
+                    Siguiente <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+
+              <script>
+                // =====================================================
+                // BANCO DE PREGUNTAS
+                // =====================================================
+                const preguntasWeb = [
+                  {
+                    titulo:
+                      "¿Cuál fue la motivación principal de Guido van Rossum al crear Python en 1989?",
+                    opciones: [
+                      {
+                        texto: "Crear un lenguaje más rápido que C",
+                        correcta: false,
+                      },
+                      {
+                        texto:
+                          "Diseñar un lenguaje simple, legible y fácil de mantener",
+                        correcta: true,
+                      },
+                      {
+                        texto:
+                          "Competir directamente con Java en aplicaciones empresariales",
+                        correcta: false,
+                      },
+                    ],
+                    solucion:
+                      "Python nació con el objetivo de priorizar la legibilidad y simplicidad, permitiendo que los desarrolladores se enfoquen en resolver problemas y no en la sintaxis.",
+                  },
+                  {
+                    titulo:
+                      "¿Por qué la legibilidad es un pilar fundamental en la filosofía de Python?",
+                    opciones: [
+                      {
+                        texto: "Porque reduce el uso de librerías externas",
+                        correcta: false,
+                      },
+                      {
+                        texto:
+                          "Porque facilita el mantenimiento, el trabajo en equipo y proyectos a largo plazo",
+                        correcta: true,
+                      },
+                      {
+                        texto: "Porque elimina la necesidad de documentación",
+                        correcta: false,
+                      },
+                    ],
+                    solucion:
+                      "La legibilidad permite que el código sea entendido por otros desarrolladores, facilitando mantenimiento, escalabilidad y colaboración.",
+                  },
+                  {
+                    titulo:
+                      "¿Qué impacto tuvo la publicación de Python 2.0 en el año 2000?",
+                    opciones: [
+                      {
+                        texto:
+                          "Introdujo mejoras clave como listas por comprensión y recolección de basura",
+                        correcta: true,
+                      },
+                      {
+                        texto: "Eliminó la programación orientada a objetos",
+                        correcta: false,
+                      },
+                      {
+                        texto: "Hizo incompatible Python con sistemas Unix",
+                        correcta: false,
+                      },
+                    ],
+                    solucion:
+                      "Python 2.0 marcó un avance importante al introducir características modernas que mejoraron rendimiento y expresividad del lenguaje.",
+                  },
+                  {
+                    titulo:
+                      "¿Por qué Python 3 representó un rediseño profundo del lenguaje?",
+                    opciones: [
+                      {
+                        texto: "Para mantener compatibilidad total con Python 2",
+                        correcta: false,
+                      },
+                      {
+                        texto:
+                          "Para priorizar Unicode, claridad sintáctica y un futuro más consistente",
+                        correcta: true,
+                      },
+                      {
+                        texto: "Para eliminar el uso de librerías externas",
+                        correcta: false,
+                      },
+                    ],
+                    solucion:
+                      "Python 3 apostó por un diseño más limpio y coherente, incluso sacrificando compatibilidad con Python 2.",
+                  },
+                  {
+                    titulo:
+                      "¿Qué consecuencia tuvo el fin del soporte oficial de Python 2 en 2020?",
+                    opciones: [
+                      {
+                        texto: "La desaparición del lenguaje Python",
+                        correcta: false,
+                      },
+                      {
+                        texto:
+                          "La consolidación definitiva de Python 3 como estándar global",
+                        correcta: true,
+                      },
+                      {
+                        texto: "La reducción del uso de Python en la industria",
+                        correcta: false,
+                      },
+                    ],
+                    solucion:
+                      "El fin de Python 2 obligó a la comunidad y a la industria a migrar completamente a Python 3.",
+                  },
+                  {
+                    titulo:
+                      "¿Qué factor explica la adopción masiva de Python en universidades y empresas?",
+                    opciones: [
+                      { texto: "Su complejidad técnica", correcta: false },
+                      {
+                        texto:
+                          "Su equilibrio entre facilidad de aprendizaje y potencia profesional",
+                        correcta: true,
+                      },
+                      {
+                        texto: "Su dependencia de frameworks específicos",
+                        correcta: false,
+                      },
+                    ],
+                    solucion:
+                      "Python logra un balance entre ser fácil de aprender y lo suficientemente potente para resolver problemas reales.",
+                  },
+                  {
+                    titulo:
+                      "Según la evolución histórica de Python, ¿qué demuestra su éxito actual?",
+                    opciones: [
+                      {
+                        texto: "Que los lenguajes simples no pueden escalar",
+                        correcta: false,
+                      },
+                      {
+                        texto:
+                          "Que un lenguaje bien diseñado puede evolucionar sin perder simplicidad",
+                        correcta: true,
+                      },
+                      {
+                        texto:
+                          "Que la compatibilidad es más importante que el diseño",
+                        correcta: false,
+                      },
+                    ],
+                    solucion:
+                      "La historia de Python demuestra que un diseño claro y coherente puede sostener el crecimiento y la adopción global.",
+                  },
+                ];
+
+                // =====================================================
+                // <i class="bi bi-search"></i>¥ CORRECCIÓN CLAVE (EL BUG)
+                // =====================================================
+                const preguntas = preguntasWeb;
+
+                let indice = 0;
+                let puntaje = 0;
+                let respondida = false;
+
+                document.getElementById("totalPreguntas").textContent =
+                  preguntas.length;
+
+                // =====================================================
+                // CARGAR PREGUNTA
+                // =====================================================
+                function cargarPregunta() {
+                  const p = preguntas[indice];
+                  respondida = false;
+
+                  document.getElementById("numPregunta").textContent = indice + 1;
+                  document.getElementById("preguntaTitulo").textContent = p.titulo;
+
+                  const opcionesDiv = document.getElementById("opciones");
+                  opcionesDiv.innerHTML = "";
+
+                  p.opciones.forEach((op) => {
+                    const btn = document.createElement("button");
+                    btn.className = "btn btn-outline-secondary quiz-option";
+                    btn.textContent = op.texto;
+                    btn.onclick = () => responder(btn, op.correcta, p.solucion);
+                    opcionesDiv.appendChild(btn);
+                  });
+
+                  document.getElementById("feedback").classList.add("d-none");
+                  document.getElementById("solucion").classList.add("d-none");
+                  document.getElementById("btnSiguiente").classList.add("d-none");
+                }
+
+                // =====================================================
+                // RESPONDER
+                // =====================================================
+                function responder(btn, correcta, solucion) {
+                  if (respondida) return;
+                  respondida = true;
+
+                  const feedback = document.getElementById("feedback");
+                  const solucionDiv = document.getElementById("solucion");
+
+                  document
+                    .querySelectorAll(".quiz-option")
+                    .forEach((b) => (b.disabled = true));
+
+                  if (correcta) {
+                    puntaje++;
+                    btn.classList.add("correct");
+                    feedback.className = "alert alert-success mt-3";
+                    feedback.innerHTML = '<i class="bi bi-check-circle-fill text-success"></i> Respuesta correcta.'
+                  } else {
+                    btn.classList.add("wrong");
+                    feedback.className = "alert alert-warning mt-3";
+                    feedback.textContent = '❌ Respuesta incorrecta.'
+                    solucionDiv.textContent = solucion;
+                    solucionDiv.classList.remove("d-none");
+                  }
+
+                  feedback.classList.remove("d-none");
+                  document
+                    .getElementById("btnSiguiente")
+                    .classList.remove("d-none");
+                }
+
+                // =====================================================
+                // SIGUIENTE PREGUNTA
+                // =====================================================
+                function siguientePregunta() {
+                  indice++;
+                  if (indice < preguntas.length) {
+                    cargarPregunta();
+                  } else {
+                    mostrarResultado();
+                  }
+                }
+
+                // =====================================================
+                // RESULTADO FINAL
+                // =====================================================
+                function mostrarResultado() {
+                  const nota = Math.round((puntaje / preguntas.length) * 10);
+
+                  document.querySelector(".quiz-card").innerHTML = `
+      <div class="text-center">
+        <h4 class="fw-bold mb-3"><i class="bi bi-folder-fill text-warning"></i> Resultado Final</h4>
+
+        <div class="display-4 fw-bold text-primary mb-2">
+          ${nota}/10
+        </div>
+
+        <p class="text-muted">
+          Respuestas correctas: ${puntaje} de ${preguntas.length}
+        </p>
+
+        <div class="alert ${nota >= 7 ? "alert-success" : "alert-warning"} mt-4">
+          ${nota >= 7
+                      ? '<i class="bi bi-balloon-fill text-danger me-2"></i> ¡Excelente trabajo! Dominas la historia de Python.'
+                      : '<i class="bi bi-journal-text me-2"></i> Buen intento. Revisa la teoría y vuelve a intentarlo.'
+                    }
+        </div>
+
+        <button class="btn btn-outline-primary mt-3" onclick="reiniciarQuiz()">
+          <i class="bi bi-search"></i> Realizar la evaluación nuevamente
+        </button>
+      </div>
+    `;
+                }
+
+                // =====================================================
+                // REINICIAR
+                // =====================================================
+                function reiniciarQuiz() {
+                  indice = 0;
+                  puntaje = 0;
+                  location.reload();
+                }
+
+                // =====================================================
+                // INICIAR
+                // =====================================================
+                cargarPregunta();
+              </script>
+
+
+
+              <script>
+                let draggedItem = null;
+
+                document.querySelectorAll(".event-card").forEach((card) => {
+                  card.addEventListener("dragstart", () => {
+                    draggedItem = card;
+                  });
+                });
+
+                document.querySelectorAll(".timeline-slot").forEach((slot) => {
+                  slot.addEventListener("dragover", (e) => e.preventDefault());
+                  slot.addEventListener("drop", () => {
+                    if (slot.children.length === 0 && draggedItem) {
+                      slot.appendChild(draggedItem);
+                    }
+                  });
+                });
+
+                function verificarOrden() {
+                  let correcto = true;
+
+                  document.querySelectorAll(".timeline-slot").forEach((slot) => {
+                    slot.classList.remove("success", "error");
+
+                    const card = slot.querySelector(".event-card");
+                    if (!card || card.dataset.order !== slot.dataset.position) {
+                      correcto = false;
+                      slot.classList.add("error");
+                    } else {
+                      slot.classList.add("success");
+                    }
+                  });
+
+                  const resultado = document.getElementById("resultadoJuego");
+                  resultado.classList.remove("d-none");
+
+                  if (correcto) {
+                    resultado.className = "alert alert-success mt-4 text-center";
+                    resultado.innerHTML =
+                      '<i class="bi bi-balloon-fill text-danger me-2"></i> ¡Excelente! Has reconstruido correctamente la evolución de Python.';
+                  } else {
+                    resultado.className = "alert alert-warning mt-4 text-center";
+                    resultado.innerHTML =
+                      '<i class="bi bi-x-circle-fill text-danger me-2"></i> El orden no es correcto. Analiza las descripciones e inténtalo de nuevo.';
+                  }
+                }
+
+                function reiniciarJuego() {
+                  const pool = document.getElementById("eventsPool");
+                  document
+                    .querySelectorAll(".event-card")
+                    .forEach((card) => pool.appendChild(card));
+                  document.querySelectorAll(".timeline-slot").forEach((slot) => {
+                    slot.classList.remove("success", "error");
+                  });
+                  document.getElementById("resultadoJuego").classList.add("d-none");
+                }
+              </script>
+
+              <!---->
+
+              <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                <a href="teoria_infraestructura.html" class="btn btn-outline-secondary rounded-pill px-4">
+                  <i class="bi bi-arrow-left me-2"></i> Anterior
+                </a>
+
+                <a href="teoria_htmlpyhon.html" class="btn btn-primary rounded-pill px-4">
+                  Siguiente: HTML y Web <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Moderno -->
+  <footer class="footer-modern">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h4 class="footer-brand">
+            <i class="bi bi-braces me-2"></i>Python Academy
+          </h4>
+          <p class="footer-text">
+            Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
+            apasionados por la programación.
+          </p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Navegación</h5>
+          <ul class="footer-links">
+            <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
+            <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
+            <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Temas Populares</h5>
+          <ul class="footer-links">
+            <li><a href="../teoria/teoria_infraestructura.html"><i class="bi bi-chevron-right"></i> Backend</a></li>
+            <li><a href="../teoria/teoria_tiposDatos.html"><i class="bi bi-chevron-right"></i> Tipos de Datos</a></li>
+            <li><a href="../teoria/teoria_poo.html"><i class="bi bi-chevron-right"></i> POO</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Tecnologías</h5>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
+            <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
+            <span class="badge bg-warning bg-opacity-25 text-white px-3 py-2">MySQL</span>
+            <span class="badge bg-info bg-opacity-25 text-white px-3 py-2">HTML5</span>
+            <span class="badge bg-danger bg-opacity-25 text-white px-3 py-2">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="mb-0">
+          © 2026 <strong>Python Academy</strong>. Proyecto académico • Flask & Python
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/assets/vendor/aos/aos.js"></script>
+  <script src="../static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../static/assets/js/main.js"></script>
+  <script src="../static/assets/js/sidebar.js"></script>
+
+
+  <script>
+    // Sidebar Scroll Spy - Resaltar sección activa al hacer scroll
+    document.addEventListener('DOMContentLoaded', function () {
+      const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+      const sections = [];
+
+      // Obtener todas las secciones referenciadas
+      sidebarLinks.forEach(link => {
+        const id = link.getAttribute('href').substring(1);
+        const section = document.getElementById(id);
+        if (section) {
+          sections.push({ id, element: section, link });
+        }
+      });
+
+      // Función para actualizar el link activo
+      function updateActiveLink() {
+        let currentSection = sections[0];
+        const scrollPosition = window.scrollY + 150;
+
+        sections.forEach(section => {
+          if (section.element.offsetTop <= scrollPosition) {
+            currentSection = section;
+          }
+        });
+
+        sidebarLinks.forEach(link => link.classList.remove('active'));
+        if (currentSection) {
+          currentSection.link.classList.add('active');
+
+          // Actualizar barra de progreso
+          const progressBar = document.querySelector('.sidebar-progress-bar');
+          if (progressBar) {
+            const index = sections.indexOf(currentSection);
+            const progress = ((index + 1) / sections.length) * 100;
+            progressBar.style.width = progress + '%';
+          }
+        }
+      }
+
+      // Scroll suave al hacer clic en links
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const target = document.getElementById(targetId);
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Escuchar scroll
+      window.addEventListener('scroll', updateActiveLink);
+      updateActiveLink();
+    });
+  </script>
+
+  <script src="../static/assets/js/effects.js"></script>
+<<<<<<< HEAD
+  <script src="../static/assets/js/navbar-nested.js"></script>
+=======
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 50
+    });
+  </script>
+</body>
+
+</html>

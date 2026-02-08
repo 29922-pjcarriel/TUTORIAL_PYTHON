@@ -1,0 +1,557 @@
+<<<<<<< HEAD
+﻿<!DOCTYPE html>
+=======
+<!DOCTYPE html>
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Herencia · Python Academy</title>
+  <meta name="description" content="Ejercicio de herencia en POO.">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="../static/assets/css/main.css" rel="stylesheet">
+  <link href="../static/assets/css/custom.css" rel="stylesheet">
+
+  <style>
+    .hero-ej {
+      background: #f8fafc;
+      border-bottom: 1px solid rgba(0, 0, 0, .08);
+      padding: 52px 0;
+    }
+
+    .hero-ej .badge {
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+    }
+
+    .hero-ej h1 {
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .hero-ej p {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .hero-top-actions {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .btn-pill {
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-weight: 700;
+    }
+
+    .btn-pill-sm {
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-weight: 700;
+    }
+
+    .ej-wrap {
+      padding: 36px 0 70px;
+    }
+
+    .ej-panel {
+      border-radius: 18px;
+      border: 1px solid rgba(0, 0, 0, .08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
+      background: #fff;
+      padding: 26px;
+    }
+
+    .ej-actions {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(0, 0, 0, .08);
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-shell {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-card {
+      width: 100%;
+      max-width: 720px;
+      border-radius: 18px;
+      border: 1px solid rgba(0, 0, 0, .08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .06);
+      background: #fff;
+      padding: 22px;
+    }
+
+    .form-card * {
+      max-width: 100%;
+    }
+
+    .ej-nav-bottom {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(0, 0, 0, .08);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .ej-nav-bottom .btn {
+      min-width: 170px;
+    }
+
+    .explain-card {
+      border: 1px solid rgba(0, 0, 0, .08);
+      border-radius: 16px;
+      padding: 18px;
+      background: #fbfdff;
+    }
+
+    .code-box {
+      background: #0b1220;
+      color: #e6edf3;
+      border-radius: 14px;
+      padding: 14px;
+      overflow: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-size: .92rem;
+      white-space: pre;
+      margin: 0;
+    }
+
+    .hint {
+      font-size: .95rem;
+      color: #556;
+    }
+
+    .python-notice {
+      background: linear-gradient(135deg, #3776ab 0%, #ffd43b 100%);
+      border-radius: 16px;
+      padding: 24px;
+      color: white;
+      margin-top: 20px;
+    }
+
+    .python-notice h5 {
+      color: white;
+      font-weight: 700;
+    }
+
+    .python-notice code {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: white;
+    }
+  </style>
+  <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+<<<<<<< HEAD
+  <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
+=======
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+</head>
+
+<body>
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+
+  <!-- Navbar Moderno -->
+  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="../index.html">
+        <i class="bi bi-braces me-2"></i>Python Academy
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-2">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="../index.html">
+              <i class="bi bi-house me-1"></i> Inicio
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-book me-1"></i> Teoría
+            </a>
+<<<<<<< HEAD
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i class="bi bi-boxes me-2 text-info"></i>Ecosistema</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/mercado.html"><i class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+=======
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i
+                    class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i
+                    class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_htmlpyhon.html"><i
+                    class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_sintaxisComentarios.html"><i
+                    class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_variablesConstantes.html"><i
+                    class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_tiposDatos.html"><i
+                    class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver
+                  todo el temario</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-code-square me-1"></i> Ejercicios
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio1.html"><i
+                    class="bi bi-1-circle me-2 text-success"></i>Formulario POST</a></li>
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio3.html"><i
+                    class="bi bi-calculator me-2 text-success"></i>Factorial</a></li>
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio5.html"><i
+                    class="bi bi-hash me-2 text-success"></i>Números Primos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver
+                  todos los ejercicios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-database me-1"></i> Explicación CRUD
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte I.html"><i
+                    class="bi bi-car-front me-2 text-danger"></i>Vehículo - Parte I</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte II.html"><i
+                    class="bi bi-car-front-fill me-2 text-danger"></i>Vehículo - Parte II</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte III.html"><i
+                    class="bi bi-gear-wide-connected me-2 text-danger"></i>Vehículo - Parte III</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Session y login.html"><i
+                    class="bi bi-lock me-2 text-danger"></i>Session y Login</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../explicacion_crud.html"><i
+                    class="bi bi-grid me-2"></i>Ver Resumen</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../PythonvsPHP.html"><i
+                    class="bi bi-lightning me-2 text-warning"></i>Comparativa Técnica</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonvsPHP.html#tabla"><i
+                    class="bi bi-table me-2 text-warning"></i>Tabla de Datos</a></li>
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <!-- HERO -->
+    <section class="hero-ej">
+      <div class="container text-center">
+
+        <div class="hero-top-actions">
+          <a href="../ejercicios.html" class="btn btn-outline-secondary btn-pill-sm">
+            <i class="bi bi-arrow-left me-1"></i> Volver al menú
+          </a>
+        </div>
+
+        <span class="badge bg-primary mb-3">POO</span>
+        <h1 class="display-5 mb-2">Herencia</h1>
+        <p class="lead text-muted">Ejercicio de herencia en POO.</p>
+      </div>
+    </section>
+    <!-- HERO -->
+
+
+    <!-- CONTENIDO -->
+    <section class="ej-wrap">
+      <div class="container">
+        <div class="ej-panel">
+
+          <!-- ENUNCIADO (EDITAR AQUÍ) -->
+          <div class="explain-card mb-4">
+            <h4 class="fw-bold mb-2">Enunciado</h4>
+            <p class="mb-2">
+              Implementar un sistema que utilice <strong>Herencia</strong> para gestionar diferentes tipos de personas
+              en una empresa. Se debe crear una clase base <code>Persona</code> y una clase derivada
+              <code>Empleado</code> que añada atributos de sueldo y cargo, calculando automáticamente beneficios
+              adicionales.
+            </p>
+            <p class="mb-0 hint">
+              Objetivo: Comprender cómo las clases pueden heredar atributos y métodos de otras, permitiendo la
+              reutilización de código y la creación de jerarquías lógicas.
+            </p>
+          </div>
+
+          <!-- EXPLICACIÓN DEL CÓDIGO (EDITAR AQUÍ) -->
+          <div class="explain-card mb-4">
+            <h4 class="fw-bold mb-3">Explicación del código (paso a paso)</h4>
+
+            <h5 class="fw-bold mb-2">1) Clase Base: Persona</h5>
+            <p class="mb-3">
+              Definimos los atributos comunes como nombre y edad. Todos los empleados son personas, por lo que heredarán
+              estas características.
+            </p>
+            <pre class="code-box mb-3"><code>class Persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad</code></pre>
+
+            <h5 class="fw-bold mb-2">2) Clase Derivada: Empleado</h5>
+            <p class="mb-2">
+              La clase <code>Empleado</code> hereda de <code>Persona</code> usando <code>super()</code> y añade el
+              sueldo.
+            </p>
+            <pre class="code-box mb-3"><code>class Empleado(Persona):
+    def __init__(self, nombre, edad, sueldo):
+        super().__init__(nombre, edad)
+        self.sueldo = sueldo</code></pre>
+
+            <h5 class="fw-bold mb-2">3) Lógica de Negocio</h5>
+            <p class="mb-2">
+              El programa calcula un bono del 10% basado en el sueldo base del empleado.
+            </p>
+            <pre class="code-box mb-3"><code>def calcular_total(self):
+    return self.sueldo * 1.10</code></pre>
+
+            <p class="hint mt-3 mb-0">
+              La herencia permite que el Empleado tenga 'nombre' sin haberlo definido explícitamente en su propia clase.
+            </p>
+          </div>
+
+          <!-- âœ… BOTñ“N EJECUTAR -->
+          <div class="ej-actions">
+            <a href="##formulario" class="btn btn-primary btn-pill btn-lg">
+              Ejecutar ejercicio
+            </a>
+          </div>
+
+          <!-- ✅ FORMULARIO / SALIDA -->
+          <div id="formulario" class="mt-5 animate-in fade-in">
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+              <div class="card-header bg-success text-white p-3">
+                <h5 class="mb-0"><i class="bi bi-people-fill me-2"></i>Simulador de Herencia (RRHH)</h5>
+              </div>
+              <div class="card-body p-4 bg-light">
+                <form id="form-herencia" onsubmit="procesarHerencia(event)">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label fw-bold">Nombre Completo:</label>
+                      <input type="text" id="nombre-h" class="form-control" placeholder="Ej: Juan Pérez" required>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label fw-bold">Edad:</label>
+                      <input type="number" id="edad-h" class="form-control" placeholder="25" required>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label fw-bold">Sueldo Base ($):</label>
+                      <input type="number" id="sueldo-h" class="form-control" placeholder="1000" required>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-success w-100 btn-pill mt-4 py-3 fw-bold shadow-sm">
+                    <i class="bi bi-person-plus-fill me-2"></i>Crear Empleado (Heredar de Persona)
+                  </button>
+                </form>
+
+                <div id="resultado-herencia" class="mt-4 d-none animate-in slide-in-bottom">
+                  <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                    <div class="card-body p-4 border-start border-4 border-success">
+                      <h5 class="fw-bold text-success mb-3">Objeto de Clase 'Empleado' generado</h5>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <p class="mb-1 text-muted">Datos Heredados de Persona:</p>
+                          <p class="mb-0"><strong>Nombre:</strong> <span id="res-nombre-h">-</span></p>
+                          <p class="mb-0"><strong>Edad:</strong> <span id="res-edad-h">-</span> años</p>
+                        </div>
+                        <div class="col-md-6">
+                          <p class="mb-1 text-muted">Datos de Clase Empleado:</p>
+                          <p class="mb-0"><strong>Sueldo Base:</strong> $<span id="res-sueldo-h">-</span></p>
+                          <p class="mb-0 text-success"><strong>Total + Bono (10%):</strong> $<span
+                              id="res-total-h">-</span></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            class Persona {
+              constructor(nombre, edad) {
+                this.nombre = nombre;
+                this.edad = edad;
+              }
+            }
+
+            class Empleado extends Persona {
+              constructor(nombre, edad, sueldo) {
+                super(nombre, edad);
+                this.sueldo = parseFloat(sueldo);
+              }
+
+              calcularTotal() {
+                return this.sueldo * 1.10;
+              }
+            }
+
+            function procesarHerencia(e) {
+              e.preventDefault();
+              const nombre = document.getElementById('nombre-h').value;
+              const edad = document.getElementById('edad-h').value;
+              const sueldo = document.getElementById('sueldo-h').value;
+
+              const emp = new Empleado(nombre, edad, sueldo);
+
+              document.getElementById('res-nombre-h').textContent = emp.nombre;
+              document.getElementById('res-edad-h').textContent = emp.edad;
+              document.getElementById('res-sueldo-h').textContent = emp.sueldo.toFixed(2);
+              document.getElementById('res-total-h').textContent = emp.calcularTotal().toFixed(2);
+
+              document.getElementById('resultado-herencia').classList.remove('d-none');
+              document.getElementById('resultado-herencia').scrollIntoView({ behavior: 'smooth' });
+            }
+          </script>
+
+
+          <!-- ANTERIOR / SIGUIENTE -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ANTERIOR / SIGUIENTE -->
+    <div class="ej-nav-bottom">
+      <a href="ejercicio13.html" class="btn btn-outline-primary btn-pill"><i class="bi bi-arrow-left me-1"></i>
+        Anterior</a>
+      <a href="ejercicio15.html" class="btn btn-primary btn-pill">Siguiente <i class="bi bi-arrow-right ms-1"></i></a>
+    </div>
+
+    </div>
+    </div>
+    </section>
+  </main>
+
+  <!-- Footer Moderno -->
+  <footer class="footer-modern">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h4 class="footer-brand">
+            <i class="bi bi-braces me-2"></i>Python Academy
+          </h4>
+          <p class="footer-text">
+            Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
+            apasionados por la programación.
+          </p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Navegación</h5>
+          <ul class="footer-links">
+            <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
+            <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
+            <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Temas Populares</h5>
+          <ul class="footer-links">
+            <li><a href="../teoria/teoria_infraestructura.html"><i class="bi bi-chevron-right"></i> Backend</a></li>
+            <li><a href="../teoria/teoria_tiposDatos.html"><i class="bi bi-chevron-right"></i> Tipos de Datos</a></li>
+            <li><a href="../teoria/teoria_poo.html"><i class="bi bi-chevron-right"></i> POO</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Tecnologías</h5>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
+            <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
+            <span class="badge bg-warning bg-opacity-25 text-white px-3 py-2">MySQL</span>
+            <span class="badge bg-info bg-opacity-25 text-white px-3 py-2">HTML5</span>
+            <span class="badge bg-danger bg-opacity-25 text-white px-3 py-2">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="mb-0">
+          © 2026 <strong>Python Academy</strong>. Proyecto académico • Flask & Python
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/assets/vendor/aos/aos.js"></script>
+  <script src="../static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../static/assets/js/main.js"></script>
+  <script src="../static/assets/js/sidebar.js"></script>
+
+  <script src="../static/assets/js/effects.js"></script>
+<<<<<<< HEAD
+  <script src="../static/assets/js/navbar-nested.js"></script>
+=======
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 50
+    });
+  </script>
+</body>
+
+</html>

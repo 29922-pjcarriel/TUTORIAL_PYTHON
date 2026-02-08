@@ -1,0 +1,958 @@
+<<<<<<< HEAD
+﻿<!DOCTYPE html>
+=======
+<!DOCTYPE html>
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Sintaxis y Comentarios · Python Academy</title>
+  <meta name="description" content="Sintaxis y Comentarios - Curso de Python Academy">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="../static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="../static/assets/css/main.css" rel="stylesheet">
+  <link href="../static/assets/css/custom.css" rel="stylesheet">
+
+  <style>
+    /* Sidebar Sticky Mejorado */
+    .sidebar-nav {
+      position: sticky;
+      top: 100px;
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .sidebar-nav h5 {
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #667eea;
+    }
+
+    .sidebar-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar-nav li {
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 0.6rem 1rem;
+      color: #64748b;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-nav a:hover {
+      background: rgba(102, 126, 234, 0.1);
+      color: #667eea;
+      border-left-color: #667eea;
+      padding-left: 1.2rem;
+    }
+
+    .sidebar-nav a.active {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+      color: #667eea;
+      font-weight: 600;
+      border-left-color: #667eea;
+    }
+
+    /* Scrollbar personalizada */
+    .sidebar-nav::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 4px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb {
+      background: #667eea;
+      border-radius: 4px;
+    }
+
+    /* Indicador de progreso */
+    .sidebar-progress {
+      height: 4px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .sidebar-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+  </style>
+
+  <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+<<<<<<< HEAD
+  <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
+=======
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+</head>
+
+<body>
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+
+  <!-- Navbar Moderno -->
+  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="../index.html">
+        <i class="bi bi-braces me-2"></i>Python Academy
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-2">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="../index.html">
+              <i class="bi bi-house me-1"></i> Inicio
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-book me-1"></i> Teoría
+            </a>
+<<<<<<< HEAD
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i class="bi bi-boxes me-2 text-info"></i>Ecosistema</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/mercado.html"><i class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+=======
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i
+                    class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i
+                    class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_htmlpyhon.html"><i
+                    class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_sintaxisComentarios.html"><i
+                    class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_variablesConstantes.html"><i
+                    class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_tiposDatos.html"><i
+                    class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver
+                  todo el temario</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-code-square me-1"></i> Ejercicios
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio1.html"><i
+                    class="bi bi-1-circle me-2 text-success"></i>Formulario POST</a></li>
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio3.html"><i
+                    class="bi bi-calculator me-2 text-success"></i>Factorial</a></li>
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio5.html"><i
+                    class="bi bi-hash me-2 text-success"></i>Números Primos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver
+                  todos los ejercicios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-database me-1"></i> Explicación CRUD
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte I.html"><i
+                    class="bi bi-car-front me-2 text-danger"></i>Vehículo - Parte I</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte II.html"><i
+                    class="bi bi-car-front-fill me-2 text-danger"></i>Vehículo - Parte II</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte III.html"><i
+                    class="bi bi-gear-wide-connected me-2 text-danger"></i>Vehículo - Parte III</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Session y login.html"><i
+                    class="bi bi-lock me-2 text-danger"></i>Session y Login</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../explicacion_crud.html"><i
+                    class="bi bi-grid me-2"></i>Ver Resumen</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../PythonvsPHP.html"><i
+                    class="bi bi-lightning me-2 text-warning"></i>Comparativa Técnica</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonvsPHP.html#tabla"><i
+                    class="bi bi-table me-2 text-warning"></i>Tabla de Datos</a></li>
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    Sintaxis y Comentarios - Python Academy
+
+    <!-- ================= HERO ================= -->
+    <!-- Hero Interno -->
+    <section class="hero-internal">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="container relative">
+        <span class="badge-custom animate-on-scroll">TEMA 4</span>
+        <h1 class="animate-on-scroll delay-1">Sintaxis y Comentarios</h1>
+        <p class="animate-on-scroll delay-2">
+          La regla de oro de Python: la indentación no es estética, es obligatoria.
+          Aprende a escribir código claro y bien documentado con comentarios correctos en Python y HTML.
+        </p>
+      </div>
+    </section>
+
+    <section class="section py-5">
+      <div class="container">
+        <div class="row justify-content-start">
+
+          <!-- ================= SIDEBAR ================= -->
+          <div class="col-lg-3 d-none d-lg-block">
+            <nav class="sidebar-nav">
+              <div class="sidebar-progress">
+                <div class="sidebar-progress-bar"></div>
+              </div>
+              <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
+              <ul>
+                <li><a href="#indentacion" class="active">La indentación en Python</a></li>
+                <li><a href="#comentarios-python">Comentarios en Python</a></li>
+                <li><a href="#comentarios-html">Comentarios en HTML</a></li>
+                <li><a href="#comparacion">Comparación rápida</a></li>
+                <li><a href="#quiz-sintaxis"><i class="bi bi-patch-question"></i> Cuestionario – Sintaxis e
+                    indentación</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- ================= MAIN ================= -->
+          <div class="col-lg-8">
+
+            <!-- ========================================================= -->
+            <!-- 1) INDENTACIÓN -->
+            <!-- ========================================================= -->
+            <h3 class="fw-bold mb-3" id="indentacion">La indentación en Python</h3>
+            <p>
+              A diferencia de lenguajes como Java o C++ que usan llaves <code>{}</code> para definir bloques,
+              Python usa <strong>indentación (sangría)</strong>. Eso obliga a escribir código ordenado y legible.
+            </p>
+
+            <div class="row mt-4 g-3">
+              <div class="col-md-6">
+                <div class="card border-success h-100">
+                  <div class="card-header bg-success text-white fw-bold"><i
+                      class="bi bi-check-circle-fill text-success"></i>… Correcto</div>
+                  <div class="card-body bg-light font-monospace">
+                    if 5 &gt; 2:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("Cinco es mayor")
+                  </div>
+                  <div class="card-footer text-muted small">
+                    El bloque dentro del <code>if</code> está indentado.
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="card border-danger h-100">
+                  <div class="card-header bg-danger text-white fw-bold">âŒ Error (IndentationError)</div>
+                  <div class="card-body bg-light font-monospace">
+                    if 5 &gt; 2:<br>
+                    print("Cinco es mayor")
+                  </div>
+                  <div class="card-footer text-muted small">
+                    Falta sangría: Python no sabe qué pertenece al bloque.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-warning mt-3 d-flex align-items-center">
+              <i class="bi bi-exclamation-triangle-fill me-2"></i>
+              <div>
+                <strong>Recomendación:</strong> usa <strong>4 espacios</strong> por nivel de indentación.
+                Evita mezclar tabulaciones con espacios.
+              </div>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- 2) BLOQUES + EJEMPLOS CLAVE -->
+            <!-- ========================================================= -->
+            <h4 class="fw-bold mt-5 mb-3" id="bloques">¿Qué crea un bloque en Python?</h4>
+            <p class="text-muted">
+              Normalmente un bloque empieza cuando una línea termina con <code>:</code> (dos puntos).
+              Ejemplos típicos: <code>if</code>, <code>for</code>, <code>while</code>, <code>def</code>,
+              <code>class</code>, <code>try</code>.
+            </p>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-header bg-primary text-white fw-bold">Ejemplo: condicional</div>
+                  <div class="card-body bg-light font-monospace">
+                    edad = 18<br><br>
+                    if edad &gt;= 18:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("Puedes votar")<br>
+                    else:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("Aún no")
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-header bg-dark text-white fw-bold">Ejemplo: bucle</div>
+                  <div class="card-body bg-light font-monospace">
+                    for i in range(3):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("Vuelta:", i)<br><br>
+                    print("Fin del bucle")
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- 3) ERRORES COMUNES DE SINTAXIS -->
+            <!-- ========================================================= -->
+            <h4 class="fw-bold mt-5 mb-3" id="errores-comunes">Errores comunes (y cómo evitarlos)</h4>
+
+            <div class="accordion" id="accErrores">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="h1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
+                    aria-expanded="true" aria-controls="c1">
+                    1) Olvidar los dos puntos <code>:</code>
+                  </button>
+                </h2>
+                <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1" data-bs-parent="#accErrores">
+                  <div class="accordion-body">
+                    <div class="bg-light p-3 rounded font-monospace">
+                      if 10 &gt; 5<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;print("ok")
+                    </div>
+                    <div class="mt-2 text-muted">
+                      Debe ser <code>if 10 &gt; 5:</code>. Sin <code>:</code> Python no inicia el bloque.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="h2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#c2" aria-expanded="false" aria-controls="c2">
+                    2) Mezclar tabs y espacios
+                  </button>
+                </h2>
+                <div id="c2" class="accordion-collapse collapse" aria-labelledby="h2" data-bs-parent="#accErrores">
+                  <div class="accordion-body">
+                    <p class="mb-2">
+                      Si unes tabulaciones y espacios, puede salir:
+                      <code>TabError: inconsistent use of tabs and spaces</code>.
+                    </p>
+                    <ul class="mb-0">
+                      <li>Configura tu editor para insertar 4 espacios al presionar TAB.</li>
+                      <li>En VS Code: “Convert Indentation to Spaces”.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="h3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#c3" aria-expanded="false" aria-controls="c3">
+                    3) Indentar donde no va
+                  </button>
+                </h2>
+                <div id="c3" class="accordion-collapse collapse" aria-labelledby="h3" data-bs-parent="#accErrores">
+                  <div class="accordion-body">
+                    <div class="bg-light p-3 rounded font-monospace">
+                      &nbsp;&nbsp;print("Hola")
+                    </div>
+                    <p class="mt-2 mb-0 text-muted">
+                      Si indentas una línea sin haber abierto un bloque antes, puede salir:
+                      <code>IndentationError: unexpected indent</code>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- 4) COMENTARIOS EN PYTHON -->
+            <!-- ========================================================= -->
+            <h3 class="fw-bold mt-5 mb-3" id="comentarios-python">Comentarios en Python</h3>
+            <p>
+              Los comentarios son ignorados por el intérprete y sirven para documentar tu código
+              (qué hace, por qué lo hace y qué entrada/salida espera). :contentReference[oaicite:1]{index=1}
+            </p>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-header bg-primary text-white fw-bold">1) Comentario de una línea</div>
+                  <div class="card-body bg-light font-monospace text-muted">
+                    # Esto es un comentario<br>
+                    print("Hola") # Esto también
+                  </div>
+                  <div class="card-footer small text-muted">
+                    Ideal para explicar una línea o decisión rápida.
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-header bg-success text-white fw-bold">2) Docstring (multilínea)</div>
+                  <div class="card-body bg-light font-monospace text-muted">
+                    """<br>
+                    Describe una función o módulo.<br>
+                    Sirve para documentación.<br>
+                    """
+                  </div>
+                  <div class="card-footer small text-muted">
+                    Se usa mucho en funciones, clases y módulos.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-info mt-4 d-flex align-items-center">
+              <i class="bi bi-lightbulb-fill me-2"></i>
+              <div>
+                <strong>Tip práctico:</strong> Un comentario bueno explica el “por qué”, no lo obvio.
+                Mejor: <em>“Se valida para evitar datos vacíos”</em> que <em>“Se valida un if”</em>.
+              </div>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- 5) COMENTARIOS EN HTML -->
+            <!-- ========================================================= -->
+            <h3 class="fw-bold mt-5 mb-3" id="comentarios-html">Comentarios en HTML</h3>
+            <p class="text-muted">
+              En HTML los comentarios se escriben así y no se muestran en la página:
+              :contentReference[oaicite:2]{index=2}
+            </p>
+
+            <div class="bg-light border rounded p-3 font-monospace">
+              &lt;!-- Este es un comentario en HTML --&gt;<br>
+              &lt;h1&gt;Contenido visible&lt;/h1&gt;
+            </div>
+
+            <div class="row g-3 mt-2">
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-header bg-dark text-white fw-bold">¿Para qué sirve?</div>
+                  <div class="card-body">
+                    <ul class="mb-0">
+                      <li>Marcar secciones del documento</li>
+                      <li>Explicar estructura o componentes</li>
+                      <li>Dejar notas para tu equipo</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-header bg-warning fw-bold">Cuidado</div>
+                  <div class="card-body">
+                    <ul class="mb-0">
+                      <li>No pongas contraseñas o datos sensibles</li>
+                      <li>El navegador no lo muestra, pero cualquiera puede verlo en “Ver código fuente”</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- 6) TABLA COMPARATIVA -->
+            <!-- ========================================================= -->
+            <h3 class="fw-bold mt-5 mb-3" id="comparacion">Comparación rápida</h3>
+
+            <div class="table-responsive">
+              <table class="table table-bordered align-middle">
+                <thead class="table-light">
+                  <tr>
+                    <th style="width:35%;">Tema</th>
+                    <th style="width:32%;">Python</th>
+                    <th>HTML</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Bloques</strong></td>
+                    <td>Se definen por <strong>indentación</strong></td>
+                    <td>Se definen por <strong>etiquetas</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Comentarios</strong></td>
+                    <td><code>#</code> y <code>""" """</code></td>
+                    <td><code>&lt;!-- --&gt;</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Objetivo</strong></td>
+                    <td>Lógica / reglas del sistema</td>
+                    <td>Estructura / presentación</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- 7) QUIZ INTERACTIVO -->
+            <!-- ========================================================= -->
+            <h3 class="fw-bold mt-5 mb-4 text-center" id="quiz-sintaxis">
+              <i class="bi bi-patch-question"></i> Cuestionario – Sintaxis e indentación
+            </h3>
+            <p class="text-muted text-center mb-4">
+              Responde para avanzar. Cada pregunta solo puede responderse una vez.
+            </p>
+
+            <style>
+              .quiz-card-sin {
+                background: linear-gradient(135deg, #f8fafc, #ffffff);
+                border-radius: 1.2rem;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+                padding: 2rem;
+                max-width: 720px;
+                margin: auto;
+              }
+
+              .quiz-option-sin {
+                width: 100%;
+                text-align: left;
+                margin-bottom: 0.6rem;
+              }
+
+              .quiz-option-sin.correct {
+                background-color: #22c55e !important;
+                color: #fff;
+              }
+
+              .quiz-option-sin.wrong {
+                background-color: #ef4444 !important;
+                color: #fff;
+              }
+
+              .quiz-progress-sin {
+                font-size: 0.9rem;
+                color: #555;
+              }
+            </style>
+
+            <div class="quiz-card-sin">
+              <div class="quiz-progress-sin mb-2">
+                Pregunta <span id="numPreguntaSin"></span> de <span id="totalPreguntasSin"></span>
+              </div>
+
+              <h5 class="fw-bold mb-3" id="preguntaTituloSin"></h5>
+              <div id="opcionesSin"></div>
+
+              <div id="feedbackSin" class="alert d-none mt-3"></div>
+              <div id="solucionSin" class="alert alert-info d-none mt-2"></div>
+
+              <div class="text-end mt-3">
+                <button id="btnSiguienteSin" class="btn btn-primary d-none" onclick="siguientePreguntaSin()">
+                  Siguiente <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <script>
+              const preguntasSin = [
+                {
+                  titulo: "¿Qué define un bloque de código en Python?",
+                  opciones: [
+                    { texto: "Llaves { }", correcta: false },
+                    { texto: "Indentación (sangría)", correcta: true },
+                    { texto: "Puntos y comas ;", correcta: false }
+                  ],
+                  solucion: "En Python los bloques se definen por indentación. No se usan llaves."
+                },
+                {
+                  titulo: "¿Qué error aparece si falta indentación dentro de un if?",
+                  opciones: [
+                    { texto: "IndentationError", correcta: true },
+                    { texto: "NameError", correcta: false },
+                    { texto: "TypeError", correcta: false }
+                  ],
+                  solucion: "Si falta la sangría en un bloque, Python lanza IndentationError."
+                },
+                {
+                  titulo: "¿Cómo se escribe un comentario de una línea en Python?",
+                  opciones: [
+                    { texto: "// comentario", correcta: false },
+                    { texto: "# comentario", correcta: true },
+                    { texto: "<!-- comentario -->", correcta: false }
+                  ],
+                  solucion: "En Python, el comentario de una línea se hace con #."
+                },
+                {
+                  titulo: "¿Cómo se escribe un comentario en HTML?",
+                  opciones: [
+                    { texto: "# comentario", correcta: false },
+                    { texto: "<!-- comentario -->", correcta: true },
+                    { texto: "/* comentario */", correcta: false }
+                  ],
+                  solucion: "En HTML se usan comentarios con ."
+                },
+                {
+                  titulo: "¿Cuál es el uso correcto de docstrings en Python?",
+                  opciones: [
+                    { texto: "Documentar funciones, clases o módulos", correcta: true },
+                    { texto: "Reemplazar siempre todos los comentarios", correcta: false }
+                  ],
+                  solucion: 'Los docstrings (""" """) describen funciones/clases/módulos y sirven para documentación.'
+                }
+              ];
+
+              let indiceSin = 0;
+              let puntajeSin = 0;
+              let respondidaSin = false;
+
+              function cargarPreguntaSin() {
+                respondidaSin = false;
+                document.getElementById("feedbackSin").classList.add("d-none");
+                document.getElementById("solucionSin").classList.add("d-none");
+                document.getElementById("btnSiguienteSin").classList.add("d-none");
+
+                const p = preguntasSin[indiceSin];
+                document.getElementById("preguntaTituloSin").textContent = p.titulo;
+                document.getElementById("numPreguntaSin").textContent = indiceSin + 1;
+                document.getElementById("totalPreguntasSin").textContent = preguntasSin.length;
+
+                const cont = document.getElementById("opcionesSin");
+                cont.innerHTML = "";
+
+                p.opciones.forEach(op => {
+                  const b = document.createElement("button");
+                  b.className = "btn btn-outline-primary quiz-option-sin";
+                  b.textContent = op.texto;
+                  b.onclick = () => responderSin(b, op.correcta, p.solucion);
+                  cont.appendChild(b);
+                });
+              }
+
+              function responderSin(btn, correcta, solucion) {
+                if (respondidaSin) return;
+                respondidaSin = true;
+
+                const feedback = document.getElementById("feedbackSin");
+                const solucionDiv = document.getElementById("solucionSin");
+
+                document.querySelectorAll(".quiz-option-sin").forEach(b => b.disabled = true);
+
+                if (correcta) {
+                  puntajeSin++;
+                  btn.classList.add("correct");
+                  feedback.className = "alert alert-success mt-3";
+                  feedback.innerHTML = '<i class="bi bi-check-circle-fill text-success me-2"></i> Respuesta correcta.'
+                } else {
+                  btn.classList.add("wrong");
+                  feedback.className = "alert alert-warning mt-3";
+                  feedback.textContent = 'Respuesta incorrecta.'
+                  solucionDiv.textContent = solucion;
+                  solucionDiv.classList.remove("d-none");
+                }
+
+                feedback.classList.remove("d-none");
+                document.getElementById("btnSiguienteSin").classList.remove("d-none");
+              }
+
+              function siguientePreguntaSin() {
+                indiceSin++;
+                if (indiceSin < preguntasSin.length) {
+                  cargarPreguntaSin();
+                } else {
+                  mostrarResultadoSin();
+                }
+              }
+
+              function mostrarResultadoSin() {
+                const nota = Math.round((puntajeSin / preguntasSin.length) * 10);
+
+                document.querySelector(".quiz-card-sin").innerHTML = `
+              <div class="text-center">
+                <h4 class="fw-bold mb-3"><i class="bi bi-folder-fill text-warning"></i> Resultado Final</h4>
+                <div class="display-4 fw-bold text-primary mb-2">${nota}/10</div>
+                <p class="text-muted">Correctas: ${puntajeSin} de ${preguntasSin.length}</p>
+                <div class="alert ${nota >= 7 ? 'alert-success' : 'alert-warning'} mt-4">
+                  ${nota >= 7
+                    ? '<i class="bi bi-balloon-fill text-danger me-2"></i> Excelente. Ya dominas indentación y comentarios.'
+                    : '<i class="bi bi-journal-text"></i> Revisa los ejemplos y vuelve a intentarlo.'}
+                </div>
+                <button class="btn btn-outline-primary mt-3" onclick="reiniciarQuizSin()">
+                  <i class="bi bi-search"></i> Reintentar
+                </button>
+              </div>
+            `;
+              }
+
+              function reiniciarQuizSin() {
+                indiceSin = 0;
+                puntajeSin = 0;
+                location.reload();
+              }
+
+              cargarPreguntaSin();
+            </script>
+            <script>
+              let draggedSin = null;
+
+              document.querySelectorAll(".line-sin").forEach(line => {
+                line.addEventListener("dragstart", () => { draggedSin = line; });
+              });
+
+              const targetSin = document.getElementById("targetSin");
+              const poolSin = document.getElementById("poolSin");
+
+              targetSin.addEventListener("dragover", e => e.preventDefault());
+              poolSin.addEventListener("dragover", e => e.preventDefault());
+
+              targetSin.addEventListener("drop", () => {
+                if (draggedSin) targetSin.appendChild(draggedSin);
+              });
+
+              poolSin.addEventListener("drop", () => {
+                if (draggedSin) poolSin.appendChild(draggedSin);
+              });
+
+              function verificarSin() {
+                const lines = Array.from(targetSin.querySelectorAll(".line-sin")).map(x => x.dataset.line);
+                const correcto = (lines.join(",") === "1,2,3");
+
+                targetSin.classList.remove("ok-sin", "bad-sin");
+                const r = document.getElementById("resultadoSin");
+                r.classList.remove("d-none");
+
+                if (correcto) {
+                  targetSin.classList.add("ok-sin");
+                  r.className = "alert alert-success mt-3 text-center";
+                  r.innerHTML = '<i class="bi bi-balloon-fill text-danger me-2"></i> ¡Perfecto! Tu indentación está correcta.'
+                } else {
+                  targetSin.classList.add("bad-sin");
+                  r.className = "alert alert-warning mt-3 text-center";
+                  r.innerHTML = '<i class="bi bi-x-circle text-danger me-2"></i> Aún no. Recuerda: la línea dentro del if debe ir indentada.'
+                }
+              }
+
+              function reiniciarSin() {
+                Array.from(targetSin.querySelectorAll(".line-sin")).forEach(x => poolSin.appendChild(x));
+                targetSin.classList.remove("ok-sin", "bad-sin");
+                document.getElementById("resultadoSin").classList.add("d-none");
+              }
+            </script>
+
+            <!-- ========================================================= -->
+            <!-- NAV BTNS -->
+            <!-- ========================================================= -->
+            <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+              <a href="teoria_htmlpyhon.html" class="btn btn-outline-secondary rounded-pill px-4">
+                <i class="bi bi-arrow-left me-2"></i> Anterior
+              </a>
+              <a href="teoria_variablesConstantes.html" class="btn btn-primary rounded-pill px-4">
+                Siguiente: Variables <i class="bi bi-arrow-right ms-2"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Moderno -->
+  <footer class="footer-modern">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h4 class="footer-brand">
+            <i class="bi bi-braces me-2"></i>Python Academy
+          </h4>
+          <p class="footer-text">
+            Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
+            apasionados por la programación.
+          </p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Navegación</h5>
+          <ul class="footer-links">
+            <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
+            <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
+            <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Temas Populares</h5>
+          <ul class="footer-links">
+            <li><a href="../teoria/teoria_infraestructura.html"><i class="bi bi-chevron-right"></i> Backend</a></li>
+            <li><a href="../teoria/teoria_tiposDatos.html"><i class="bi bi-chevron-right"></i> Tipos de Datos</a></li>
+            <li><a href="../teoria/teoria_poo.html"><i class="bi bi-chevron-right"></i> POO</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Tecnologías</h5>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
+            <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
+            <span class="badge bg-warning bg-opacity-25 text-white px-3 py-2">MySQL</span>
+            <span class="badge bg-info bg-opacity-25 text-white px-3 py-2">HTML5</span>
+            <span class="badge bg-danger bg-opacity-25 text-white px-3 py-2">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="mb-0">
+          © 2026 <strong>Python Academy</strong>. Proyecto académico • Flask & Python
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/assets/vendor/aos/aos.js"></script>
+  <script src="../static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../static/assets/js/main.js"></script>
+  <script src="../static/assets/js/sidebar.js"></script>
+
+
+  <script>
+    // Sidebar Scroll Spy - Resaltar sección activa al hacer scroll
+    document.addEventListener('DOMContentLoaded', function () {
+      const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+      const sections = [];
+
+      // Obtener todas las secciones referenciadas
+      sidebarLinks.forEach(link => {
+        const id = link.getAttribute('href').substring(1);
+        const section = document.getElementById(id);
+        if (section) {
+          sections.push({ id, element: section, link });
+        }
+      });
+
+      // Función para actualizar el link activo
+      function updateActiveLink() {
+        let currentSection = sections[0];
+        const scrollPosition = window.scrollY + 150;
+
+        sections.forEach(section => {
+          if (section.element.offsetTop <= scrollPosition) {
+            currentSection = section;
+          }
+        });
+
+        sidebarLinks.forEach(link => link.classList.remove('active'));
+        if (currentSection) {
+          currentSection.link.classList.add('active');
+
+          // Actualizar barra de progreso
+          const progressBar = document.querySelector('.sidebar-progress-bar');
+          if (progressBar) {
+            const index = sections.indexOf(currentSection);
+            const progress = ((index + 1) / sections.length) * 100;
+            progressBar.style.width = progress + '%';
+          }
+        }
+      }
+
+      // Scroll suave al hacer clic en links
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const target = document.getElementById(targetId);
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Escuchar scroll
+      window.addEventListener('scroll', updateActiveLink);
+      updateActiveLink();
+    });
+  </script>
+
+  <script src="../static/assets/js/effects.js"></script>
+<<<<<<< HEAD
+  <script src="../static/assets/js/navbar-nested.js"></script>
+=======
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 50
+    });
+  </script>
+</body>
+
+</html>

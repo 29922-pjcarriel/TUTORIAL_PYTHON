@@ -1,0 +1,665 @@
+<<<<<<< HEAD
+﻿<!DOCTYPE html>
+=======
+<!DOCTYPE html>
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Formulario request.form · Python Academy</title>
+  <meta name="description" content="Desarrolla un formulario usando mñ©todo POST.">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="../static/assets/css/main.css" rel="stylesheet">
+  <link href="../static/assets/css/custom.css" rel="stylesheet">
+
+  <style>
+    .hero-ej {
+      background: #f8fafc;
+      border-bottom: 1px solid rgba(0, 0, 0, .08);
+      padding: 52px 0;
+    }
+
+    .hero-ej .badge {
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+    }
+
+    .hero-ej h1 {
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .hero-ej p {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .hero-top-actions {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .btn-pill {
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-weight: 700;
+    }
+
+    .btn-pill-sm {
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-weight: 700;
+    }
+
+    .ej-wrap {
+      padding: 36px 0 70px;
+    }
+
+    .ej-panel {
+      border-radius: 18px;
+      border: 1px solid rgba(0, 0, 0, .08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
+      background: #fff;
+      padding: 26px;
+    }
+
+    .ej-actions {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(0, 0, 0, .08);
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-shell {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-card {
+      width: 100%;
+      max-width: 720px;
+      border-radius: 18px;
+      border: 1px solid rgba(0, 0, 0, .08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .06);
+      background: #fff;
+      padding: 22px;
+    }
+
+    .form-card * {
+      max-width: 100%;
+    }
+
+    .ej-nav-bottom {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(0, 0, 0, .08);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .ej-nav-bottom .btn {
+      min-width: 170px;
+    }
+
+    .explain-card {
+      border: 1px solid rgba(0, 0, 0, .08);
+      border-radius: 16px;
+      padding: 18px;
+      background: #fbfdff;
+    }
+
+    .code-box {
+      background: #0b1220;
+      color: #e6edf3;
+      border-radius: 14px;
+      padding: 14px;
+      overflow: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-size: .92rem;
+      white-space: pre;
+      margin: 0;
+    }
+
+    .hint {
+      font-size: .95rem;
+      color: #556;
+    }
+
+    .python-notice {
+      background: linear-gradient(135deg, #3776ab 0%, #ffd43b 100%);
+      border-radius: 16px;
+      padding: 24px;
+      color: white;
+      margin-top: 20px;
+    }
+
+    .python-notice h5 {
+      color: white;
+      font-weight: 700;
+    }
+
+    .python-notice code {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: white;
+    }
+  </style>
+  <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+<<<<<<< HEAD
+  <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
+=======
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+</head>
+
+<body>
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+
+  <!-- Navbar Moderno -->
+  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="../index.html">
+        <i class="bi bi-braces me-2"></i>Python Academy
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-2">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="../index.html">
+              <i class="bi bi-house me-1"></i> Inicio
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-book me-1"></i> Teoría
+            </a>
+<<<<<<< HEAD
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i class="bi bi-boxes me-2 text-info"></i>Ecosistema</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/mercado.html"><i class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+=======
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i
+                    class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i
+                    class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_htmlpyhon.html"><i
+                    class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_sintaxisComentarios.html"><i
+                    class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_variablesConstantes.html"><i
+                    class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_tiposDatos.html"><i
+                    class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver
+                  todo el temario</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-code-square me-1"></i> Ejercicios
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio1.html"><i
+                    class="bi bi-1-circle me-2 text-success"></i>Formulario POST</a></li>
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio3.html"><i
+                    class="bi bi-calculator me-2 text-success"></i>Factorial</a></li>
+              <li><a class="dropdown-item py-2" href="../ejercicios/ejercicio5.html"><i
+                    class="bi bi-hash me-2 text-success"></i>Números Primos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver
+                  todos los ejercicios</a></li>
+            </ul>
+          </li>
+                              <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-database me-1"></i> Explicación CRUD
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte I.html"><i class="bi bi-car-front me-2 text-danger"></i>Vehículo - Parte I</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte II.html"><i class="bi bi-car-front-fill me-2 text-danger"></i>Vehículo - Parte II</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte III.html"><i class="bi bi-gear-wide-connected me-2 text-danger"></i>Vehículo - Parte III</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Session y login.html"><i class="bi bi-lock me-2 text-danger"></i>Session y Login</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../explicacion_crud.html"><i class="bi bi-grid me-2"></i>Ver Resumen</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../PythonvsPHP.html"><i class="bi bi-lightning me-2 text-warning"></i>Comparativa Técnica</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonvsPHP.html#tabla"><i class="bi bi-table me-2 text-warning"></i>Tabla de Datos</a></li>
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <!-- HERO -->
+    <section class="hero-ej">
+      <div class="container text-center">
+
+        <div class="hero-top-actions">
+          <a href="../ejercicios.html" class="btn btn-outline-secondary btn-pill-sm">
+            <i class="bi bi-arrow-left me-1"></i> Volver al menú
+          </a>
+        </div>
+
+        <span class="badge bg-primary mb-3">Procesamiento de formularios</span>
+        <h1 class="display-5 mb-2">Formulario request.form</h1>
+        <p class="lead text-muted">Desarrolla un formulario usando mñ©todo POST.</p>
+      </div>
+    </section>
+    <!-- HERO -->
+
+
+    <!-- CONTENIDO -->
+    <section class="ej-wrap">
+      <div class="container">
+        <div class="ej-panel">
+
+          <!-- âœ… ENUNCIADO REAL -->
+          <div class="explain-card mb-4">
+            <h4 class="fw-bold mb-2">Enunciado</h4>
+            <p class="mb-2">
+              En este ejercicio vamos a construir un <b>formulario de figuras</b> en Flask.
+              El usuario podrá escoger una figura (<b>cuadrado</b>, <b>rectángulo</b> o <b>triángulo</b>)
+              e ingresar sus lados.
+            </p>
+            <p class="mb-0 hint">
+              Objetivo: practicar <code>GET</code> vs <code>POST</code>, validaciñ³n de entradas y mostrar resultados
+              (área y perímetro).
+            </p>
+          </div>
+
+          <div class="explain-card mb-4">
+            <h4 class="fw-bold mb-3">Explicación del código (paso a paso)</h4>
+
+            <h5 class="fw-bold mb-2">0) Idea general (GET vs POST)</h5>
+            <ul class="mb-3">
+              <li><b>GET:</b> el usuario entra a la página â†’ se muestra el formulario vacío.</li>
+              <li><b>POST:</b> el usuario llena los datos y presiona <b>Calcular</b> â†’ Flask procesa y muestra
+                <b>resultado</b> o <b>errores</b>.
+              </li>
+              <li>En Flask detectamos con <code>request.method</code>.</li>
+            </ul>
+
+            <h5 class="fw-bold mb-2">1) ¿Qué datos se envían?</h5>
+            <p class="mb-2">
+              El formulario envía 4 campos: la <b>figura</b> y los lados <b>l1</b>, <b>l2</b>, <b>l3</b>.
+              Todo llega por <code>request.form</code> porque no hay archivos.
+            </p>
+            <pre class="code-box mb-3"><code>figura = request.form.get("figura")
+l1 = request.form.get("l1")
+l2 = request.form.get("l2")
+l3 = request.form.get("l3")</code></pre>
+
+            <h5 class="fw-bold mb-2">2) Guardar lo que escribió el usuario (para no perderlo)</h5>
+            <p class="mb-2">
+              Se usa <code>form_data</code> para que, si hay errores, el formulario se recargue con los valores que el
+              usuario ya escribió.
+            </p>
+            <pre class="code-box mb-3"><code>form_data = {"figura": figura, "l1": l1, "l2": l2, "l3": l3}</code></pre>
+
+            <h5 class="fw-bold mb-2">3) Validación + cálculo con <code>process_figure()</code></h5>
+            <p class="mb-2">
+              La función <code>process_figure(figura, l1, l2, l3)</code> hace TODO lo importante:
+            </p>
+            <ul class="mb-3">
+              <li>Verifica que se haya escogido una figura válida.</li>
+              <li>Convierte cada lado a nñºmero y valida que sea <b>positivo</b> (si no, agrega errores).</li>
+              <li>Calcula <b>área</b> y <b>perímetro</b> segñºn la figura.</li>
+            </ul>
+            <pre class="code-box mb-3"><code>result, errors = process_figure(figura, l1, l2, l3)</code></pre>
+
+            <h5 class="fw-bold mb-2">4) ¿Cómo calcula cada figura?</h5>
+            <ul class="mb-3">
+              <li><b>Cuadrado:</b> usa solo <code>l1</code> â†’ área = l1², perímetro = 4·l1.</li>
+              <li><b>Rectángulo:</b> usa <code>l1</code> y <code>l2</code> â†’ área = l1·l2, perímetro = 2·(l1+l2).</li>
+              <li><b>Triángulo:</b> usa <code>l1</code>, <code>l2</code>, <code>l3</code> â†’ primero valida desigualdad
+                triangular y luego calcula.</li>
+            </ul>
+
+            <h5 class="fw-bold mb-2">5) Triángulo: validación + área (Fórmula de Herón)</h5>
+            <p class="mb-2">
+              Para triángulo, se valida que los lados sí formen un triángulo:
+              <code>a+b&gt;c</code>, <code>a+c&gt;b</code> y <code>b+c&gt;a</code>.
+              Si es válido, se calcula el área con Herón:
+            </p>
+            <pre class="code-box mb-3"><code>perimetro = a + b + c
+s = perimetro / 2
+area = sqrt(s*(s-a)*(s-b)*(s-c))</code></pre>
+
+            <h5 class="fw-bold mb-2">6) Tipo de triángulo</h5>
+            <p class="mb-3">
+              Si es triángulo válido, también se clasifica como:
+              <b>equilátero</b> (3 iguales), <b>isósceles</b> (2 iguales) o <b>escaleno</b> (todos distintos).
+            </p>
+
+            <h5 class="fw-bold mb-2">7) Salida final (qué se muestra al usuario)</h5>
+            <ul class="mb-0">
+              <li>Si hay <b>errores</b>, se muestran en un recuadro rojo (<code>alert</code>).</li>
+              <li>Si hay <b>resultado</b>, se muestran la figura, lados, área, perímetro y (si aplica) tipo de
+                triángulo.</li>
+            </ul>
+          </div>
+
+
+          <!-- âœ… INTERFAZ JS -->
+          <div id="ejercicio-js" class="animate-in fade-in">
+
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-5">
+              <div class="card-header bg-primary text-white p-3">
+                <h5 class="mb-0"><i class="bi bi-calculator me-2"></i>Calculadora Geométrica y Estática</h5>
+              </div>
+              <div class="card-body p-4 bg-light">
+                <form id="form-figuras" onsubmit="calcularFiguras(event)">
+                  <div class="mb-4">
+                    <label class="form-label fw-bold text-dark">Figura Geométrica</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-white border-end-0"><i
+                          class="bi bi-bounding-box-circles text-primary"></i></span>
+                      <select id="figura" class="form-select form-select-lg border-start-0 ps-0 shadow-none"
+                        onchange="actualizarInputs()">
+                        <option value="">-- Selecciona una figura --</option>
+                        <option value="cuadrado">Cuadrado</option>
+                        <option value="rectangulo">Rectángulo</option>
+                        <option value="triangulo">Triángulo</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div id="inputs-lados" class="mb-4 d-none">
+                    <label class="form-label fw-bold text-dark">Dimensiones</label>
+                    <div class="row g-2">
+                      <div class="col-md-4" id="div-l1">
+                        <div class="input-group">
+                          <span class="input-group-text bg-white">L1</span>
+                          <input type="number" step="any" class="form-control" id="l1" placeholder="0.0">
+                        </div>
+                      </div>
+                      <div class="col-md-4" id="div-l2">
+                        <div class="input-group">
+                          <span class="input-group-text bg-white">L2</span>
+                          <input type="number" step="any" class="form-control" id="l2" placeholder="0.0">
+                        </div>
+                      </div>
+                      <div class="col-md-4" id="div-l3">
+                        <div class="input-group">
+                          <span class="input-group-text bg-white">L3</span>
+                          <input type="number" step="any" class="form-control" id="l3" placeholder="0.0">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="error-msg" class="alert alert-danger d-none mb-3"></div>
+
+                  <button type="submit"
+                    class="btn btn-primary w-100 btn-lg rounded-pill shadow-sm hover-scale transition-all">
+                    <i class="bi bi-play-circle-fill me-2"></i>Calcular Resultados
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- RESULTADOS -->
+            <div id="resultado-card"
+              class="card border-0 shadow-lg rounded-4 mt-4 animate-in slide-in-bottom bg-gradient-success-light d-none">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-4 text-success">
+                  <i class="bi bi-check-circle-fill fs-2 me-3"></i>
+                  <h4 class="mb-0 fw-bold">Resultados Obtenidos</h4>
+                </div>
+
+                <div class="row g-4 text-center">
+                  <div class="col-md-6 border-end border-light-subtle">
+                    <h6 class="text-uppercase text-muted fw-bold small ls-1">Área</h6>
+                    <div class="display-4 fw-bold text-dark" id="res-area">0</div>
+                    <span class="badge bg-success bg-opacity-25 text-success rounded-pill px-3">u²</span>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="text-uppercase text-muted fw-bold small ls-1">Perímetro</h6>
+                    <div class="display-4 fw-bold text-dark" id="res-perimetro">0</div>
+                    <span class="badge bg-primary bg-opacity-25 text-primary rounded-pill px-3">u</span>
+                  </div>
+                </div>
+
+                <hr class="border-secondary border-opacity-10 my-4">
+
+                <div class="d-flex justify-content-between text-muted small">
+                  <span><i class="bi bi-shape-square me-1"></i> Figura: <strong id="res-figura"></strong></span>
+                  <span><i class="bi bi-triangle me-1"></i> Detalle: <strong id="res-detalle">-</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function actualizarInputs() {
+              const fig = document.getElementById('figura').value;
+              const divLados = document.getElementById('inputs-lados');
+              const l1 = document.getElementById('div-l1');
+              const l2 = document.getElementById('div-l2');
+              const l3 = document.getElementById('div-l3');
+
+              if (!fig) {
+                divLados.classList.add('d-none');
+                return;
+              }
+
+              divLados.classList.remove('d-none');
+              l1.classList.remove('d-none');
+              l2.classList.remove('d-none');
+              l3.classList.remove('d-none');
+
+              document.getElementById('resultado-card').classList.add('d-none');
+
+              if (fig === 'cuadrado') {
+                l2.classList.add('d-none');
+                l3.classList.add('d-none');
+              } else if (fig === 'rectangulo') {
+                l3.classList.add('d-none');
+              }
+            }
+
+            function calcularFiguras(e) {
+              e.preventDefault();
+              const fig = document.getElementById('figura').value;
+              const l1 = parseFloat(document.getElementById('l1').value);
+              const l2 = parseFloat(document.getElementById('l2').value);
+              const l3 = parseFloat(document.getElementById('l3').value);
+              const errorDiv = document.getElementById('error-msg');
+              const resCard = document.getElementById('resultado-card');
+
+              errorDiv.classList.add('d-none');
+              resCard.classList.add('d-none');
+
+              let area = 0;
+              let perimetro = 0;
+              let detalle = "-";
+              let error = "";
+
+              if (!fig) error = "Seleccione una figura.";
+              else if (isNaN(l1) || l1 <= 0) error = "Lado 1 inválido.";
+              else if (fig === 'rectangulo' && (isNaN(l2) || l2 <= 0)) error = "Lado 2 inválido.";
+              else if (fig === 'triangulo' && (isNaN(l2) || l2 <= 0 || isNaN(l3) || l3 <= 0)) error = "Lados inválidos.";
+
+              if (error) {
+                errorDiv.textContent = error;
+                errorDiv.classList.remove('d-none');
+                return;
+              }
+
+              if (fig === 'cuadrado') {
+                area = l1 * l1;
+                perimetro = 4 * l1;
+              } else if (fig === 'rectangulo') {
+                area = l1 * l2;
+                perimetro = 2 * (l1 + l2);
+              } else if (fig === 'triangulo') {
+                if (l1 + l2 > l3 && l1 + l3 > l2 && l2 + l3 > l1) {
+                  perimetro = l1 + l2 + l3;
+                  const s = perimetro / 2;
+                  area = Math.sqrt(s * (s - l1) * (s - l2) * (s - l3));
+
+                  if (l1 === l2 && l2 === l3) detalle = "Equilátero";
+                  else if (l1 === l2 || l1 === l3 || l2 === l3) detalle = "Isñ³sceles";
+                  else detalle = "Escaleno";
+                } else {
+                  errorDiv.textContent = "Los lados no forman un triángulo válido.";
+                  errorDiv.classList.remove('d-none');
+                  return;
+                }
+              }
+
+              document.getElementById('res-area').textContent = area.toFixed(2);
+              document.getElementById('res-perimetro').textContent = perimetro.toFixed(2);
+              document.getElementById('res-figura').textContent = fig.toUpperCase();
+              document.getElementById('res-detalle').textContent = detalle;
+
+              resCard.classList.remove('d-none');
+            }
+          </script>
+
+          <!-- NAVEGACIñ“N RESTAURADA -->
+          <div class="ej-nav-bottom">
+            <button class="btn btn-outline-primary btn-pill" disabled><i class="bi bi-arrow-left me-1"></i>
+              Anterior</button>
+            <a href="ejercicio2.html" class="btn btn-primary btn-pill">Siguiente <i
+                class="bi bi-arrow-right ms-1"></i></a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Moderno -->
+  <footer class="footer-modern">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h4 class="footer-brand">
+            <i class="bi bi-braces me-2"></i>Python Academy
+          </h4>
+          <p class="footer-text">
+            Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
+            apasionados por la programación.
+          </p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Navegación</h5>
+          <ul class="footer-links">
+            <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
+            <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
+            <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Temas Populares</h5>
+          <ul class="footer-links">
+            <li><a href="../teoria/teoria_infraestructura.html"><i class="bi bi-chevron-right"></i> Backend</a></li>
+            <li><a href="../teoria/teoria_tiposDatos.html"><i class="bi bi-chevron-right"></i> Tipos de Datos</a></li>
+            <li><a href="../teoria/teoria_poo.html"><i class="bi bi-chevron-right"></i> POO</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Tecnologías</h5>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
+            <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
+            <span class="badge bg-warning bg-opacity-25 text-white px-3 py-2">MySQL</span>
+            <span class="badge bg-info bg-opacity-25 text-white px-3 py-2">HTML5</span>
+            <span class="badge bg-danger bg-opacity-25 text-white px-3 py-2">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="mb-0">
+          © 2026 <strong>Python Academy</strong>. Proyecto académico • Flask & Python
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/assets/vendor/aos/aos.js"></script>
+  <script src="../static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../static/assets/js/main.js"></script>
+  <script src="../static/assets/js/sidebar.js"></script>
+
+  <script src="../static/assets/js/effects.js"></script>
+<<<<<<< HEAD
+  <script src="../static/assets/js/navbar-nested.js"></script>
+=======
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 50
+    });
+  </script>
+</body>
+
+<<<<<<< HEAD
+</html>
+=======
+</html>
+>>>>>>> 2a0f75bdbb18c774bf6d8697d1e494ccc49324d0
