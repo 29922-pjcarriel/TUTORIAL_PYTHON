@@ -1,4 +1,4 @@
-﻿ï»¿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -28,67 +28,7 @@
       border-radius: 16px;
       padding: 1.5rem;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      max-height: calc(100vh - 120px);
-      overflow-y: auto;
-    }
 
-    .sidebar-nav h5 {
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 1rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 2px solid #667eea;
-    }
-
-    .sidebar-nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .sidebar-nav li {
-      margin-bottom: 0.5rem;
-    }
-
-    .sidebar-nav a {
-      display: block;
-      padding: 0.6rem 1rem;
-      color: #64748b;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-      border-left: 3px solid transparent;
-    }
-
-    .sidebar-nav a:hover {
-      background: rgba(102, 126, 234, 0.1);
-      color: #667eea;
-      border-left-color: #667eea;
-      padding-left: 1.2rem;
-    }
-
-    .sidebar-nav a.active {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
-      color: #667eea;
-      font-weight: 600;
-      border-left-color: #667eea;
-    }
-
-    /* Scrollbar personalizada */
-    .sidebar-nav::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    .sidebar-nav::-webkit-scrollbar-track {
-      background: #f1f5f9;
-      border-radius: 4px;
-    }
-
-    .sidebar-nav::-webkit-scrollbar-thumb {
-      background: #667eea;
-      border-radius: 4px;
     }
 
     /* Indicador de progreso */
@@ -157,7 +97,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver
+                  todo
                   el temario</a></li>
             </ul>
           </li>
@@ -210,7 +151,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver todos los ejercicios</a></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver
+                  todos los ejercicios</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -252,7 +194,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i
+                    class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -292,9 +235,13 @@
               </div>
               <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
               <ul>
-                <li><a href="#formularios-html" class="active">GET vs POST</a></li>
-                <li><a href="#captura-datos">Recibir datos con Flask</a></li>
-                <li><a href="#validacion">ValidaciÃ³n</a></li>
+                <li><a href="#formularios-html" class="active">Manejo de Formularios</a></li>
+                <li><a href="#estructura-formulario">Estructura de un Formulario HTML</a></li>
+                <li><a href="#procesamiento-flask">Procesamiento con Flask</a></li>
+                <li><a href="#metodos-get-post">Métodos GET y POST</a></li>
+                <li><a href="#subida-archivos">Subida de Archivos</a></li>
+                <li><a href="#formulario-avanzado">Formulario avanzado</a></li>
+                <li><a href="#video-embed">Video</a></li>
               </ul>
             </nav>
           </div>
@@ -302,57 +249,489 @@
           <!-- Main Content -->
           <div class="col-lg-8">
 
-            <h3 class="fw-bold mb-3" id="formularios-html">GET vs POST</h3>
-            <p>Para enviar datos al servidor, usamos el protocolo HTTP. Los dos mÃ©todos principales son:</p>
+            <!-- INTRO -->
 
-            <div class="row g-3 mb-4">
+            <h3 class="fw-bold mt-5">Manejo de Formularios con Flask</h3>
+
+            <p>
+              Aunque Python no gestiona formularios web de forma directa, puede hacerlo mediante
+              frameworks como <strong>Flask</strong>. Flask es un microframework ligero y flexible
+              ideal para aplicaciones web pequeñas y medianas. Permite conectar formularios HTML
+              con código Python para procesar la información enviada por el usuario.
+            </p>
+
+            <p>
+              Cuando el usuario envía datos desde un formulario, Flask los captura mediante el objeto
+              global <code>request</code>, permitiendo validarlos, almacenarlos o manipularlos.
+            </p>
+
+            <h5 class="mt-4">Estructura de un formulario HTML</h5>
+
+            <ul>
+              <li><strong>name:</strong> Identifica el campo en el backend.</li>
+              <li><strong>action:</strong> Endpoint que procesará los datos.</li>
+              <li><strong>method:</strong> Método HTTP (GET O POST)usado para enviar información.</li>
+            </ul>
+
+            <div class="bg-dark text-white p-3 rounded font-monospace mb-3">
+              <pre>
+                &lt;form name="vehiculo" method="POST" action="procesa.py"&gt;
+                &lt;/form&gt;
+              </pre>
+            </div>
+
+            <h5>Ejemplo práctico</h5>
+
+            <div class="bg-dark text-white p-3 rounded font-monospace">
+              <pre>
+                  &lt;form name="formulario" method="POST" action="procesa.py" &gt;
+
+                    &lt;label&gt;Ingrese su nombre&lt;/label&gt;
+                    &lt;input type="text" name="nombre"&gt;
+
+                    &lt;label&gt;Ingrese su edad&lt;/label&gt;
+                    &lt;input type="number" name="edad"&gt;
+
+                    &lt;button type="submit"&gt;Enviar datos&lt;/button&gt;
+
+                  &lt;/form&gt;
+              </pre>
+            </div>
+
+            <hr class="my-4">
+
+
+
+            <!-- ESTRUCTURA -->
+            <h3 class="fw-bold mt-5 mb-3" id="estructura-formulario">Estructura de un Formulario HTML</h3>
+
+            <p>
+              Un formulario HTML contiene elementos esenciales que permiten identificar y enviar
+              información al servidor:
+            </p>
+
+            <ul>
+              <li><strong>name:</strong> identifica el campo que será leído en el backend.</li>
+              <li><strong>action:</strong> ruta del servidor que procesará los datos.</li>
+              <li><strong>method:</strong> método HTTP(GET o POST) usado para enviar información.</li>
+            </ul>
+            <!-- CODIGO + VISTA EN PANTALLA -->
+            <div class="row g-4 mb-4">
+
+              <!-- CÓDIGO -->
               <div class="col-md-6">
-                <div class="p-3 border rounded h-100">
-                  <h5 class="text-primary fw-bold">GET</h5>
-                  <p class="small text-muted mb-0">EnvÃ­a datos en la URL. Visible para todos. Usado para bÃºsquedas.</p>
+                <div class="bg-dark text-white p-4 rounded-3 font-monospace h-100">
+                  &lt;form method="POST" action="/procesar"&gt;<br>
+                  &nbsp;&nbsp;&lt;label&gt;Nombre&lt;/label&gt;<br>
+                  &nbsp;&nbsp;&lt;input type="text" name="nombre"&gt;<br>
+                  &nbsp;&nbsp;&lt;label&gt;Edad&lt;/label&gt;<br>
+                  &nbsp;&nbsp;&lt;input type="number" name="edad"&gt;<br>
+                  &nbsp;&nbsp;&lt;button type="submit"&gt;Enviar&lt;/button&gt;<br>
+                  &lt;/form&gt;
                 </div>
               </div>
+
+              <!-- VISTA REAL -->
+              <!-- VISTA REAL INTERACTIVA -->
               <div class="col-md-6">
-                <div class="p-3 border rounded h-100 bg-light">
-                  <h5 class="text-success fw-bold">POST</h5>
-                  <p class="small text-muted mb-0">EnvÃ­a datos ocultos en el cuerpo. Seguro. Usado para contraseÃ±as y
-                    registros.</p>
+                <div class="border rounded-3 p-4 bg-light h-100">
+
+                  <form id="demoForm">
+
+                    <div class="mb-3">
+                      <label class="form-label">Nombre</label>
+                      <input type="text" id="nombre" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Edad</label>
+                      <input type="number" id="edad" class="form-control">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100"></button>
+                    Enviar
+                    </button>
+
+                  </form>
+
+                  <!-- RESULTADO -->
+                  <div id="resultado" class="alert alert-success mt-3 d-none"></div>
+
                 </div>
               </div>
+
+              <h3 class="fw-bold mt-5" id="procesamiento-flask">Procesamiento con Flask</h3>
+
+              <div class="row">
+
+                <!-- COLUMNA CODIGO -->
+                <div class="col-md-6">
+
+                  <div class="card shadow-sm border-0">
+                    <div class="card-header bg-dark text-white">
+                      Código Flask
+                    </div>
+
+                    <div class="card-body bg-light font-monospace">
+
+                      <pre>
+                          from flask import Flask, render_template, request
+
+                          app = Flask(__name__)
+
+                          @app.route('/', methods=['GET','POST'])
+                          def index():
+                              if request.method == 'POST':
+                                  nombre = request.form['nombre']
+                                  edad = request.form['edad']
+                                  return f"Recibido: {nombre} - {edad}"
+                              return render_template('form.html')
+
+                          app.run(debug=True)
+                      </pre>
+
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- COLUMNA VISUAL -->
+                <div class="col-md-6">
+
+                  <div class="card shadow-sm border-0">
+                    <div class="card-header bg-primary text-white">
+                      Visualización en pantalla
+                    </div>
+
+                    <div class="card-body">
+
+                      <form id="flaskDemo">
+
+                        <input id="fname" class="form-control mb-2" placeholder="Nombre">
+                        <input id="fedad" class="form-control mb-2" placeholder="Edad">
+
+                        <button class="btn btn-success w-100">
+                          Enviar (Simulación POST)
+                        </button>
+
+                      </form>
+
+                      <div id="vistaDatos" class="alert alert-info mt-3 d-none"></div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+
+
+              <!-- GET POST -->
+              <h3 class="fw-bold mt-5 mb-3" id="metodos-get-post">Métodos GET y POST</h3>
+
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <div class="p-3 border rounded h-100">
+                    <h5 class="text-primary fw-bold">GET</h5>
+                    <p class="small mb-0">
+                      Envía los datos a través de la URL y es utilizado en consultas simples.
+                      En Flask se accede mediante <code>request.args</code>.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="p-3 border rounded h-100 bg-light">
+                    <h5 class="text-success fw-bold">POST</h5>
+                    <p class="small mb-0">
+                      Envía los datos dentro del cuerpo de la petición HTTP,
+                      siendo más seguro para información sensible.
+                      Se accede con <code>request.form</code>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SUBIDA DE ARCHIVOS  -->
+          <h3 class="fw-bold mt-5" id="subida-archivos">
+Subida de Archivos
+</h3>
+
+<!-- TEORIA -->
+<p>
+La subida de archivos permite enviar documentos, imágenes u otros recursos
+desde el navegador hacia el servidor. En aplicaciones desarrolladas con Flask,
+esto se realiza mediante formularios HTML que incluyen una configuración especial
+para transportar archivos binarios.
+</p>
+
+<p>
+Para que el proceso funcione correctamente deben cumplirse ciertas condiciones:
+</p>
+
+<ul>
+  <li><b>enctype="multipart/form-data"</b> — Permite enviar archivos en la petición HTTP.</li>
+  <li><b>request.files</b> — Flask utiliza este objeto para acceder al archivo recibido.</li>
+  <li><b>secure_filename()</b> — Evita problemas de seguridad con nombres maliciosos.</li>
+  <li><b>Validación</b> — Siempre verificar tamaño, extensión y tipo del archivo.</li>
+</ul>
+
+<p>
+El siguiente ejemplo muestra el código HTML necesario y una simulación visual
+de cómo se vería el formulario en pantalla.
+</p>
+
+
+<!-- CODIGO + VISUAL -->
+<div class="row g-4 mb-4">
+
+<!-- COLUMNA CODIGO -->
+<div class="col-md-6">
+
+<div class="card shadow-sm border-0">
+<div class="card-header bg-dark text-white">
+Código
+</div>
+
+<div class="card-body bg-light font-monospace">
+
+<pre>
+&lt;form method="POST"
+enctype="multipart/form-data"
+action="/subir"&gt;
+
+  &lt;label&gt;Ingrese su nombre&lt;/label&gt;
+  &lt;input type="text" name="nombre"&gt;
+
+  &lt;label&gt;Ingrese su edad&lt;/label&gt;
+  &lt;input type="number" name="edad"&gt;
+
+  &lt;input type="file" name="archivo"&gt;
+
+  &lt;button type="submit"&gt;Enviar datos&lt;/button&gt;
+
+&lt;/form&gt;
+</pre>
+
+</div>
+</div>
+
+</div>
+
+
+<!-- COLUMNA VISUAL -->
+<div class="col-md-6">
+
+<div class="card shadow-sm border-0">
+<div class="card-header bg-primary text-white">
+Visualización en pantalla
+</div>
+
+<div class="card-body">
+
+<form onsubmit="event.preventDefault(); simularSubida();">
+
+<label class="form-label">Ingrese su nombre</label>
+<input class="form-control mb-2">
+
+<label class="form-label">Ingrese su edad</label>
+<input type="number" class="form-control mb-2">
+
+<input type="file" id="archivoInput" class="form-control mb-3">
+
+<button class="btn btn-success w-100">
+Enviar datos
+</button>
+
+</form>
+
+<div id="resultadoArchivo"
+class="alert alert-info mt-3 d-none"></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<p class="mt-3">
+El siguiente código pertenece al servidor Flask (<b>app.py</b>) y se encarga
+de recibir el archivo enviado desde el formulario HTML mediante
+<b>request.files</b>. Aquí se valida el nombre y se guarda de forma segura.
+</p>
+
+<!-- BLOQUE FLASK BONITO -->
+<div class="col-md-12 mt-4">
+
+  <div class="card shadow border-0">
+
+    <div class="card-header text-white fw-bold"
+         style="background: linear-gradient(90deg,#ff7b00,#ffb347)">
+      <i class="bi bi-terminal me-2"></i>
+      Backend Flask — Recepción del archivo (app.py)
+    </div>
+
+    <div class="card-body bg-dark text-light font-monospace">
+
+<pre>
+from flask import Flask, request
+from werkzeug.utils import secure_filename
+import os
+
+app = Flask(__name__)
+
+UPLOAD_FOLDER = "uploads"
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+
+@app.route("/upload", methods=["POST"])
+def upload():
+
+    # Flask recibe el archivo enviado desde HTML
+    archivo = request.files['archivo']
+
+    if archivo.filename != "":
+        nombre_seguro = secure_filename(archivo.filename)
+
+        archivo.save(
+            os.path.join(
+                app.config["UPLOAD_FOLDER"],
+                nombre_seguro
+            )
+        )
+
+    return "Archivo recibido correctamente"
+</pre>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+              <!-- FORMULARIO AVANZADO (WIZARD) -->
+              <h3 class="fw-bold mt-5 mb-3" id="formulario-avanzado">Formulario Avanzado</h3>
+
+              <div class="border rounded-3 p-4 bg-light mb-4">
+                <form id="advancedForm" method="POST" enctype="multipart/form-data" novalidate>
+
+                  <div class="form-step" data-step="1">
+                    <div class="mb-3">
+                      <label class="form-label">Pregunta 1: ¿Qué atributo HTML identifica el campo que será leído en el
+                        backend?</label>
+                      <input type="text" id="q1" name="q1" class="form-control" placeholder="Ej: name" required>
+                    </div>
+                  </div>
+
+                  <div class="form-step d-none" data-step="2">
+                    <div class="mb-3">
+                      <label class="form-label">Pregunta 2: ¿Qué valor debe tener el atributo <em>enctype</em> para
+                        subir archivos?</label>
+                      <input type="text" id="q2" name="q2" class="form-control" placeholder="Ej: multipart/form-data"
+                        required>
+                    </div>
+                  </div>
+
+                  <div class="form-step d-none" data-step="3">
+                    <div class="mb-3">
+                      <label class="form-label">Pregunta 3: ¿Dónde leerías los datos enviados por POST en Flask?</label>
+                      <div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="q3" id="q3_opt1" value="request.form"
+                            checked>
+                          <label class="form-check-label" for="q3_opt1">request.form</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="q3" id="q3_opt2" value="request.args">
+                          <label class="form-check-label" for="q3_opt2">request.args</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="q3" id="q3_opt3" value="request.files">
+                          <label class="form-check-label" for="q3_opt3">request.files</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-step d-none" data-step="4">
+                    <div class="mb-3">
+                      <label class="form-label">Pregunta 4: ¿Qué método HTTP es más adecuado para enviar información
+                        sensible o subir archivos?</label>
+                      <select id="q4" name="q4" class="form-select" required>
+                        <option value="POST">POST</option>
+                        <option value="GET">GET</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-step d-none" data-step="5">
+                    <div class="mb-3">
+                      <label class="form-label">Pregunta 5: En 1-2 líneas, ¿cómo validarías y procesarías un formulario
+                        en el servidor?</label>
+                      <textarea id="q5" name="q5" class="form-control" rows="3" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Tecnologías relacionadas (marca las que apliquen)</label>
+                      <div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="tech_py" name="tech" value="Python">
+                          <label class="form-check-label" for="tech_py">Python</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="tech_flask" name="tech" value="Flask">
+                          <label class="form-check-label" for="tech_flask">Flask</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="tech_html" name="tech" value="HTML">
+                          <label class="form-check-label" for="tech_html">HTML</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between mt-3">
+                    <button type="button" id="prevBtn" class="btn btn-outline-secondary" disabled>Anterior</button>
+                    <div>
+                      <button type="button" id="nextBtn" class="btn btn-primary">Siguiente</button>
+                      <button type="submit" id="submitBtn" class="btn btn-success d-none">Enviar respuestas</button>
+                    </div>
+                  </div>
+
+                </form>
+
+                <div id="advancedResult" class="alert alert-success mt-3 d-none"></div>
+              </div>
+
+              <!-- VIDEO EMBED -->
+              <h3 class="fw-bold mt-4 mb-3" id="video-embed">Video: Formularios con Flask (ejemplo)</h3>
+
+              <div class="ratio ratio-16x9 mb-4">
+                <iframe src="https://www.youtube.com/embed/Z1RJmh_OqeA" title="Flask Tutorial - Forms"
+                  allowfullscreen></iframe>
+              </div>
+
+              <!-- CONCLUSION -->
+              <div class="alert alert-info mt-5">
+                El manejo de formularios constituye una habilidad fundamental en el desarrollo web,
+                ya que permite la comunicación directa entre usuarios y aplicaciones. La integración
+                de HTML con Python mediante Flask facilita la construcción de sistemas dinámicos,
+                interactivos y orientados a la experiencia del usuario.
+              </div>
+
             </div>
 
-            <h3 class="fw-bold mt-5 mb-3" id="captura-datos">Recibir datos con Flask</h3>
-            <p>Flask usa el objeto global <code>request</code> para capturar la informaciÃ³n.</p>
-
-            <div class="bg-dark text-white p-4 rounded-3 font-monospace">
-              from flask import request<br><br>
-
-              @app.route('/login', methods=['POST'])<br>
-              def login():<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;# Capturar lo que el usuario escribiÃ³ en el input "username"<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;usuario = request.form['username']<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;clave = request.form['password']<br><br>
-              &nbsp;&nbsp;&nbsp;&nbsp;return f"Intentando entrar con {usuario}"
-            </div>
-
-            <h3 class="fw-bold mt-5 mb-3" id="validacion">ValidaciÃ³n</h3>
-            <div class="alert alert-info mt-4">
-              <strong>Importante:</strong> El <code>name="username"</code> en tu HTML debe coincidir con lo que pides en
-              Python.
-            </div>
-
-            <div class="d-flex justify-content-between mt-5 pt-4 border-top">
-              <a href="teoria_funciones.html" class="btn btn-outline-secondary rounded-pill px-4">
-                <i class="bi bi-arrow-left me-2"></i> Anterior
-              </a>
-              <a href="teoria_arreglos.html" class="btn btn-primary rounded-pill px-4">
-                Siguiente: Arreglos <i class="bi bi-arrow-right ms-2"></i>
-              </a>
-            </div>
 
           </div>
         </div>
-      </div>
     </section>
   </main>
 
@@ -424,10 +803,11 @@
 
 
   <script>
-    // Sidebar Scroll Spy - Resaltar secciÃ³n activa al hacer scroll
+    // Sidebar Scroll Spy - Resaltar sección activa al hacer scroll
     document.addEventListener('DOMContentLoaded', function () {
       const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
       const sections = [];
+      const OFFSET = 180; // Offset consistente para navbar
 
       // Obtener todas las secciones referenciadas
       sidebarLinks.forEach(link => {
@@ -438,16 +818,23 @@
         }
       });
 
-      // FunciÃ³n para actualizar el link activo
+      // Función para actualizar el link activo
       function updateActiveLink() {
-        let currentSection = sections[0];
-        const scrollPosition = window.scrollY + 150;
+        const scrollPosition = window.scrollY + OFFSET;
+        let currentSection = null;
 
-        sections.forEach(section => {
-          if (section.element.offsetTop <= scrollPosition) {
-            currentSection = section;
+        // Recorrer desde la última sección a la primera para encontrar la más cercana
+        for (let i = sections.length - 1; i >= 0; i--) {
+          if (sections[i].element.offsetTop <= scrollPosition) {
+            currentSection = sections[i];
+            break;
           }
-        });
+        }
+
+        // Si no encontró ninguna, usar la primera
+        if (!currentSection && sections.length > 0) {
+          currentSection = sections[0];
+        }
 
         sidebarLinks.forEach(link => link.classList.remove('active'));
         if (currentSection) {
@@ -471,7 +858,7 @@
           const target = document.getElementById(targetId);
           if (target) {
             window.scrollTo({
-              top: target.offsetTop - 100,
+              top: target.offsetTop - OFFSET,
               behavior: 'smooth'
             });
           }
@@ -487,15 +874,219 @@
   <script src="../static/assets/js/effects.js"></script>
   <script src="../static/assets/js/navbar-nested.js"></script>
   <script>
-    // Initialize AOS
-    AOS.init({
-      duration: 800,
-      easing: 'ease-out-cubic',
-      once: true,
-      offset: 50
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const links = document.querySelectorAll('.sidebar-nav a');
+      const OFFSET = 120; // Altura de la navbar fija (espacio reservado)
+
+
+
+      function activate(link) {
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+
+
+      links.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          const id = this.getAttribute('href').substring(1);
+          const target = document.getElementById(id);
+          if (!target) return;
+
+          activate(this); // Marca el link como activo
+
+          // Calcula la posición exacta considerando la navbar
+          const y = target.getBoundingClientRect().top + window.pageYOffset - OFFSET;
+
+          window.scrollTo({
+            top: y,
+            behavior: 'smooth' // Scroll suave y elegante
+          });
+        });
+      });
+
+
+      window.addEventListener('scroll', () => {
+        let current = null;
+
+        links.forEach(link => {
+          const id = link.getAttribute('href').substring(1);
+          const section = document.getElementById(id);
+          if (!section) return;
+
+          // Obtiene la distancia desde la sección hasta el top de la pantalla
+          const top = section.getBoundingClientRect().top;
+
+          // Si la sección está dentro del rango visible (top <= 130px), es la actual
+          // El +10 da un pequeño margen de precisión
+          if (top <= OFFSET + 10) {
+            current = link;
+          }
+        });
+
+        if (current) activate(current); // Actualiza el sidebar
+      });
+
     });
   </script>
+  <script>
+    function simularSubida() {
+
+      let archivo =
+        document.getElementById("archivoInput").files[0];
+
+      let box =
+        document.getElementById("resultadoArchivo");
+
+      if (!archivo) {
+        box.innerHTML = " No seleccionaste archivo";
+        box.classList.remove("d-none");
+        return;
+      }
+
+      box.innerHTML =
+        `<b>Archivo enviado al servidor Flask:</b><br>
+Nombre: ${archivo.name}<br>
+Tamaño: ${(archivo.size / 1024).toFixed(2)} KB<br>
+Tipo: ${archivo.type}<br><br>
+✔ Subida simulada correctamente`;
+
+      box.classList.remove("d-none");
+
+    }
+  </script>
+
+  <script>
+    document.getElementById("demoForm").addEventListener("submit", function (e) {
+
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value;
+      const edad = document.getElementById("edad").value;
+
+      const salida = document.getElementById("resultado");
+
+      salida.innerHTML =
+        "<strong>Datos recibidos (POST simulado)</strong><br>" +
+        "Nombre: " + nombre + "<br>" +
+        "Edad: " + edad;
+
+      salida.classList.remove("d-none");
+
+    });
+  </script>
+  <script>
+    document.getElementById("flaskDemo").addEventListener("submit", function (e) {
+
+      e.preventDefault();
+
+      let nombre = document.getElementById("fname").value;
+      let edad = document.getElementById("fedad").value;
+
+      let salida =
+        `<b>Datos enviados al servidor Flask:</b><br>
+Nombre: ${nombre}<br>
+Edad: ${edad}<br><br>
+<b>Respuesta simulada:</b><br>
+Recibido: ${nombre} - ${edad}`;
+
+      let box = document.getElementById("vistaDatos");
+      box.innerHTML = salida;
+      box.classList.remove("d-none");
+
+    });
+  </script>
+
+
+  <script>
+    // Wizard: mostrar pasos, validar y navegar
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('advancedForm');
+      const steps = Array.from(form.querySelectorAll('.form-step'));
+      let current = 0;
+
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const submitBtn = document.getElementById('submitBtn');
+
+      function showStep(index) {
+        steps.forEach((s, i) => {
+          if (i === index) s.classList.remove('d-none'); else s.classList.add('d-none');
+        });
+        prevBtn.disabled = index === 0;
+        nextBtn.classList.toggle('d-none', index === steps.length - 1);
+        submitBtn.classList.toggle('d-none', index !== steps.length - 1);
+      }
+
+      function validateStep(index) {
+        const inputs = Array.from(steps[index].querySelectorAll('input, textarea, select'));
+        for (const el of inputs) {
+          if (el.hasAttribute('required') && !el.value) {
+            el.reportValidity();
+            return false;
+          }
+        }
+        return true;
+      }
+
+      nextBtn.addEventListener('click', function () {
+        if (!validateStep(current)) return;
+        if (current < steps.length - 1) current++;
+        showStep(current);
+      });
+
+      prevBtn.addEventListener('click', function () {
+        if (current > 0) current--;
+        showStep(current);
+      });
+
+      showStep(current);
+
+      // Envío final
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!validateStep(current)) return;
+
+        const q1 = document.getElementById('q1').value.trim().toLowerCase();
+        const q2 = document.getElementById('q2').value.trim().toLowerCase();
+        const q3El = document.querySelector('input[name="q3"]:checked');
+        const q3 = q3El ? q3El.value : '';
+        const q4 = document.getElementById('q4').value;
+        const q5 = document.getElementById('q5').value.trim();
+
+        let score = 0;
+        if (q1 === 'name') score += 1;
+        if (q2 === 'multipart/form-data' || q2 === 'multipart/formdata') score += 1;
+        if (q3 === 'request.form') score += 1;
+        if (q4 === 'POST') score += 1;
+
+        const techChecks = [];
+        document.querySelectorAll('input[name="tech"]:checked').forEach(cb => techChecks.push(cb.value));
+
+        const result = document.getElementById('advancedResult');
+        result.classList.remove('d-none');
+        result.innerHTML = '<strong>Resumen de respuestas</strong><br>' +
+          'P1: ' + q1 + '<br>' +
+          'P2: ' + q2 + '<br>' +
+          'P3: ' + q3 + '<br>' +
+          'P4: ' + q4 + '<br>' +
+          'P5: ' + (q5 || '—') + '<br>' +
+          'Tecnologías: ' + (techChecks.length ? techChecks.join(', ') : '—') + '<br><br>' +
+          '<strong>Puntaje (respuestas automáticas):</strong> ' + score + ' / 4';
+
+        const hints = [];
+        if (q1 !== 'name') hints.push('P1: usa "name" como atributo para identificar campos.');
+        if (!(q2 === 'multipart/form-data' || q2 === 'multipartform-data' || q2 === 'multipart/formdata')) hints.push('P2: el enctype correcto es "multipart/form-data".');
+        if (q3 !== 'request.form') hints.push('P3: los datos POST generalmente se leen con request.form.');
+        if (q4 !== 'POST') hints.push('P4: para enviar información sensible o archivos usa POST.');
+        if (hints.length) result.innerHTML += '<hr><em>' + hints.join(' ') + '</em>';
+      });
+    });
+  </script>
+
+
 </body>
 
 </html>
-
