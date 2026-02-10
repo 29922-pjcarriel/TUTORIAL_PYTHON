@@ -90,6 +90,10 @@
       background: #667eea;
       border-radius: 4px;
     }
+    h3[id] {
+  scroll-margin-top: 120px;
+}
+
 
     /* Indicador de progreso */
     .sidebar-progress {
@@ -157,7 +161,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver
+                  todo
                   el temario</a></li>
             </ul>
           </li>
@@ -210,7 +215,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver todos los ejercicios</a></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver
+                  todos los ejercicios</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -252,7 +258,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i
+                    class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -292,70 +299,307 @@
               </div>
               <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
               <ul>
-                <li><a href="#listas" class="active">Listas (Lists)</a></li>
-                <li><a href="#tuplas">Tuplas (Tuples)</a></li>
-                <li><a href="#diccionarios">Diccionarios (Dicts)</a></li>
+                <li><a href="#lista" class="active">Listas</a></li>
+                <li><a href="#matrices">Matrices / Tablas</a></li>
+                <li><a href="#diccionarios">Diccionarios</a></li>
               </ul>
+
             </nav>
           </div>
 
           <!-- Main Content -->
+          <!-- ===================================================== -->
+          <!-- LISTAS COMPLETO (según imágenes) -->
+          <!-- ===================================================== -->
           <div class="col-lg-8">
 
-            <h3 class="fw-bold mb-3" id="listas">1. Listas (Lists)</h3>
+            <h3 class="fw-bold mb-3" id="lista">1. Listas (Lists) / Arreglos de Datos</h3>
+
             <div class="card mb-4 border-0 shadow-sm">
               <div class="card-header bg-primary text-white fw-bold">1. Listas (Lists)</div>
               <div class="card-body">
-                <p>Ordenadas y modificables. Se usan corchetes <code>[]</code>.</p>
-                <div class="bg-light p-2 font-monospace rounded">
-                  frutas = ["Manzana", "Banana", "Cereza"]<br>
-                  frutas.append("Naranja") # Agrega al final<br>
-                  print(frutas[0]) # Salida: Manzana
-                </div>
-              </div>
-            </div>
 
-            <h3 class="fw-bold mb-3" id="tuplas">2. Tuplas (Tuples)</h3>
-            <div class="card mb-4 border-0 shadow-sm">
-              <div class="card-header bg-success text-white fw-bold">2. Tuplas (Tuples)</div>
-              <div class="card-body">
-                <p>Ordenadas pero <strong>INMUTABLES</strong> (no se pueden cambiar). Se usan paréntesis
-                  <code>()</code>.
+                <p>
+                  Las listas en Python son una forma de guardar varios datos dentro de una sola variable.
+                  Cada elemento tiene una posición llamada <strong>índice</strong> (empieza desde 0).
                 </p>
-                <div class="bg-light p-2 font-monospace rounded">
-                  coordenadas = (10, 20)<br>
-                  # coordenadas[0] = 15 <-- ESTO ERROR </div>
-                </div>
-              </div>
 
-              <h3 class="fw-bold mb-3" id="diccionarios">3. Diccionarios (Dicts)</h3>
-              <div class="card mb-4 border-0 shadow-sm">
-                <div class="card-header bg-warning text-dark fw-bold">3. Diccionarios (Dicts)</div>
-                <div class="card-body">
-                  <p>Colección de pares <strong>Clave: Valor</strong>. Se usan llaves <code>{}</code>.</p>
-                  <div class="bg-light p-2 font-monospace rounded">
-                    alumno = {<br>
-                    &nbsp;&nbsp;"nombre": "Elena",<br>
-                    &nbsp;&nbsp;"curso": "Python",<br>
-                    &nbsp;&nbsp;"nota": 10<br>
-                    }<br>
-                    print(alumno["nombre"])
+                <p class="mb-2"><strong>Ejemplo (lista con varios tipos):</strong></p>
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  mi_lista = ["Texto", 45, 3.14, True, [1, 2, 3]]
+                </div>
+
+                <hr>
+
+                <h5 class="mb-2">Arreglos unidimensionales</h5>
+                <p>Son listas que almacenan valores de forma secuencial en una sola dimensión.</p>
+
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  ciudades = ["Quito", "Guayaquil", "Cuenca"]
+                </div>
+
+                <div class="border rounded p-2 bg-white mb-3">
+                  <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <span class="badge bg-secondary">Índice 0 → Quito</span>
+                    <span class="badge bg-secondary">Índice 1 → Guayaquil</span>
+                    <span class="badge bg-secondary">Índice 2 → Cuenca</span>
                   </div>
                 </div>
-              </div>
 
-              <div class="d-flex justify-content-between mt-5 pt-4 border-top">
-                <a href="teoria_manejoFormularios.html" class="btn btn-outline-secondary rounded-pill px-4">
-                  <i class="bi bi-arrow-left me-2"></i> Anterior
-                </a>
-                <a href="teoria_poo.html" class="btn btn-primary rounded-pill px-4">
-                  Siguiente: POO <i class="bi bi-arrow-right ms-2"></i>
-                </a>
-              </div>
+                <hr>
 
+                <h5 class="mb-2">Declaración de listas en Python</h5>
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  EjemploLista = []<br>
+                  otraLista = list()<br><br>
+                  EjemploLista = [1, 2, True, "Hola", 5.8]<br>
+                  otraLista = list([4, 9, False, "texto"])
+                </div>
+
+                <hr>
+
+                <h5 class="mb-2">Agregar elementos a la lista</h5>
+                <p>Se puede usar <code>append()</code> para agregar al final.</p>
+
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  paises = []<br>
+                  paises.append("Ecuador")<br>
+                  paises.append("Perú")<br>
+                  paises.append("Colombia")
+                </div>
+
+                <div class="border rounded p-2 bg-white text-center mb-3">
+                  ['Ecuador', 'Perú', 'Colombia']
+                </div>
+
+                <p class="mb-2"><strong>Unir listas (como en tu imagen):</strong></p>
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  numeros = []<br>
+                  numeros = numeros + [10, 5, 3]<br>
+                  print(numeros)
+                </div>
+
+                <div class="border rounded p-2 bg-white text-center mb-3">
+                  [10, 5, 3]
+                </div>
+
+                <hr>
+
+                <h5 class="mb-2">Mostrar elementos de la lista</h5>
+                <p>Para mostrar un elemento específico se usa su índice.</p>
+
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  print(paises) <span class="text-muted"># muestra toda la lista</span><br>
+                  print(paises[0]) <span class="text-muted"># Ecuador</span><br>
+                  print(paises[2]) <span class="text-muted"># Colombia</span>
+                </div>
+
+                <div class="border rounded p-2 bg-white mb-3">
+                  <div><strong>Salida:</strong> Ecuador / Colombia</div>
+                </div>
+
+                <hr>
+
+                <h5 class="mb-2">Índices negativos</h5>
+                <p>Si el índice es negativo, se cuenta desde el final: <code>-1</code> es el último.</p>
+
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  print(paises[-3])<br>
+                  print(paises[-2])<br>
+                  print(paises[-1])
+                </div>
+
+                <div class="border rounded p-2 bg-white text-center mb-3">
+                  Ecuador<br>Perú<br>Colombia
+                </div>
+
+                <hr>
+
+                <h5 class="mb-2">Longitud de una lista</h5>
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  cars = ["Ford", "Volvo", "BMW"]<br>
+                  x = len(cars)<br>
+                  print(x)
+                </div>
+
+                <div class="border rounded p-2 bg-white text-center mb-3">
+                  3
+                </div>
+
+                <hr>
+
+                <h5 class="mb-2">Elementos de la lista en bucle</h5>
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  edades = [20, 41, 6, 18, 23]<br>
+                  for edad in edades:<br>
+                  &nbsp;&nbsp;print(edad)
+                </div>
+
+                <hr>
+
+                <h5 class="mb-2">Rango (range) con índices</h5>
+                <p>Sirve para recorrer posiciones con <code>for</code> usando índices.</p>
+
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  for i in range(len(edades)):<br>
+                  &nbsp;&nbsp;print(edades[i])
+                </div>
+
+                <p class="mb-2"><strong>También se puede con while:</strong></p>
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  indice = 0<br>
+                  while indice &lt; len(edades):<br>
+                  &nbsp;&nbsp;print(edades[indice])<br>
+                  &nbsp;&nbsp;indice += 1
+                </div>
+
+                <hr>
+
+                <h5 class="mb-2">Remover elementos de una lista</h5>
+                <p>
+                  <code>pop()</code> elimina por índice, y <code>remove()</code> elimina por valor (solo la primera
+                  coincidencia).
+                </p>
+
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  palabras = ['hola', 'hello', 'ola']<br>
+                  palabras.pop(1)<br>
+                  print(palabras)
+                </div>
+
+                <div class="border rounded p-2 bg-white text-center mb-4">
+                  ['hola', 'ola']
+                </div>
+
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  palabras = ['hola', 'hello', 'hello', 'ola']<br>
+                  palabras.remove('hello')<br>
+                  print(palabras)
+                </div>
+
+                <div class="border rounded p-2 bg-white text-center">
+                  ['hola', 'hello', 'ola']
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ===================================================== -->
+            <!-- LISTAS DE LISTAS (MATRICES / TABLAS) -->
+            <!-- ===================================================== -->
+
+            <h3 class="fw-bold mb-3" id="matrices">2. Listas de listas (Matrices / Tablas)</h3>
+
+            <div class="card mb-4 border-0 shadow-sm">
+              <div class="card-header bg-success text-white fw-bold">Listas de listas (Matrices)</div>
+              <div class="card-body">
+
+                <p>
+                  Una matriz es una lista que contiene otras listas. Para acceder a un valor se usan dos índices:
+                  <code>[fila][columna]</code>.
+                </p>
+
+                <p class="mb-2"><strong>Matriz bidimensional:</strong></p>
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  matriz = [<br>
+                  &nbsp;&nbsp;[1, 2],<br>
+                  &nbsp;&nbsp;[4, 5]<br>
+                  ]
+                </div>
+
+                <p class="mb-2"><strong>Recorrer con for anidados:</strong></p>
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  for fila in matriz:<br>
+                  &nbsp;&nbsp;for col in fila:<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;print(col)
+                </div>
+
+                <p class="mb-2"><strong>Ejemplo de tabla (como tu imagen):</strong></p>
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  EjemploTabla = [["Juan","Laura"],[21,32]]<br>
+                  print(EjemploTabla[0][0])<br>
+                  print(EjemploTabla[-1][1])<br>
+                  print(EjemploTabla[0])
+                </div>
+
+                <div class="border rounded p-2 bg-white mb-3">
+                  <strong>Salida:</strong> Juan — 32 — ['Juan','Laura']
+                </div>
+
+                <p class="mb-2"><strong>Recorrer con índices (for + range):</strong></p>
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  for i in range(len(EjemploTabla)):<br>
+                  &nbsp;&nbsp;for j in range(len(EjemploTabla[i])):<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;print(EjemploTabla[i][j])
+                </div>
+
+                <p class="mb-2"><strong>Recorrer con while anidados:</strong></p>
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  fila = 0<br>
+                  while fila &lt; len(EjemploTabla):<br>
+                  &nbsp;&nbsp;columna = 0<br>
+                  &nbsp;&nbsp;while columna &lt; len(EjemploTabla[fila]):<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;print(EjemploTabla[fila][columna])<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;columna += 1<br>
+                  &nbsp;&nbsp;fila += 1
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ===================================================== -->
+            <!-- DICCIONARIOS (según imágenes) -->
+            <!-- ===================================================== -->
+
+            <h3 class="fw-bold mb-3" id="diccionarios">3. Diccionarios (Dicts) / Listas Asociativas</h3>
+
+            <div class="card mb-4 border-0 shadow-sm">
+              <div class="card-header bg-warning text-dark fw-bold">3. Diccionarios (Dicts)</div>
+              <div class="card-body">
+
+                <p>
+                  Un diccionario almacena elementos como pares <strong>clave : valor</strong>.
+                  Se declara con llaves <code>{ }</code>.
+                </p>
+
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  EjemploDiccionario = {}<br>
+                  otroDiccionario = {<br>
+                  &nbsp;&nbsp;"nombre": "Alberto",<br>
+                  &nbsp;&nbsp;"usuario": "alb545"<br>
+                  }
+                </div>
+
+                <h6 class="fw-bold">Mostrar elementos del diccionario</h6>
+                <div class="bg-light p-3 font-monospace rounded mb-3">
+                  EjemploDiccionario = {<br>
+                  &nbsp;&nbsp;"nombre": "Juan",<br>
+                  &nbsp;&nbsp;"usuario": "jn123"<br>
+                  }<br><br>
+                  print(EjemploDiccionario["nombre"])<br>
+                  print(EjemploDiccionario["usuario"])
+                </div>
+
+                <div class="border rounded p-2 bg-white text-center">
+                  Juan<br>jn123
+                </div>
+
+              </div>
             </div>
           </div>
+
+          <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+            <a href="teoria_ManejoFormularios.html" class="btn btn-outline-secondary rounded-pill px-4">
+              <i class="bi bi-arrow-left me-2"></i> Anterior: Manejo de Formularios
+            </a>
+            <a href="teoria_poo.html" class="btn btn-primary rounded-pill px-4">
+              Siguiente: Clase vs Objeto <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+
         </div>
+      </div>
+      </div>
     </section>
   </main>
 
@@ -474,7 +718,8 @@
           const target = document.getElementById(targetId);
           if (target) {
             window.scrollTo({
-              top: target.offsetTop - 100,
+              top: target.getBoundingClientRect().top + window.scrollY - 110,
+
               behavior: 'smooth'
             });
           }
