@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Tablas dinÃ¡micas Â· Python Academy</title>
+  <title>Tablas dinámicas · Python Academy</title>
   <meta name="description" content="ImplementaciÃ±Â³n de tablas dinÃ¡micas.">
 
   <link
@@ -327,8 +327,8 @@
         </div>
 
         <span class="badge bg-primary mb-3">Arreglos</span>
-        <h1 class="display-5 mb-2">Tablas dinÃ¡micas</h1>
-        <p class="lead text-muted">ImplementaciÃ³n de tablas dinÃ¡micas.</p>
+        <h1 class="display-5 mb-2">Tablas dinámicas</h1>
+        <p class="lead text-muted">Implementacón de tablas dinámicas.</p>
       </div>
     </section>
     <!-- HERO -->
@@ -339,21 +339,21 @@
         <div class="ej-panel">
           <!-- DEFINICIÃ±â€œN -->
           <div class="explain-card mb-4">
-            <h4 class="fw-bold mb-2">Â¿QuÃ© son las tablas dinÃ¡micas?</h4>
+            <h4 class="fw-bold mb-2">¿Qué son las tablas dinímicas?</h4>
 
             <p>
-              Una <strong>tabla dinÃ¡mica</strong> es una tabla que no se construye
-              de forma fija, sino que se genera automÃ¡ticamente a partir de los
+              Una <strong>tabla dinímica</strong> es una tabla que no se construye
+              de forma fija, sino que se genera automáticamente a partir de los
               datos contenidos en arreglos o matrices.
             </p>
 
             <p>
-              El nÃºmero de filas, columnas y celdas depende directamente de la
-              informaciÃ³n almacenada en las estructuras de datos.
+              El número de filas, columnas y celdas depende directamente de la
+              información almacenada en las estructuras de datos.
             </p>
 
             <pre class="code-box">
-tabla[filas][columnas] generadas dinÃ¡micamente
+tabla[filas][columnas] generadas dinámicamente
 </pre>
           </div>
 
@@ -362,34 +362,34 @@ tabla[filas][columnas] generadas dinÃ¡micamente
             <h4 class="fw-bold mb-2">Enunciado</h4>
 
             <p>
-              Desarrollar un programa que represente paÃ­ses, provincias y ciudades
-              mediante arreglos multidimensionales y genere dinÃ¡micamente tablas
-              HTML que muestren esta informaciÃ³n organizada por paÃ­s.
+              Desarrollar un programa que represente paí­ses, provincias y ciudades
+              mediante arreglos multidimensionales y genere dinámicamente tablas
+              HTML que muestren esta información organizada por país.
             </p>
 
             <p class="hint mb-0">
-              Objetivo: Comprender cÃ³mo los arreglos permiten construir tablas
-              dinÃ¡micas sin definir previamente el nÃºmero de filas y columnas.
+              Objetivo: Comprender cómo los arreglos permiten construir tablas
+              dinámicas sin definir previamente el número de filas y columnas.
             </p>
           </div>
 
           <!-- JUSTIFICACIÃ±â€œN -->
           <div class="explain-card mb-4">
             <h4 class="fw-bold mb-2">
-              Â¿Por quÃ© este ejercicio es de tablas dinÃ¡micas?
+              ¿Por qué este ejercicio es de tablas dinámicas?
             </h4>
 
             <ul>
               <li>
-                Las provincias determinan automÃ¡ticamente el nÃºmero de columnas
+                Las provincias determinan automáticamente el número de columnas
               </li>
-              <li>Las ciudades determinan automÃ¡ticamente el nÃºmero de filas</li>
+              <li>Las ciudades determinan automáticamente el número de filas</li>
               <li>La tabla se adapta a cualquier cantidad de datos</li>
             </ul>
 
             <pre class="code-box">
-Columnas = nÃºmero de provincias
-Filas    = mÃ¡ximo de ciudades
+Columnas = número de provincias
+Filas    = máximo de ciudades
 </pre>
           </div>
 
@@ -408,21 +408,21 @@ for pais:
 
             <p class="hint">
               Este tipo de recorrido permite construir tablas completamente
-              adaptables a la informaciÃ±Â³n disponible.
+              adaptables a la información disponible.
             </p>
           </div>
 
           <div class="explain-card mb-4">
-            <h4 class="fw-bold mb-3">ExplicaciÃ³n detallada del cÃ³digo (pÃ¡rrafo en pÃ¡rrafo)</h4>
+            <h4 class="fw-bold mb-3">Explicación detallada del código (párrafo en párrafo)</h4>
 
             <!-- 1 -->
-            <h5 class="fw-bold">1) ImportaciÃ³n de utilidades Flask</h5>
+            <h5 class="fw-bold">1) Importación de utilidades Flask</h5>
             <p>
               <code>from flask import request, render_template_string</code> importa dos piezas clave para que el
               ejercicio funcione
-              dentro de tu plataforma. <strong>request</strong> te permite saber si el usuario solo estÃ¡ viendo la
-              pÃ¡gina (GET) o si
-              presionÃ³ el botÃ³n Ejecutar ejercicio (POST). <strong>render_template_string</strong> sirve para devolver
+              dentro de tu plataforma. <strong>request</strong> te permite saber si el usuario solo está viendo la
+              página (GET) o si
+              presiona el botón Ejecutar ejercicio (POST). <strong>render_template_string</strong> sirve para devolver
               HTML
               construido desde un string en Python, sin necesidad de crear un archivo HTML extra para el resultado.
             </p>
@@ -431,22 +431,22 @@ for pais:
             <!-- 2 -->
             <h5 class="fw-bold mt-4">2) Encabezado del ejercicio</h5>
             <p>
-              Este bloque sirve para identificar el ejercicio, su temÃ¡tica y que fue convertido desde PHP a Python. No
-              cambia la ejecuciÃ³n,
-              pero ayuda a mantener organizado el proyecto y entender rÃ¡pidamente el objetivo del archivo.
+              Este bloque sirve para identificar el ejercicio, su temática y que fue convertido desde PHP a Python. No
+              cambia la ejecución,
+              pero ayuda a mantener organizado el proyecto y entender rápidamente el objetivo del archivo.
             </p>
             <pre class="code-box"># =====================================================
-# EJERCICIO: TABLAS DINÃMICAS - PROVINCIAS
-# CONVERSIÃ“N 1:1 DESDE PHP A PYTHON
+# EJERCICIO: TABLAS DINÁMICAS - PROVINCIAS
+# CONVERSIÓN 1:1 DESDE PHP A PYTHON
 # =====================================================</pre>
 
             <!-- 3 -->
             <h5 class="fw-bold mt-4">3) Plantilla HTML base (variable <code>HTML</code>)</h5>
             <p>
-              <code>HTML</code> guarda una plantilla en texto que luego Flask renderiza. AllÃ­ incluyes estilos y
+              <code>HTML</code> guarda una plantilla en texto que luego Flask renderiza. Allá­ incluyes estilos y
               contenido inicial.
               En GET, se muestra el mensaje para ejecutar. En POST, se muestran las tablas generadas (cuando la
-              plantilla estÃ±Â© preparada
+              plantilla está preparada
               para recibir <code>tablas</code> y mostrarlas).
             </p>
             <pre class="code-box">HTML = """ ... """</pre>
@@ -456,7 +456,7 @@ for pais:
             <p>
               Se aplican estilos para que las tablas queden centradas, con fondo blanco, bordes limpios y texto
               alineado.
-              Como las tablas se generan por cÃ³digo, este CSS asegura que todas se vean iguales sin importar cuÃ¡ntas
+              Como las tablas se generan por código, este CSS asegura que todas se vean iguales sin importar cuÃ¡ntas
               columnas o filas existan.
             </p>
             <pre class="code-box">table{
@@ -473,9 +473,9 @@ td, th{
             <!-- 5 -->
             <h5 class="fw-bold mt-4">5) Capital resaltada con parpadeo (blink)</h5>
             <p>
-              En cada provincia, la primera ciudad (posiciÃ³n 0) se considera la capital. Para resaltarla se aplica la
+              En cada provincia, la primera ciudad (posición 0) se considera la capital. Para resaltarla se aplica la
               clase
-              <code>blink</code> que usa una animaciÃ³n CSS. AsÃ­ el texto alterna visibilidad y llama la atenciÃ³n, igual
+              <code>blink</code> que usa una animaciÃ³n CSS. Así­ el texto alterna visibilidad y llama la atención, igual
               que en tu PHP original.
             </p>
             <pre class="code-box">.blink{
@@ -490,9 +490,9 @@ td, th{
             <!-- 6 -->
             <h5 class="fw-bold mt-4">6) Evitar desbordes (scroll horizontal)</h5>
             <p>
-              Como el ejercicio puede tener muchas provincias (muchas columnas), en pantallas pequeÃ±Â±as la tabla podrÃ­a
+              Como el ejercicio puede tener muchas provincias (muchas columnas), en pantallas pequeÃ±Â±as la tabla podrí­a
               salirse del contenedor.
-              Con <code>overflow-x:auto</code> se habilita un scroll horizontal para mantener el diseÃ±Â±o estable.
+              Con <code>overflow-x:auto</code> se habilita un scroll horizontal para mantener el diseño estable.
             </p>
             <pre class="code-box">.table-wrap{
   width:100%;
@@ -502,7 +502,7 @@ td, th{
             <!-- 7 -->
             <h5 class="fw-bold mt-4">7) Control GET vs POST dentro de <code>ejecutar()</code></h5>
             <p>
-              La funciÃ±Â³n <code>ejecutar()</code> es llamada por tu <code>app.py</code>. Primero se valida el mÃ±Â©todo
+              La función <code>ejecutar()</code> es llamada por tu <code>app.py</code>. Primero se valida el método
               HTTP:
               si es GET, no se genera nada y solo se muestra el mensaje inicial. Si es POST, se construyen tablas y se
               retorna el resultado.
@@ -515,9 +515,9 @@ td, th{
             <!-- 8 -->
             <h5 class="fw-bold mt-4">8) Estructura principal <code>paises</code></h5>
             <p>
-              <code>paises</code> es un diccionario anidado (3 niveles): paÃ­s Ã¢â€ â€™ provincia Ã¢â€ â€™ lista de ciudades.
-              Esta estructura permite construir tablas dinÃ¡micas porque el nÃ±Âºmero de provincias define las columnas
-              y el mÃ¡ximo nÃ±Âºmero de ciudades define las filas.
+              <code>paises</code> es un diccionario anidado (3 niveles): paí­s -> provincia -> lista de ciudades.
+              Esta estructura permite construir tablas dinÃ¡micas porque el número de provincias define las columnas
+              y el máximo número de ciudades define las filas.
             </p>
             <pre class="code-box">paises = {
   "ECUADOR": {
@@ -527,10 +527,10 @@ td, th{
 }</pre>
 
             <!-- 9 -->
-            <h5 class="fw-bold mt-4">9) GeneraciÃ³n dinÃ¡mica de tablas</h5>
+            <h5 class="fw-bold mt-4">9) Generación dinámica de tablas</h5>
             <p>
-              Se recorre cada paÃ­s y se genera una tabla HTML. Primero se calcula <code>maxFilas</code> con el mÃ¡ximo
-              tamaÃ±Â±o de listas
+              Se recorre cada paí­s y se genera una tabla HTML. Primero se calcula <code>maxFilas</code> con el máximo
+              tamaño de listas
               (para que todas las columnas tengan la misma cantidad de filas). Luego se construye el encabezado con
               provincias y el cuerpo
               recorriendo fila por fila.
@@ -550,11 +550,11 @@ for pais, infoPais in paises.items():
     html += "&lt;/tr&gt;"</pre>
 
             <!-- 10 -->
-            <h5 class="fw-bold mt-4">10) Cuerpo de la tabla (capital + celdas vacÃ­as)</h5>
+            <h5 class="fw-bold mt-4">10) Cuerpo de la tabla (capital + celdas vacías)</h5>
             <p>
-              En la fila 0 se imprime la capital con <code>blink</code>. En las demÃ¡s filas se imprime la ciudad si
+              En la fila 0 se imprime la capital con <code>blink</code>. En las demás filas se imprime la ciudad si
               existe.
-              Si no existe (provincia con menos ciudades), se agrega una celda vacÃ­a para mantener alineadas las
+              Si no existe (provincia con menos ciudades), se agrega una celda vací­a para mantener alineadas las
               columnas.
             </p>
             <pre class="code-box">for i in range(maxFilas):
@@ -573,8 +573,8 @@ for pais, infoPais in paises.items():
             <!-- 11 -->
             <h5 class="fw-bold mt-4">11) Render final (enviar tablas a la vista)</h5>
             <p>
-              Se devuelve la plantilla renderizada y se envÃ­an las variables que la vista necesita:
-              <code>mostrar</code> para controlar la presentaciÃ³n y <code>tablas</code> para imprimir los HTML
+              Se devuelve la plantilla renderizada y se enví­an las variables que la vista necesita:
+              <code>mostrar</code> para controlar la presentación y <code>tablas</code> para imprimir los HTML
               generados.
               Para que se vean como HTML real, en la plantilla debes imprimirlas usando <code>|safe</code>.
             </p>
@@ -591,11 +591,11 @@ for pais, infoPais in paises.items():
 
           <!-- CÃ“DIGO COMPLETO -->
           <div class="explain-card mb-4">
-            <h4 class="fw-bold">CÃ³digo completo del ejercicio (Python)</h4>
+            <h4 class="fw-bold">Código completo del ejercicio (Python)</h4>
             <p class="hint">
-              Este es el cÃ³digo completo del ejercicio convertido desde PHP a
+              Este es el código completo del ejercicio convertido desde PHP a
               Python, manteniendo la misma estructura de datos, recorridos y
-              comportamiento visual. Analice el cÃ³digo antes de ejecutarlo.
+              comportamiento visual. Analice el código antes de ejecutarlo.
             </p>
 
             <pre class="code-box">
@@ -605,17 +605,17 @@ app = Flask(__name__)
 
 # =====================================================
 # MATRIZ PRINCIPAL
-# PAÃS â†’ PROVINCIA â†’ CANTONES / CIUDADES
+# PAÍS - PROVINCIA - CANTONES / CIUDADES
 # =====================================================
 PAISES = {
     "ECUADOR": {
-        "Pichincha": ["Quito", "Cayambe", "RumiÃ±ahui", "MejÃ­a"],
-        "Guayas": ["Guayaquil", "DurÃ¡n", "Milagro", "Daule"],
+        "Pichincha": ["Quito", "Cayambe", "RumiÃ±ahui", "Mejí­a"],
+        "Guayas": ["Guayaquil", "Durán", "Milagro", "Daule"],
         "Azuay": ["Cuenca", "Gualaceo", "Paute"]
     },
     "COLOMBIA": {
-        "Cundinamarca": ["BogotÃ¡", "Soacha", "ZipaquirÃ¡"],
-        "Antioquia": ["MedellÃ­n", "Envigado", "ItagÃ¼Ã­"],
+        "Cundinamarca": ["Bogotá", "Soacha"],
+        "Antioquia": ["Medellí­n", "Envigado", "Rionegro"],
         "Valle del Cauca": ["Cali", "Palmira", "Yumbo"]
     },
     "USA": {
@@ -633,7 +633,7 @@ HTML = """
 &lt;html lang="es"&gt;
 &lt;head&gt;
 &lt;meta charset="UTF-8"&gt;
-&lt;title&gt;Tablas DinÃ¡micas - Flask&lt;/title&gt;
+&lt;title&gt;Tablas Dinámicas - Flask&lt;/title&gt;
 &lt;style&gt;
 body{
   font-family: Arial, sans-serif;
@@ -671,10 +671,10 @@ th{
 &lt;body&gt;
 &lt;div class="container"&gt;
 
-&lt;h2&gt;TABLAS DINÃMICAS - PROVINCIAS&lt;/h2&gt;
+&lt;h2&gt;TABLAS DINÁMICAS - PROVINCIAS&lt;/h2&gt;
 
 &lt;form method="POST"&gt;
-  &lt;label&gt;&lt;strong&gt;Seleccione un paÃ­s:&lt;/strong&gt;&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+  &lt;label&gt;&lt;strong&gt;Seleccione un paí­s:&lt;/strong&gt;&lt;/label&gt;&lt;br&gt;&lt;br&gt;
   &lt;select name="pais" required&gt;
     &lt;option value=""&gt;-- Seleccione --&lt;/option&gt;
     {% for p in paises %}
@@ -707,7 +707,7 @@ def ejecutar():
     pais_seleccionado = None
 
     # -----------------------------
-    # POST â†’ EJECUCIÃ“N DINÃMICA
+    # POST EJECUCIÓN DINÁMICA
     # -----------------------------
     if request.method == "POST":
 
@@ -716,7 +716,7 @@ def ejecutar():
 
         max_filas = max(len(cantones) for cantones in provincias.values())
 
-        tabla = f"&lt;h3&gt;PaÃ­s: {pais_seleccionado}&lt;/h3&gt;"
+        tabla = f"&lt;h3&gt;Paí­s: {pais_seleccionado}&lt;/h3&gt;"
         tabla += "&lt;table&gt;"
         tabla += "&lt;tr&gt;"
 
@@ -746,7 +746,7 @@ def ejecutar():
     )
 
 # =====================================================
-# EJECUCIÃ“N
+# EJECUCIÓN
 # =====================================================
 if __name__ == "__main__":
     app.run(debug=True)
@@ -800,11 +800,11 @@ if __name__ == "__main__":
 
             <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
               <div class="card-header bg-primary text-white p-3">
-                <h5 class="mb-0"><i class="bi bi-table me-2"></i>Tablas DinÃ¡micas - Simulador Flask</h5>
+                <h5 class="mb-0"><i class="bi bi-table me-2"></i>Tablas Dinámicas - Simulador Flask</h5>
               </div>
               <div class="card-body p-4 bg-light text-center">
                 <div class="mb-4">
-                  <label class="form-label fw-bold">Seleccione un paÃ­s:</label>
+                  <label class="form-label fw-bold">Seleccione un paí­s:</label>
                   <select id="pais-selector" class="form-select w-50 mx-auto rounded-pill border-primary shadow-sm">
                     <option value="">-- Seleccione --</option>
                     <option value="ECUADOR">ECUADOR</option>
@@ -825,7 +825,7 @@ if __name__ == "__main__":
 
                 <div id="placeholder-msg" class="py-5 text-muted">
                   <i class="bi bi-info-circle fs-1 mb-3 d-block"></i>
-                  Selecciona un paÃ­s y presiona el botÃ³n para visualizar la tabla dinÃ¡mica.
+                  Selecciona un paí­s y presiona el botón para visualizar la tabla dinÃ¡mica.
                 </div>
               </div>
             </div>
@@ -835,13 +835,13 @@ if __name__ == "__main__":
             function generarTablasDinamicas() {
               const PAISES = {
                 "ECUADOR": {
-                  "Pichincha": ["Quito", "Cayambe", "RumiÃ±ahui", "MejÃ­a"],
-                  "Guayas": ["Guayaquil", "DurÃ¡n", "Milagro", "Daule"],
+                  "Pichincha": ["Quito", "Cayambe", "Rumiñahui", "Meji­a"],
+                  "Guayas": ["Guayaquil", "Durán", "Milagro", "Daule"],
                   "Azuay": ["Cuenca", "Gualaceo", "Paute"]
                 },
                 "COLOMBIA": {
-                  "Cundinamarca": ["BogotÃ¡", "Soacha", "ZipaquirÃ¡"],
-                  "Antioquia": ["MedellÃ­n", "Envigado", "ItagÃ¼Ã­"],
+                  "Cundinamarca": ["Bogotá", "Soacha"],
+                  "Antioquia": ["Medellí­n", "Envigado", "Rionegro"],
                   "Valle del Cauca": ["Cali", "Palmira", "Yumbo"]
                 },
                 "USA": {
@@ -856,7 +856,7 @@ if __name__ == "__main__":
               const placeholder = document.getElementById('placeholder-msg');
 
               if (!paisSeleccionado) {
-                alert("Por favor, selecciona un paÃ­s.");
+                alert("Por favor, selecciona un país.");
                 return;
               }
 
@@ -869,7 +869,7 @@ if __name__ == "__main__":
 
               let html = `
                 <div class="mb-4 text-start">
-                  <h3 class="fw-bold text-primary mb-3">PaÃ­s: ${paisSeleccionado}</h3>
+                  <h3 class="fw-bold text-primary mb-3">Paí­s: ${paisSeleccionado}</h3>
                   <div class="table-responsive rounded-3 overflow-hidden shadow-sm">
                     <table class="tabla-dinamica">
                       <thead>
@@ -935,7 +935,7 @@ if __name__ == "__main__":
           </h4>
           <p class="footer-text">
             Proyecto acadÃ©mico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
-            apasionados por la programaciÃ³n.
+            apasionados por la programación.
           </p>
           <div class="d-flex gap-3 mt-4">
             <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
@@ -945,10 +945,10 @@ if __name__ == "__main__":
         </div>
 
         <div class="col-lg-2 col-md-4">
-          <h5 class="footer-title">NavegaciÃ³n</h5>
+          <h5 class="footer-title">Navegación</h5>
           <ul class="footer-links">
             <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
-            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> TeorÃ­a</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
             <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
             <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
 
@@ -965,7 +965,7 @@ if __name__ == "__main__":
         </div>
 
         <div class="col-lg-3 col-md-4">
-          <h5 class="footer-title">TecnologÃ­as</h5>
+          <h5 class="footer-title">Tecnologí­as</h5>
           <div class="d-flex flex-wrap gap-2 mt-3">
             <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
             <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
@@ -978,7 +978,7 @@ if __name__ == "__main__":
 
       <div class="footer-bottom">
         <p class="mb-0">
-          Â© 2026 <strong>Python Academy</strong>. Proyecto acadÃ©mico â€¢ Flask & Python
+          2026 <strong>Python Academy</strong>. Proyecto académico  Flask & Python
         </p>
       </div>
     </div>

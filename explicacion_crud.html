@@ -244,6 +244,27 @@
         .search-box button:hover {
             transform: scale(1.05);
         }
+
+                .team-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .team-list span {
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #e0e0e0;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .team-list span:hover {
+            background: linear-gradient(45deg, #0dcaf0, #6f42c1);
+            color: white;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
@@ -390,11 +411,6 @@
               <li><a class="dropdown-item py-2 fw-semibold" href="PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="btn btn-glow btn-sm ms-2" href="teoria.html">
-              Comenzar <i class="bi bi-arrow-right ms-1"></i>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
@@ -526,15 +542,27 @@
                         <li><a href="index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
                         <li><a href="teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
                         <li><a href="ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
-                        <li><a href="explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
+                        <li><a href="explicacion_crud.html"><i class="bi bi-chevron-right"></i> Temas
+                                Avanzados</a></li>
+                        <li><a href="PythonvsPHP.html"><i class="bi bi-chevron-right"></i> Comparativa</a></li>
+
                     </ul>
                 </div>
 
                 <div class="col-lg-4">
-                    <h5 class="footer-title">Equipo</h5>
-                    <p class="footer-text small">
-                        Karla, Josue, Nicol, Naomi, Pamela, Estefano
-                    </p>
+                    <h5 class="footer-title text-light mb-4">
+                        <i class="bi bi-stars text-info me-2"></i>
+                        Equipo de Desarrollo
+                    </h5>
+
+                    <div class="team-list">
+                        <span>Karla Molina</span>
+                        <span>Josue Tapia</span>
+                        <span>Nicol Yarpas</span>
+                        <span>Naomi Obando</span>
+                        <span>Pamela Carriel</span>
+                        <span>Estefano</span>
+                    </div>
                 </div>
             </div>
 
