@@ -271,8 +271,6 @@
   </nav>
 
   <main class="main">
-    <!-- Quité el texto suelto que aparecía arriba para que no se vea en pantalla -->
-
     <!-- ================= HERO ================= -->
     <section class="hero-internal">
       <div class="shape shape-1"></div>
@@ -304,6 +302,10 @@
                 <li><a href="#errores-comunes">Errores comunes (y cómo evitarlos)</a></li>
                 <li><a href="#comentarios-python">Comentarios en Python</a></li>
                 <li><a href="#comentarios-html">Comentarios en HTML</a></li>
+
+                <li><a href="#html-dinamico"><i class="bi bi-code-slash"></i> HTML dinámico con F-Strings</a></li>
+                <li><a href="#errores-html-dinamico">Errores comunes (HTML dinámico)</a></li>
+
                 <li><a href="#comparacion">Comparación rápida</a></li>
                 <li><a href="#quiz-sintaxis"><i class="bi bi-patch-question"></i> Cuestionario – Sintaxis e indentación</a></li>
               </ul>
@@ -317,9 +319,13 @@
             <!-- 1) INDENTACIÓN -->
             <!-- ========================================================= -->
             <h3 class="fw-bold mb-3" id="indentacion">La indentación en Python</h3>
+
+            <!-- TEXTO MEJORADO (MISMA ESTRUCTURA) -->
             <p>
-              A diferencia de lenguajes como Java o C++ que usan llaves <code>{}</code> para definir bloques,
-              Python usa <strong>indentación (sangría)</strong>. Eso obliga a escribir código ordenado y legible.
+              En Python, la <strong>indentación</strong> (sangría) no es “decoración”: es parte de la sintaxis.
+              Sirve para indicar <strong>qué líneas pertenecen al mismo bloque</strong> (por ejemplo, el contenido de un
+              <code>if</code>, un <code>for</code> o una función).
+              Si falta sangría o la sangría es inconsistente, Python no puede interpretar correctamente el bloque.
             </p>
 
             <div class="row mt-4 g-3">
@@ -366,10 +372,17 @@
             <!-- 2) BLOQUES -->
             <!-- ========================================================= -->
             <h4 class="fw-bold mt-5 mb-3" id="bloques">¿Qué crea un bloque en Python?</h4>
+
+            <!-- TEXTO MEJORADO -->
             <p class="text-muted">
-              Normalmente un bloque empieza cuando una línea termina con <code>:</code> (dos puntos).
-              Ejemplos típicos: <code>if</code>, <code>for</code>, <code>while</code>, <code>def</code>,
-              <code>class</code>, <code>try</code>.
+              Un <strong>bloque</strong> es un conjunto de instrucciones que se ejecutan juntas.
+              En Python, normalmente un bloque comienza cuando una línea termina con <code>:</code>
+              y las siguientes líneas quedan indentadas. Cuando vuelves “sin sangría”, significa que el bloque terminó.
+            </p>
+
+            <p class="text-muted mb-2">
+              Ejemplos típicos que crean bloques: <code>if</code>, <code>for</code>, <code>while</code>,
+              <code>def</code>, <code>class</code>, <code>try</code>.
             </p>
 
             <div class="row g-3">
@@ -418,6 +431,7 @@
                       &nbsp;&nbsp;&nbsp;&nbsp;print("ok")
                     </div>
                     <div class="mt-2 text-muted">
+                      En Python, los <code>:</code> significan: “aquí empieza un bloque”.
                       Debe ser <code>if 10 &gt; 5:</code>. Sin <code>:</code> Python no inicia el bloque.
                     </div>
                   </div>
@@ -434,7 +448,8 @@
                 <div id="c2" class="accordion-collapse collapse" aria-labelledby="h2" data-bs-parent="#accErrores">
                   <div class="accordion-body">
                     <p class="mb-2">
-                      Si mezclas tabulaciones y espacios, puede aparecer:
+                      Aunque “se vea igual”, una tabulación y 4 espacios <strong>no son lo mismo</strong>.
+                      Si mezclas ambos, puede aparecer:
                       <code>TabError: inconsistent use of tabs and spaces</code>.
                     </p>
                     <ul class="mb-0">
@@ -458,6 +473,7 @@
                       &nbsp;&nbsp;print("Hola")
                     </div>
                     <p class="mt-2 mb-0 text-muted">
+                      Solo se indenta después de abrir un bloque con <code>:</code>.
                       Si indentas una línea sin haber abierto un bloque antes, puede salir:
                       <code>IndentationError: unexpected indent</code>.
                     </p>
@@ -470,9 +486,12 @@
             <!-- 4) COMENTARIOS EN PYTHON -->
             <!-- ========================================================= -->
             <h3 class="fw-bold mt-5 mb-3" id="comentarios-python">Comentarios en Python</h3>
+
+            <!-- TEXTO MEJORADO -->
             <p>
-              Los comentarios son ignorados por el intérprete y sirven para documentar tu código:
-              qué hace, por qué lo hace y qué entrada/salida espera.
+              Los comentarios son ignorados por el intérprete, pero son clave para que tu código sea entendible.
+              Sirven para explicar <strong>qué hace</strong> el código y, sobre todo, <strong>por qué</strong> se tomó una decisión.
+              Hay dos formas comunes: comentario de una línea y docstring.
             </p>
 
             <div class="row g-3">
@@ -480,11 +499,12 @@
                 <div class="card border-0 shadow-sm h-100">
                   <div class="card-header bg-primary text-white fw-bold">1) Comentario de una línea</div>
                   <div class="card-body bg-light font-monospace text-muted">
-                    # Esto es un comentario<br>
-                    print("Hola")  # Esto también
+                    # Se usa strip() para evitar espacios al inicio/fin<br>
+                    nombre = nombre.strip()<br>
+                    print("Hola", nombre)
                   </div>
                   <div class="card-footer small text-muted">
-                    Ideal para explicar una línea o una decisión rápida.
+                    Ideal para explicar decisiones rápidas o validaciones.
                   </div>
                 </div>
               </div>
@@ -494,12 +514,15 @@
                   <div class="card-header bg-success text-white fw-bold">2) Docstring (multilínea)</div>
                   <div class="card-body bg-light font-monospace text-muted">
                     """<br>
-                    Describe una función o módulo.<br>
-                    Sirve para documentación.<br>
-                    """
+                    Calcula el total con IVA.<br><br>
+                    Args:<br>
+                    &nbsp;&nbsp;subtotal (float): valor sin IVA.<br>
+                    Returns:<br>
+                    &nbsp;&nbsp;float: total final.<br>
+                    """<br>
                   </div>
                   <div class="card-footer small text-muted">
-                    Se usa mucho en funciones, clases y módulos.
+                    Se usa en funciones, clases y módulos (documentación formal).
                   </div>
                 </div>
               </div>
@@ -518,7 +541,7 @@
             <!-- ========================================================= -->
             <h3 class="fw-bold mt-5 mb-3" id="comentarios-html">Comentarios en HTML</h3>
             <p class="text-muted">
-              En HTML los comentarios se escriben así y no se muestran en la página:
+              En HTML los comentarios se escriben así y no se muestran en la página, pero sí quedan en el código fuente:
             </p>
 
             <div class="bg-light border rounded p-3 font-monospace">
@@ -553,6 +576,201 @@
             </div>
 
             <!-- ========================================================= -->
+            <!-- 5.5) F-STRINGS (NUEVO) -->
+            <!-- ========================================================= -->
+            <!-- ========================================================= -->
+            <!--  EXTRA: HTML DINÁMICO CON F-STRINGS -->
+            <!-- ========================================================= -->
+            <h3 class="fw-bold mt-5 mb-3" id="html-dinamico">
+              <i class="bi bi-braces-asterisk me-2"></i>¿Cómo construimos HTML dinámico con F-Strings?
+            </h3>
+
+            <p>
+              En Flask (y en general en Python), a veces necesitamos generar HTML que <strong>cambie según datos reales</strong>
+              (por ejemplo: un <code>id</code>, una operación <code>op</code>, datos de una base de datos, etc.).
+              A eso se le llama <strong>HTML dinámico</strong>.
+            </p>
+
+            <div class="alert alert-info d-flex align-items-center">
+              <i class="bi bi-lightbulb-fill me-2"></i>
+              <div>
+                La idea es simple: <strong>armamos el HTML como texto</strong> en una variable,
+                y con f-strings insertamos valores usando <code>{ }</code>.
+              </div>
+            </div>
+
+            <h4 class="fw-bold mt-4 mb-3">1) Base: el HTML se guarda en una variable</h4>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-header bg-dark text-white fw-bold">Paso 1: iniciar</div>
+                  <div class="card-body bg-light font-monospace text-muted">
+                    html = ""<br>
+                    html += "&lt;div&gt;Hola&lt;/div&gt;"
+                  </div>
+                  <div class="card-footer small text-muted">
+                    Aquí el HTML es fijo (no depende de variables).
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-header bg-primary text-white fw-bold">Paso 2: hacerlo dinámico (f-string)</div>
+                  <div class="card-body bg-light font-monospace text-muted">
+                    nombre = "Josue"<br>
+                    html += f"&lt;div&gt;Hola {nombre}&lt;/div&gt;"
+                  </div>
+                  <div class="card-footer small text-muted">
+                    <code>{nombre}</code> se reemplaza por el valor real.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h4 class="fw-bold mt-5 mb-3">2) Ejemplo real: inputs hidden (como en tu proyecto)</h4>
+
+            <p class="text-muted">
+              Este patrón se usa muchísimo en formularios: guardar valores en inputs ocultos para luego procesarlos.
+            </p>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="card border-success h-100">
+                  <div class="card-header bg-success text-white fw-bold">
+                    <i class="bi bi-check-circle-fill me-2"></i> Correcto (con f-string)
+                  </div>
+                  <div class="card-body bg-light font-monospace text-muted">
+                    id = 7<br>
+                    op = "editar"<br><br>
+                    html = ""<br>
+                    html += f"""<br>
+                    &lt;input type="hidden" name="id" value="{id}"&gt;<br>
+                    &lt;input type="hidden" name="op" value="{op}"&gt;<br>
+                    """<br>
+                  </div>
+                  <div class="card-footer small text-muted">
+                    Insertas valores dinámicos con <code>{id}</code> y <code>{op}</code>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="card border-danger h-100">
+                  <div class="card-header bg-danger text-white fw-bold">
+                    <i class="bi bi-x-circle-fill me-2"></i> Incorrecto (sin la f)
+                  </div>
+                  <div class="card-body bg-light font-monospace text-muted">
+                    id = 7<br>
+                    html = ""<br>
+                    html += """<br>
+                    &lt;input type="hidden" name="id" value="{id}"&gt;<br>
+                    """<br>
+                  </div>
+                  <div class="card-footer small text-muted">
+                    Imprime <code>{id}</code> literal porque falta la <code>f</code>.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h4 class="fw-bold mt-5 mb-3">3) Insertar HTML generado por una función (combo dinámico)</h4>
+
+            <p class="text-muted">
+              En proyectos con clases (POO), es común que una función genere un <code>&lt;select&gt;</code> completo.
+              Con f-strings puedes insertar ese HTML directamente dentro del layout.
+            </p>
+
+            <div class="bg-light border rounded p-3 font-monospace text-muted">
+              html += f"""<br>
+              &lt;div class="col-sm-4 form-group"&gt;<br>
+              &nbsp;&nbsp;&lt;label for="marca"&gt;Marca&lt;/label&gt;<br>
+              &nbsp;&nbsp;{self.__get_combo_db("marca","id","descripcion","marca", self.__marca)}<br>
+              &lt;/div&gt;<br>
+              """<br>
+            </div>
+
+            <div class="alert alert-success mt-3 d-flex align-items-center">
+              <i class="bi bi-check2-circle me-2"></i>
+              <div>
+                Todo lo que va dentro de <code>{ ... }</code> se evalúa en Python,
+                y el resultado se inserta como HTML.
+              </div>
+            </div>
+
+            <h4 class="fw-bold mt-5 mb-3" id="errores-html-dinamico">Errores comunes (HTML dinámico)</h4>
+
+            <div class="accordion" id="accHtmlDinamico">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="hd1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cd1"
+                    aria-expanded="true" aria-controls="cd1">
+                    1) Olvidar la letra <code>f</code>
+                  </button>
+                </h2>
+                <div id="cd1" class="accordion-collapse collapse show" aria-labelledby="hd1" data-bs-parent="#accHtmlDinamico">
+                  <div class="accordion-body">
+                    <p class="text-muted mb-2">
+                      Si no pones la <code>f</code>, Python no reemplaza nada y deja las llaves tal cual.
+                    </p>
+                    <div class="bg-light p-3 rounded font-monospace">
+                      html += "&lt;p&gt;Hola {nombre}&lt;/p&gt;"  # queda literal
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="hd2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cd2"
+                    aria-expanded="false" aria-controls="cd2">
+                    2) Llaves mal cerradas
+                  </button>
+                </h2>
+                <div id="cd2" class="accordion-collapse collapse" aria-labelledby="hd2" data-bs-parent="#accHtmlDinamico">
+                  <div class="accordion-body">
+                    <div class="bg-light p-3 rounded font-monospace">
+                      html += f"&lt;p&gt;{nombre&lt;/p&gt;"
+                    </div>
+                    <p class="mt-2 mb-0 text-muted">
+                      Falta cerrar <code>}</code>. Esto genera error de sintaxis.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="hd3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cd3"
+                    aria-expanded="false" aria-controls="cd3">
+                    3) Mezclar comillas y romper el HTML
+                  </button>
+                </h2>
+                <div id="cd3" class="accordion-collapse collapse" aria-labelledby="hd3" data-bs-parent="#accHtmlDinamico">
+                  <div class="accordion-body">
+                    <p class="text-muted mb-2">
+                      Para HTML multilínea, usa <code>f""" ... """</code> y así evitas problemas con comillas.
+                    </p>
+                    <div class="bg-light p-3 rounded font-monospace">
+                      html += f"""<br>
+                      &lt;div class="card"&gt;Hola {nombre}&lt;/div&gt;<br>
+                      """<br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-warning mt-4 d-flex align-items-center">
+              <i class="bi bi-shield-exclamation me-2"></i>
+              <div>
+                <strong>Ojo:</strong> No insertes datos del usuario sin validar.
+                Si el valor viene de un formulario, límpialo para evitar contenido raro en el HTML.
+              </div>
+            </div>
+
+            <!-- ========================================================= -->
             <!-- 6) TABLA COMPARATIVA -->
             <!-- ========================================================= -->
             <h3 class="fw-bold mt-5 mb-3" id="comparacion">Comparación rápida</h3>
@@ -579,15 +797,15 @@
                   </tr>
                   <tr>
                     <td><strong>Objetivo</strong></td>
-                    <td>Lógica / reglas del sistema</td>
-                    <td>Estructura / presentación</td>
+                    <td>Lógica y comportamiento del programa</td>
+                    <td>Estructura del contenido en la página</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             <!-- ========================================================= -->
-            <!-- 7) QUIZ INTERACTIVO -->
+            <!-- 7) QUIZ INTERACTIVO (TU MISMO QUIZ) -->
             <!-- ========================================================= -->
             <h3 class="fw-bold mt-5 mb-4 text-center" id="quiz-sintaxis">
               <i class="bi bi-patch-question"></i> Cuestionario – Sintaxis e indentación
