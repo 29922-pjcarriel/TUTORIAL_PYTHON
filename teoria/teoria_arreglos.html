@@ -33,6 +33,32 @@
       overflow-y: auto;
     }
 
+    .code-demo {
+      background: #1e1e1e;
+      color: #00ff9c;
+      font-family: Consolas, monospace;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      white-space: pre-line;
+    }
+
+    .visual-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .matrix-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+
     .sidebar-nav h5 {
       font-weight: 700;
       color: #1a1a2e;
@@ -90,9 +116,10 @@
       background: #667eea;
       border-radius: 4px;
     }
+
     h3[id] {
-  scroll-margin-top: 120px;
-}
+      scroll-margin-top: 120px;
+    }
 
 
     /* Indicador de progreso */
@@ -323,94 +350,517 @@
                   Las listas en Python son una forma de guardar varios datos dentro de una sola variable.
                   Cada elemento tiene una posición llamada <strong>índice</strong> (empieza desde 0).
                 </p>
+                <!-- DEMO VISUAL ÍNDICES LISTA -->
+                <div class="row g-4 mt-3">
 
-                <p class="mb-2"><strong>Ejemplo (lista con varios tipos):</strong></p>
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  mi_lista = ["Texto", 45, 3.14, True, [1, 2, 3]]
-                </div>
+                  <!-- IZQUIERDA : Código -->
+                  <div class="col-md-6">
+                    <div style="
+      background:#1e1e1e;
+      color:#00ff9c;
+      font-family:Consolas, monospace;
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+      white-space:pre-line;
+    ">
 
-                <hr>
+                      mi_lista = [2, 1, -6, 4]
 
-                <h5 class="mb-2">Arreglos unidimensionales</h5>
-                <p>Son listas que almacenan valores de forma secuencial en una sola dimensión.</p>
+                      # Índices
+                      # 0 1 2 3
 
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  ciudades = ["Quito", "Guayaquil", "Cuenca"]
-                </div>
-
-                <div class="border rounded p-2 bg-white mb-3">
-                  <div class="d-flex justify-content-center gap-3 flex-wrap">
-                    <span class="badge bg-secondary">Índice 0 → Quito</span>
-                    <span class="badge bg-secondary">Índice 1 → Guayaquil</span>
-                    <span class="badge bg-secondary">Índice 2 → Cuenca</span>
+                    </div>
                   </div>
+
+                  <!-- DERECHA : Visual -->
+                  <div class="col-md-6">
+                    <div class="bg-white p-4 rounded shadow-sm border text-center">
+
+                      <div class="d-flex justify-content-center gap-2 mb-2">
+
+                        <div style="border:2px solid #333;padding:10px 18px;">2</div>
+                        <div style="border:2px solid #333;padding:10px 18px;">1</div>
+                        <div style="border:2px solid #333;padding:10px 18px;">-6</div>
+                        <div style="border:2px solid #333;padding:10px 18px;">4</div>
+
+                      </div>
+
+                      <div class="d-flex justify-content-center gap-5 small text-muted">
+                        <span>0</span>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                      </div>
+
+                      <div class="mt-2 small text-muted">
+                        índice
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+
+                <h5 class="fw-bold mt-4 mb-3">
+                  Ejemplo: Lista con varios tipos
+                </h5>
+                <div class="row g-4 mb-3">
+
+                  <div class="col-md-6">
+                    <div style="
+      background:#1e1e1e;
+      color:#00ff9c;
+      font-family:Consolas, monospace;
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+      white-space:pre-line;
+    ">
+
+                      mi_lista = ["Texto", 45, 3.14, True, [1, 2, 3]]
+
+                      # Tipos almacenados:
+                      # string | int | float | bool | lista
+
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="bg-white p-4 rounded shadow-sm border text-center">
+
+                      <div class="d-flex justify-content-center gap-2 flex-wrap mb-2">
+
+                        <div style="border:2px solid #333;padding:10px 14px;">Texto</div>
+                        <div style="border:2px solid #333;padding:10px 14px;">45</div>
+                        <div style="border:2px solid #333;padding:10px 14px;">3.14</div>
+                        <div style="border:2px solid #333;padding:10px 14px;">True</div>
+                        <div style="border:2px solid #333;padding:10px 14px;">[1,2,3]</div>
+
+                      </div>
+
+                      <div class="small text-muted">
+                        Elementos de diferentes tipos dentro de una lista
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+
+                <hr>
+                <h5 class="fw-bold mb-3">Arreglos unidimensionales</h5>
+                <p>
+                  Son listas que almacenan valores de forma secuencial en una sola dimensión.
+                  <strong>Ejemplo:</strong>
+                </p>
+
+                <!-- DEMO Código vs Pantalla -->
+                <div class="row g-4 mb-4">
+
+                  <!-- IZQUIERDA : Código -->
+                  <div class="col-md-6">
+                    <div style="
+      background:#1e1e1e;
+      color:#00ff9c;
+      font-family:Consolas, monospace;
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+      white-space:pre-line;
+    ">
+
+                      ciudades = ["Quito", "Guayaquil", "Cuenca"]
+
+                      # Representación conceptual
+                      [ Quito ] [ Guayaquil ] [ Cuenca ]
+                      0 1 2
+
+                    </div>
+                  </div>
+
+                  <!-- DERECHA : Visual -->
+                  <div class="col-md-6">
+                    <div class="bg-white p-4 rounded shadow-sm border text-center">
+
+                      <div class="d-flex justify-content-center gap-3 mb-2">
+
+                        <div style="border:2px solid #333;padding:10px 18px;">Quito</div>
+                        <div style="border:2px solid #333;padding:10px 18px;">Guayaquil</div>
+                        <div style="border:2px solid #333;padding:10px 18px;">Cuenca</div>
+
+                      </div>
+
+                      <div class="d-flex justify-content-center gap-5 small text-muted">
+                        <span>0</span>
+                        <span>1</span>
+                        <span>2</span>
+                      </div>
+
+                      <div class="small text-muted mt-1">
+                        índice
+                      </div>
+
+                    </div>
+                  </div>
+
                 </div>
 
                 <hr>
+                <h5 class="fw-bold mb-3">Declaración de listas en Python</h5>
 
-                <h5 class="mb-2">Declaración de listas en Python</h5>
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  EjemploLista = []<br>
-                  otraLista = list()<br><br>
-                  EjemploLista = [1, 2, True, "Hola", 5.8]<br>
-                  otraLista = list([4, 9, False, "texto"])
+                <!-- TEORÍA -->
+                <p>
+                  Para declarar una lista en Python se siguen las mismas normas básicas
+                  utilizadas para declarar variables. La diferencia principal es el uso
+                  de corchetes <code>[]</code> o la función <code>list()</code>.
+                </p>
+
+                <p>
+                  Dentro de los corchetes se colocan los elementos que formarán la lista.
+                  También es posible usar <code>list()</code> pasando los valores como
+                  parámetro para crearla dinámicamente.
+                </p>
+
+
+                <!-- DEMO Código vs Visual -->
+                <div class="row g-4 mb-4">
+
+                  <!-- IZQUIERDA Código -->
+                  <div class="col-md-6">
+                    <div class="code-demo">
+
+                      EjemploLista = []
+                      otraLista = list()
+
+                      EjemploLista = [1, 2, True, "Hola", 5.8]
+                      otraLista = list([4, 9, False, "texto"])
+
+                    </div>
+                  </div>
+
+                  <!-- DERECHA Visual -->
+                  <div class="col-md-6">
+                    <div class="visual-box text-center">
+
+                      <p class="fw-semibold mb-2">Contenido de EjemploLista</p>
+
+                      <div class="matrix-row">
+                        <div class="array-box">1</div>
+                        <div class="array-box">2</div>
+                        <div class="array-box">True</div>
+                        <div class="array-box">Hola</div>
+                        <div class="array-box">5.8</div>
+                      </div>
+
+                      <hr>
+
+                      <p class="fw-semibold mb-2">Contenido de otraLista</p>
+
+                      <div class="matrix-row">
+                        <div class="array-box">4</div>
+                        <div class="array-box">9</div>
+                        <div class="array-box">False</div>
+                        <div class="array-box">texto</div>
+                      </div>
+
+                    </div>
+                  </div>
+
                 </div>
+
 
                 <hr>
 
-                <h5 class="mb-2">Agregar elementos a la lista</h5>
-                <p>Se puede usar <code>append()</code> para agregar al final.</p>
+                <h5 class="fw-bold mb-3">Agregar elementos a la lista</h5>
 
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  paises = []<br>
-                  paises.append("Ecuador")<br>
-                  paises.append("Perú")<br>
-                  paises.append("Colombia")
+                <!-- TEORÍA -->
+                <p>
+                  También es posible agregar elementos a una lista después de haberla creado.
+                  Para ello se utiliza el método <code>append()</code>, que inserta un nuevo
+                  valor al final de la lista.
+                </p>
+
+                <p>
+                  Otra forma de añadir varios valores a la vez es unir listas usando el operador
+                  <code>+</code>, lo que permite concatenar los elementos sin llamar varias veces
+                  a <code>append()</code>.
+                </p>
+
+
+                <!-- DEMO append -->
+                <div class="row g-4 mb-4">
+
+                  <!-- Código -->
+                  <div class="col-md-6">
+                    <div class="code-demo">
+
+                      paises = []
+                      paises.append("Ecuador")
+                      paises.append("Perú")
+                      paises.append("Colombia")
+
+                    </div>
+                  </div>
+
+                  <!-- Visual -->
+                  <div class="col-md-6">
+                    <div class="visual-box text-center">
+
+                      <p class="fw-semibold mb-2">Resultado</p>
+
+                      <div class="matrix-row">
+                        <div class="array-box">Ecuador</div>
+                        <div class="array-box">Perú</div>
+                        <div class="array-box">Colombia</div>
+                      </div>
+
+                    </div>
+                  </div>
+
                 </div>
 
-                <div class="border rounded p-2 bg-white text-center mb-3">
-                  ['Ecuador', 'Perú', 'Colombia']
+
+                <!-- DEMO Unión de listas -->
+                <div class="row g-4 mb-4">
+
+                  <!-- Código -->
+                  <div class="col-md-6">
+                    <div class="code-demo">
+
+                      numeros = []
+                      numeros = numeros + [10,5,3]
+
+                    </div>
+                  </div>
+
+                  <!-- Visual -->
+                  <div class="col-md-6">
+                    <div class="visual-box text-center">
+
+                      <p class="fw-semibold mb-2">Lista resultante</p>
+
+                      <div class="matrix-row">
+                        <div class="array-box">10</div>
+                        <div class="array-box">5</div>
+                        <div class="array-box">3</div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+                <h5 class="fw-bold mb-3">Agregar elementos a la lista</h5>
+
+                <!-- TEORÍA -->
+                <p>
+                  También es posible agregar elementos a una lista después de haberla creado.
+                  Para ello se utiliza el método <code>append()</code>, que inserta un nuevo
+                  valor al final de la lista.
+                </p>
+
+                <p>
+                  Otra forma de añadir varios valores a la vez es unir listas usando el operador
+                  <code>+</code>, lo que permite concatenar los elementos sin llamar varias veces
+                  a <code>append()</code>.
+                </p>
+
+
+                <!-- DEMO append -->
+                <div class="row g-4 mb-4">
+
+                  <!-- Código -->
+                  <div class="col-md-6">
+                    <div class="code-demo">
+
+                      paises = []
+                      paises.append("Ecuador")
+                      paises.append("Perú")
+                      paises.append("Colombia")
+
+                    </div>
+                  </div>
+
+                  <!-- Visual -->
+                  <div class="col-md-6">
+                    <div class="visual-box text-center">
+
+                      <p class="fw-semibold mb-2">Resultado</p>
+
+                      <div class="matrix-row">
+                        <div class="array-box">Ecuador</div>
+                        <div class="array-box">Perú</div>
+                        <div class="array-box">Colombia</div>
+                      </div>
+
+                    </div>
+                  </div>
+
                 </div>
 
-                <p class="mb-2"><strong>Unir listas (como en tu imagen):</strong></p>
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  numeros = []<br>
-                  numeros = numeros + [10, 5, 3]<br>
-                  print(numeros)
+
+                <!-- DEMO Unión de listas -->
+                <div class="row g-4 mb-4">
+
+                  <!-- Código -->
+                  <div class="col-md-6">
+                    <div class="code-demo">
+
+                      numeros = []
+                      numeros = numeros + [10,5,3]
+
+                    </div>
+                  </div>
+
+                  <!-- Visual -->
+                  <div class="col-md-6">
+                    <div class="visual-box text-center">
+
+                      <p class="fw-semibold mb-2">Lista resultante</p>
+
+                      <div class="matrix-row">
+                        <div class="array-box">10</div>
+                        <div class="array-box">5</div>
+                        <div class="array-box">3</div>
+                      </div>
+
+                    </div>
+                  </div>
+
                 </div>
 
-                <div class="border rounded p-2 bg-white text-center mb-3">
-                  [10, 5, 3]
-                </div>
 
                 <hr>
 
-                <h5 class="mb-2">Mostrar elementos de la lista</h5>
-                <p>Para mostrar un elemento específico se usa su índice.</p>
+                <h5 class="fw-bold mb-3">Mostrar elementos de la lista</h5>
 
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  print(paises) <span class="text-muted"># muestra toda la lista</span><br>
-                  print(paises[0]) <span class="text-muted"># Ecuador</span><br>
-                  print(paises[2]) <span class="text-muted"># Colombia</span>
+                <!-- TEORÍA -->
+                <p>
+                  Para obtener los elementos de una lista usamos <code>print()</code>.
+                  Si queremos acceder a un elemento específico debemos indicar su
+                  posición (índice).
+                </p>
+
+                <!-- ================= MOSTRAR LISTA COMPLETA ================= -->
+                <div class="row g-4 mb-4">
+
+                  <!-- Código -->
+                  <div class="col-md-6">
+                    <div class="code-demo">
+
+                      print(paises)
+
+                    </div>
+                  </div>
+
+                  <!-- Visual -->
+                  <div class="col-md-6">
+                    <div class="visual-box text-center">
+
+                      <p class="fw-semibold mb-2">Salida</p>
+
+                      <div class="matrix-row">
+                        <div class="array-box">Ecuador</div>
+                        <div class="array-box">Perú</div>
+                        <div class="array-box">Colombia</div>
+                      </div>
+
+                      <div class="d-flex justify-content-center gap-5 small text-muted mt-2">
+                        <span>0</span>
+                        <span>1</span>
+                        <span>2</span>
+                      </div>
+
+                    </div>
+                  </div>
+
                 </div>
 
-                <div class="border rounded p-2 bg-white mb-3">
-                  <div><strong>Salida:</strong> Ecuador / Colombia</div>
+
+                <!-- ================= ACCESO POR ÍNDICE ================= -->
+                <p>
+                  Cada elemento puede mostrarse usando su índice:
+                </p>
+
+                <div class="row g-4 mb-4">
+
+                  <div class="col-md-6">
+                    <div class="code-demo">
+
+                      print(paises[0])
+                      print(paises[2])
+
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="visual-box text-center">
+
+                      <p class="fw-semibold">Resultado</p>
+                      Ecuador<br>
+                      Colombia
+
+                    </div>
+                  </div>
+
                 </div>
 
-                <hr>
 
-                <h5 class="mb-2">Índices negativos</h5>
-                <p>Si el índice es negativo, se cuenta desde el final: <code>-1</code> es el último.</p>
+                <!-- ================= ÍNDICES NEGATIVOS ================= -->
+                <hr class="my-4">
 
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  print(paises[-3])<br>
-                  print(paises[-2])<br>
-                  print(paises[-1])
-                </div>
+                <h6 class="fw-bold text-danger mb-3">
+                  Índices negativos (recorrido completo)
+                </h6>
 
-                <div class="border rounded p-2 bg-white text-center mb-3">
-                  Ecuador<br>Perú<br>Colombia
+                <p>
+                  Cuando usamos índices negativos, Python recorre la lista desde el final.
+                  El valor <code>-1</code> corresponde al último elemento,
+                  <code>-2</code> al penúltimo, y así sucesivamente.
+                </p>
+
+                <div class="row g-4 mb-4">
+
+                  <!-- Código -->
+                  <div class="col-md-6">
+                    <div class="code-demo">
+
+                      print(paises[-3])
+                      print(paises[-2])
+                      print(paises[-1])
+
+                    </div>
+                  </div>
+
+                  <!-- Visual -->
+                  <div class="col-md-6">
+                    <div class="visual-box text-center">
+
+                      <p class="fw-semibold mb-2">Salida en pantalla</p>
+
+                      Ecuador<br>
+                      Perú<br>
+                      Colombia
+
+                      <hr>
+
+                      <div class="matrix-row">
+                        <div class="array-box">Ecuador</div>
+                        <div class="array-box">Perú</div>
+                        <div class="array-box">Colombia</div>
+                      </div>
+
+                      <div class="d-flex justify-content-center gap-4 small text-muted mt-2">
+                        <span>-3</span>
+                        <span>-2</span>
+                        <span>-1</span>
+                      </div>
+
+                    </div>
+                  </div>
+
                 </div>
 
                 <hr>
@@ -487,6 +937,109 @@
             <!-- ===================================================== -->
             <!-- LISTAS DE LISTAS (MATRICES / TABLAS) -->
             <!-- ===================================================== -->
+            <h5 class="fw-bold mb-3">Arreglos Multidimensionales</h5>
+
+            <p>
+              Son listas que contienen otras listas. Se pueden representar como matrices,
+              tablas o estructuras más complejas.
+            </p>
+
+
+            <!-- ================== MATRIZ BIDIMENSIONAL ================== -->
+            <hr class="my-4">
+
+            <h6 class="fw-bold text-primary mb-3">
+              Matriz bidimensional
+            </h6>
+
+            <div class="row g-4 mb-5">
+
+              <!-- Código -->
+              <div class="col-md-6">
+                <div class="code-demo">
+
+                  matriz = [
+                  [1, 2],
+                  [4, 5]
+                  ]
+
+                </div>
+              </div>
+
+              <!-- Visual -->
+              <div class="col-md-6">
+                <div class="visual-box">
+
+                  <div class="matrix-row">
+                    <div class="array-box">1</div>
+                    <div class="array-box">2</div>
+                  </div>
+
+                  <div class="matrix-row">
+                    <div class="array-box">4</div>
+                    <div class="array-box">5</div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <!-- ================== MATRIZ TRIDIMENSIONAL ================== -->
+            <hr class="my-4">
+
+            <h6 class="fw-bold text-success mb-3">
+              Matriz tridimensional
+            </h6>
+
+            <div class="row g-4 mb-4">
+
+              <!-- Código -->
+              <div class="col-md-6">
+                <div class="code-demo">
+
+                  cubo = [
+                  [[1, 2], [3, 4]],
+                  [[5, 6], [7, 8]]
+                  ]
+
+                </div>
+              </div>
+
+              <!-- Visual -->
+              <div class="col-md-6">
+
+
+                <div class="visual-box">
+
+                  <p class="fw-semibold mb-2">Capa 0</p>
+                  <div class="matrix-row">
+                    <div class="array-box">1</div>
+                    <div class="array-box">2</div>
+                  </div>
+                  <div class="matrix-row mb-3">
+                    <div class="array-box">3</div>
+                    <div class="array-box">4</div>
+                  </div>
+
+                  <p class="fw-semibold mb-2">Capa 1</p>
+                  <div class="matrix-row">
+                    <div class="array-box">5</div>
+                    <div class="array-box">6</div>
+                  </div>
+                  <div class="matrix-row">
+                    <div class="array-box">7</div>
+                    <div class="array-box">8</div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
 
             <h3 class="fw-bold mb-3" id="matrices">2. Listas de listas (Matrices / Tablas)</h3>
 
@@ -498,6 +1051,7 @@
                   Una matriz es una lista que contiene otras listas. Para acceder a un valor se usan dos índices:
                   <code>[fila][columna]</code>.
                 </p>
+
 
                 <p class="mb-2"><strong>Matriz bidimensional:</strong></p>
                 <div class="bg-light p-3 font-monospace rounded mb-3">
