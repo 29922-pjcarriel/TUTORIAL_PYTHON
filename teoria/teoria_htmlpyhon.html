@@ -19,6 +19,9 @@
   <link href="../static/assets/css/main.css" rel="stylesheet">
   <link href="../static/assets/css/custom.css" rel="stylesheet">
 
+  <!-- Prism (igual que Manejo de Formularios) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
   <style>
     /* Sidebar Sticky Mejorado */
     .sidebar-nav {
@@ -106,6 +109,45 @@
       width: 0%;
       transition: width 0.3s ease;
     }
+
+    /* Tarjetas tipo explicación (parecido a Manejo de Formularios) */
+    .mini-card {
+      border: 0;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .mini-card .card-header {
+      font-weight: 700;
+      border: 0;
+    }
+
+    .code-box {
+      background: #0b1020;
+      color: #fff;
+      border-radius: 14px;
+      padding: 1rem;
+      overflow: auto;
+    }
+
+    .soft-note {
+      background: rgba(13, 110, 253, 0.08);
+      border: 1px solid rgba(13, 110, 253, 0.15);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: .2rem .55rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .78rem;
+      background: rgba(102, 126, 234, 0.12);
+      color: #4c51bf;
+    }
   </style>
 
   <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
@@ -118,7 +160,7 @@
     <div class="loader-spinner"></div>
   </div>
 
-  <!-- Navbar Moderno -->
+  <!-- Navbar Moderno (NO TOCO TU NAVBAR) -->
   <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
@@ -281,7 +323,7 @@
         <span class="badge-custom animate-on-scroll">TEMA 3</span>
         <h1 class="animate-on-scroll delay-1">HTML y Python (La Web)</h1>
         <p class="animate-on-scroll delay-2">
-          Aprende cómo Python trabaja con HTML en una aplicación web: rutas, peticiones HTTP, formularios,
+          Aprende cómo Python trabaja con HTML en una aplicación web: rutas, peticiones HTTP, templates, formularios,
           respuestas, archivos estáticos y estructura profesional con Flask.
         </p>
       </div>
@@ -303,6 +345,7 @@
                 <li><a href="#flujo-web">Flujo real: navegador → servidor → respuesta</a></li>
                 <li><a href="#http-basico">HTTP en 5 minutos (lo esencial)</a></li>
                 <li><a href="#rutas-flask">Rutas en Flask (GET y POST)</a></li>
+                <li><a href="#templates">Templates (HTML) con Flask</a></li>
                 <li><a href="#formularios">Formularios: enviar datos desde HTML</a></li>
                 <li><a href="#estaticos">Archivos estáticos: CSS, JS e imágenes</a></li>
                 <li><a href="#estructura-proyecto">Estructura recomendada del proyecto</a></li>
@@ -320,109 +363,91 @@
             <!-- ========================================================= -->
             <h3 class="fw-bold mb-3" id="intro-web">¿Qué significa “Python en la Web”?</h3>
             <p>
-              Cuando hablamos de <strong>Python en la Web</strong>, nos referimos a usar Python para crear un
-              <strong>servidor</strong> que recibe peticiones desde un navegador y responde con contenido (por ejemplo,
-              una página HTML, un JSON o una redirección).
+              Cuando hablamos de <strong>Python en la Web</strong>, significa que Python se ejecuta del lado del
+              <strong>servidor</strong> para responder lo que el navegador solicita. El navegador no “ejecuta Python”:
+              el navegador recibe <strong>HTML/CSS/JS</strong> ya listo.
             </p>
 
             <div class="alert alert-info my-4 d-flex align-items-center">
               <i class="bi bi-info-circle-fill fs-4 me-3"></i>
               <div>
-                <strong>Idea clave:</strong> El HTML se muestra en el navegador, pero la lógica (validaciones, consultas
-                a base de datos, seguridad, etc.) ocurre en el servidor.
+                <strong>Idea clave:</strong> HTML muestra la interfaz, pero la lógica (validación, cálculos, BD,
+                seguridad) ocurre en Flask (servidor).
+              </div>
+            </div>
+
+            <div class="row g-4 mb-4">
+              <div class="col-md-6">
+                <div class="card mini-card">
+                  <div class="card-header bg-dark text-white">
+                    Ejemplo rápido (servidor)
+                  </div>
+                  <div class="card-body bg-light">
+                    <pre class="mb-0"><code class="language-python">from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+    return "&lt;h1&gt;Hola desde Flask&lt;/h1&gt;"</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="card mini-card">
+                  <div class="card-header bg-primary text-white">
+                    ¿Cómo se interpreta?
+                  </div>
+                  <div class="card-body">
+                    <ul class="mb-0">
+                      <li><b>@app.route("/")</b>: ruta/URL principal</li>
+                      <li><b>inicio()</b>: función que atiende esa URL</li>
+                      <li><b>return</b>: lo que ve el navegador</li>
+                    </ul>
+                    <div class="soft-note mt-3">
+                      <span class="tag">Resultado</span>
+                      <div class="mt-2">Al entrar a <code>/</code> el navegador muestra el HTML retornado.</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- ========================================================= -->
             <!-- 2) FLUJO WEB -->
             <!-- ========================================================= -->
-            <h4 class="fw-bold mt-5 mb-3" id="flujo-web">Flujo real: Navegador <i class="bi bi-arrow-right"></i> Flask <i
-                class="bi bi-arrow-right"></i> Respuesta</h4>
-
-            <style>
-              .flow-card {
-                background: #fff;
-                border-radius: 1rem;
-                padding: 1.2rem 1.2rem;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-                height: 100%;
-                transition: all .25s ease;
-                position: relative;
-                overflow: hidden;
-              }
-
-              .flow-card::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 5px;
-                width: 100%;
-                background: #0d6efd;
-                opacity: .85;
-              }
-
-              .flow-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
-              }
-
-              .flow-icon {
-                font-size: 2rem;
-              }
-
-              .flow-arrow {
-                font-size: 1.7rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #0d6efd;
-                opacity: .9;
-              }
-
-              @media (max-width: 992px) {
-                .flow-arrow {
-                  display: none;
-                }
-              }
-            </style>
+            <h4 class="fw-bold mt-5 mb-3" id="flujo-web">
+              Flujo real: Navegador <i class="bi bi-arrow-right"></i> Flask <i class="bi bi-arrow-right"></i> Respuesta
+            </h4>
 
             <div class="row g-4 my-3 align-items-stretch">
               <div class="col-md-4">
-                <div class="flow-card text-center">
-                  <div class="flow-icon mb-2"><i class="bi bi-globe text-primary"></i></div>
-                  <h6 class="fw-bold mb-2">1) Navegador</h6>
-                  <p class="text-muted mb-0">
-                    El usuario abre una URL y envía una solicitud (HTTP).
-                  </p>
+                <div class="card mini-card text-center">
+                  <div class="card-body">
+                    <div class="fs-2 mb-2"><i class="bi bi-globe text-primary"></i></div>
+                    <h6 class="fw-bold mb-2">1) Navegador</h6>
+                    <p class="text-muted mb-0">El usuario entra a una URL y genera una petición HTTP.</p>
+                  </div>
                 </div>
               </div>
 
-              <div class="col-md-1 d-none d-md-flex">
-                <div class="flow-arrow w-100"><i class="bi bi-arrow-right"></i></div>
-              </div>
-
-              <div class="col-md-3">
-                <div class="flow-card text-center">
-                  <div class="flow-icon mb-2"><i class="bi bi-code-slash text-success"></i></div>
-                  <h6 class="fw-bold mb-2">2) Flask</h6>
-                  <p class="text-muted mb-0">
-                    Ejecuta la lógica (validaciones, cálculos, BD, seguridad).
-                  </p>
+              <div class="col-md-4">
+                <div class="card mini-card text-center">
+                  <div class="card-body">
+                    <div class="fs-2 mb-2"><i class="bi bi-cpu text-success"></i></div>
+                    <h6 class="fw-bold mb-2">2) Flask (Servidor)</h6>
+                    <p class="text-muted mb-0">Procesa lógica: valida, calcula, consulta BD, etc.</p>
+                  </div>
                 </div>
               </div>
 
-              <div class="col-md-1 d-none d-md-flex">
-                <div class="flow-arrow w-100"><i class="bi bi-arrow-right"></i></div>
-              </div>
-
-              <div class="col-md-3">
-                <div class="flow-card text-center">
-                  <div class="flow-icon mb-2"><i class="bi bi-file-earmark-code"></i></div>
-                  <h6 class="fw-bold mb-2">3) Respuesta</h6>
-                  <p class="text-muted mb-0">
-                    El servidor responde: HTML, JSON o redirección.
-                  </p>
+              <div class="col-md-4">
+                <div class="card mini-card text-center">
+                  <div class="card-body">
+                    <div class="fs-2 mb-2"><i class="bi bi-file-earmark-code text-dark"></i></div>
+                    <h6 class="fw-bold mb-2">3) Respuesta</h6>
+                    <p class="text-muted mb-0">Devuelve HTML, JSON o una redirección (redirect).</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -432,20 +457,21 @@
             <!-- ========================================================= -->
             <h3 class="fw-bold mt-5 mb-3" id="http-basico">HTTP en 5 minutos (lo esencial)</h3>
             <p>
-              HTTP es el “idioma” que usan navegador y servidor para comunicarse. Cada petición tiene un método y una
-              URL, y el servidor devuelve una respuesta con un código de estado.
+              HTTP es el “idioma” entre navegador y servidor. Cada petición tiene:
+              <b>método</b> (GET/POST), <b>URL</b>, <b>headers</b> y a veces <b>body</b>.
+              El servidor responde con un código (200, 404, 500…).
             </p>
 
             <div class="row g-4 mt-2">
               <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100">
-                  <div class="card-header bg-primary text-white fw-bold">
+                <div class="card mini-card h-100">
+                  <div class="card-header bg-primary text-white">
                     <i class="bi bi-send-fill me-2"></i>Request (Petición)
                   </div>
                   <div class="card-body">
                     <ul class="mb-0">
                       <li><strong>Método:</strong> GET / POST</li>
-                      <li><strong>URL:</strong> /teoria/html-python-web</li>
+                      <li><strong>URL:</strong> /login, /productos</li>
                       <li><strong>Headers:</strong> info extra</li>
                       <li><strong>Body:</strong> datos (en POST)</li>
                     </ul>
@@ -454,8 +480,8 @@
               </div>
 
               <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100">
-                  <div class="card-header bg-success text-white fw-bold">
+                <div class="card mini-card h-100">
+                  <div class="card-header bg-success text-white">
                     <i class="bi bi-cpu-fill me-2"></i>Servidor (Lógica)
                   </div>
                   <div class="card-body">
@@ -470,8 +496,8 @@
               </div>
 
               <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100">
-                  <div class="card-header bg-dark text-white fw-bold">
+                <div class="card mini-card h-100">
+                  <div class="card-header bg-dark text-white">
                     <i class="bi bi-reply-fill me-2"></i>Response (Respuesta)
                   </div>
                   <div class="card-body">
@@ -500,84 +526,222 @@
             <!-- ========================================================= -->
             <h3 class="fw-bold mt-5 mb-3" id="rutas-flask">Rutas en Flask (GET y POST)</h3>
             <p>
-              En Flask, una <strong>ruta</strong> es una URL que apunta a una función. Esa función decide qué devolver:
-              HTML, JSON o una redirección.
+              En Flask, una <strong>ruta</strong> conecta una URL con una función de Python.
+              Esa función decide qué devolver: HTML, JSON o redirect.
             </p>
 
-            <p class="fw-bold text-primary mb-2">Ejemplo básico (app.py):</p>
-            <div class="bg-dark text-white p-3 rounded mb-3">
-              <pre class="mb-0"><code class="language-python">from flask import Flask
+            <div class="row g-4 mb-4">
+              <div class="col-md-6">
+                <div class="card mini-card">
+                  <div class="card-header bg-dark text-white">Código Flask</div>
+                  <div class="card-body bg-light">
+                    <pre class="mb-0"><code class="language-python">from flask import Flask, request
+app = Flask(__name__)
 
+@app.route("/saludo", methods=["GET"])
+def saludo():
+    return "Hola (GET)"
+
+@app.route("/enviar", methods=["POST"])
+def enviar():
+    dato = request.form.get("dato")
+    return f"Recibido: {dato}"</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="card mini-card">
+                  <div class="card-header bg-primary text-white">¿Cómo se interpreta?</div>
+                  <div class="card-body">
+                    <ul class="mb-0">
+                      <li><b>methods=["GET"]</b>: solo permite consultas</li>
+                      <li><b>methods=["POST"]</b>: solo permite envíos</li>
+                      <li><b>request.form</b>: lee datos enviados por POST</li>
+                    </ul>
+                    <div class="alert alert-warning mt-3 mb-0">
+                      <strong>Nota:</strong> Si entras con GET a una ruta que solo acepta POST, Flask te dará error 405.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- 5) TEMPLATES -->
+            <!-- ========================================================= -->
+            <h3 class="fw-bold mt-5 mb-3" id="templates">Templates (HTML) con Flask</h3>
+            <p>
+              En proyectos reales no escribes HTML dentro de <code>return</code>. Lo correcto es usar
+              <strong>templates</strong> (archivos HTML) y Flask los renderiza con <code>render_template()</code>.
+            </p>
+
+            <div class="row g-4 mb-4">
+              <div class="col-md-6">
+                <div class="card mini-card">
+                  <div class="card-header bg-dark text-white">Código Flask</div>
+                  <div class="card-body bg-light">
+                    <pre class="mb-0"><code class="language-python">from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route("/")
-def inicio():
-    return "&lt;h1&gt;Hola, Python Academy&lt;/h1&gt;"
+def home():
+    return render_template("index.html")</code></pre>
+                  </div>
+                </div>
+              </div>
 
-@app.route("/saludo/&lt;nombre&gt;")
-def saludo(nombre):
-    return f"&lt;h2&gt;Hola, {nombre}!&lt;/h2&gt;"</code></pre>
+              <div class="col-md-6">
+                <div class="card mini-card">
+                  <div class="card-header bg-success text-white">Estructura (carpetas)</div>
+                  <div class="card-body">
+                    <pre class="mb-0"><code class="language-none">proyecto/
+├─ app.py
+├─ templates/
+│  └─ index.html
+└─ static/
+   ├─ css/
+   ├─ js/
+   └─ img/</code></pre>
+                    <div class="soft-note mt-3">
+                      <span class="tag">Clave</span>
+                      <div class="mt-2">Los HTML van en <code>templates/</code>. CSS/JS/IMG van en <code>static/</code>.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="alert alert-warning my-4">
-              <strong>Nota:</strong> En proyectos reales, en vez de escribir HTML en la función, se usa una página HTML
-              completa. La función solo prepara datos y devuelve la vista.
+            <div class="row g-4 mb-4">
+              <div class="col-md-6">
+                <div class="card mini-card">
+                  <div class="card-header bg-dark text-white">HTML (llamar estáticos)</div>
+                  <div class="card-body bg-light">
+                    <pre class="mb-0"><code class="language-html">&lt;link rel="stylesheet"
+  href="{{ url_for('static', filename='css/main.css') }}"&gt;
+
+&lt;script src="{{ url_for('static', filename='js/app.js') }}"&gt;&lt;/script&gt;
+
+&lt;img src="{{ url_for('static', filename='img/logo.png') }}"&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="card mini-card">
+                  <div class="card-header bg-primary text-white">¿Cómo se interpreta?</div>
+                  <div class="card-body">
+                    <ul class="mb-0">
+                      <li><code>url_for('static', filename='...')</code> genera la ruta correcta.</li>
+                      <li>Evitas errores por “../” cuando cambias carpetas.</li>
+                      <li>Es la forma profesional recomendada en Flask.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- ========================================================= -->
-            <!-- 5) FORMULARIOS -->
+            <!-- 6) FORMULARIOS -->
             <!-- ========================================================= -->
             <h3 class="fw-bold mt-5 mb-3" id="formularios">Formularios: enviar datos desde HTML</h3>
             <p>
-              Los formularios permiten que el usuario envíe información al servidor. Normalmente se usa <strong>POST</strong>.
+              Un <strong>formulario</strong> permite capturar datos del usuario y enviarlos al servidor.
+              En Flask normalmente se envía con <strong>POST</strong>.
             </p>
 
             <div class="row g-4 mt-2">
               <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
+                <div class="card mini-card">
                   <div class="card-header bg-primary text-white fw-bold">
                     HTML (formulario)
                   </div>
-                  <div class="card-body bg-light font-monospace small">
-                    &lt;form action="/login" method="POST"&gt;<br>
-                    &nbsp;&nbsp;&lt;input name="usuario" placeholder="Usuario"&gt;<br>
-                    &nbsp;&nbsp;&lt;input name="clave" type="password" placeholder="Clave"&gt;<br>
-                    &nbsp;&nbsp;&lt;button type="submit"&gt;Ingresar&lt;/button&gt;<br>
-                    &lt;/form&gt;
+                  <div class="card-body bg-light">
+                    <pre class="mb-0"><code class="language-html">&lt;form action="/login" method="POST"&gt;
+  &lt;label&gt;Usuario&lt;/label&gt;
+  &lt;input name="usuario" placeholder="Usuario"&gt;
+
+  &lt;label&gt;Clave&lt;/label&gt;
+  &lt;input name="clave" type="password" placeholder="Clave"&gt;
+
+  &lt;button type="submit"&gt;Ingresar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
                   </div>
                   <div class="card-footer text-muted small">
-                    Envía datos del formulario al servidor.
+                    Envía datos del formulario al servidor (ruta /login).
                   </div>
                 </div>
               </div>
 
               <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
+                <div class="card mini-card">
                   <div class="card-header bg-success text-white fw-bold">
                     Python (recibir datos)
                   </div>
-                  <div class="card-body bg-light font-monospace small">
-                    from flask import request<br><br>
-                    @app.route("/login", methods=["POST"])<br>
-                    def login():<br>
-                    &nbsp;&nbsp;u = request.form.get("usuario")<br>
-                    &nbsp;&nbsp;p = request.form.get("clave")<br>
-                    &nbsp;&nbsp;return f"Usuario: {u}"
+                  <div class="card-body bg-light">
+                    <pre class="mb-0"><code class="language-python">from flask import request
+
+@app.route("/login", methods=["POST"])
+def login():
+    u = request.form.get("usuario")
+    p = request.form.get("clave")
+    return f"Usuario: {u}"</code></pre>
                   </div>
                   <div class="card-footer text-muted small">
-                    Lee datos enviados desde el navegador.
+                    <code>request.form</code> lee campos que tienen <code>name="..."</code>.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-warning my-4">
+              <strong>Detalle importante:</strong> el atributo <code>name</code> es la “clave” para leer datos en Flask.
+              Si el input no tiene <code>name</code>, no llega en <code>request.form</code>.
+            </div>
+
+            <!-- Demo visual (simulado) -->
+            <div class="row g-4 mb-4">
+              <div class="col-md-6">
+                <div class="card mini-card">
+                  <div class="card-header bg-dark text-white">Código (formulario simple)</div>
+                  <div class="card-body bg-light">
+                    <pre class="mb-0"><code class="language-html">&lt;form method="POST" action="/procesar"&gt;
+  &lt;input type="text" name="nombre"&gt;
+  &lt;input type="number" name="edad"&gt;
+  &lt;button&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="card mini-card">
+                  <div class="card-header bg-primary text-white">Vista (simulación)</div>
+                  <div class="card-body">
+                    <form id="demoForm">
+                      <div class="mb-2">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" id="nombre" class="form-control" required>
+                      </div>
+                      <div class="mb-2">
+                        <label class="form-label">Edad</label>
+                        <input type="number" id="edad" class="form-control" required>
+                      </div>
+                      <button class="btn btn-success w-100" type="submit">Enviar (simulado)</button>
+                    </form>
+                    <div id="resultado" class="alert alert-success mt-3 d-none"></div>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- ========================================================= -->
-            <!-- 6) ESTATICOS -->
+            <!-- 7) ESTATICOS -->
             <!-- ========================================================= -->
             <h3 class="fw-bold mt-5 mb-3" id="estaticos">Archivos estáticos: CSS, JS e imágenes</h3>
             <p>
               En una web real, el estilo (CSS), scripts (JS) e imágenes se sirven como <strong>archivos estáticos</strong>.
-              Flask (y cualquier framework) recomienda tener una carpeta dedicada para esto.
+              Flask recomienda una carpeta <code>static/</code> para esto.
             </p>
 
             <div class="table-responsive">
@@ -585,32 +749,56 @@ def saludo(nombre):
                 <thead class="table-light">
                   <tr>
                     <th style="width: 35%;">Tipo</th>
-                    <th>Ejemplo</th>
+                    <th>Ubicación recomendada</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td><strong>CSS</strong></td>
-                    <td>static/css/main.css</td>
+                    <td><code>static/css/main.css</code></td>
                   </tr>
                   <tr>
                     <td><strong>JavaScript</strong></td>
-                    <td>static/js/app.js</td>
+                    <td><code>static/js/app.js</code></td>
                   </tr>
                   <tr>
                     <td><strong>Imágenes</strong></td>
-                    <td>static/img/logo.png</td>
+                    <td><code>static/img/logo.png</code></td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
+            <div class="row g-4 mb-4">
+              <div class="col-md-6">
+                <div class="card mini-card">
+                  <div class="card-header bg-dark text-white">Cómo se llama en HTML</div>
+                  <div class="card-body bg-light">
+                    <pre class="mb-0"><code class="language-html">&lt;link rel="stylesheet"
+  href="{{ url_for('static', filename='css/main.css') }}"&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card mini-card">
+                  <div class="card-header bg-primary text-white">¿Por qué así?</div>
+                  <div class="card-body">
+                    <ul class="mb-0">
+                      <li>Evita rutas rotas cuando cambias carpetas.</li>
+                      <li>Funciona igual en local y en producción.</li>
+                      <li>Es la forma “limpia” de Flask.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <!-- ========================================================= -->
-            <!-- 7) ESTRUCTURA -->
+            <!-- 8) ESTRUCTURA -->
             <!-- ========================================================= -->
             <h3 class="fw-bold mt-5 mb-3" id="estructura-proyecto">Estructura recomendada del proyecto</h3>
             <p class="text-muted">
-              Esta organización te evita desorden y hace que el proyecto sea fácil de mantener.
+              Esta organización evita desorden y hace que el proyecto sea fácil de mantener.
             </p>
 
             <div class="bg-light border p-3 rounded font-monospace small">
@@ -622,16 +810,17 @@ def saludo(nombre):
               │&nbsp;&nbsp;├─ js/<br>
               │&nbsp;&nbsp;└─ img/<br>
               └─ templates/<br>
-              &nbsp;&nbsp;&nbsp;└─ paginas_html/<br>
+              &nbsp;&nbsp;&nbsp;├─ index.html<br>
+              &nbsp;&nbsp;&nbsp;└─ login.html<br>
             </div>
 
             <div class="alert alert-success my-4">
-              <strong>Consejo:</strong> Nombra tus archivos con consistencia (sin tildes en nombres de archivos y sin espacios).
-              Ejemplo: <code>teoria_htmlpython.html</code>
+              <strong>Consejo:</strong> Nombra archivos sin espacios ni tildes. Ejemplo:
+              <code>teoria_htmlpython.html</code>
             </div>
 
             <!-- ========================================================= -->
-            <!-- 8) ERRORES -->
+            <!-- 9) ERRORES -->
             <!-- ========================================================= -->
             <h3 class="fw-bold mt-5 mb-3" id="errores">Errores comunes y cómo solucionarlos</h3>
 
@@ -639,13 +828,13 @@ def saludo(nombre):
               <div class="accordion-item">
                 <h2 class="accordion-header" id="e1">
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1">
-                    1) Se ven letras raras (Ã¡, Â¿, Â©)
+                    1) Error 404 (ruta o archivo no existe)
                   </button>
                 </h2>
                 <div id="c1" class="accordion-collapse collapse show" data-bs-parent="#accErroresWeb">
                   <div class="accordion-body">
-                    Eso es un problema de codificación. Guarda el archivo como <strong>UTF-8</strong> (sin BOM) y mantén
-                    <code>&lt;meta charset="utf-8"&gt;</code>.
+                    Revisa si la ruta existe en Flask (<code>@app.route(...)</code>) o si el archivo está bien ubicado.
+                    Abre consola del navegador (F12) y verifica el recurso que falla.
                   </div>
                 </div>
               </div>
@@ -654,13 +843,13 @@ def saludo(nombre):
                 <h2 class="accordion-header" id="e2">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#c2">
-                    2) Mis CSS/JS no cargan
+                    2) Error 405 (método no permitido)
                   </button>
                 </h2>
                 <div id="c2" class="accordion-collapse collapse" data-bs-parent="#accErroresWeb">
                   <div class="accordion-body">
-                    Revisa rutas relativas (../) y que los archivos existan. Abre la consola del navegador (F12) y mira
-                    si sale 404.
+                    Pasa cuando tu ruta solo acepta POST y entras con GET (o al revés).
+                    Solución: agrega <code>methods=["GET","POST"]</code> o usa el método correcto.
                   </div>
                 </div>
               </div>
@@ -669,20 +858,39 @@ def saludo(nombre):
                 <h2 class="accordion-header" id="e3">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#c3">
-                    3) El servidor no responde o da 500
+                    3) Error 500 (fallo interno)
                   </button>
                 </h2>
                 <div id="c3" class="accordion-collapse collapse" data-bs-parent="#accErroresWeb">
                   <div class="accordion-body">
-                    Mira la terminal donde corre Flask: ahí aparece el error real. Corrige la línea indicada y vuelve a
-                    reiniciar.
+                    Mira la terminal donde corre Flask: ahí aparece el error real y la línea exacta.
+                    Corrige y reinicia el servidor.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="e4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#c4">
+                    4) No llegan los datos del formulario
+                  </button>
+                </h2>
+                <div id="c4" class="accordion-collapse collapse" data-bs-parent="#accErroresWeb">
+                  <div class="accordion-body">
+                    Verifica:
+                    <ul class="mb-0">
+                      <li>Que cada input tenga <code>name="..."</code></li>
+                      <li>Que el form tenga <code>method="POST"</code> si lees con <code>request.form</code></li>
+                      <li>Que la ruta acepte POST (<code>methods=["POST"]</code>)</li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- ========================================================= -->
-            <!-- 9) CUESTIONARIO -->
+            <!-- 10) CUESTIONARIO -->
             <!-- ========================================================= -->
             <h3 class="fw-bold mt-5 mb-4 text-center" id="cuestionario-web">
               <i class="bi bi-patch-question"></i> Cuestionario de Aprendizaje – HTML + Flask (Web)
@@ -744,13 +952,22 @@ def saludo(nombre):
             <script>
               const preguntasWeb = [
                 {
+                  titulo: "¿Qué significa “Python en la Web”?",
+                  opciones: [
+                    { texto: "Python se ejecuta en el servidor y entrega HTML/JSON al navegador", correcta: true },
+                    { texto: "El navegador ejecuta Python dentro del HTML", correcta: false },
+                    { texto: "Python reemplaza a HTML y no se usa frontend", correcta: false }
+                  ],
+                  solucion: "Python trabaja del lado servidor: recibe peticiones y responde con HTML/JSON."
+                },
+                {
                   titulo: "¿Para qué sirve una ruta en Flask?",
                   opciones: [
                     { texto: "Para definir una URL y qué función la atiende", correcta: true },
                     { texto: "Para instalar Python", correcta: false },
                     { texto: "Para crear una base de datos automáticamente", correcta: false }
                   ],
-                  solucion: "Una ruta conecta una URL con una función en el servidor, que genera la respuesta."
+                  solucion: "Una ruta conecta una URL con una función en el servidor."
                 },
                 {
                   titulo: "¿Qué método HTTP se usa normalmente para enviar datos de un formulario?",
@@ -758,7 +975,15 @@ def saludo(nombre):
                     { texto: "POST", correcta: true },
                     { texto: "GET", correcta: false }
                   ],
-                  solucion: "POST se usa para enviar datos (por ejemplo, login o registro). GET se usa para consultar/visualizar."
+                  solucion: "POST se usa para enviar datos. GET se usa para consultar/visualizar."
+                },
+                {
+                  titulo: "¿Qué objeto se usa para leer datos enviados por POST en Flask?",
+                  opciones: [
+                    { texto: "request.form", correcta: true },
+                    { texto: "request.args", correcta: false }
+                  ],
+                  solucion: "request.form lee los datos enviados en el body de un POST."
                 },
                 {
                   titulo: "¿Qué significa un código de estado 404?",
@@ -767,14 +992,6 @@ def saludo(nombre):
                     { texto: "Todo salió bien", correcta: false }
                   ],
                   solucion: "404 indica que el servidor no encontró la ruta o el archivo solicitado."
-                },
-                {
-                  titulo: "¿Qué son archivos estáticos en una web?",
-                  opciones: [
-                    { texto: "CSS, JS e imágenes que se sirven como archivos", correcta: true },
-                    { texto: "Funciones de Python", correcta: false }
-                  ],
-                  solucion: "Los estáticos son recursos como CSS/JS/imagenes que el navegador descarga para mostrar la página."
                 }
               ];
 
@@ -885,7 +1102,7 @@ def saludo(nombre):
     </section>
   </main>
 
-  <!-- Footer Moderno -->
+  <!-- Footer Moderno (NO TOCO TU FOOTER) -->
   <footer class="footer-modern">
     <div class="container">
       <div class="row g-5">
@@ -950,11 +1167,34 @@ def saludo(nombre):
   <script src="../static/assets/js/main.js"></script>
   <script src="../static/assets/js/sidebar.js"></script>
 
+  <!-- Prism JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
+  <script>
+    // Demo form simulación (sin backend)
+    document.getElementById("demoForm")?.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const nombre = document.getElementById("nombre").value;
+      const edad = document.getElementById("edad").value;
+
+      const salida = document.getElementById("resultado");
+      salida.innerHTML =
+        "<strong>Datos recibidos (POST simulado)</strong><br>" +
+        "Nombre: " + nombre + "<br>" +
+        "Edad: " + edad;
+
+      salida.classList.remove("d-none");
+    });
+  </script>
+
   <script>
     // Sidebar Scroll Spy - Resaltar sección activa al hacer scroll
     document.addEventListener('DOMContentLoaded', function () {
       const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
       const sections = [];
+      const OFFSET = 120;
 
       sidebarLinks.forEach(link => {
         const id = link.getAttribute('href').substring(1);
@@ -992,7 +1232,7 @@ def saludo(nombre):
           const target = document.getElementById(targetId);
           if (target) {
             window.scrollTo({
-              top: target.offsetTop - 100,
+              top: target.offsetTop - OFFSET,
               behavior: 'smooth'
             });
           }
@@ -1018,4 +1258,5 @@ def saludo(nombre):
   </script>
 
 </body>
+
 </html>
