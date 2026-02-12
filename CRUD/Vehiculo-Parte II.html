@@ -2,91 +2,115 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Vehiculo-Parte II · Python Academy</title>
-    <meta name="description" content="Implementación de las operaciones Create y Read del CRUD.">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Vehiculo-Parte II · Python Academy</title>
+  <meta name="description" content="Parte II: conexión Flask ↔ MySQL, Create y Read del CRUD.">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link href="../static/assets/css/main.css" rel="stylesheet">
-    <link href="../static/assets/css/custom.css" rel="stylesheet">
-    <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
-    <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
+  <link href="../static/assets/css/main.css" rel="stylesheet">
+  <link href="../static/assets/css/custom.css" rel="stylesheet">
+  <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+  <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
 
-    <style>
-        .hero-crud {
-            background: linear-gradient(135deg, #065f46 0%, #064e3b 100%);
-            padding: 100px 0 60px;
-            color: white;
-        }
+  <style>
+    .hero-crud {
+      background: linear-gradient(135deg, #065f46 0%, #064e3b 100%);
+      padding: 120px 0 80px;
+      color: #ffffff;
+    }
 
-        .crud-panel {
-            border-radius: 20px;
-            background: white;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            margin-top: -40px;
-            position: relative;
-            z-index: 10;
-        }
+    .hero-crud h1 {
+      color: #ffffff;
+    }
 
-        .code-box {
-            background: #0f172a;
-            color: #e2e8f0;
-            padding: 20px;
-            border-radius: 12px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.9rem;
-            overflow-x: auto;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .hero-crud .lead {
+      color: rgba(255, 255, 255, 0.85);
+    }
 
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            background: #000;
-            margin: 30px 0;
-        }
+    .hero-crud .badge {
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
 
-        .video-container iframe,
-        .video-container .video-placeholder {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
-        }
+    .crud-panel {
+      border-radius: 20px;
+      background: white;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      margin-top: -40px;
+      position: relative;
+      z-index: 10;
+    }
 
-        .section-title {
-            border-left: 4px solid #10b981;
-            padding-left: 15px;
-            margin: 30px 0 20px;
-            font-weight: 700;
-            color: #1e293b;
-        }
-    </style>
+    .code-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #000;
+      margin: 30px 0;
+    }
+
+    .video-container iframe,
+    .video-container .video-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    }
+
+    .section-title {
+      border-left: 4px solid #10b981;
+      padding-left: 15px;
+      margin: 30px 0 20px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .hint {
+      font-size: .95rem;
+      color: #64748b;
+    }
+
+    code {
+      color: #0f172a;
+      background: rgba(15, 23, 42, 0.06);
+      padding: 0.15rem 0.35rem;
+      border-radius: 0.35rem;
+    }
+  </style>
 </head>
 
 <body>
-        <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
         <i class="bi bi-braces me-2"></i>Python Academy
@@ -103,6 +127,8 @@
               <i class="bi bi-house me-1"></i> Inicio
             </a>
           </li>
+
+          <!-- Teoría -->
           <li class="nav-item dropdown">
             <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-book me-1"></i> Teoría
@@ -127,6 +153,8 @@
                   el temario</a></li>
             </ul>
           </li>
+
+          <!-- Ejercicios -->
           <li class="nav-item dropdown">
             <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-code-square me-1"></i> Ejercicios
@@ -176,9 +204,12 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver todos los ejercicios</a></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver
+                  todos los ejercicios</a></li>
             </ul>
           </li>
+
+          <!-- Temas avanzados -->
           <li class="nav-item dropdown">
             <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-database me-1"></i> Temas Avanzados
@@ -199,24 +230,36 @@
                     class="bi bi-grid me-2"></i>Ver Resumen</a></li>
             </ul>
           </li>
+
+          <!-- Python vs PHP -->
           <li class="nav-item dropdown">
             <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i
+                    class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i
+                    class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i
+                    class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i
+                    class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i
+                    class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i
+                    class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a>
+              </li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i
+                    class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i
+                    class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver
+                  Comparativa</a></li>
             </ul>
           </li>
         </ul>
@@ -224,94 +267,255 @@
     </div>
   </nav>
 
-    <main>
-        <section class="hero-crud text-center">
-            <div class="container">
-                <span class="badge bg-success px-3 py-2 rounded-pill mb-3">Módulo CRUD - Paso 02</span>
-                <h1 class="display-4 fw-bold">Vehiculo - Parte II</h1>
-                <p class="lead opacity-75">Creación y Listado de Registros.</p>
-            </div>
-        </section>
+  <main>
+    <section class="hero-crud text-center">
+      <div class="container">
+        <span class="badge bg-success px-3 py-2 rounded-pill mb-3">Módulo CRUD - Paso 02</span>
+        <h1 class="display-4 fw-bold">Vehiculo - Parte II</h1>
+        <p class="lead opacity-75">Conexión Flask ↔ MySQL + Create y Read (guardar y listar).</p>
+      </div>
+    </section>
 
-        <section class="container mb-5">
-            <div class="crud-panel" data-aos="fade-up">
+    <section class="container mb-5">
+      <div class="crud-panel" data-aos="fade-up">
 
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <a href="../explicacion_crud.html" class="btn btn-outline-secondary btn-sm rounded-pill">
-                        <i class="bi bi-arrow-left me-1"></i> Volver a CRUD
-                    </a>
-                </div>
-
-                <h3 class="section-title">1. Listado de Vehículos (Read)</h3>
-                <p>En esta sección implementaremos la ruta para consultar todos los vehículos registrados y mostrarlos
-                    en una tabla dinámica.</p>
-
-                <h3 class="section-title">2. Formulario de Registro (Create)</h3>
-                <p>Aprenderemos a procesar el formulario de envío (POST) para insertar nuevos datos en la base de datos
-                    de manera segura.</p>
-
-                <h3 class="section-title">3. Explicación del Código</h3>
-                <p>Implementación de las rutas de Flask:</p>
-
-                <pre class="code-box"><code># Rutas para Listar y Crear
-@app.route('/vehiculos')
-def listar_vehiculos():
-    vehiculos = Vehiculo.query.all()
-    return render_template('listar.html', vehiculos=vehiculos)
-
-@app.route('/nuevo_vehiculo', methods=['POST'])
-def guardar_vehiculo():
-    marca = request.form['marca']
-    modelo = request.form['modelo']
-    placa = request.form['placa']
-    
-    nuevo = Vehiculo(marca, modelo, placa)
-    db.session.add(nuevo)
-    db.session.commit()
-    return redirect(url_for('listar_vehiculos'))</code></pre>
-
-                <h3 class="section-title">4. Video de Ejecución</h3>
-                <p>Mira cómo funciona el proceso de inserción y visualización de datos en tiempo real:</p>
-
-                <div class="video-container">
-                    <div class="video-placeholder">
-                        <div>
-                            <i class="bi bi-play-circle fs-1 mb-2"></i>
-                            <h4>[Video Placeholder]</h4>
-                            <p>Aquí se insertará el video explicativo de la Parte II</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-between mt-5 pt-4 border-top">
-                    <a href="Vehiculo-Parte I.html" class="btn btn-outline-primary rounded-pill px-4">
-                        <i class="bi bi-chevron-left me-1"></i> Anterior: Parte I
-                    </a>
-                    <a href="Vehiculo-Parte III.html" class="btn btn-primary rounded-pill px-4">
-                        Siguiente: Parte III <i class="bi bi-chevron-right ms-1"></i>
-                    </a>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer-modern py-5">
-        <div class="container text-center">
-            <p class="mb-0">© 2026 Python Academy - Módulo CRUD</p>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <a href="../explicacion_crud.html" class="btn btn-outline-secondary btn-sm rounded-pill">
+            <i class="bi bi-arrow-left me-1"></i> Volver a CRUD
+          </a>
         </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../static/assets/js/effects.js"></script>
+        <!-- 1 -->
+        <h3 class="section-title">1. Enunciado del Ejercicio (Vehículo - Parte II)</h3>
+
+        <p>
+          En esta parte se conecta el proyecto en <b>Flask (Python)</b> con una base de datos <b>MySQL</b> usando la librería
+          <code>pymysql</code>. El objetivo es completar:
+        </p>
+
+        <ul>
+          <li><b>Create:</b> guardar un vehículo (incluyendo imagen si aplica) y guardar una matrícula.</li>
+          <li><b>Read:</b> listar vehículos, ver detalle de vehículo y listar / detalle de matrículas.</li>
+        </ul>
+
+        <div class="alert alert-info">
+          <b>Importante:</b> En esta web solo mostramos y explicamos el código Python.
+          La ejecución real se hace en tu proyecto con Flask.
+        </div>
+
+        <!-- 2 -->
+        <h3 class="section-title">2. Estructura del Proyecto (cómo se organiza)</h3>
+        <p class="hint mb-2">Este es el orden lógico de tus archivos según tu captura:</p>
+
+        <pre class="code-box"><code>1-LISTAR_VEHICULO_PARTE_II/
+├── app.py
+├── constantes.py
+├── clase/
+│   ├── vehiculo.py
+│   └── matricula.py
+└── Imagenes/   (o imagenes/)
+    └── (fotos de vehículos)</code></pre>
+
+        <div class="alert alert-secondary mb-0">
+          <b>Nota:</b> si tu carpeta se llama <code>Imagenes</code> y en Flask defines <code>static_folder='imagenes'</code>,
+          en Linux eso puede fallar. Deben coincidir exacto (mayúsculas/minúsculas).
+        </div>
+
+        <!-- 3 -->
+        <h3 class="section-title">3. Conexión a MySQL con PyMySQL</h3>
+        <p>
+          En Python, la conexión se encapsula en una función para poder reutilizarla en toda la aplicación:
+        </p>
+
+        <pre class="code-box"><code>import pymysql
+from constantes import SERVER, USER, PASS, BD
+
+def conectar():
+    try:
+        cn = pymysql.connect(
+            host=SERVER,
+            user=USER,
+            password=PASS,
+            database=BD,
+            charset="utf8",
+            cursorclass=pymysql.cursors.DictCursor
+        )
+        return cn, "La conexión tuvo éxito"
+    except Exception as e:
+        return None, f"Error de conexión: {str(e)}"</code></pre>
+
+        <div class="alert alert-success">
+           <b>¿Por qué DictCursor?</b> Porque devuelve filas como diccionario:
+          <code>{"placa": "...", "motor": "..."}</code> y es más fácil renderizar HTML.
+        </div>
+
+        <!-- 4 -->
+        <h3 class="section-title">4. Una sola ruta que controla TODO (GET/POST)</h3>
+        <p>
+          Tu proyecto usa una estrategia muy clara: una sola ruta (<code>/</code>) que decide qué acción ejecutar según:
+        </p>
+
+        <ul>
+          <li><b>GET</b>: usando el parámetro <code>d</code> (codificado en base64) para decidir operación.</li>
+          <li><b>POST</b>: usando el botón <code>Guardar</code> y el campo <code>op</code> para saber si es vehículo o matrícula.</li>
+        </ul>
+
+        <pre class="code-box"><code>from flask import Flask, request
+import base64
+
+@app.route("/", methods=["GET","POST"])
+def home():
+    cn, msg = conectar()
+    if cn is None:
+        return msg
+
+    v = Vehiculo(cn)
+    m = Matricula(cn)
+
+    # GET: leer d (base64) y decidir operación
+    if "d" in request.args:
+        dato = base64.b64decode(request.args.get("d","")).decode("utf-8")
+        op, id_ = dato.split("/")
+        # ... if op == "det": ... etc
+
+    # POST: Guardar vehículo o matrícula
+    if request.method == "POST" and ("Guardar" in request.form):
+        # ... if op in ("new","update"): ...
+        pass</code></pre>
+
+        <div class="alert alert-secondary">
+          📌 <b>Ventaja:</b> no tienes muchas rutas, todo se controla con una sola lógica y el parámetro <code>d</code>.
+        </div>
+
+        <!-- 5 -->
+        <h3 class="section-title">5. Parámetro d: base64 (operación/id)</h3>
+        <p>
+          Tu sistema no envía <code>?d=det/5</code> directo, sino que lo codifica con base64 para que se vea así:
+          <code>?d=ZGV0LzU=</code> (ejemplo).
+        </p>
+
+        <p class="hint mb-2">Ejemplo para crear el parámetro en Python:</p>
+
+        <pre class="code-box"><code>import base64
+
+texto = "det/5"
+d = base64.b64encode(texto.encode("utf-8")).decode("utf-8")
+print(d)  # ZGV0LzU=</code></pre>
+
+        <p class="hint mb-2">Ejemplo para leerlo (como ya haces en tu código):</p>
+        <pre class="code-box"><code>dato = base64.b64decode(request.args.get("d","")).decode("utf-8")
+tmp = dato.split("/")
+op = tmp[0]   # det, act, new, del, mat, ...
+id_ = tmp[1]  # 5, 10, ...</code></pre>
+
+        <!-- 6 -->
+        <h3 class="section-title">6. READ: Listado y Detalle (Vehículos / Matrículas)</h3>
+        <p>
+          En Read, tu ruta llama a métodos de tus clases:
+        </p>
+
+        <pre class="code-box"><code># Vehículos
+if op == "det":
+    html += v.get_detail_vehiculo(id_)
+elif op == "new":
+    html += v.get_form()
+else:
+    html += v.get_list()
+
+# Matrículas
+if op == "mat":
+    html += m.get_list()
+elif op == "mat_det":
+    html += m.get_detail_matricula(id_)</code></pre>
+
+        <div class="alert alert-success mb-0">
+           <b>Idea clave:</b> Flask solo “orquesta”, y tus clases (Vehiculo/Matricula) hacen el SQL y devuelven HTML.
+        </div>
+
+        <!-- 7 -->
+        <h3 class="section-title">7. CREATE: Guardar Vehículo y Guardar Matrícula</h3>
+        <p>
+          En POST, revisas <code>op</code> para decidir qué guardar:
+        </p>
+
+        <pre class="code-box"><code>if request.method == "POST" and ("Guardar" in request.form):
+
+    # VEHÍCULO
+    if request.form.get("op") in ("new", "update"):
+        if request.form.get("placa") not in (None, "", "NULL"):
+            html += v.save_vehiculo(request.form, request.files)
+        else:
+            html += v.get_list()
+
+    # MATRÍCULA
+    elif request.form.get("op","").startswith("mat_"):
+        html += m.save_matricula(request.form)</code></pre>
+
+        <div class="alert alert-secondary">
+          📌 <b>¿Por qué validar placa?</b> Porque la placa es el identificador principal del vehículo y no puede venir vacía.
+        </div>
+
+        <!-- 8 -->
+        <h3 class="section-title">8. Manejo de imagen (request.files)</h3>
+        <p>
+          Tu sistema recibe la foto desde el formulario y la procesa con Flask. El concepto es:
+        </p>
+        <ul>
+          <li>Leer el archivo desde <code>request.files</code></li>
+          <li>Guardar en carpeta (por ejemplo <code>Imagenes/</code>) o guardar en la BD como BLOB/base64 (según diseño)</li>
+        </ul>
+
+        <pre class="code-box"><code># Ejemplo conceptual
+archivo = request.files.get("foto")
+if archivo and archivo.filename:
+    nombre = archivo.filename
+    archivo.save("Imagenes/" + nombre)</code></pre>
+
+        <div class="alert alert-info">
+          En tu caso, como importas <code>base64</code>, también es posible convertir la imagen a base64 si lo necesitas.
+        </div>
+
+        <!-- 9 -->
+        <h3 class="section-title">9. Video de Ejecución</h3>
+        <p>Inserta aquí el video donde se vea: listado → formulario → guardar → regresar a listado.</p>
+
+        <div class="video-container">
+          <div class="video-placeholder">
+            <div>
+              <i class="bi bi-play-circle fs-1 mb-2"></i>
+              <h4>[Video Placeholder]</h4>
+              <p>Aquí se insertará el video explicativo de la Parte II</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navegación -->
+        <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+          <a href="Vehiculo-Parte I.html" class="btn btn-outline-primary rounded-pill px-4">
+            <i class="bi bi-chevron-left me-1"></i> Anterior: Parte I
+          </a>
+          <a href="Vehiculo-Parte III.html" class="btn btn-primary rounded-pill px-4">
+            Siguiente: Parte III <i class="bi bi-chevron-right ms-1"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-modern py-5">
+    <div class="container text-center">
+      <p class="mb-0">© 2026 Python Academy - Módulo CRUD</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../static/assets/js/effects.js"></script>
   <script src="../static/assets/js/navbar-nested.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-    </script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 
 </html>
-
-
-
