@@ -262,8 +262,7 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver
-                  todo
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo
                   el temario</a></li>
             </ul>
           </li>
@@ -345,30 +344,23 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i
-                    class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i
-                    class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i
-                    class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i
-                    class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i
-                    class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i
-                    class="bi bi-box me-2 text-purple"></i>POO</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i
-                    class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i
-                    class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/crud_vehiculo.html"><i
-                    class="bi bi-car-front-fill me-2 text-primary"></i>CRUD Vehículo</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i
-                    class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/crud_vehiculo.html"><i class="bi bi-car-front-fill me-2 text-primary"></i>CRUD Vehículo</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
+              Comenzar <i class="bi bi-arrow-right ms-1"></i>
+            </a>
           </li>
         </ul>
       </div>
@@ -405,6 +397,7 @@
                 <li><a href="#bucles">Bucle For</a></li>
                 <li><a href="#while">Bucle While</a></li>
                 <li><a href="#control-flujo">Break & Continue</a></li>
+                <li><a href="#cuestionario">Cuestionario</a></li>
               </ul>
             </nav>
           </div>
@@ -541,6 +534,61 @@
               </div>
               <div id="out-break" class="console-output"></div>
             </div>
+
+            <!-- ================= CUESTIONARIO ================= -->
+            <h3 class="fw-bold mt-5 mb-4 text-center" id="cuestionario">
+              <i class="bi bi-patch-question-fill text-primary me-2"></i>Demuestra lo aprendido
+            </h3>
+
+            <div class="quiz-card p-4 mx-auto"
+              style="background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); max-width: 700px;">
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <span class="badge bg-primary rounded-pill">Pregunta <span id="numPregunta">1</span> de <span
+                    id="totalPreguntas">7</span></span>
+              </div>
+
+              <h5 class="fw-bold mb-4" id="preguntaTitulo">Cargando pregunta...</h5>
+
+              <div class="d-grid gap-2 mb-4" id="opciones">
+                <!-- Opciones se generan con JS -->
+              </div>
+
+              <div id="feedback" class="alert d-none" role="alert"></div>
+              <div id="solucion" class="alert alert-info d-none mt-2" role="alert"></div>
+
+              <button id="btnSiguiente" class="btn btn-primary w-100 d-none" onclick="siguientePregunta()">
+                Siguiente Pregunta <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+
+            <style>
+              .quiz-option {
+                text-align: left;
+                padding: 12px 20px;
+                font-weight: 500;
+                border: 2px solid #e9ecef;
+                transition: all 0.2s;
+              }
+
+              .quiz-option:hover {
+                background-color: #f8f9fa;
+                border-color: #dee2e6;
+              }
+
+              .quiz-option.correct {
+                background-color: #d1e7dd;
+                border-color: #badbcc;
+                color: #0f5132;
+              }
+
+              .quiz-option.wrong {
+                background-color: #f8d7da;
+                border-color: #f5c6cb;
+                color: #842029;
+              }
+            </style>
+
+            <!-- Fin Cuestionario -->
 
             <div class="d-flex justify-content-between mt-5 pt-4 border-top">
               <a href="teoria_operadores.html" class="btn btn-outline-secondary rounded-pill px-4">
@@ -719,6 +767,161 @@
         outputDiv.innerText = OUTPUTS[id];
       }, 600);
     }
+  </script>
+
+  <!-- Script Cuestionario -->
+  <script>
+    const preguntasControl = [
+      {
+        titulo: "¿Qué palabra clave se usa en Python para evaluar una condición?",
+        opciones: [
+          { texto: "check", correcta: false },
+          { texto: "if", correcta: true },
+          { texto: "when", correcta: false }
+        ],
+        solucion: "La sentencia 'if' es la estructura fundamental para tomar decisiones basadas en condiciones."
+      },
+      {
+        titulo: "¿Cuál es la sintaxis correcta para ejecutar un bloque si la condición 'if' falla?",
+        opciones: [
+          { texto: "otherwise", correcta: false },
+          { texto: "else", correcta: true },
+          { texto: "default", correcta: false }
+        ],
+        solucion: "'else' se ejecuta cuando ninguna de las condiciones anteriores (if/elif) se cumple."
+      },
+      {
+        titulo: "¿Qué función se usa comúnmente con el bucle 'for' para generar una secuencia de números?",
+        opciones: [
+          { texto: "range()", correcta: true },
+          { texto: "list()", correcta: false },
+          { texto: "sequence()", correcta: false }
+        ],
+        solucion: "range() genera una secuencia inmutable de números, ideal para iteraciones."
+      },
+      {
+        titulo: "¿Qué hace la sentencia 'break' dentro de un bucle?",
+        opciones: [
+          { texto: "Reinicia el bucle", correcta: false },
+          { texto: "Salta a la siguiente iteración", correcta: false },
+          { texto: "Termina el bucle inmediatamente", correcta: true }
+        ],
+        solucion: "'break' rompe la ejecución del bucle actual y continúa con el código fuera de él."
+      },
+      {
+        titulo: "¿Qué hace la sentencia 'continue'?",
+        opciones: [
+          { texto: "Termina el programa", correcta: false },
+          { texto: "Salta el resto del código actual y va a la siguiente iteración", correcta: true },
+          { texto: "Imprime un valor", correcta: false }
+        ],
+        solucion: "'continue' omite el código restante en la vuelta actual del bucle y regresa al inicio de la siguiente vuelta."
+      },
+      {
+        titulo: "¿Qué sucede si la condición de un bucle 'while' nunca se vuelve Falsa?",
+        opciones: [
+          { texto: "Se crea un bucle infinito", correcta: true },
+          { texto: "Python corrige el error automáticamente", correcta: false },
+          { texto: "El bucle se ejecuta una sola vez", correcta: false }
+        ],
+        solucion: "Si la condición siempre es True, el bucle nunca terminará por sí mismo (bucle infinito)."
+      },
+      {
+        titulo: "¿Es obligatorio usar indentación en los bloques de control en Python?",
+        opciones: [
+          { texto: "No, es opcional", correcta: false },
+          { texto: "Solo en funciones", correcta: false },
+          { texto: "Sí, define la estructura del bloque", correcta: true }
+        ],
+        solucion: "Python usa la indentación para delimitar bloques de código, a diferencia de las llaves {} en otros lenguajes."
+      }
+    ];
+
+    const preguntas = preguntasControl;
+    let indice = 0;
+    let puntaje = 0;
+    let respondida = false;
+
+    document.getElementById("totalPreguntas").textContent = preguntas.length;
+
+    function cargarPregunta() {
+      const p = preguntas[indice];
+      respondida = false;
+      document.getElementById("numPregunta").textContent = indice + 1;
+      document.getElementById("preguntaTitulo").textContent = p.titulo;
+
+      const opcionesDiv = document.getElementById("opciones");
+      opcionesDiv.innerHTML = "";
+
+      p.opciones.forEach(op => {
+        const btn = document.createElement("button");
+        btn.className = "btn btn-outline-secondary quiz-option";
+        btn.textContent = op.texto;
+        btn.onclick = () => responder(btn, op.correcta, p.solucion);
+        opcionesDiv.appendChild(btn);
+      });
+
+      document.getElementById("feedback").classList.add("d-none");
+      document.getElementById("solucion").classList.add("d-none");
+      document.getElementById("btnSiguiente").classList.add("d-none");
+    }
+
+    function responder(btn, correcta, solucion) {
+      if (respondida) return;
+      respondida = true;
+
+      const feedback = document.getElementById("feedback");
+      const solucionDiv = document.getElementById("solucion");
+
+      document.querySelectorAll(".quiz-option").forEach(b => b.disabled = true);
+
+      if (correcta) {
+        puntaje++;
+        btn.classList.add("correct");
+        feedback.className = "alert alert-success mt-3";
+        feedback.innerHTML = '<i class="bi bi-check-circle-fill text-success"></i> Respuesta correcta.';
+      } else {
+        btn.classList.add("wrong");
+        feedback.className = "alert alert-warning mt-3";
+        feedback.textContent = ' Respuesta incorrecta.';
+        solucionDiv.textContent = solucion;
+        solucionDiv.classList.remove("d-none");
+      }
+
+      feedback.classList.remove("d-none");
+      document.getElementById("btnSiguiente").classList.remove("d-none");
+    }
+
+    function siguientePregunta() {
+      indice++;
+      if (indice < preguntas.length) {
+        cargarPregunta();
+      } else {
+        mostrarResultado();
+      }
+    }
+
+    function mostrarResultado() {
+      const nota = Math.round((puntaje / preguntas.length) * 10);
+      document.querySelector(".quiz-card").innerHTML = `
+        <div class="text-center">
+          <h4 class="fw-bold mb-3"><i class="bi bi-trophy-fill text-warning"></i> Resultado Final</h4>
+          <div class="display-4 fw-bold text-primary mb-2">${nota}/10</div>
+          <p class="text-muted">Aciertos: ${puntaje} de ${preguntas.length}</p>
+          
+          <div class="alert ${nota >= 7 ? 'alert-success' : 'alert-warning'} mt-4">
+            ${nota >= 7 ? '¡Excelente! Dominas las estructuras de control.' : 'Buen intento. Revisa la lección y prueba otra vez.'}
+          </div>
+          
+          <button class="btn btn-outline-primary mt-3" onclick="location.reload()">
+             Intentar de nuevo
+          </button>
+        </div>
+      `;
+    }
+
+    // Iniciar
+    cargarPregunta();
   </script>
   <script src="../static/assets/js/navbar-nested.js"></script>
 </body>
