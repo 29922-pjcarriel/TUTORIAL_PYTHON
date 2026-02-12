@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Vehiculo-Parte II · Python Academy</title>
-  <meta name="description" content="Parte II: conexión Flask ↔ MySQL, Create y Read del CRUD.">
+  <meta name="description" content="Parte II: conexión Flask ↔ MySQL, botones Detalle y Borrar + Navbar con Matrículas.">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
@@ -109,7 +109,7 @@
 </head>
 
 <body>
-    <!-- Navbar -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
@@ -127,83 +127,8 @@
               <i class="bi bi-house me-1"></i> Inicio
             </a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
-              <i class="bi bi-book me-1"></i> Teoría
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i
-                    class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i
-                    class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_htmlpyhon.html"><i
-                    class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_sintaxisComentarios.html"><i
-                    class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_variablesConstantes.html"><i
-                    class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_tiposDatos.html"><i
-                    class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo
-                  el temario</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
-              <i class="bi bi-code-square me-1"></i> Ejercicios
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li class="dropdown-submenu">
-                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
-                    class="bi bi-input-cursor-text me-2 text-success"></i>Procesamiento de formularios</a>
-                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio1.html">Formulario request.form</a></li>
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio2.html">Formulario request.files</a></li>
-                </ul>
-              </li>
-              <li class="dropdown-submenu">
-                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
-                    class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a>
-                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio3.html">Factorial</a></li>
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio4.html">Triángulo de Pascal</a></li>
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio5.html">Es Primo</a></li>
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio6.html">Validar Cédula</a></li>
-                </ul>
-              </li>
-              <li class="dropdown-submenu">
-                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
-                    class="bi bi-list-ul me-2 text-success"></i>Arreglos</a>
-                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio7.html">Ejemplo 01</a></li>
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio8.html">Ejemplo 02</a></li>
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio9.html">Arreglo</a></li>
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio10.html">Matriz</a></li>
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio11.html">Cubo</a></li>
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio12.html">Tablas Dinámicas</a></li>
-                </ul>
-              </li>
-              <li class="dropdown-submenu">
-                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
-                    class="bi bi-diagram-2 me-2 text-success"></i>POO</a>
-                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio13.html">Clases</a></li>
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio14.html">Herencia</a></li>
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio15.html">Abstracta</a></li>
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio16.html">Interfaces</a></li>
-                  <li><a class="dropdown-item" href="../ejercicios/ejercicio17.html">Polimorfismo</a></li>
-                </ul>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver
-                  todos los ejercicios</a></li>
-            </ul>
-          </li>
+
+          <!-- Temas avanzados -->
           <li class="nav-item dropdown">
             <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-database me-1"></i> Temas Avanzados
@@ -215,8 +140,6 @@
                     class="bi bi-car-front-fill me-2 text-danger"></i>Vehículo - Parte II</a></li>
               <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte III.html"><i
                     class="bi bi-gear-wide-connected me-2 text-danger"></i>Vehículo - Parte III</a></li>
-              <li><a class="dropdown-item py-2" href="../CRUD/Session y login.html"><i
-                    class="bi bi-lock me-2 text-danger"></i>Session y Login</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -224,30 +147,22 @@
                     class="bi bi-grid me-2"></i>Ver Resumen</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
-              <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/crud_vehiculo.html"><i class="bi bi-car-front-fill me-2 text-primary"></i>CRUD Vehículo</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
-            </ul>
-          </li>
+
+          <!-- ✅ Navbar extra: Vehículos / Matrículas -->
           <li class="nav-item">
-            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
-              Comenzar <i class="bi bi-arrow-right ms-1"></i>
+            <a class="nav-link nav-link-custom" href="#" aria-disabled="true">
+              <i class="bi bi-car-front me-1"></i> Vehículos
             </a>
           </li>
+
+          <li class="nav-item">
+            <!-- Este botón es SOLO de navegación visual (front).
+                 La ejecución real del enlace se hace en Flask usando el parámetro d (base64). -->
+            <a class="nav-link nav-link-custom" href="#" aria-disabled="true">
+              <i class="bi bi-card-checklist me-1"></i> Matrículas
+            </a>
+          </li>
+
         </ul>
       </div>
     </div>
@@ -258,7 +173,7 @@
       <div class="container">
         <span class="badge bg-success px-3 py-2 rounded-pill mb-3">Módulo CRUD - Paso 02</span>
         <h1 class="display-4 fw-bold">Vehiculo - Parte II</h1>
-        <p class="lead opacity-75">Conexión Flask ↔ MySQL + Create y Read (guardar y listar).</p>
+        <p class="lead opacity-75">Detalle y Borrar funcionando + navegación con Matrículas.</p>
       </div>
     </section>
 
@@ -275,201 +190,130 @@
         <h3 class="section-title">1. Enunciado del Ejercicio (Vehículo - Parte II)</h3>
 
         <p>
-          En esta parte se conecta el proyecto en <b>Flask (Python)</b> con una base de datos <b>MySQL</b> usando la
-          librería
-          <code>pymysql</code>. El objetivo es completar:
+          En esta Parte II continuamos el sistema de <b>matriculación de vehículos</b> aplicando el enfoque
+          <b>CRUD</b> (Create, Read, Update, Delete) con <b>Python (Flask)</b> y <b>MySQL</b>.
         </p>
 
-        <ul>
-          <li><b>Create:</b> guardar un vehículo (incluyendo imagen si aplica) y guardar una matrícula.</li>
-          <li><b>Read:</b> listar vehículos, ver detalle de vehículo y listar / detalle de matrículas.</li>
+        <p>
+          A diferencia de la Parte I (que solo preparaba la base y la interfaz), en esta Parte II el objetivo es que el módulo
+          de <b>Vehículos</b> muestre acciones reales en pantalla, especialmente:
+        </p>
+
+        <ul class="mb-2">
+          <li><b>Detalle (Read completo):</b> al dar clic en “Detalle” debe mostrarse toda la información del vehículo.</li>
+          <li><b>Borrar (Delete):</b> al dar clic en “Borrar” debe eliminar el vehículo y mostrarse un mensaje de confirmación.</li>
         </ul>
 
-        <div class="alert alert-info">
-          <b>Importante:</b> En esta web solo mostramos y explicamos el código Python.
-          La ejecución real se hace en tu proyecto con Flask.
+        <div class="alert alert-info mt-3 mb-0">
+          <b>Importante:</b> En esta web se describe el ejercicio (front). La ejecución real se hace en tu proyecto Flask,
+          controlando operaciones con el parámetro <code>d</code> (base64).
         </div>
 
         <!-- 2 -->
-        <h3 class="section-title">2. Estructura del Proyecto (cómo se organiza)</h3>
-        <p class="hint mb-2">Este es el orden lógico de tus archivos según tu captura:</p>
+        <h3 class="section-title">2. Objetivos específicos de la Parte II</h3>
+        <p>En esta Parte II el estudiante debe lograr:</p>
 
-        <pre class="code-box"><code>1-LISTAR_VEHICULO_PARTE_II/
-├── app.py
-├── constantes.py
-├── clase/
-│   ├── vehiculo.py
-│   └── matricula.py
-└── Imagenes/   (o imagenes/)
-    └── (fotos de vehículos)</code></pre>
-
-        <div class="alert alert-secondary mb-0">
-          <b>Nota:</b> si tu carpeta se llama <code>Imagenes</code> y en Flask defines
-          <code>static_folder='imagenes'</code>,
-          en Linux eso puede fallar. Deben coincidir exacto (mayúsculas/minúsculas).
-        </div>
+        <ul>
+          <li>Mostrar el <b>listado de vehículos</b> como pantalla principal.</li>
+          <li>Hacer funcionar los botones de acciones:
+            <ul class="mt-2">
+              <li><b>Detalle</b>: debe abrir una vista con la información completa del vehículo.</li>
+              <li><b>Borrar</b>: debe eliminar el registro y mostrar confirmación o error.</li>
+            </ul>
+          </li>
+          <li>Agregar un <b>navbar</b> que incluya acceso al módulo de <b>Matrículas</b> desde cualquier pantalla.</li>
+        </ul>
 
         <!-- 3 -->
-        <h3 class="section-title">3. Conexión a MySQL con PyMySQL</h3>
+        <h3 class="section-title">3. Navbar obligatorio con acceso a Matrículas</h3>
         <p>
-          En Python, la conexión se encapsula en una función para poder reutilizarla en toda la aplicación:
+          Se debe agregar un <b>navbar superior</b> (menú) que contenga como mínimo dos accesos:
         </p>
 
-        <pre class="code-box"><code>import pymysql
-from constantes import SERVER, USER, PASS, BD
+        <ul class="mb-0">
+          <li><b>Vehículos</b>: regresa al listado principal.</li>
+          <li><b>Matrículas</b>: abre el módulo de matrículas (lista de matrículas).</li>
+        </ul>
 
-def conectar():
-    try:
-        cn = pymysql.connect(
-            host=SERVER,
-            user=USER,
-            password=PASS,
-            database=BD,
-            charset="utf8",
-            cursorclass=pymysql.cursors.DictCursor
-        )
-        return cn, "La conexión tuvo éxito"
-    except Exception as e:
-        return None, f"Error de conexión: {str(e)}"</code></pre>
-
-        <div class="alert alert-success">
-          <b>¿Por qué DictCursor?</b> Porque devuelve filas como diccionario:
-          <code>{"placa": "...", "motor": "..."}</code> y es más fácil renderizar HTML.
+        <div class="alert alert-secondary mt-3 mb-0">
+          <b>Regla del ejercicio:</b> el acceso a Matrículas debe usar el mismo mecanismo de operación por parámetro
+          <code>d</code> (codificado en base64) que el módulo de Vehículos.
         </div>
 
         <!-- 4 -->
-        <h3 class="section-title">4. Una sola ruta que controla TODO (GET/POST)</h3>
+        <h3 class="section-title">4. Parámetro d (base64): operación / id</h3>
         <p>
-          Tu proyecto usa una estrategia muy clara: una sola ruta (<code>/</code>) que decide qué acción ejecutar según:
+          El sistema controla todas las acciones usando un parámetro llamado <code>d</code>. Este parámetro representa:
+          <b>operación</b> y <b>id</b> con el formato:
         </p>
 
-        <ul>
-          <li><b>GET</b>: usando el parámetro <code>d</code> (codificado en base64) para decidir operación.</li>
-          <li><b>POST</b>: usando el botón <code>Guardar</code> y el campo <code>op</code> para saber si es vehículo o
-            matrícula.</li>
-        </ul>
-
-        <pre class="code-box"><code>from flask import Flask, request
-import base64
-
-@app.route("/", methods=["GET","POST"])
-def home():
-    cn, msg = conectar()
-    if cn is None:
-        return msg
-
-    v = Vehiculo(cn)
-    m = Matricula(cn)
-
-    # GET: leer d (base64) y decidir operación
-    if "d" in request.args:
-        dato = base64.b64decode(request.args.get("d","")).decode("utf-8")
-        op, id_ = dato.split("/")
-        # ... if op == "det": ... etc
-
-    # POST: Guardar vehículo o matrícula
-    if request.method == "POST" and ("Guardar" in request.form):
-        # ... if op in ("new","update"): ...
-        pass</code></pre>
-
-        <div class="alert alert-secondary">
-          📌 <b>Ventaja:</b> no tienes muchas rutas, todo se controla con una sola lógica y el parámetro <code>d</code>.
+        <div class="alert alert-light border mb-2">
+          <b>Formato:</b> <code>operacion/id</code> (codificado en base64)
         </div>
+
+        <p class="mb-2">Operaciones principales usadas en esta Parte II:</p>
+
+        <ul class="mb-0">
+          <li><b>det/id</b>: mostrar el <b>detalle</b> del vehículo.</li>
+          <li><b>del/id</b>: <b>borrar</b> el vehículo.</li>
+          <li><b>mat/0</b> (o equivalente): abrir el módulo de <b>matrículas</b> desde el navbar.</li>
+        </ul>
 
         <!-- 5 -->
-        <h3 class="section-title">5. Parámetro d: base64 (operación/id)</h3>
+        <h3 class="section-title">5. READ: Listado + Detalle funcionando</h3>
         <p>
-          Tu sistema no envía <code>?d=det/5</code> directo, sino que lo codifica con base64 para que se vea así:
-          <code>?d=ZGV0LzU=</code> (ejemplo).
+          La pantalla principal debe ser una <b>tabla con vehículos</b>, mostrando la información básica y un bloque de
+          <b>Acciones</b>.
         </p>
 
-        <p class="hint mb-2">Ejemplo para crear el parámetro en Python:</p>
-
-        <pre class="code-box"><code>import base64
-
-texto = "det/5"
-d = base64.b64encode(texto.encode("utf-8")).decode("utf-8")
-print(d)  # ZGV0LzU=</code></pre>
-
-        <p class="hint mb-2">Ejemplo para leerlo (como ya haces en tu código):</p>
-        <pre class="code-box"><code>dato = base64.b64decode(request.args.get("d","")).decode("utf-8")
-tmp = dato.split("/")
-op = tmp[0]   # det, act, new, del, mat, ...
-id_ = tmp[1]  # 5, 10, ...</code></pre>
-
-        <!-- 6 -->
-        <h3 class="section-title">6. READ: Listado y Detalle (Vehículos / Matrículas)</h3>
-        <p>
-          En Read, tu ruta llama a métodos de tus clases:
+        <p class="mb-2">
+          Al presionar el botón <b>Detalle</b>, el sistema debe:
         </p>
 
-        <pre class="code-box"><code># Vehículos
-if op == "det":
-    html += v.get_detail_vehiculo(id_)
-elif op == "new":
-    html += v.get_form()
-else:
-    html += v.get_list()
-
-# Matrículas
-if op == "mat":
-    html += m.get_list()
-elif op == "mat_det":
-    html += m.get_detail_matricula(id_)</code></pre>
-
-        <div class="alert alert-success mb-0">
-          <b>Idea clave:</b> Flask solo “orquesta”, y tus clases (Vehiculo/Matricula) hacen el SQL y devuelven HTML.
-        </div>
-
-        <!-- 7 -->
-        <h3 class="section-title">7. CREATE: Guardar Vehículo y Guardar Matrícula</h3>
-        <p>
-          En POST, revisas <code>op</code> para decidir qué guardar:
-        </p>
-
-        <pre class="code-box"><code>if request.method == "POST" and ("Guardar" in request.form):
-
-    # VEHÍCULO
-    if request.form.get("op") in ("new", "update"):
-        if request.form.get("placa") not in (None, "", "NULL"):
-            html += v.save_vehiculo(request.form, request.files)
-        else:
-            html += v.get_list()
-
-    # MATRÍCULA
-    elif request.form.get("op","").startswith("mat_"):
-        html += m.save_matricula(request.form)</code></pre>
-
-        <div class="alert alert-secondary">
-          📌 <b>¿Por qué validar placa?</b> Porque la placa es el identificador principal del vehículo y no puede venir
-          vacía.
-        </div>
-
-        <!-- 8 -->
-        <h3 class="section-title">8. Manejo de imagen (request.files)</h3>
-        <p>
-          Tu sistema recibe la foto desde el formulario y la procesa con Flask. El concepto es:
-        </p>
         <ul>
-          <li>Leer el archivo desde <code>request.files</code></li>
-          <li>Guardar en carpeta (por ejemplo <code>Imagenes/</code>) o guardar en la BD como BLOB/base64 (según diseño)
-          </li>
+          <li>Recibir la operación <code>det/id</code>.</li>
+          <li>Consultar el vehículo en la base de datos.</li>
+          <li>Mostrar la vista detalle con: placa, marca, motor, chasis, combustible, año, color, avalúo, foto.</li>
+          <li>Mostrar también el <b>valor de matrícula calculado</b> a partir del avalúo.</li>
+          <li>Incluir un botón <b>Regresar</b> al listado.</li>
         </ul>
 
-        <pre class="code-box"><code># Ejemplo conceptual
-archivo = request.files.get("foto")
-if archivo and archivo.filename:
-    nombre = archivo.filename
-    archivo.save("Imagenes/" + nombre)</code></pre>
-
-        <div class="alert alert-info">
-          En tu caso, como importas <code>base64</code>, también es posible convertir la imagen a base64 si lo
-          necesitas.
+        <div class="alert alert-success mb-0">
+          ✅ <b>Evidencia:</b> al dar clic en “Detalle”, <b>sí debe cambiar la pantalla</b> y mostrarse la información completa.
         </div>
 
-        <!-- 9 -->
-        <h3 class="section-title">9. Video de Ejecución</h3>
-        <p>Inserta aquí el video donde se vea: listado → formulario → guardar → regresar a listado.</p>
+        <!-- 6 -->
+        <h3 class="section-title">6. DELETE: Botón Borrar funcionando</h3>
+        <p class="mb-2">
+          Al presionar el botón <b>Borrar</b>, el sistema debe:
+        </p>
+
+        <ul>
+          <li>Recibir la operación <code>del/id</code>.</li>
+          <li>Eliminar el vehículo.</li>
+          <li>Mostrar un mensaje de confirmación: <b>“El registro se eliminó correctamente”</b> o un error si no se pudo.</li>
+          <li>Incluir botón <b>Regresar</b> al listado.</li>
+        </ul>
+
+
+        <!-- 7 -->
+        <h3 class="section-title">7. Evidencia (video o capturas)</h3>
+        <p class="mb-2">
+          Para validar la Parte II se debe evidenciar:
+        </p>
+
+        <ul class="mb-0">
+          <li>Listado con botones <b>Detalle</b> y <b>Borrar</b> visibles.</li>
+          <li>Click en <b>Detalle</b> → se muestra la vista detalle.</li>
+          <li>Click en <b>Borrar</b> → se elimina y aparece confirmación.</li>
+          <li><b>Navbar</b> visible con acceso a <b>Matrículas</b>.</li>
+        </ul>
+
+        <!-- 8 -->
+        <h3 class="section-title">8. Video de Ejecución</h3>
+        <p>
+          Inserta aquí el video donde se vea: listado → detalle → borrar → navegación a matrículas.
+        </p>
 
         <div class="video-container">
           <div class="video-placeholder">
