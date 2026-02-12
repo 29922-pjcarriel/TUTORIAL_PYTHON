@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Estructuras de Control · Python vs PHP</title>
+    <meta name="description" content="Comparativa de estructuras de control entre Python y PHP: if, for, foreach, while, do-while, switch">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link href="../static/assets/css/main.css" rel="stylesheet">
+    <link href="../static/assets/css/custom.css" rel="stylesheet">
+    <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+
+    <style>
+        /* Sidebar Sticky */
+        .sidebar-nav {
+            position: sticky;
+            top: 100px;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        .sidebar-nav h5 {
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #667eea;
+        }
+        .sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 0.5rem; }
+        .sidebar-nav a {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: #64748b;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        .sidebar-nav a:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            border-left-color: #667eea;
+            padding-left: 1.2rem;
+        }
+        .sidebar-nav a.active {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+            color: #667eea;
+            font-weight: 600;
+            border-left-color: #667eea;
+        }
+
+        /* Code blocks comparativos */
+        .code-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        @media (max-width: 768px) {
+            .code-comparison { grid-template-columns: 1fr; }
+        }
+        .code-block {
+            background: #1e1e2e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        .code-block-header {
+            padding: 10px 16px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .code-block-header.php-header {
+            background: linear-gradient(135deg, #4F5B93 0%, #777BB4 100%);
+            color: #fff;
+        }
+        .code-block-header.python-header {
+            background: linear-gradient(135deg, #306998 0%, #FFD43B 100%);
+            color: #1a1a2e;
+        }
+        .code-block pre {
+            margin: 0;
+            padding: 1.2rem 1.5rem;
+            color: #e0e0e0;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            overflow-x: auto;
+        }
+        .code-block pre .keyword { color: #c678dd; font-weight: 600; }
+        .code-block pre .variable { color: #e06c75; }
+        .code-block pre .string { color: #98c379; }
+        .code-block pre .comment { color: #5c6370; font-style: italic; }
+        .code-block pre .function { color: #61afef; }
+        .code-block pre .boolean { color: #d19a66; }
+        .code-block pre .builtin { color: #56b6c2; }
+        .code-block pre .number { color: #d19a66; }
+
+        /* Structure badge */
+        .structure-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 8px;
+            border: 2px solid #7fff00;
+            color: #7fff00;
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: rgba(127, 255, 0, 0.08);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Section title */
+        .section-title-decorated {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        .section-divider {
+            height: 4px;
+            width: 60px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+            margin-bottom: 2rem;
+        }
+
+        /* Info note */
+        .info-note {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border-left: 4px solid #667eea;
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0 1.5rem;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+        .info-note i { color: #667eea; margin-right: 8px; }
+
+        /* Subtitle */
+        .sub-section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="../index.html">
+        <i class="bi bi-braces me-2"></i>Python Academy
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-2">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="../index.html"><i class="bi bi-house me-1"></i> Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-book me-1"></i> Teoría</a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_htmlpyhon.html"><i class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_sintaxisComentarios.html"><i class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_variablesConstantes.html"><i class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_tiposDatos.html"><i class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo el temario</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-code-square me-1"></i> Ejercicios</a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-input-cursor-text me-2 text-success"></i>Procesamiento de formularios</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio1.html">Formulario request.form</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio2.html">Formulario request.files</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio3.html">Factorial</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio4.html">Triángulo de Pascal</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio5.html">Es Primo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio6.html">Validar Cédula</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-list-ul me-2 text-success"></i>Arreglos</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio7.html">Ejemplo 01</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio8.html">Ejemplo 02</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio9.html">Arreglo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio10.html">Matriz</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio11.html">Cubo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio12.html">Tablas Dinámicas</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-diagram-2 me-2 text-success"></i>POO</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio13.html">Clases</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio14.html">Herencia</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio15.html">Abstracta</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio16.html">Interfaces</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio17.html">Polimorfismo</a></li>
+                </ul>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver todos los ejercicios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-database me-1"></i> Temas Avanzados</a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte I.html"><i class="bi bi-car-front me-2 text-danger"></i>Vehículo - Parte I</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte II.html"><i class="bi bi-car-front-fill me-2 text-danger"></i>Vehículo - Parte II</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte III.html"><i class="bi bi-gear-wide-connected me-2 text-danger"></i>Vehículo - Parte III</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Session y login.html"><i class="bi bi-lock me-2 text-danger"></i>Session y Login</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../explicacion_crud.html"><i class="bi bi-grid me-2"></i>Ver Resumen</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown"><i class="bi bi-arrow-left-right me-1"></i> Python VS PHP</a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="sintaxis.html"><i class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="ecosistema.html"><i class="bi bi-boxes me-2 text-info"></i>Ecosistema</a></li>
+              <li><a class="dropdown-item py-2" href="rendimiento.html"><i class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
+              <li><a class="dropdown-item py-2" href="despliegue.html"><i class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
+              <li><a class="dropdown-item py-2" href="mercado.html"><i class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
+              <li><a class="dropdown-item py-2" href="operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">Comenzar <i class="bi bi-arrow-right ms-1"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+
+    <main class="main">
+
+        <!-- Hero Interno -->
+        <section class="hero-internal">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="container relative">
+                <span class="badge-custom animate-on-scroll">MÓDULO 7</span>
+                <h1 class="animate-on-scroll delay-1">Estructuras de Control</h1>
+                <p class="animate-on-scroll delay-2">
+                    Condicionales, bucles y switch: cómo difieren PHP y Python en el flujo de control.
+                </p>
+            </div>
+        </section>
+
+        <section class="section py-5">
+            <div class="container">
+                <div class="row justify-content-start">
+                    <!-- Sidebar -->
+                    <div class="col-lg-3 d-none d-lg-block">
+                        <nav class="sidebar-nav">
+                            <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
+                            <ul>
+                                <li><a href="#if" class="active">Condicional IF</a></li>
+                                <li><a href="#ternario">Ternario</a></li>
+                                <li><a href="#foreach">Bucle FOREACH</a></li>
+                                <li><a href="#for">Bucle FOR</a></li>
+                                <li><a href="#while">Bucle WHILE</a></li>
+                                <li><a href="#dowhile">DO-WHILE</a></li>
+                                <li><a href="#switch">SWITCH</a></li>
+                            </ul>
+                            <hr>
+                            <a href="../PythonvsPHP.html" class="btn btn-sm btn-outline-secondary w-100 rounded-pill mt-2">
+                                <i class="bi bi-arrow-left me-2"></i>Volver al Índice
+                            </a>
+                        </nav>
+                    </div>
+
+                    <!-- Main Content -->
+                    <div class="col-lg-8">
+
+                        <!-- ============================== -->
+                        <!-- CONDICIONAL IF                  -->
+                        <!-- ============================== -->
+                        <div id="if" data-aos="fade-up">
+                            <h2 class="section-title-decorated">Estructuras de Control</h2>
+                            <div class="section-divider"></div>
+
+                            <p class="sub-section-title">CONDICIONAL</p>
+                            <div class="structure-badge">
+                                <i class="bi bi-signpost-split"></i> IF
+                            </div>
+
+                            <div class="info-note">
+                                <i class="bi bi-info-circle-fill"></i>
+                                PHP usa llaves para definir bloques, mientras que Python usa indentación.
+                            </div>
+
+                            <div class="code-comparison">
+                                <div class="code-block">
+                                    <div class="code-block-header php-header">
+                                        <i class="bi bi-filetype-php"></i> PHP
+                                    </div>
+<pre><span class="variable">$nota</span> = <span class="number">15</span>;
+
+<span class="keyword">if</span> (<span class="variable">$nota</span> &gt;= <span class="number">18</span>) {
+    <span class="function">echo</span> <span class="string">"Excelente"</span>;
+} <span class="keyword">elseif</span> (<span class="variable">$nota</span> &gt;= <span class="number">11</span>) {
+    <span class="function">echo</span> <span class="string">"Aprobado"</span>;
+} <span class="keyword">else</span> {
+    <span class="function">echo</span> <span class="string">"Desaprobado"</span>;
+}</pre>
+                                </div>
+                                <div class="code-block">
+                                    <div class="code-block-header python-header">
+                                        <i class="bi bi-filetype-py"></i> PYTHON
+                                    </div>
+<pre><span class="variable">nota</span> = <span class="number">15</span>
+
+<span class="keyword">if</span> <span class="variable">nota</span> &gt;= <span class="number">18</span>:
+    <span class="function">print</span>(<span class="string">"Excelente"</span>)
+<span class="keyword">elif</span> <span class="variable">nota</span> &gt;= <span class="number">11</span>:
+    <span class="function">print</span>(<span class="string">"Aprobado"</span>)
+<span class="keyword">else</span>:
+    <span class="function">print</span>(<span class="string">"Desaprobado"</span>)</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ============================== -->
+                        <!-- TERNARIO                        -->
+                        <!-- ============================== -->
+                        <div id="ternario" class="mt-5 pt-4" data-aos="fade-up">
+                            <p class="sub-section-title">CONDICIONAL</p>
+                            <div class="structure-badge">
+                                <i class="bi bi-signpost-split"></i> TERNARIO
+                            </div>
+
+                            <h5 class="fw-bold mt-3 mb-3">Ternario Simple</h5>
+                            <div class="code-comparison">
+                                <div class="code-block">
+                                    <div class="code-block-header php-header">
+                                        <i class="bi bi-filetype-php"></i> PHP
+                                    </div>
+<pre><span class="variable">$nota</span> = <span class="number">15</span>;
+
+<span class="comment">// Ternario simple</span>
+<span class="function">echo</span> (<span class="variable">$nota</span> &gt;= <span class="number">11</span>) ? <span class="string">"Aprobado"</span> : <span class="string">"Desaprobado"</span>;</pre>
+                                </div>
+                                <div class="code-block">
+                                    <div class="code-block-header python-header">
+                                        <i class="bi bi-filetype-py"></i> PYTHON
+                                    </div>
+<pre><span class="variable">nota</span> = <span class="number">15</span>
+
+<span class="comment"># Ternario simple</span>
+<span class="variable">mensaje</span> = <span class="string">"Aprobado"</span> <span class="keyword">if</span> <span class="variable">nota</span> &gt;= <span class="number">11</span> <span class="keyword">else</span> <span class="string">"Desaprobado"</span>
+<span class="function">print</span>(<span class="variable">mensaje</span>)</pre>
+                                </div>
+                            </div>
+
+                            <h5 class="fw-bold mt-4 mb-3">Ternario Anidado</h5>
+                            <div class="code-comparison">
+                                <div class="code-block">
+                                    <div class="code-block-header php-header">
+                                        <i class="bi bi-filetype-php"></i> PHP
+                                    </div>
+<pre><span class="variable">$nota</span> = <span class="number">15</span>;
+
+<span class="function">echo</span> (<span class="variable">$nota</span> &gt;= <span class="number">18</span>) ? <span class="string">"Excelente"</span> :
+     (<span class="variable">$nota</span> &gt;= <span class="number">11</span>) ? <span class="string">"Aprobado"</span> :
+     <span class="string">"Desaprobado"</span>;</pre>
+                                </div>
+                                <div class="code-block">
+                                    <div class="code-block-header python-header">
+                                        <i class="bi bi-filetype-py"></i> PYTHON
+                                    </div>
+<pre><span class="variable">nota</span> = <span class="number">15</span>
+
+<span class="variable">mensaje</span> = <span class="string">"Excelente"</span> <span class="keyword">if</span> <span class="variable">nota</span> &gt;= <span class="number">18</span> <span class="keyword">else</span> <span class="string">"Aprobado"</span> <span class="keyword">if</span> <span class="variable">nota</span> &gt;= <span class="number">11</span> <span class="keyword">else</span> <span class="string">"Desaprobado"</span>
+<span class="function">print</span>(<span class="variable">mensaje</span>)</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ============================== -->
+                        <!-- FOREACH                         -->
+                        <!-- ============================== -->
+                        <div id="foreach" class="mt-5 pt-4" data-aos="fade-up">
+                            <p class="sub-section-title">BUCLE</p>
+                            <div class="structure-badge">
+                                <i class="bi bi-arrow-repeat"></i> FOREACH
+                            </div>
+
+                            <div class="info-note">
+                                <i class="bi bi-info-circle-fill"></i>
+                                El for en Python funciona como un foreach, recorriendo directamente los elementos.
+                            </div>
+
+                            <h5 class="fw-bold mt-3 mb-3">Recorrer un arreglo con índice</h5>
+                            <div class="code-comparison">
+                                <div class="code-block">
+                                    <div class="code-block-header php-header">
+                                        <i class="bi bi-filetype-php"></i> PHP
+                                    </div>
+<pre><span class="variable">$numeros</span> = <span class="function">array</span>(<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>);
+
+<span class="keyword">foreach</span> (<span class="variable">$numeros</span> <span class="keyword">as</span> <span class="variable">$indice</span> =&gt; <span class="variable">$valor</span>) {
+    <span class="function">echo</span> <span class="variable">$indice</span> . <span class="string">": "</span> . <span class="variable">$valor</span> . <span class="string">"&lt;br&gt;"</span>;
+}</pre>
+                                </div>
+                                <div class="code-block">
+                                    <div class="code-block-header python-header">
+                                        <i class="bi bi-filetype-py"></i> PYTHON
+                                    </div>
+<pre><span class="variable">numeros</span> = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]
+
+<span class="keyword">for</span> <span class="variable">indice</span>, <span class="variable">valor</span> <span class="keyword">in</span> <span class="builtin">enumerate</span>(<span class="variable">numeros</span>):
+    <span class="function">print</span>(<span class="string">f"{indice}: {valor}"</span>)</pre>
+                                </div>
+                            </div>
+
+                            <h5 class="fw-bold mt-4 mb-3">Recorrer un arreglo asociativo / diccionario</h5>
+                            <div class="code-comparison">
+                                <div class="code-block">
+                                    <div class="code-block-header php-header">
+                                        <i class="bi bi-filetype-php"></i> PHP
+                                    </div>
+<pre><span class="variable">$persona</span> = <span class="function">array</span>(
+    <span class="string">"nombre"</span> =&gt; <span class="string">"Ana"</span>,
+    <span class="string">"edad"</span> =&gt; <span class="number">22</span>
+);
+
+<span class="keyword">foreach</span> (<span class="variable">$persona</span> <span class="keyword">as</span> <span class="variable">$clave</span> =&gt; <span class="variable">$valor</span>) {
+    <span class="function">echo</span> <span class="variable">$clave</span> . <span class="string">": "</span> . <span class="variable">$valor</span> . <span class="string">"&lt;br&gt;"</span>;
+}</pre>
+                                </div>
+                                <div class="code-block">
+                                    <div class="code-block-header python-header">
+                                        <i class="bi bi-filetype-py"></i> PYTHON
+                                    </div>
+<pre><span class="variable">persona</span> = {
+    <span class="string">"nombre"</span>: <span class="string">"Ana"</span>,
+    <span class="string">"edad"</span>: <span class="number">22</span>
+}
+
+<span class="keyword">for</span> <span class="variable">clave</span>, <span class="variable">valor</span> <span class="keyword">in</span> <span class="variable">persona</span>.<span class="function">items</span>():
+    <span class="function">print</span>(<span class="variable">clave</span>, <span class="string">":"</span>, <span class="variable">valor</span>)</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ============================== -->
+                        <!-- FOR                             -->
+                        <!-- ============================== -->
+                        <div id="for" class="mt-5 pt-4" data-aos="fade-up">
+                            <p class="sub-section-title">BUCLE</p>
+                            <div class="structure-badge">
+                                <i class="bi bi-arrow-repeat"></i> FOR
+                            </div>
+
+                            <div class="info-note">
+                                <i class="bi bi-info-circle-fill"></i>
+                                En PHP el for se basa en contadores, mientras que en Python se usa para recorrer rangos o colecciones.
+                                En PHP, el for tiene tres partes: inicialización, condición e incremento.
+                                En Python, el segundo valor de range es exclusivo, por eso se usa 6 para llegar hasta 5.
+                            </div>
+
+                            <div class="code-comparison">
+                                <div class="code-block">
+                                    <div class="code-block-header php-header">
+                                        <i class="bi bi-filetype-php"></i> PHP
+                                    </div>
+<pre><span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt;= <span class="number">5</span>; <span class="variable">$i</span>++) {
+    <span class="function">echo</span> <span class="variable">$i</span> . <span class="string">"&lt;br&gt;"</span>;
+}</pre>
+                                </div>
+                                <div class="code-block">
+                                    <div class="code-block-header python-header">
+                                        <i class="bi bi-filetype-py"></i> PYTHON
+                                    </div>
+<pre><span class="comment"># range(inicio, fin)</span>
+<span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="number">1</span>, <span class="number">6</span>):
+    <span class="function">print</span>(<span class="variable">i</span>)</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ============================== -->
+                        <!-- WHILE                           -->
+                        <!-- ============================== -->
+                        <div id="while" class="mt-5 pt-4" data-aos="fade-up">
+                            <p class="sub-section-title">BUCLE</p>
+                            <div class="structure-badge">
+                                <i class="bi bi-arrow-repeat"></i> WHILE
+                            </div>
+
+                            <div class="info-note">
+                                <i class="bi bi-info-circle-fill"></i>
+                                El while funciona de forma similar en ambos lenguajes, pero PHP usa llaves y Python indentación.
+                                <code>"&lt;br&gt;"</code> → salto de línea en HTML. Python agrega el salto de línea automáticamente.
+                            </div>
+
+                            <div class="code-comparison">
+                                <div class="code-block">
+                                    <div class="code-block-header php-header">
+                                        <i class="bi bi-filetype-php"></i> PHP
+                                    </div>
+<pre><span class="variable">$contador</span> = <span class="number">1</span>;
+
+<span class="keyword">while</span> (<span class="variable">$contador</span> &lt;= <span class="number">5</span>) {
+    <span class="function">echo</span> <span class="variable">$contador</span> . <span class="string">"&lt;br&gt;"</span>;
+    <span class="variable">$contador</span>++;
+}</pre>
+                                </div>
+                                <div class="code-block">
+                                    <div class="code-block-header python-header">
+                                        <i class="bi bi-filetype-py"></i> PYTHON
+                                    </div>
+<pre><span class="variable">contador</span> = <span class="number">1</span>
+
+<span class="keyword">while</span> <span class="variable">contador</span> &lt;= <span class="number">5</span>:
+    <span class="function">print</span>(<span class="variable">contador</span>)
+    <span class="variable">contador</span> += <span class="number">1</span></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ============================== -->
+                        <!-- DO-WHILE                        -->
+                        <!-- ============================== -->
+                        <div id="dowhile" class="mt-5 pt-4" data-aos="fade-up">
+                            <p class="sub-section-title">BUCLE</p>
+                            <div class="structure-badge">
+                                <i class="bi bi-arrow-repeat"></i> DO-WHILE
+                            </div>
+
+                            <div class="info-note">
+                                <i class="bi bi-info-circle-fill"></i>
+                                PHP tiene do while que se ejecuta al menos una vez, mientras que Python no lo incluye de forma nativa.
+                                <code>"&lt;br&gt;"</code> → salto de línea en HTML. Python agrega el salto de línea automáticamente.
+                            </div>
+
+                            <div class="code-comparison">
+                                <div class="code-block">
+                                    <div class="code-block-header php-header">
+                                        <i class="bi bi-filetype-php"></i> PHP
+                                    </div>
+<pre><span class="variable">$contador</span> = <span class="number">10</span>;
+
+<span class="keyword">do</span> {
+    <span class="function">echo</span> <span class="variable">$contador</span> . <span class="string">"&lt;br&gt;"</span>;
+    <span class="variable">$contador</span>++;
+} <span class="keyword">while</span> (<span class="variable">$contador</span> &lt;= <span class="number">5</span>);</pre>
+                                </div>
+                                <div class="code-block">
+                                    <div class="code-block-header python-header">
+                                        <i class="bi bi-filetype-py"></i> PYTHON
+                                    </div>
+<pre><span class="variable">contador</span> = <span class="number">10</span>
+
+<span class="keyword">while</span> <span class="boolean">True</span>:
+    <span class="function">print</span>(<span class="variable">contador</span>)
+    <span class="variable">contador</span> += <span class="number">1</span>
+
+    <span class="keyword">if</span> <span class="variable">contador</span> &gt; <span class="number">5</span>:
+        <span class="keyword">break</span></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ============================== -->
+                        <!-- SWITCH                          -->
+                        <!-- ============================== -->
+                        <div id="switch" class="mt-5 pt-4" data-aos="fade-up">
+                            <h2 class="section-title-decorated">Switch</h2>
+                            <div class="section-divider"></div>
+
+                            <div class="info-note">
+                                <i class="bi bi-info-circle-fill"></i>
+                                PHP usa switch para múltiples opciones, mientras que Python desde la versión Python 3.10 hay match/case pero antes lo reemplazaba con if-elif o match.
+                            </div>
+
+                            <!-- PHP switch -->
+                            <h5 class="fw-bold mt-3 mb-3">PHP - switch</h5>
+                            <div class="code-block mb-4">
+                                <div class="code-block-header php-header">
+                                    <i class="bi bi-filetype-php"></i> PHP
+                                </div>
+<pre><span class="variable">$dia</span> = <span class="number">3</span>;
+
+<span class="keyword">switch</span> (<span class="variable">$dia</span>) {
+    <span class="keyword">case</span> <span class="number">1</span>:
+        <span class="function">echo</span> <span class="string">"Lunes"</span>;
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">2</span>:
+        <span class="function">echo</span> <span class="string">"Martes"</span>;
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">3</span>:
+        <span class="function">echo</span> <span class="string">"Miércoles"</span>;
+        <span class="keyword">break</span>;
+    <span class="keyword">default</span>:
+        <span class="function">echo</span> <span class="string">"Día no válido"</span>;
+}</pre>
+                            </div>
+
+                            <!-- Python equivalents -->
+                            <h5 class="fw-bold mt-3 mb-3">Python - if/elif (alternativa clásica)</h5>
+                            <div class="code-block mb-4">
+                                <div class="code-block-header python-header">
+                                    <i class="bi bi-filetype-py"></i> PYTHON
+                                </div>
+<pre><span class="variable">dia</span> = <span class="number">3</span>
+
+<span class="keyword">if</span> <span class="variable">dia</span> == <span class="number">1</span>:
+    <span class="function">print</span>(<span class="string">"Lunes"</span>)
+<span class="keyword">elif</span> <span class="variable">dia</span> == <span class="number">2</span>:
+    <span class="function">print</span>(<span class="string">"Martes"</span>)
+<span class="keyword">elif</span> <span class="variable">dia</span> == <span class="number">3</span>:
+    <span class="function">print</span>(<span class="string">"Miércoles"</span>)
+<span class="keyword">else</span>:
+    <span class="function">print</span>(<span class="string">"Día no válido"</span>)</pre>
+                            </div>
+
+                            <h5 class="fw-bold mt-3 mb-3">Python 3.10+ - match/case</h5>
+                            <div class="code-block mb-4">
+                                <div class="code-block-header python-header">
+                                    <i class="bi bi-filetype-py"></i> PYTHON
+                                </div>
+<pre><span class="variable">dia</span> = <span class="number">3</span>
+
+<span class="keyword">match</span> <span class="variable">dia</span>:
+    <span class="keyword">case</span> <span class="number">1</span>:
+        <span class="function">print</span>(<span class="string">"Lunes"</span>)
+    <span class="keyword">case</span> <span class="number">2</span>:
+        <span class="function">print</span>(<span class="string">"Martes"</span>)
+    <span class="keyword">case</span> <span class="number">3</span>:
+        <span class="function">print</span>(<span class="string">"Miércoles"</span>)
+    <span class="keyword">case</span> _:
+        <span class="function">print</span>(<span class="string">"Día no válido"</span>)</pre>
+                            </div>
+                        </div>
+
+                        <!-- Navegación entre páginas -->
+                        <div class="d-flex justify-content-between mt-5 pt-4">
+                            <a href="operadores.html" class="btn btn-outline-secondary rounded-pill px-4">
+                                <i class="bi bi-arrow-left me-2"></i>Operadores
+                            </a>
+                            <a href="../PythonvsPHP.html" class="btn btn-glow rounded-pill px-4">
+                                Ver Comparativa <i class="bi bi-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer-modern mt-5">
+        <div class="container text-center">
+            <p class="mb-0 text-white-50">© 2026 Python Academy · Módulo Especial de Comparativa Backend</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../static/assets/js/effects.js"></script>
+    <script src="../static/assets/js/navbar-nested.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+
+        // Sidebar scroll spy
+        const sections = document.querySelectorAll('[id]');
+        const navLinks = document.querySelectorAll('.sidebar-nav a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
