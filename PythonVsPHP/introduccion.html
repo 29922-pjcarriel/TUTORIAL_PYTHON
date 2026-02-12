@@ -2,25 +2,28 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Introducción - PHP vs Python</title>
-    <meta name="description" content="Introducción a las diferencias entre PHP y Python">
-    <meta name="keywords" content="PHP, Python, comparación, desarrollo web">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Introducción - PHP vs Python</title>
+  <meta name="description" content="Comparativa definitiva: PHP vs Python. Historia, Filosofía y casos de uso.">
 
-            <!-- Estilos Restaurados -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
-    <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
-    <link href="../static/assets/css/custom.css" rel="stylesheet">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+  <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
+  <link href="../static/assets/css/custom.css" rel="stylesheet">
 </head>
+
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
         <i class="bi bi-braces me-2"></i>Python Academy
@@ -110,7 +113,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver todos los ejercicios</a></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver
+                  todos los ejercicios</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -147,204 +151,253 @@
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/crud_vehiculo.html"><i class="bi bi-car-front-fill me-2 text-primary"></i>CRUD Vehículo</a></li>
+              <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
+              Comenzar <i class="bi bi-arrow-right ms-1"></i>
+            </a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-    <main class="main">
-        <!-- Hero Section -->
-        <section class="hero-intro">
-            <div class="vs-container">
-                <div class="vs-title" data-aos="fade-down">PHP</div>
-                <div class="vs-separator" data-aos="zoom-in" data-aos-delay="200">VS</div>
-                <div class="vs-title" data-aos="fade-up" data-aos-delay="400">PYTHON</div>
-            </div>
-        </section>
+  <main class="main">
+    <!-- Hero Section -->
+    <section class="hero-intro">
+      <div class="vs-container">
+        <div class="vs-title" data-aos="fade-down">PHP</div>
+        <div class="vs-separator" data-aos="zoom-in" data-aos-delay="200">VS</div>
+        <div class="vs-title" data-aos="fade-up" data-aos-delay="400">PYTHON</div>
+      </div>
+      <p class="text-center text-white mt-4 lead animate-on-scroll delay-3"
+        style="position: relative; z-index: 2; opacity: 0.9;">
+        La batalla de los titanes del Backend: ¿Pragmatismo o Elegancia?
+      </p>
+    </section>
 
-        <!-- Introducción -->
-        <section class="section-padding bg-dark">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-7" data-aos="fade-right">
-                        <div class="intro-card">
-                            <h2 class="intro-section-title">INTRODUCCIÓN</h2>
-                            <p class="intro-text">
-                                <strong>PHP y Python son lenguajes muy usados en desarrollo web</strong>, pero funcionan de manera 
-                                diferente desde la forma en que se ejecuta el código hasta su sintaxis y estructura.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
-                        <img src="../static/assets/img/GbpDbaqNYisaexC.jfif" alt="Robot" class="robot-image">
-                    </div>
+    <!-- Introducción & Historia -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="row align-items-stretch">
+          <div class="col-lg-7" data-aos="fade-right">
+            <div class="intro-card h-100 d-flex flex-column justify-content-center">
+              <h2 class="intro-section-title"><i class="bi bi-binoculars me-2"></i>Panorama General</h2>
+              <p class="intro-text mb-4">
+                <strong>PHP y Python son los dos lenguajes más influyentes en la web moderna.</strong>
+                Mientras PHP nació específicamente para la web, Python evolucionó hasta convertirse en un líder en
+                múltiples industrias.
+              </p>
+
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <div class="p-3 rounded-3"
+                    style="background: rgba(119, 123, 180, 0.1); border-left: 3px solid #777bb4;">
+                    <h5 class="text-white mb-2"><i class="bi bi-clock-history me-2"></i>1995: PHP</h5>
+                    <p class="small text-white-50 mb-0">Rasmus Lerdorf crea "Personal Home Page". Su objetivo: simpleza
+                      y despliegue rápido.</p>
+                  </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Diferencias Generales -->
-        <section class="section-padding bg-gradient">
-            <div class="container">
-                <h2 class="intro-section-title" data-aos="fade-up">DIFERENCIAS GENERALES<br>ENTRE PHP Y PYTHON</h2>
-                
-                <div class="comparison-grid">
-                    <!-- PHP -->
-                    <div class="comparison-item" data-aos="fade-right">
-                        <h3 class="comparison-header">PHP</h3>
-                        <ul class="comparison-list">
-                            <li>Lenguaje diseñado principalmente para el desarrollo web.</li>
-                            <li>Se ejecuta principalmente en el servidor web (Apache, Nginx).</li>
-                            <li>Sintaxis inspirada en C, Java y Perl; usa símbolos como $.</li>
-                            <li>Se integra directamente con HTML.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Python + Flask -->
-                    <div class="comparison-item" data-aos="fade-left" data-aos-delay="200">
-                        <h3 class="comparison-header">PYTHON + FLASK</h3>
-                        <ul class="comparison-list">
-                            <li>Lenguaje de propósito general (web, IA, datos, automatización, etc.).</li>
-                            <li>Se ejecuta mediante un intérprete y puede usarse en muchos entornos.</li>
-                            <li>Sintaxis simple y legible; usa la indentación para estructurar el código.</li>
-                            <li>Usa frameworks como Django o Flask para desarrollo web.</li>
-                        </ul>
-                    </div>
+                <div class="col-sm-6">
+                  <div class="p-3 rounded-3"
+                    style="background: rgba(55, 118, 171, 0.1); border-left: 3px solid #3776ab;">
+                    <h5 class="text-white mb-2"><i class="bi bi-clock-history me-2"></i>1991: Python</h5>
+                    <p class="small text-white-50 mb-0">Guido van Rossum lanza Python. Su objetivo: legibilidad y "una
+                      sola forma de hacerlo".</p>
+                  </div>
                 </div>
+              </div>
             </div>
-        </section>
-
-        <!-- ¿Cómo funciona PHP para desarrollo web? -->
-        <section class="section-padding bg-dark">
-            <div class="container">
-                <h2 class="intro-section-title" data-aos="fade-up">¿Cómo funciona PHP para<br>DESARROLLO WEB?</h2>
-                
-                <div class="flow-diagram" data-aos="zoom-in">
-                    <div class="syntax-comparison">
-                        <div class="syntax-block">
-                            <h4 class="syntax-title">Flujo de PHP</h4>
-                            <ul class="comparison-list">
-                                <li>PHP se ejecuta directamente en el servidor.</li>
-                                <li>El servidor procesa el archivo .php.</li>
-                                <li>El navegador solo recibe HTML.</li>
-                            </ul>
-                            <div class="code-example">
-&lt;?php<br>
-<span style="color: #14dfe8;">echo</span> <span style="color: #a3ff12;">"Hola mundo"</span>;<br>
-?&gt;
-                            </div>
-                        </div>
-
-                        <div class="syntax-block">
-                            <h4 class="syntax-title">Flujo de Python</h4>
-                            <ul class="comparison-list">
-                                <li>Se usan frameworks como Flask.</li>
-                                <li>Se importa Flask y se crea una aplicación.</li>
-                                <li>El programador inicia el servidor manualmente.</li>
-                            </ul>
-                            <div class="code-example">
-<span style="color: #9333ea;">from</span> flask <span style="color: #9333ea;">import</span> Flask<br><br>
-app = Flask(__name__)<br><br>
-@app.route(<span style="color: #a3ff12;">"/"</span>)<br>
-<span style="color: #9333ea;">def</span> <span style="color: #14dfe8;">inicio</span>():<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #9333ea;">return</span> <span style="color: #a3ff12;">"Hola mundo"</span><br><br>
-<span style="color: #9333ea;">if</span> __name__ == <span style="color: #a3ff12;">"__main__"</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;app.run(debug=<span style="color: #14dfe8;">True</span>, host=<span style="color: #a3ff12;">"127.0.0.1"</span>, port=<span style="color: #f59e0b;">5000</span>)
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="intro-card h-100 text-center">
+              <img src="../static/assets/img/GbpDbaqNYisaexC.jfif" alt="Robot vs Code" class="img-fluid rounded-3 mb-3"
+                style="max-height: 300px; object-fit: cover; opacity: 0.8;">
+              <p class="small text-white-50 fst-italic">"Dos filosofías distintas, un mismo objetivo: construir el
+                futuro."</p>
             </div>
-        </section>
-
-        <!-- Diferencias de Sintaxis -->
-        <section class="section-padding bg-gradient">
-            <div class="container">
-                <h2 class="intro-section-title" data-aos="fade-up">DIFERENCIAS DE SINTAXIS</h2>
-                
-                <div class="intro-card" data-aos="fade-up">
-                    <h3 style="color: #a3ff12; font-size: 1.8rem; margin-bottom: 1.5rem;">VARIABLES Y TIPOS DE DATOS</h3>
-                    <p class="intro-text" style="text-align: center; margin-bottom: 2rem;">
-                        <strong>PHP y Python usan tipado dinámico:</strong> el tipo de dato se asigna automáticamente en tiempo de ejecución.
-                    </p>
-
-                    <div class="syntax-comparison">
-                        <!-- PHP -->
-                        <div class="syntax-block" data-aos="fade-right">
-                            <h4 class="syntax-title">PHP</h4>
-                            <div class="code-example">
-<span style="color: #666;">&lt;?php</span><br>
-<span style="color: #f59e0b;">$edad</span> = <span style="color: #14dfe8;">18</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;">// Entero</span><br>
-<span style="color: #f59e0b;">$precio</span> = <span style="color: #14dfe8;">19.99</span>;&nbsp;&nbsp;<span style="color: #64748b;">// Decimal</span><br>
-<span style="color: #f59e0b;">$nombre</span> = <span style="color: #a3ff12;">"Carlos"</span>;&nbsp;<span style="color: #64748b;">// Texto</span><br>
-<span style="color: #f59e0b;">$activo</span> = <span style="color: #14dfe8;">true</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;">// Booleano</span><br><br>
-
-<span style="color: #f59e0b;">$numeros</span> = <span style="color: #9333ea;">array</span>(<span style="color: #14dfe8;">1</span>, <span style="color: #14dfe8;">2</span>, <span style="color: #14dfe8;">3</span>);&nbsp;&nbsp;<span style="color: #64748b;">// Arreglo</span><br>
-<span style="color: #f59e0b;">$persona</span> = [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;">// Arreglo asociativo</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a3ff12;">"nombre"</span> => <span style="color: #a3ff12;">"Ana"</span>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a3ff12;">"edad"</span> => <span style="color: #14dfe8;">22</span><br>
-];<br><br>
-
-<span style="color: #f59e0b;">$valor</span> = <span style="color: #9333ea;">null</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;">// Nulo</span><br>
-<span style="color: #666;">?&gt;</span>
-                            </div>
-                        </div>
-
-                        <!-- Python -->
-                        <div class="syntax-block" data-aos="fade-left" data-aos-delay="200">
-                            <h4 class="syntax-title">PYTHON</h4>
-                            <div class="code-example">
-edad = <span style="color: #14dfe8;">18</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;"># Entero</span><br>
-precio = <span style="color: #14dfe8;">19.99</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;"># Decimal</span><br>
-nombre = <span style="color: #a3ff12;">"Carlos"</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;"># Texto</span><br>
-activo = <span style="color: #14dfe8;">True</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;"># Booleano</span><br><br>
-
-numeros = [<span style="color: #14dfe8;">1</span>, <span style="color: #14dfe8;">2</span>, <span style="color: #14dfe8;">3</span>]&nbsp;&nbsp;<span style="color: #64748b;"># Lista</span><br>
-persona = {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;"># Diccionario</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a3ff12;">"nombre"</span>: <span style="color: #a3ff12;">"Ana"</span>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a3ff12;">"edad"</span>: <span style="color: #14dfe8;">22</span><br>
-}<br><br>
-
-valor = <span style="color: #14dfe8;">None</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;"># Nulo</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer-dark text-center py-4">
-        <div class="container">
-            <p class="mb-0">&copy; 2024 Python Academy. Todos los derechos reservados.</p>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <!-- Vendor JS Files -->
-    <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../static/assets/vendor/aos/aos.js"></script>
+    <!-- Diferencias Clave -->
+    <section class="section-padding">
+      <div class="container">
+        <h2 class="intro-section-title text-center mb-5" data-aos="fade-up">DIFERENCIAS ESTRATÉGICAS</h2>
 
-    <!-- Main JS File -->
-    <script src="../static/assets/js/main.js"></script>
-    <script src="../static/assets/js/navbar-nested.js"></script>
+        <div class="compare-row">
+          <!-- PHP -->
+          <div class="compare-col" data-aos="fade-right">
+            <div class="lang-card php h-100">
+              <span class="lang-badge php"><i class="bi bi-globe me-2"></i>PHP: EL REY DE LA WEB</span>
+              <div class="mt-3">
+                <div class="mb-3">
+                  <h5 class="fw-bold" style="color: #4F5D95;">Filosofía</h5>
+                  <p class="small text-secondary">"Dinamismo y rapidez". Diseñado para morir con la petición HTTP.</p>
+                </div>
+                <ul class="comparison-list">
+                  <li><strong>Nativo Web:</strong> No requiere frameworks para funcionar en web.</li>
+                  <li><strong>Despliegue:</strong> Copiar y pegar archivos (hosting compartido).</li>
+                  <li><strong>Dominio:</strong> 77% de la web (WordPress, Magento, Laravel).</li>
+                  <li><strong>Sintaxis:</strong> Estilo C/Perl, uso extensivo de <code>$</code> y <code>{}</code>.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-    </script>
+          <!-- Python + Flask -->
+          <div class="compare-col" data-aos="fade-left" data-aos-delay="200">
+            <div class="lang-card python h-100">
+              <span class="lang-badge python"><i class="bi bi-cpu me-2"></i>PYTHON: EL TODOTERRENO</span>
+              <div class="mt-3">
+                <div class="mb-3">
+                  <h5 class="fw-bold" style="color: #306998;">Filosofía</h5>
+                  <p class="small text-secondary">"Explícito es mejor que implícito". Código limpio y legible.</p>
+                </div>
+                <ul class="comparison-list">
+                  <li><strong>Propósito General:</strong> Web, IA, Ciencia de Datos, Scripts.</li>
+                  <li><strong>Frameworks:</strong> Requiere Django, Flask o FastAPI.</li>
+                  <li><strong>Ejecución:</strong> Proceso persistente (WSGI/ASGI).</li>
+                  <li><strong>Sintaxis:</strong> Basada en indentación (espacios significativos).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Flujo de Trabajo -->
+    <section class="section-padding">
+      <div class="container">
+        <h2 class="intro-section-title text-center mb-5" data-aos="fade-up">ARQUITECTURA Y FLUJO</h2>
+
+        <div class="intro-card" data-aos="zoom-in">
+          <p class="text-center mb-4 text-white-50">
+            La diferencia más técnica radica en cómo cada lenguaje maneja una petición web.
+          </p>
+          <div class="compare-row">
+            <div class="compare-col">
+              <div class="p-3 border rounded-3 border-secondary bg-dark text-white">
+                <h6 class="text-info mb-3"><i class="bi bi-arrow-repeat me-2"></i>Ciclo de Vida PHP</h6>
+                <ol class="ps-3 small text-white-50">
+                  <li class="mb-2">Llega Petición HTTP.</li>
+                  <li class="mb-2">El servidor (Apache) levanta un proceso PHP.</li>
+                  <li class="mb-2">Se ejecuta el script, se conecta a BD.</li>
+                  <li class="mb-2">Se devuelve HTML.</li>
+                  <li class="text-warning">Todo se destruye (Memoria liberada).</li>
+                </ol>
+                <div class="code-box mt-3" style="font-size: 0.8rem;">
+                  <!-- Un archivo .php es procesado directamente -->
+                  &lt;?php echo "Hola Mundo"; ?&gt;
+                </div>
+              </div>
+            </div>
+            <div class="compare-col">
+              <div class="p-3 border rounded-3 border-secondary bg-dark text-white">
+                <h6 class="text-warning mb-3"><i class="bi bi-infinity me-2"></i>Ciclo de Vida Python</h6>
+                <ol class="ps-3 small text-white-50">
+                  <li class="mb-2">La aplicación arranca UNA vez (gunicorn/uvicorn).</li>
+                  <li class="mb-2">Llega Petición HTTP.</li>
+                  <li class="mb-2">El servidor pasa la petición a la App ya cargada en memoria.</li>
+                  <li class="mb-2">Se devuelve respuesta.</li>
+                  <li class="text-info">La App sigue viva (Conexiones persistentes).</li>
+                </ol>
+                <div class="code-box mt-3" style="font-size: 0.8rem;">
+                  # La app se define y corre como servicio
+                  from flask import Flask
+                  app = Flask(__name__)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diferencias de Sintaxis -->
+    <section class="section-padding">
+      <div class="container">
+        <h2 class="intro-section-title text-center mb-5" data-aos="fade-up">PRIMER VISTAZO: VARIABLES</h2>
+
+        <p class="text-center text-muted mb-4 lead">
+          Ambos son de <strong>tipado dinámico</strong>, pero su "sabor" es muy distinto.
+        </p>
+
+        <div class="compare-row">
+          <!-- PHP -->
+          <div class="compare-col lang-card php" data-aos="fade-right">
+            <span class="lang-badge php">PHP</span>
+            <div class="code-box">
+              <span style="color: #666;">&lt;?php</span>
+              <span style="color: #f59e0b;">$edad</span> = <span style="color: #14dfe8;">18</span>; <span
+                style="color: #64748b;">// $ obligatorio</span>
+              <span style="color: #f59e0b;">$precio</span> = <span style="color: #14dfe8;">19.99</span>;
+              <span style="color: #f59e0b;">$nombre</span> = <span style="color: #a3ff12;">"Juan"</span>;
+              <span style="color: #f59e0b;">$arr</span> = [<span style="color: #14dfe8;">1</span>, <span
+                style="color: #14dfe8;">2</span>, <span style="color: #14dfe8;">3</span>]; <span
+                style="color: #64748b;">// Array clásico</span>
+              <span style="color: #666;">?&gt;</span>
+            </div>
+            <p class="mt-2 small text-muted"><i class="bi bi-info-circle me-1"></i> PHP permite mezclar HTML y lógica
+              fácilmente, pero requiere <code>;</code> al final de cada línea.</p>
+          </div>
+
+          <!-- Python -->
+          <div class="compare-col lang-card python" data-aos="fade-left" data-aos-delay="200">
+            <span class="lang-badge python">PYTHON</span>
+            <div class="code-box">
+              <span style="color: #f59e0b;">edad</span> = <span style="color: #14dfe8;">18</span> <span
+                style="color: #64748b;"># Sin $ ni ;</span>
+              <span style="color: #f59e0b;">precio</span> = <span style="color: #14dfe8;">19.99</span>
+              <span style="color: #f59e0b;">nombre</span> = <span style="color: #a3ff12;">"Juan"</span>
+              <span style="color: #f59e0b;">lista</span> = [<span style="color: #14dfe8;">1</span>, <span
+                style="color: #14dfe8;">2</span>, <span style="color: #14dfe8;">3</span>] <span
+                style="color: #64748b;"># Lista poderosa</span>
+            </div>
+            <p class="mt-2 small text-muted"><i class="bi bi-info-circle me-1"></i> Python obliga a ser limpio. La
+              indentación define los bloques, no las llaves <code>{}</code>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegación Footer -->
+    <section class="section py-5 bg-light mt-5">
+      <div class="container text-center">
+        <h3 class="mb-4">¿Listo para profundizar?</h3>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="sintaxis.html" class="btn btn-primary rounded-pill px-4 py-2">
+            Ver Sintaxis <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+          <a href="../teoria/teoria_historia.html" class="btn btn-outline-secondary rounded-pill px-4 py-2">
+            Historia Completa
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer-modern mt-0">
+    <div class="container text-center">
+      <p class="mb-0 text-white-50">© 2026 Python Academy · Módulo Especial de Comparativa Backend</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../static/assets/js/effects.js"></script>
+  <script src="../static/assets/js/navbar-nested.js"></script>
+  <script>
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+  </script>
 </body>
 
 </html>
-
-
-
