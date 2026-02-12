@@ -1,8 +1,9 @@
-<<<<<<< HEAD
-﻿﻿<!DOCTYPE html>
-=======
-ï»¿<!DOCTYPE html>
+
+<!DOCTYPE html>
 >>>>>>> c5a1852cbd487177481a33340f39584450d526ab
+=======
+﻿<!DOCTYPE html>
+
 <html lang="es">
 
 <head>
@@ -117,14 +118,8 @@
 </head>
 
 <body>
-  <!-- Page Loader -->
-  <div class="page-loader">
-    <div class="loader-spinner"></div>
-  </div>
-
-
-  <!-- Navbar Moderno -->
-  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+      <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
         <i class="bi bi-braces me-2"></i>Python Academy
@@ -142,7 +137,7 @@
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-book me-1"></i> Teoría
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
@@ -242,7 +237,7 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-                            <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
@@ -256,11 +251,6 @@
               </li>
               <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
-              Comenzar <i class="bi bi-arrow-right ms-1"></i>
-            </a>
           </li>
         </ul>
       </div>
@@ -296,8 +286,10 @@
               <ul>
                 <li><a href="#clases" class="active">Clase vs Objeto</a></li>
                 <li><a href="#herencia">Sintaxis en Python</a></li>
+
                 <li><a href="#polimorfismo">Â¡Felicidades!</a></li>
                 <li><a href="#cuestionario">Cuestionario POO</a></li>
+
               </ul>
             </nav>
           </div>
@@ -338,6 +330,7 @@
               print(mi_perro.nombre) # Salida: Firulais
             </div>
 
+
             <!-- CUESTIONARIO -->
             <h3 class="fw-bold mt-5 mb-3" id="cuestionario">Cuestionario de POO</h3>
             <div class="card border-0 shadow-sm mb-5">
@@ -371,6 +364,7 @@
                 </div>
               </div>
             </div>
+
 
             <h3 class="fw-bold mt-5 mb-3" id="polimorfismo">¡Felicidades!</h3>
             <div class="alert alert-success mt-5 text-center">
@@ -415,10 +409,10 @@
         </div>
 
         <div class="col-lg-2 col-md-4">
-          <h5 class="footer-title">NavegaciÃ³n</h5>
+          <h5 class="footer-title">Navegación</h5>
           <ul class="footer-links">
             <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
-            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> TeorÃ­a</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
             <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
             <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
 
@@ -463,7 +457,7 @@
 
 
   <script>
-    // Sidebar Scroll Spy - Resaltar secciÃ³n activa al hacer scroll
+    // Sidebar Scroll Spy - Resaltar sección activa al hacer scroll
     document.addEventListener('DOMContentLoaded', function () {
       const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
       const sections = [];
@@ -477,7 +471,7 @@
         }
       });
 
-      // FunciÃ³n para actualizar el link activo
+      // Función para actualizar el link activo
       function updateActiveLink() {
         let currentSection = sections[0];
         const scrollPosition = window.scrollY + 150;
@@ -537,3 +531,5 @@
 </body>
 
 </html>
+
+

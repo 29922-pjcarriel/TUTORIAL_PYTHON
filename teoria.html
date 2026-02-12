@@ -8,10 +8,11 @@
     <meta name="description" content="Aprende los fundamentos de Python con nuestra teoría estructurada.">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@600;700;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@600;700;800&display=swap"
         rel="stylesheet">
 
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -34,40 +35,50 @@
         <div class="loader-spinner"></div>
     </div>
 
-
-
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-modern fixed-top ">
-        <div class="container-fluid container-lg">
-            <a class="navbar-brand" href="index.html" style="font-weight: 800; color: #0f172a; font-size: 1.3rem; font-family: 'Montserrat', sans-serif;">
-                <span>Python</span><span style="background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Academy</span>
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+        <div class="container">
+            <a class="navbar-brand navbar-brand-custom" href="index.html">
+                <i class="bi bi-braces me-2"></i>Python Academy
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+                <i class="bi bi-list fs-3"></i>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center gap-2">
                     <li class="nav-item">
-
-                        <a class="nav-link text-dark" href="index.html">Inicio</a>
+                        <a class="nav-link nav-link-custom" href="index.html">
+                            <i class="bi bi-house me-1"></i> Inicio
+                        </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-dark active" href="#" data-bs-toggle="dropdown">Teoría</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="teoria.html">Ver Temario Completo</a></li>
-                            <li><hr class="dropdown-divider"></li>
-
-                            <li><a class="dropdown-item" href="teoria/teoria_historia.html">Historia de Python</a></li>
-                            <li><a class="dropdown-item" href="teoria/teoria_tiposDatos.html">Tipos de Datos</a></li>
-                            <li><a class="dropdown-item" href="teoria/teoria_estructuras_de_control.html">Estructuras de Control</a></li>
-                            <li><a class="dropdown-item" href="teoria/teoria_poo.html">POO y Herencia</a></li>
-                            <li><a class="dropdown-item" href="teoria/teoria_infraestructura.html">Infraestructura Web</a></li>
+                        <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-book me-1"></i> Teoría
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+                            <li><a class="dropdown-item py-2" href="teoria/teoria_infraestructura.html"><i
+                                        class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
+                            <li><a class="dropdown-item py-2" href="teoria/teoria_historia.html"><i
+                                        class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
+                            <li><a class="dropdown-item py-2" href="teoria/teoria_htmlpyhon.html"><i
+                                        class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
+                            <li><a class="dropdown-item py-2" href="teoria/teoria_sintaxisComentarios.html"><i
+                                        class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
+                            <li><a class="dropdown-item py-2" href="teoria/teoria_variablesConstantes.html"><i
+                                        class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
+                            <li><a class="dropdown-item py-2" href="teoria/teoria_tiposDatos.html"><i
+                                        class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item py-2 fw-semibold" href="teoria.html"><i
+                                        class="bi bi-grid me-2"></i>Ver todo
+                                    el temario</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-<<<<<<< HEAD
                         <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
                             <i class="bi bi-code-square me-1"></i> Ejercicios
                         </a>
@@ -153,37 +164,30 @@
                             <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+                            <li><a class="dropdown-item py-2" href="PythonVsPHP/introduccion.html"><i
+                                        class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
                             <li><a class="dropdown-item py-2" href="PythonVsPHP/sintaxis.html"><i
-                                        class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
-                            <li><a class="dropdown-item py-2" href="PythonVsPHP/ecosistema.html"><i
-                                        class="bi bi-boxes me-2 text-info"></i>Ecosistema</a>
-                            </li>
-                            <li><a class="dropdown-item py-2" href="PythonVsPHP/rendimiento.html"><i
-                                        class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
-                            <li><a class="dropdown-item py-2" href="PythonVsPHP/despliegue.html"><i
-                                        class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
-                            <li><a class="dropdown-item py-2" href="PythonVsPHP/mercado.html"><i
-                                        class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
-              <li><a class="dropdown-item py-2" href="PythonVsPHP/sesiones.html"><i
-                    class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+                                        class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
+                            <li><a class="dropdown-item py-2" href="PythonVsPHP/operadores.html"><i
+                                        class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+                            <li><a class="dropdown-item py-2" href="PythonVsPHP/estructuras_control.html"><i
+                                        class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+                            <li><a class="dropdown-item py-2" href="PythonVsPHP/funciones.html"><i
+                                        class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+                            <li><a class="dropdown-item py-2" href="PythonVsPHP/excepciones.html"><i
+                                        class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+                            <li><a class="dropdown-item py-2" href="PythonVsPHP/poo.html"><i
+                                        class="bi bi-box me-2 text-purple"></i>POO</a></li>
+                            <li><a class="dropdown-item py-2" href="PythonVsPHP/conexion_mysql.html"><i
+                                        class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+                            <li><a class="dropdown-item py-2" href="PythonVsPHP/sesiones.html"><i
+                                        class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item py-2 fw-semibold" href="PythonvsPHP.html"><i
                                         class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
-=======
-                        <a class="nav-link dropdown-toggle text-dark" href="#" data-bs-toggle="dropdown">Prácticas</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="ejercicios.html">Catálogo de Ejercicios</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="ejercicios/ejercicio3.html">Factorial</a></li>
-                            <li><a class="dropdown-item" href="ejercicios/ejercicio5.html">Números Primos</a></li>
-                            <li><a class="dropdown-item" href="ejercicios/ejercicio6.html">Validador Cédula</a></li>
->>>>>>> c5a1852cbd487177481a33340f39584450d526ab
                         </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="explicacion_crud.html" style="background: #3b82f6; color: white; border-radius: 6px; padding: 0.5rem 1rem !important;">Proyecto CRUD</a>
                     </li>
                 </ul>
             </div>
@@ -204,7 +208,8 @@
                 <span style="color: #60a5fa;">Contenido Teórico</span> Estructurado
             </h1>
             <p class="page-hero-subtitle" data-aos="fade-up" data-aos-delay="100">
-                Domina los fundamentos de Python a través de 11 módulos educativos diseñados progresivamente. Desde sintaxis básica hasta programación orientada a objetos
+                Domina los fundamentos de Python a través de 11 módulos educativos diseñados progresivamente. Desde
+                sintaxis básica hasta programación orientada a objetos
             </p>
         </div>
     </section>
@@ -428,10 +433,15 @@
 
         <!-- CTA -->
         <div class="text-center mt-5 pt-4" data-aos="fade-up">
-            <div style="display: inline-block; padding: 2.5rem; border-radius: 8px; background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%); border: 2px solid #bfdbfe;">
-                <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: #0f172a; font-family: 'Montserrat', sans-serif; font-size: 1.3rem;">¿Listo para Aplicar lo Aprendido?</h4>
-                <p style="color: #4b5563; margin-bottom: 1.5rem; font-size: 0.95rem;">Complementa tu aprendizaje teórico con ejercicios prácticos de programación directamente en la plataforma</p>
-                <a href="ejercicios.html" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%); color: white; padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+            <div
+                style="display: inline-block; padding: 2.5rem; border-radius: 8px; background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%); border: 2px solid #bfdbfe;">
+                <h4
+                    style="font-weight: 700; margin-bottom: 0.5rem; color: #0f172a; font-family: 'Montserrat', sans-serif; font-size: 1.3rem;">
+                    ¿Listo para Aplicar lo Aprendido?</h4>
+                <p style="color: #4b5563; margin-bottom: 1.5rem; font-size: 0.95rem;">Complementa tu aprendizaje teórico
+                    con ejercicios prácticos de programación directamente en la plataforma</p>
+                <a href="ejercicios.html"
+                    style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%); color: white; padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
                     <i class="bi bi-code-square"></i> Explorar Ejercicios Prácticos
                 </a>
             </div>
@@ -449,7 +459,8 @@
                         <i class="bi bi-braces me-2"></i>Python Academy
                     </h4>
                     <p class="footer-text">
-                        Plataforma educativa desarrollada como proyecto final para la asignatura de Tecnologías Web. Integrando conocimientos de Backend y Frontend moderno.
+                        Plataforma educativa desarrollada como proyecto final para la asignatura de Tecnologías Web.
+                        Integrando conocimientos de Backend y Frontend moderno.
                     </p>
                 </div>
 
@@ -502,7 +513,7 @@
                     loader.classList.remove('active');
                 }, 1000);
             }
-            
+
             // Inicializar animaciones AOS
             AOS.init({
                 duration: 800,

@@ -1,8 +1,9 @@
-<<<<<<< HEAD
-﻿<!DOCTYPE html>
-=======
-ï»¿<!DOCTYPE html>
+
+<!DOCTYPE html>
 >>>>>>> c5a1852cbd487177481a33340f39584450d526ab
+=======
+﻿<!DOCTYPE html>
+
 <html lang="es">
 
 <head>
@@ -167,14 +168,8 @@
 </head>
 
 <body>
-  <!-- Page Loader -->
-  <div class="page-loader">
-    <div class="loader-spinner"></div>
-  </div>
-
-
-  <!-- Navbar Moderno -->
-  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+      <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
         <i class="bi bi-braces me-2"></i>Python Academy
@@ -216,7 +211,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-code-square me-1"></i> Ejercicios
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
@@ -292,7 +287,7 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-                            <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
@@ -307,11 +302,6 @@
               <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
-              Comenzar <i class="bi bi-arrow-right ms-1"></i>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
@@ -324,13 +314,13 @@
 
         <div class="hero-top-actions">
           <a href="../ejercicios.html" class="btn btn-outline-secondary btn-pill-sm">
-            <i class="bi bi-arrow-left me-1"></i> Volver al menÃº
+            <i class="bi bi-arrow-left me-1"></i> Volver al menú
           </a>
         </div>
 
         <span class="badge bg-primary mb-3">POO</span>
         <h1 class="display-5 mb-2">Abstracta</h1>
-        <p class="lead text-muted">Clases abstractas (concepto y aplicaciÃ³n).</p>
+        <p class="lead text-muted">Clases abstractas (concepto y aplicación).</p>
       </div>
     </section>
     <!-- HERO -->
@@ -341,7 +331,9 @@
       <div class="container">
         <div class="ej-panel">
 
+
           <!-- ✅ ENUNCIADO (ABSTRACTA) -->
+
           <div class="explain-card mb-4">
             <h4 class="fw-bold mb-2">Enunciado</h4>
             <p class="mb-2">
@@ -355,7 +347,9 @@
             </p>
           </div>
 
+
           <!-- ✅ EXPLICACIÓN DETALLADA (ABSTRACTA) -->
+
           <div class="explain-card mb-4">
             <h4 class="fw-bold mb-3">Explicación del código (paso a paso)</h4>
 
@@ -365,7 +359,9 @@ from math import sqrt
 from typing import Dict, Any
 from flask import request, render_template_string</code></pre>
             <ul class="mb-3">
+
               <li><code>ABC</code> y <code>abstractmethod</code>: sirven para definir una clase abstracta y métodos
+
                 obligatorios.</li>
               <li><code>sqrt</code>: raíz cuadrada (se usa en el área del triángulo con la fórmula de Herón).</li>
               <li><code>request</code>: permite leer datos enviados por el formulario con POST.</li>
@@ -376,11 +372,13 @@ from flask import request, render_template_string</code></pre>
 
             <h5 class="fw-bold mb-2">2) ¿Qué es una clase abstracta y para qué sirve?</h5>
             <p class="mb-2">
+
               Una <b>clase abstracta</b> es una clase que sirve como “molde” o “contrato”:
               define qué métodos deben existir en las clases hijas, pero no obliga a tener una implementación completa.
             </p>
             <div class="alert alert-info mb-3">
               En este ejercicio, <b>Figura</b> obliga a que cualquier figura tenga métodos como:
+
               <code>area()</code>, <code>perimetro()</code>, y getters como <code>get_area()</code>.
             </div>
 
@@ -413,13 +411,17 @@ from flask import request, render_template_string</code></pre>
 
             <ul class="mb-3">
               <li><code>Figura(ABC)</code> significa que Figura es abstracta.</li>
+
               <li><code>@abstractmethod</code> marca métodos obligatorios para las clases hijas.</li>
+
               <li><code>get_form_html()</code> devuelve el formulario para escoger la figura y sus lados.</li>
             </ul>
 
             <h5 class="fw-bold mb-2">4) Crear las clases hijas (Cuadrado, Rectángulo y Triángulo)</h5>
             <p class="mb-2">
+
               Cada clase hija hereda de <code>Figura</code> y debe implementar los métodos obligatorios.
+
               Si no implementa alguno, Python no permitirá crear objetos de esa clase.
             </p>
 
@@ -478,7 +480,9 @@ from flask import request, render_template_string</code></pre>
 
         resultado = f"""
         &lt;p&gt;&lt;b&gt;Figura:&lt;/b&gt; {obj.get_tipo()}&lt;/p&gt;
+
         &lt;p&gt;&lt;b&gt;Área:&lt;/b&gt; {obj.get_area():.2f}&lt;/p&gt;
+
         &lt;p&gt;&lt;b&gt;Perímetro:&lt;/b&gt; {obj.get_perimetro():.2f}&lt;/p&gt;
         """
 
@@ -494,7 +498,9 @@ from flask import request, render_template_string</code></pre>
             </p>
           </div>
 
+
           <!-- ✅ Ejecutar -->
+
           <div class="ej-actions">
             <a href="##formulario" class="btn btn-primary btn-pill btn-lg">
               Ejecutar ejercicio
@@ -504,7 +510,9 @@ from flask import request, render_template_string</code></pre>
           <!-- Formulario / salida del ejercicio -->
 
 
+
           <!-- ✅ Anterior / Siguiente -->
+
         </div>
       </div>
     </section>
@@ -542,10 +550,10 @@ from flask import request, render_template_string</code></pre>
         </div>
 
         <div class="col-lg-2 col-md-4">
-          <h5 class="footer-title">NavegaciÃ³n</h5>
+          <h5 class="footer-title">Navegación</h5>
           <ul class="footer-links">
             <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
-            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> TeorÃ­a</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
             <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
             <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
 
@@ -602,3 +610,5 @@ from flask import request, render_template_string</code></pre>
 </body>
 
 </html>
+
+

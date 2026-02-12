@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -11,211 +11,16 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Bootstrap 5.3 -->
+            <!-- Estilos Restaurados -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <link href="../static/assets/css/main.css" rel="stylesheet">
-    <link href="../static/assets/css/custom.css" rel="stylesheet">
     <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
-
-    <style>
-        /* Sidebar Sticky */
-        .sidebar-nav {
-            position: sticky;
-            top: 100px;
-            background: white;
-            border-radius: 16px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            max-height: calc(100vh - 120px);
-            overflow-y: auto;
-        }
-        .sidebar-nav h5 {
-            font-weight: 700;
-            color: #1a1a2e;
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid #667eea;
-        }
-        .sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
-        .sidebar-nav li { margin-bottom: 0.5rem; }
-        .sidebar-nav a {
-            display: block;
-            padding: 0.6rem 1rem;
-            color: #64748b;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-        .sidebar-nav a:hover {
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            border-left-color: #667eea;
-            padding-left: 1.2rem;
-        }
-        .sidebar-nav a.active {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
-            color: #667eea;
-            font-weight: 600;
-            border-left-color: #667eea;
-        }
-
-        /* Tabla de operadores */
-        .operator-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-        .operator-table thead th {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #fff;
-            padding: 14px 20px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            border: none;
-        }
-        .operator-table tbody td {
-            padding: 12px 20px;
-            border-bottom: 1px solid #e2e8f0;
-            vertical-align: middle;
-        }
-        .operator-table tbody tr:last-child td {
-            border-bottom: none;
-        }
-        .operator-table tbody tr:hover {
-            background: rgba(102, 126, 234, 0.05);
-        }
-        .operator-table .op-code {
-            font-family: 'Courier New', monospace;
-            background: #1a1a2e;
-            color: #7fff00;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: inline-block;
-        }
-        .badge-si {
-            background: #198754;
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        .badge-no {
-            background: #dc3545;
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        /* Code blocks comparativos */
-        .code-comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        @media (max-width: 768px) {
-            .code-comparison {
-                grid-template-columns: 1fr;
-            }
-        }
-        .code-block {
-            background: #1e1e2e;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-        .code-block-header {
-            padding: 10px 16px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .code-block-header.php-header {
-            background: linear-gradient(135deg, #4F5B93 0%, #777BB4 100%);
-            color: #fff;
-        }
-        .code-block-header.python-header {
-            background: linear-gradient(135deg, #306998 0%, #FFD43B 100%);
-            color: #1a1a2e;
-        }
-        .code-block pre {
-            margin: 0;
-            padding: 1.2rem 1.5rem;
-            color: #e0e0e0;
-            font-size: 0.88rem;
-            line-height: 1.7;
-            overflow-x: auto;
-        }
-        .code-block pre .keyword { color: #c678dd; font-weight: 600; }
-        .code-block pre .variable { color: #e06c75; }
-        .code-block pre .string { color: #98c379; }
-        .code-block pre .comment { color: #5c6370; font-style: italic; }
-        .code-block pre .function { color: #61afef; }
-        .code-block pre .boolean { color: #d19a66; }
-        .code-block pre .builtin { color: #56b6c2; }
-        .code-block pre .number { color: #d19a66; }
-
-        /* Operator badge */
-        .operator-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 20px;
-            border-radius: 8px;
-            border: 2px solid #7fff00;
-            color: #7fff00;
-            font-weight: 700;
-            font-size: 1.1rem;
-            background: rgba(127, 255, 0, 0.08);
-            margin-bottom: 1rem;
-        }
-
-        /* Section title */
-        .section-title-decorated {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-divider {
-            height: 4px;
-            width: 60px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-            margin-bottom: 2rem;
-        }
-    </style>
+    <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
+    <link href="../static/assets/css/custom.css" rel="stylesheet">
 </head>
-
 <body>
-    <!-- Page Loader -->
-    <div class="page-loader">
-        <div class="loader-spinner"></div>
-    </div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
@@ -223,9 +28,11 @@
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
         <i class="bi bi-braces me-2"></i>Python Academy
       </a>
+
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <i class="bi bi-list fs-3"></i>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-center gap-2">
           <li class="nav-item">
@@ -238,14 +45,23 @@
               <i class="bi bi-book me-1"></i> Teoría
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_htmlpyhon.html"><i class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_sintaxisComentarios.html"><i class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_variablesConstantes.html"><i class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_tiposDatos.html"><i class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo el temario</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i
+                    class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i
+                    class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_htmlpyhon.html"><i
+                    class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_sintaxisComentarios.html"><i
+                    class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_variablesConstantes.html"><i
+                    class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_tiposDatos.html"><i
+                    class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo
+                  el temario</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -254,14 +70,16 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
               <li class="dropdown-submenu">
-                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-input-cursor-text me-2 text-success"></i>Procesamiento de formularios</a>
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
+                    class="bi bi-input-cursor-text me-2 text-success"></i>Procesamiento de formularios</a>
                 <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
                   <li><a class="dropdown-item" href="../ejercicios/ejercicio1.html">Formulario request.form</a></li>
                   <li><a class="dropdown-item" href="../ejercicios/ejercicio2.html">Formulario request.files</a></li>
                 </ul>
               </li>
               <li class="dropdown-submenu">
-                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a>
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
+                    class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a>
                 <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
                   <li><a class="dropdown-item" href="../ejercicios/ejercicio3.html">Factorial</a></li>
                   <li><a class="dropdown-item" href="../ejercicios/ejercicio4.html">Triángulo de Pascal</a></li>
@@ -270,7 +88,8 @@
                 </ul>
               </li>
               <li class="dropdown-submenu">
-                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-list-ul me-2 text-success"></i>Arreglos</a>
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
+                    class="bi bi-list-ul me-2 text-success"></i>Arreglos</a>
                 <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
                   <li><a class="dropdown-item" href="../ejercicios/ejercicio7.html">Ejemplo 01</a></li>
                   <li><a class="dropdown-item" href="../ejercicios/ejercicio8.html">Ejemplo 02</a></li>
@@ -281,7 +100,8 @@
                 </ul>
               </li>
               <li class="dropdown-submenu">
-                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-diagram-2 me-2 text-success"></i>POO</a>
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
+                    class="bi bi-diagram-2 me-2 text-success"></i>POO</a>
                 <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
                   <li><a class="dropdown-item" href="../ejercicios/ejercicio13.html">Clases</a></li>
                   <li><a class="dropdown-item" href="../ejercicios/ejercicio14.html">Herencia</a></li>
@@ -290,7 +110,9 @@
                   <li><a class="dropdown-item" href="../ejercicios/ejercicio17.html">Polimorfismo</a></li>
                 </ul>
               </li>
-              <li><hr class="dropdown-divider"></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
               <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver todos los ejercicios</a></li>
             </ul>
           </li>
@@ -299,41 +121,45 @@
               <i class="bi bi-database me-1"></i> Temas Avanzados
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte I.html"><i class="bi bi-car-front me-2 text-danger"></i>Vehículo - Parte I</a></li>
-              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte II.html"><i class="bi bi-car-front-fill me-2 text-danger"></i>Vehículo - Parte II</a></li>
-              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte III.html"><i class="bi bi-gear-wide-connected me-2 text-danger"></i>Vehículo - Parte III</a></li>
-              <li><a class="dropdown-item py-2" href="../CRUD/Session y login.html"><i class="bi bi-lock me-2 text-danger"></i>Session y Login</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../explicacion_crud.html"><i class="bi bi-grid me-2"></i>Ver Resumen</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte I.html"><i
+                    class="bi bi-car-front me-2 text-danger"></i>Vehículo - Parte I</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte II.html"><i
+                    class="bi bi-car-front-fill me-2 text-danger"></i>Vehículo - Parte II</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte III.html"><i
+                    class="bi bi-gear-wide-connected me-2 text-danger"></i>Vehículo - Parte III</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Session y login.html"><i
+                    class="bi bi-lock me-2 text-danger"></i>Session y Login</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../explicacion_crud.html"><i
+                    class="bi bi-grid me-2"></i>Ver Resumen</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
-              <li><a class="dropdown-item py-2" href="sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
-              <li><a class="dropdown-item py-2" href="operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
-              <li><a class="dropdown-item py-2" href="estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
-              <li><a class="dropdown-item py-2" href="funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
-              <li><a class="dropdown-item py-2" href="excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
-              <li><a class="dropdown-item py-2" href="poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
-              <li><a class="dropdown-item py-2" href="conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
-              <li><a class="dropdown-item py-2" href="sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
-              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
               <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
-              Comenzar <i class="bi bi-arrow-right ms-1"></i>
-            </a>
           </li>
         </ul>
       </div>
     </div>
-    </nav>
+  </nav>
 
     <main class="main">
 
@@ -401,7 +227,7 @@
                                         <td><span class="op-code">===</span></td>
                                         <td>Igual estricto (valor y tipo)</td>
                                         <td><span class="badge-si">Sí</span></td>
-                                        <td><span class="badge-no">✗ No</span></td>
+                                        <td><span class="badge-no">âœ— No</span></td>
                                     </tr>
                                     <tr>
                                         <td><span class="op-code">!=</span></td>
@@ -413,7 +239,7 @@
                                         <td><span class="op-code">!==</span></td>
                                         <td>Diferente estricto</td>
                                         <td><span class="badge-si">Sí</span></td>
-                                        <td><span class="badge-no">✗ No</span></td>
+                                        <td><span class="badge-no">âœ— No</span></td>
                                     </tr>
                                     <tr>
                                         <td><span class="op-code">&gt;</span></td>
@@ -622,3 +448,6 @@
 </body>
 
 </html>
+
+
+

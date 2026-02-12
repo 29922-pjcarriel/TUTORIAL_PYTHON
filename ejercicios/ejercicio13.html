@@ -1,8 +1,9 @@
-<<<<<<< HEAD
-﻿<!DOCTYPE html>
-=======
-ï»¿<!DOCTYPE html>
+
+<!DOCTYPE html>
 >>>>>>> c5a1852cbd487177481a33340f39584450d526ab
+=======
+﻿<!DOCTYPE html>
+
 <html lang="es">
 
 <head>
@@ -167,14 +168,8 @@
 </head>
 
 <body>
-  <!-- Page Loader -->
-  <div class="page-loader">
-    <div class="loader-spinner"></div>
-  </div>
-
-
-  <!-- Navbar Moderno -->
-  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+      <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
         <i class="bi bi-braces me-2"></i>Python Academy
@@ -216,7 +211,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-code-square me-1"></i> Ejercicios
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
@@ -292,7 +287,7 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-                            <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
@@ -306,11 +301,6 @@
               </li>
               <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
-              Comenzar <i class="bi bi-arrow-right ms-1"></i>
-            </a>
           </li>
         </ul>
       </div>
@@ -340,7 +330,9 @@
       <div class="container">
         <div class="ej-panel">
 
+
           <!-- DEFINICIÓN -->
+
           <div class="explain-card">
             <h4 class="fw-bold mb-2">¿Qué es Programación Orientada a Objetos?</h4>
             <p>
@@ -357,12 +349,16 @@
             <p>
               Crear una clase <strong>Figura</strong> que permita calcular el
               <strong>área</strong> y el <strong>perímetro</strong> de una figura
+
               geométrica según el tipo seleccionado por el usuario
+
               (cuadrado, rectángulo o triángulo).
             </p>
           </div>
 
+
           <!-- JUSTIFICACIÓN -->
+
           <div class="explain-card">
             <h4 class="fw-bold mb-2">¿Por qué este ejercicio es POO?</h4>
             <ul>
@@ -373,7 +369,9 @@
             </ul>
           </div>
 
+
           <!-- EXPLICACIÓN POR FUNCIONES -->
+
 
           <div class="explain-card mb-4">
             <h4 class="fw-bold mb-3">Explicación detallada del código (párrafo en párrafo)</h4>
@@ -394,7 +392,9 @@ from flask import request</pre>
             <h5 class="fw-bold mt-4">2) Definición de la clase <code>Figura</code></h5>
             <p>
               La clase <code>Figura</code> representa el concepto general de una figura geométrica.
+
               Funciona como un molde que permite crear objetos de tipo cuadrado, rectÃ¡ngulo o
+
               triángulo. Esta clase encapsula los datos (lados) y el comportamiento
               (cálculo de área y perímetro), aplicando Programación Orientada a Objetos.
             </p>
@@ -403,7 +403,7 @@ from flask import request</pre>
             <!-- 3 -->
             <h5 class="fw-bold mt-4">3) Constructor de la clase (<code>__init__</code>)</h5>
             <p>
-              El constructor se ejecuta automÃ¡ticamente al crear un objeto. Recibe el tipo
+              El constructor se ejecuta automáticamente al crear un objeto. Recibe el tipo
               de figura y los lados necesarios. Dependiendo de la figura, algunos lados pueden
               no existir. Además, se inicializan las variables de área y perímetro en cero,
               preparando el objeto para realizar los cálculos posteriormente.
@@ -419,8 +419,10 @@ from flask import request</pre>
             <!-- 4 -->
             <h5 class="fw-bold mt-4">4) Método para calcular el perímetro</h5>
             <p>
+
               Este método determina el perímetro de la figura según su tipo.
               Se utiliza una estructura condicional para aplicar la fórmula correcta:
+
               cuatro lados iguales para el cuadrado, suma de pares para el rectángulo
               y suma de los tres lados para el triángulo.
               El resultado se guarda dentro del objeto.
@@ -458,7 +460,9 @@ from flask import request</pre>
             <!-- 6 -->
             <h5 class="fw-bold mt-4">6) Función <code>ejecutar()</code> como punto de entrada</h5>
             <p>
+
               Esta función es llamada por la plataforma Flask cuando el usuario presiona
+
               el botón Ejecutar ejercicios. Actúa como puente entre la interfaz (HTML)
               y la lógica en Python. Desde aquí se controla la lectura de datos,
               la creación del objeto y la visualización del resultado.
@@ -470,7 +474,9 @@ from flask import request</pre>
             <p>
               En este bloque se recuperan los valores ingresados por el usuario desde el formulario.
               Dependiendo de la figura seleccionada, se leen uno, dos o tres lados.
+
               Los valores se convierten a tipo numérico para poder realizar cálculos matemáticos.
+
             </p>
             <pre class="code-box">tipo = request.form["tipo"]
 l1 = float(request.form["lado1"])
@@ -505,7 +511,9 @@ perimetro = figura.calcular_perimetro()</pre>
             <p>
               Finalmente, se devuelve un bloque HTML con el resultado del cálculo.
               Este resultado se muestra de forma clara y visual al usuario,
+
               cerrando el ciclo completo: entrada de datos -> procesamiento -> salida.
+
             </p>
             <pre class="code-box">return f"""
 <div class='alert alert-success'>
@@ -909,3 +917,5 @@ if __name__ == "__main__":
 </body>
 
 </html>
+
+

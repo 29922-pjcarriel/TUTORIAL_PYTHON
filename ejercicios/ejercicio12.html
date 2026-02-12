@@ -1,15 +1,18 @@
-<<<<<<< HEAD
-﻿<!DOCTYPE html>
-=======
-ï»¿<!DOCTYPE html>
+
+<!DOCTYPE html>
 >>>>>>> c5a1852cbd487177481a33340f39584450d526ab
+=======
+﻿<!DOCTYPE html>
+
 <html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Tablas dinámicas · Python Academy</title>
+
   <meta name="description" content="Implementación de tablas dinámicas.">
+
 
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
@@ -167,14 +170,8 @@
 </head>
 
 <body>
-  <!-- Page Loader -->
-  <div class="page-loader">
-    <div class="loader-spinner"></div>
-  </div>
-
-
-  <!-- Navbar Moderno -->
-  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+      <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
         <i class="bi bi-braces me-2"></i>Python Academy
@@ -216,7 +213,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-code-square me-1"></i> Ejercicios
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
@@ -292,7 +289,7 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-                            <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
@@ -306,11 +303,6 @@
               </li>
               <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
-              Comenzar <i class="bi bi-arrow-right ms-1"></i>
-            </a>
           </li>
         </ul>
       </div>
@@ -339,7 +331,9 @@
     <section class="ej-wrap">
       <div class="container">
         <div class="ej-panel">
+
           <!-- DEFINICIÓN -->
+
           <div class="explain-card mb-4">
             <h4 class="fw-bold mb-2">¿Qué son las tablas dinámicas?</h4>
 
@@ -375,7 +369,9 @@ tabla[filas][columnas] generadas dinámicamente
             </p>
           </div>
 
+
           <!-- JUSTIFICACIÓN -->
+
           <div class="explain-card mb-4">
             <h4 class="fw-bold mb-2">
               ¿Por qué este ejercicio es de tablas dinámicas?
@@ -477,7 +473,7 @@ td, th{
             <p>
               En cada provincia, la primera ciudad (posición 0) se considera la capital. Para resaltarla se aplica la
               clase
-              <code>blink</code> que usa una animaciÃ³n CSS. Así­ el texto alterna visibilidad y llama la atención, igual
+              <code>blink</code> que usa una animación CSS. Así­ el texto alterna visibilidad y llama la atención, igual
               que en tu PHP original.
             </p>
             <pre class="code-box">.blink{
@@ -492,7 +488,9 @@ td, th{
             <!-- 6 -->
             <h5 class="fw-bold mt-4">6) Evitar desbordes (scroll horizontal)</h5>
             <p>
+
               Como el ejercicio puede tener muchas provincias (muchas columnas), en pantallas pequeñas la tabla podría
+
               salirse del contenedor.
               Con <code>overflow-x:auto</code> se habilita un scroll horizontal para mantener el diseño estable.
             </p>
@@ -517,7 +515,9 @@ td, th{
             <!-- 8 -->
             <h5 class="fw-bold mt-4">8) Estructura principal <code>paises</code></h5>
             <p>
+
               <code>paises</code> es un diccionario anidado (3 niveles): país -> provincia -> lista de ciudades.
+
               Esta estructura permite construir tablas dinámicas porque el número de provincias define las columnas
               y el máximo número de ciudades define las filas.
             </p>
@@ -611,7 +611,9 @@ app = Flask(__name__)
 # =====================================================
 PAISES = {
     "ECUADOR": {
+
         "Pichincha": ["Quito", "Cayambe", "Rumiñahui", "Mejía"],
+
         "Guayas": ["Guayaquil", "Durán", "Milagro", "Daule"],
         "Azuay": ["Cuenca", "Gualaceo", "Paute"]
     },
@@ -827,7 +829,9 @@ if __name__ == "__main__":
 
                 <div id="placeholder-msg" class="py-5 text-muted">
                   <i class="bi bi-info-circle fs-1 mb-3 d-block"></i>
+
                   Selecciona un país y presiona el botón para visualizar la tabla dinámica.
+
                 </div>
               </div>
             </div>
@@ -911,7 +915,9 @@ if __name__ == "__main__":
           </script>
 
 
+
           <!-- ANTERIOR / SIGUIENTE -->
+
         </div>
       </div>
     </section>
@@ -1007,3 +1013,5 @@ if __name__ == "__main__":
 </body>
 
 </html>
+
+
