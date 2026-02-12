@@ -1,4 +1,9 @@
+
+<!DOCTYPE html>
+>>>>>>> c5a1852cbd487177481a33340f39584450d526ab
+=======
 ﻿<!DOCTYPE html>
+
 <html lang="es">
 
 <head>
@@ -225,19 +230,15 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i
-                    class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i
-                    class="bi bi-boxes me-2 text-info"></i>Ecosistema</a>
-              </li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i
-                    class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i
-                    class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/mercado.html"><i
-                    class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i
-                    class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+                            <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -284,6 +285,7 @@ Estructuras de Control - Python Academy
             <li><a href="#condicionales" class="active">Condicionales (if / elif / else)</a></li>
             <li><a href="#bucles">Bucle For</a></li>
             <li><a href="#control-flujo">Bucle While</a></li>
+            <li><a href="#sentencias-control">Break, Continue y Pass</a></li>
           </ul>
         </nav>
       </div>
@@ -321,6 +323,30 @@ contador = 5<br>
 while contador > 0:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;print(f"Cuenta regresiva: {contador}")<br>
 &nbsp;&nbsp;&nbsp;&nbsp;contador -= 1
+        </div>
+
+        <h3 class="fw-bold mt-5 mb-3" id="sentencias-control">Sentencias de Control de Bucles</h3>
+        <p>Estas palabras clave permiten alterar el flujo normal de los bucles:</p>
+        
+        <div class="row g-3 mb-4">
+          <div class="col-md-4">
+            <div class="p-3 border rounded bg-white h-100">
+              <h6 class="text-danger fw-bold">break</h6>
+              <p class="small text-muted">Termina el bucle inmediatamente.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-3 border rounded bg-white h-100">
+              <h6 class="text-warning fw-bold">continue</h6>
+              <p class="small text-muted">Salta a la siguiente iteración.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-3 border rounded bg-white h-100">
+              <h6 class="text-secondary fw-bold">pass</h6>
+              <p class="small text-muted">No hace nada (placeholder).</p>
+            </div>
+          </div>
         </div>
 
         <div class="d-flex justify-content-between mt-5 pt-4 border-top">

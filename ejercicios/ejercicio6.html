@@ -1,11 +1,13 @@
-﻿ï»¿<!DOCTYPE html>
+
+<!DOCTYPE html>
+
 <html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>CÃ©dula Â· Python Academy</title>
-  <meta name="description" content="ValidaciÃ³n de cÃ©dula ecuatoriana.">
+  <title>Cédula · Python Academy</title>
+  <meta name="description" content="Validación de cédula ecuatoriana.">
 
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
@@ -163,14 +165,8 @@
 </head>
 
 <body>
-  <!-- Page Loader -->
-  <div class="page-loader">
-    <div class="loader-spinner"></div>
-  </div>
-
-
-  <!-- Navbar Moderno -->
-  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+      <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
         <i class="bi bi-braces me-2"></i>Python Academy
@@ -212,7 +208,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-code-square me-1"></i> Ejercicios
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
@@ -288,29 +284,20 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i
-                    class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i
-                    class="bi bi-boxes me-2 text-info"></i>Ecosistema</a>
-              </li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i
-                    class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i
-                    class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/mercado.html"><i
-                    class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i
-                    class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
-              Comenzar <i class="bi bi-arrow-right ms-1"></i>
-            </a>
           </li>
         </ul>
       </div>
@@ -324,13 +311,13 @@
 
         <div class="hero-top-actions">
           <a href="../ejercicios.html" class="btn btn-outline-secondary btn-pill-sm">
-            <i class="bi bi-arrow-left me-1"></i> Volver al menÃº
+            <i class="bi bi-arrow-left me-1"></i> Volver al menú
           </a>
         </div>
 
         <span class="badge bg-primary mb-3">Estructuras de Control</span>
-        <h1 class="display-5 mb-2">CÃ©dula</h1>
-        <p class="lead text-muted">ValidaciÃ³n de cÃ©dula ecuatoriana.</p>
+        <h1 class="display-5 mb-2">Cédula</h1>
+        <p class="lead text-muted">Validación de cédula ecuatoriana.</p>
       </div>
     </section>
     <!-- HERO -->
@@ -341,44 +328,52 @@
       <div class="container">
         <div class="ej-panel">
 
-          <!-- Ã¢Å“â€¦ ENUNCIADO (EDITAR AQUÃ±) -->
+
+          <!-- ✅ ENUNCIADO (EDITAR AQUÍ) -->
           <div class="explain-card mb-4">
             <h4 class="fw-bold mb-2">Enunciado</h4>
 
-            <!-- Ã°Å¸â€˜â€¡ Tus compaÃ±Â±eros cambian este texto -->
+            <!-- 👇 Tus compañeros cambian este texto -->
+
             <p class="mb-2">
-              AquÃ­ escribe el enunciado del ejercicio (quÃ© se debe realizar y cuÃ¡l es el objetivo).
+              Aquí escribe el enunciado del ejercicio (qué se debe realizar y cuál es el objetivo).
             </p>
 
             <p class="mb-0 hint">
-              Objetivo: explica claramente quÃ±Â© aprenderÃ¡ el estudiante con este ejercicio.
+
+              Objetivo: explica claramente qué aprenderá el estudiante con este ejercicio.
             </p>
           </div>
 
-          <!-- Ã¢Å“â€¦ EXPLICACIÃ±â€œN DEL CÃ±â€œDIGO (EDITAR AQUÃ±) -->
+          <!-- ✅ EXPLICACIÓN DEL CÓDIGO (EDITAR AQUÍ) -->
+
           <div class="explain-card mb-4">
-            <h4 class="fw-bold mb-3">ExplicaciÃ³n del cÃ³digo (paso a paso)</h4>
+            <h4 class="fw-bold mb-3">Explicación del código (paso a paso)</h4>
 
             <!-- ===== BLOQUE 1 ===== -->
-            <h5 class="fw-bold mb-2">1) Â¿QuÃ© hace el programa?</h5>
+            <h5 class="fw-bold mb-2">1) ¿Qué hace el programa?</h5>
             <p class="mb-3">
-              Describe en 2-3 lÃ­neas la lÃ±Â³gica general del ejercicio.
+
+              Describe en 2-3 líneas la lógica general del ejercicio.
+
             </p>
 
             <!-- ===== BLOQUE 2 ===== -->
             <h5 class="fw-bold mb-2">2) Entradas del usuario</h5>
             <p class="mb-2">
-              Explica quÃ© datos ingresa el usuario y cÃ³mo se validan.
+              Explica qué datos ingresa el usuario y cómo se validan.
             </p>
 
+
             <pre class="code-box mb-3"><code># Ejemplo de bloque de cÃ³digo
-# Tus compaÃ±eros pegan aquÃ­ el cÃ³digo real (con indentaciÃ³n)
-numero = int(input("Ingrese un nÃºmero: "))</code></pre>
+
+# Tus compañeros pegan aquí el código real (con indentación)
+numero = int(input("Ingrese un número: "))</code></pre>
 
             <!-- ===== BLOQUE 3 ===== -->
-            <h5 class="fw-bold mb-2">3) Proceso / CÃ¡lculo</h5>
+            <h5 class="fw-bold mb-2">3) Proceso / Cálculo</h5>
             <p class="mb-2">
-              Explica la parte principal de la lÃ³gica (bucles, condicionales, funciones, etc.).
+              Explica la parte principal de la lógica (bucles, condicionales, funciones, etc.).
             </p>
 
             <pre class="code-box mb-3"><code># Ejemplo
@@ -389,24 +384,281 @@ for i in range(1, numero + 1):
             <!-- ===== BLOQUE 4 ===== -->
             <h5 class="fw-bold mb-2">4) Salida / Resultados</h5>
             <p class="mb-2">
-              Explica quÃ© se muestra al final y por quÃ©.
+              Explica qué se muestra al final y por qué.
             </p>
 
             <pre class="code-box"><code>print("El resultado es:", resultado)</code></pre>
 
             <p class="hint mt-3 mb-0">
-              Consejo: No se salten pasos. Explicar Ã¢â‚¬Å“por quÃ±Â©Ã¢â‚¬Â es mÃ¡s importante que solo pegar cÃ³digo.
+
+              Consejo: No se salten pasos. Explicar “por qué” es más importante que solo pegar código.
             </p>
           </div>
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-3">Archivos del proyecto</h4>
 
-          <!-- Ã¢Å“â€¦ BOTÃ±â€œN EJECUTAR -->
-          <div class="ej-actions">
-            <a href="##formulario" class="btn btn-primary btn-pill btn-lg">
-              Ejecutar ejercicio
-            </a>
-          </div>
+<pre class="code-box">
+01.Clase6_Cedula/
+│
+├── app.py
+│
+└── templates/
+    ├── index.html
+    └── resultado.html
+</pre>
 
-          <!-- Ã¢Å“â€¦ FORMULARIO / SALIDA (sale despuÃ±Â©s del botÃ±Â³n) -->
+  <p class="hint mb-0">
+    Crea la estructura anterior y copia el código de cada archivo.
+  </p>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: app.py</h5>
+
+<pre class="code-box"><code>from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+def validar_cedula_ec(cedula: str) -&gt; bool:
+    """
+    Valida cédula ecuatoriana (10 dígitos) con algoritmo módulo 10:
+    - Dobla posiciones 0,2,4,6,8
+    - Si el doble &gt; 9, resta 9
+    - Suma todo y calcula dígito verificador
+    """
+    cedula = (cedula or "").strip()
+
+    if len(cedula) != 10 or not cedula.isdigit():
+        return False
+
+    suma = 0
+    for i in range(9):
+        d = int(cedula[i])
+        if i % 2 == 0:  # 0,2,4,6,8
+            aux = d * 2
+            if aux &gt; 9:
+                aux -= 9
+            suma += aux
+        else:
+            suma += d
+
+    decena = ((suma + 9) // 10) * 10
+    resta = decena - suma
+    if resta == 10:
+        resta = 0
+
+    return resta == int(cedula[9])
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    if request.method == "POST":
+        ced = (request.form.get("txtCedula") or "").strip()
+        es_valida = validar_cedula_ec(ced)
+        return render_template("resultado.html", cedula=ced, es_valida=es_valida)
+
+    return render_template("index.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
+</code></pre>
+
+  <p class="hint mb-0">
+    Este archivo recibe la cédula por POST y valida el dígito verificador.
+  </p>
+</div>
+
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: templates/index.html</h5>
+
+<pre class="code-box"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;title&gt;Validar Cédula - Lado Servidor&lt;/title&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+
+  &lt;!-- BOOTSTRAP --&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+  &lt;style type="text/css"&gt;
+    #background{position:absolute; width:99%; height:130%;}
+    #fixed {position:absolute; top: 0px; left: 50%; transform: translateX(-50%); width: 100%;}
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;!-- CONTENIDO --&gt;
+  &lt;div id="fixed" class="container py-5"&gt;
+    &lt;div class="row justify-content-center"&gt;
+      &lt;div class="col-md-8 text-center"&gt;
+
+        &lt;h1 class="h3 fw-bold mb-2"&gt;Ejercicio - Lado Servidor&lt;/h1&gt;
+        &lt;h2 class="h4 mb-4"&gt;Validación de Cédula&lt;/h2&gt;
+
+        &lt;div class="card shadow"&gt;
+          &lt;div class="card-body"&gt;
+
+            &lt;form action="" method="post" onsubmit="return validarJS();"&gt;
+
+              &lt;div class="mb-3"&gt;
+                &lt;label for="txtCedula" class="form-label"&gt;Ingrese su cédula:&lt;/label&gt;
+                &lt;input type="text"
+                       id="txtCedula"
+                       name="txtCedula"
+                       maxlength="10"
+                       class="form-control"
+                       placeholder="Ej: 0102030405"&gt;
+              &lt;/div&gt;
+
+              &lt;button type="submit" class="btn btn-primary w-100"&gt;
+                Validar Cédula
+              &lt;/button&gt;
+
+            &lt;/form&gt;
+
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    function validarJS() {
+      var ced = document.getElementById("txtCedula").value.trim();
+
+      if (ced.length !== 10) {
+        alert("La cédula debe tener exactamente 10 dígitos.");
+        return false;
+      }
+      if (isNaN(ced)) {
+        alert("La cédula solo debe contener números.");
+        return false;
+      }
+      return true;
+    }
+  &lt;/script&gt;
+
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+  <p class="hint mb-0">
+    Formulario que valida rápido con JS antes de enviar al servidor.
+  </p>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: templates/resultado.html</h5>
+
+<pre class="code-box"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;title&gt;Resultado - Validación de Cédula&lt;/title&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+
+  &lt;!-- BOOTSTRAP --&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+  &lt;style type="text/css"&gt;
+    #background{position:absolute; width:99%; height:130%;}
+    #fixed {position:absolute; top: 0px; left: 50%; transform: translateX(-50%); width: 100%;}
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div id="fixed" class="container py-5"&gt;
+    &lt;div class="row justify-content-center"&gt;
+      &lt;div class="col-md-8 text-center"&gt;
+
+        &lt;h1 class="h3 fw-bold mb-2"&gt;Ejercicio - Lado Servidor&lt;/h1&gt;
+        &lt;h2 class="h4 mb-4"&gt;Resultado&lt;/h2&gt;
+
+        &lt;div class="card shadow"&gt;
+          &lt;div class="card-body"&gt;
+
+            {% if cedula %}
+              {% if es_valida %}
+                &lt;div class="alert alert-success mb-3"&gt;
+                  La cédula &lt;strong&gt;{{ cedula }}&lt;/strong&gt; es &lt;strong&gt;VÁLIDA&lt;/strong&gt;.
+                &lt;/div&gt;
+              {% else %}
+                &lt;div class="alert alert-danger mb-3"&gt;
+                  La cédula &lt;strong&gt;{{ cedula }}&lt;/strong&gt; &lt;strong&gt;NO&lt;/strong&gt; es válida.
+                &lt;/div&gt;
+              {% endif %}
+            {% else %}
+              &lt;div class="alert alert-warning mb-3"&gt;
+                No se recibió ninguna cédula.
+              &lt;/div&gt;
+            {% endif %}
+
+            &lt;a class="btn btn-secondary w-100" href=""&gt;Volver&lt;/a&gt;
+
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+  <p class="hint mb-0">
+    Muestra si la cédula es válida o no, usando variables de Jinja.
+  </p>
+</div>
+
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-2">Ejecutar el proyecto</h4>
+
+<pre class="code-box"><code>pip install flask
+python app.py
+</code></pre>
+
+  <p class="hint mb-0">
+    Abre el navegador en: <b>http://127.0.0.1:5000</b>
+  </p>
+</div>
+
+
+
+
+      <div id="formulario" class="form-shell">
+  <div class="form-card">
+
+    <h4 class="fw-bold mb-3 text-center">Validar Cédula</h4>
+
+    <form onsubmit="return validarJS();" class="text-start">
+
+      <div class="mb-3">
+        <label for="txtCedula" class="form-label">Ingrese su cédula (10 dígitos):</label>
+        <input type="text"
+               id="txtCedula"
+               maxlength="10"
+               class="form-control"
+               placeholder="Ej: 0102030405"
+               required>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">
+        Validar
+      </button>
+
+      <!-- ✅ Mensaje de salida -->
+      <div id="msg" class="alert mt-3 d-none" role="alert"></div>
+
+    </form>
+  </div>
+</div>
+
 
 
           <!-- ANTERIOR / SIGUIENTE -->
@@ -436,8 +688,8 @@ for i in range(1, numero + 1):
             <i class="bi bi-braces me-2"></i>Python Academy
           </h4>
           <p class="footer-text">
-            Proyecto acadÃ©mico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
-            apasionados por la programaciÃ³n.
+            Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
+            apasionados por la programación.
           </p>
           <div class="d-flex gap-3 mt-4">
             <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
@@ -447,10 +699,10 @@ for i in range(1, numero + 1):
         </div>
 
         <div class="col-lg-2 col-md-4">
-          <h5 class="footer-title">NavegaciÃ³n</h5>
+          <h5 class="footer-title">Navegación</h5>
           <ul class="footer-links">
             <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
-            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> TeorÃ­a</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
             <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
             <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
 
@@ -467,7 +719,7 @@ for i in range(1, numero + 1):
         </div>
 
         <div class="col-lg-3 col-md-4">
-          <h5 class="footer-title">TecnologÃ­as</h5>
+          <h5 class="footer-title">Tecnologías</h5>
           <div class="d-flex flex-wrap gap-2 mt-3">
             <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
             <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
@@ -480,7 +732,9 @@ for i in range(1, numero + 1):
 
       <div class="footer-bottom">
         <p class="mb-0">
-          Â© 2026 <strong>Python Academy</strong>. Proyecto acadÃ©mico Flask & Python
+
+          © 2026 <strong>Python Academy</strong>. Proyecto académico • Flask & Python
+
         </p>
       </div>
     </div>
@@ -495,6 +749,74 @@ for i in range(1, numero + 1):
 
   <script src="../static/assets/js/effects.js"></script>
   <script src="../static/assets/js/navbar-nested.js"></script>
+
+  <script>
+  // ===== VALIDACIÓN JS (simulación en el navegador) =====
+
+  function validarCedulaEcuatorianaJS(cedula) {
+    if (!cedula || cedula.length !== 10) return false;
+    if (!/^\d{10}$/.test(cedula)) return false;
+
+    // Provincia (01 a 24)
+    const provincia = parseInt(cedula.substring(0, 2), 10);
+    if (provincia < 1 || provincia > 24) return false;
+
+    // Algoritmo Módulo 10
+    let suma = 0;
+    for (let i = 0; i < 9; i++) {
+      let d = parseInt(cedula[i], 10);
+
+      if (i % 2 === 0) { // posiciones 0,2,4,6,8
+        d = d * 2;
+        if (d > 9) d -= 9;
+      }
+      suma += d;
+    }
+
+    let decena = Math.ceil(suma / 10) * 10;
+    let verificador = decena - suma;
+    if (verificador === 10) verificador = 0;
+
+    return verificador === parseInt(cedula[9], 10);
+  }
+
+  function mostrarMensaje(tipo, texto) {
+    const msg = document.getElementById("msg");
+    msg.classList.remove("d-none", "alert-success", "alert-danger", "alert-warning");
+    msg.classList.add(tipo);
+    msg.innerHTML = texto;
+  }
+
+  function validarJS() {
+    const input = document.getElementById("txtCedula");
+    const ced = (input.value || "").trim();
+
+    // validaciones rápidas
+    if (ced.length !== 10) {
+      mostrarMensaje("alert-warning", "❗ La cédula debe tener exactamente <b>10 dígitos</b>.");
+      return false;
+    }
+
+    if (!/^\d+$/.test(ced)) {
+      mostrarMensaje("alert-warning", "❗ La cédula debe contener <b>solo números</b>.");
+      return false;
+    }
+
+    // simulación del algoritmo
+    const ok = validarCedulaEcuatorianaJS(ced);
+
+    if (ok) {
+      mostrarMensaje("alert-success", "✅ Simulación JS: La cédula <b>" + ced + "</b> es <b>VÁLIDA</b>.");
+    } else {
+      mostrarMensaje("alert-danger", "❌ Simulación JS: La cédula <b>" + ced + "</b> <b>NO</b> es válida.");
+    }
+
+    // ✅ Si quieres que ADEMÁS se envíe al servidor Flask, devuelve true.
+    // ❌ Si quieres que SOLO sea simulación (sin enviar), devuelve false.
+    return false; // <-- SOLO simulación (NO envía)
+  }
+</script>
+
   <script>
     // Initialize AOS
     AOS.init({
@@ -507,4 +829,5 @@ for i in range(1, numero + 1):
 </body>
 
 </html>
+
 

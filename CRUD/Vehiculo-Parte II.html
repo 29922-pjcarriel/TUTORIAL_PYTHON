@@ -1,11 +1,11 @@
-﻿ï»¿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Vehiculo-Parte II Â· Python Academy</title>
-    <meta name="description" content="ImplementaciÃ³n de las operaciones Create y Read del CRUD.">
+    <title>Vehiculo-Parte II · Python Academy</title>
+    <meta name="description" content="Implementación de las operaciones Create y Read del CRUD.">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -85,12 +85,7 @@
 </head>
 
 <body>
-    <!-- Page Loader -->
-    <div class="page-loader">
-        <div class="loader-spinner"></div>
-    </div>
-
-    <!-- Navbar -->
+        <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
@@ -185,7 +180,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-database me-1"></i> Temas Avanzados
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
@@ -209,29 +204,20 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i
-                    class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i
-                    class="bi bi-boxes me-2 text-info"></i>Ecosistema</a>
-              </li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i
-                    class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i
-                    class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/mercado.html"><i
-                    class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i
-                    class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
-              Comenzar <i class="bi bi-arrow-right ms-1"></i>
-            </a>
           </li>
         </ul>
       </div>
@@ -241,9 +227,9 @@
     <main>
         <section class="hero-crud text-center">
             <div class="container">
-                <span class="badge bg-success px-3 py-2 rounded-pill mb-3">MÃ³dulo CRUD - Paso 02</span>
+                <span class="badge bg-success px-3 py-2 rounded-pill mb-3">Módulo CRUD - Paso 02</span>
                 <h1 class="display-4 fw-bold">Vehiculo - Parte II</h1>
-                <p class="lead opacity-75">CreaciÃ³n y Listado de Registros.</p>
+                <p class="lead opacity-75">Creación y Listado de Registros.</p>
             </div>
         </section>
 
@@ -256,16 +242,16 @@
                     </a>
                 </div>
 
-                <h3 class="section-title">1. Listado de VehÃ­culos (Read)</h3>
-                <p>En esta secciÃ³n implementaremos la ruta para consultar todos los vehÃ­culos registrados y mostrarlos
-                    en una tabla dinÃ¡mica.</p>
+                <h3 class="section-title">1. Listado de Vehículos (Read)</h3>
+                <p>En esta sección implementaremos la ruta para consultar todos los vehículos registrados y mostrarlos
+                    en una tabla dinámica.</p>
 
                 <h3 class="section-title">2. Formulario de Registro (Create)</h3>
-                <p>Aprenderemos a procesar el formulario de envÃ­o (POST) para insertar nuevos datos en la base de datos
+                <p>Aprenderemos a procesar el formulario de envío (POST) para insertar nuevos datos en la base de datos
                     de manera segura.</p>
 
-                <h3 class="section-title">3. ExplicaciÃ³n del CÃ³digo</h3>
-                <p>ImplementaciÃ³n de las rutas de Flask:</p>
+                <h3 class="section-title">3. Explicación del Código</h3>
+                <p>Implementación de las rutas de Flask:</p>
 
                 <pre class="code-box"><code># Rutas para Listar y Crear
 @app.route('/vehiculos')
@@ -284,15 +270,15 @@ def guardar_vehiculo():
     db.session.commit()
     return redirect(url_for('listar_vehiculos'))</code></pre>
 
-                <h3 class="section-title">4. Video de EjecuciÃ³n</h3>
-                <p>Mira cÃ³mo funciona el proceso de inserciÃ³n y visualizaciÃ³n de datos en tiempo real:</p>
+                <h3 class="section-title">4. Video de Ejecución</h3>
+                <p>Mira cómo funciona el proceso de inserción y visualización de datos en tiempo real:</p>
 
                 <div class="video-container">
                     <div class="video-placeholder">
                         <div>
                             <i class="bi bi-play-circle fs-1 mb-2"></i>
                             <h4>[Video Placeholder]</h4>
-                            <p>AquÃ­ se insertarÃ¡ el video explicativo de la Parte II</p>
+                            <p>Aquí se insertará el video explicativo de la Parte II</p>
                         </div>
                     </div>
                 </div>
@@ -312,7 +298,7 @@ def guardar_vehiculo():
 
     <footer class="footer-modern py-5">
         <div class="container text-center">
-            <p class="mb-0">Â© 2026 Python Academy - MÃ³dulo CRUD</p>
+            <p class="mb-0">© 2026 Python Academy - Módulo CRUD</p>
         </div>
     </footer>
 
@@ -326,4 +312,6 @@ def guardar_vehiculo():
 </body>
 
 </html>
+
+
 

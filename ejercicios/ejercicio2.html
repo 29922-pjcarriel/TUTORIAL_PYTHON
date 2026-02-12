@@ -1,10 +1,12 @@
-﻿ï»¿<!DOCTYPE html>
+
+<!DOCTYPE html>
+
 <html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Formulario request.files Â· Python Academy</title>
+  <title>Formulario request.files · Python Academy</title>
   <meta name="description" content="Formulario POST con subida de archivos (files).">
 
   <link
@@ -163,14 +165,8 @@
 </head>
 
 <body>
-  <!-- Page Loader -->
-  <div class="page-loader">
-    <div class="loader-spinner"></div>
-  </div>
-
-
-  <!-- Navbar Moderno -->
-  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+      <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
         <i class="bi bi-braces me-2"></i>Python Academy
@@ -212,7 +208,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-code-square me-1"></i> Ejercicios
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
@@ -288,29 +284,20 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i
-                    class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i
-                    class="bi bi-boxes me-2 text-info"></i>Ecosistema</a>
-              </li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i
-                    class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i
-                    class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/mercado.html"><i
-                    class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i
-                    class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
-              Comenzar <i class="bi bi-arrow-right ms-1"></i>
-            </a>
           </li>
         </ul>
       </div>
@@ -324,7 +311,7 @@
 
         <div class="hero-top-actions">
           <a href="../ejercicios.html" class="btn btn-outline-secondary btn-pill-sm">
-            <i class="bi bi-arrow-left me-1"></i> Volver al menÃº
+            <i class="bi bi-arrow-left me-1"></i> Volver al menú
           </a>
         </div>
 
@@ -341,29 +328,35 @@
       <div class="container">
         <div class="ej-panel">
 
-          <!-- Ã¢Å“â€¦ ENUNCIADO -->
+
+          <!-- ✅ ENUNCIADO -->
+
           <div class="explain-card mb-4">
             <h4 class="fw-bold mb-2">Enunciado</h4>
             <p class="mb-2">
-              En este ejercicio vamos a crear un formulario de registro vehicular que envÃ­a datos al servidor usando
-              el mÃ©todo <b>POST</b>. AdemÃ¡s, el usuario podrÃ¡ <b>subir una imagen</b> (foto del vehÃ­culo) desde el
+              En este ejercicio vamos a crear un formulario de registro vehicular que envía datos al servidor usando
+              el método <b>POST</b>. Además, el usuario podrá <b>subir una imagen</b> (foto del vehículo) desde el
               navegador.
             </p>
             <p class="mb-0 hint">
-              Objetivo: entender cÃ³mo Flask recibe <b>datos</b> con <code>request.form</code> y cÃ³mo recibe
+              Objetivo: entender cómo Flask recibe <b>datos</b> con <code>request.form</code> y cómo recibe
               <b>archivos</b>
               con <code>request.files</code> (equivalente a <code>$_POST</code> y <code>$_FILES</code> en PHP).
             </p>
           </div>
 
-          <!-- Ã¢Å“â€¦ EXPLICACIÃ±â€œN DETALLADA -->
+
+          <!-- ✅ EXPLICACIÓN DETALLADA -->
+
           <div class="explain-card mb-4">
-            <h4 class="fw-bold mb-3">ExplicaciÃ³n del cÃ³digo (paso a paso)</h4>
+            <h4 class="fw-bold mb-3">Explicación del código (paso a paso)</h4>
 
             <h5 class="fw-bold mb-2">0) Idea general (GET vs POST)</h5>
             <ul class="mb-3">
-              <li><b>GET:</b> el usuario entra a la pÃ¡gina Ã¢â€ â€™ solo mostramos el formulario vacÃ­o.</li>
-              <li><b>POST:</b> el usuario llena el formulario y presiona Enviar Ã¢â€ â€™ el servidor procesa los datos
+
+              <li><b>GET:</b> el usuario entra a la página -> solo mostramos el formulario vacío.</li>
+              <li><b>POST:</b> el usuario llena el formulario y presiona Enviar -> el servidor procesa los datos
+
                 y el archivo.</li>
               <li>En Flask detectamos esto con <code>request.method</code>.</li>
             </ul>
@@ -376,16 +369,18 @@ from flask import request, render_template_string</code></pre>
             <ul class="mb-3">
               <li><b>os</b>: crear rutas y carpetas para guardar la imagen.</li>
               <li><b>random</b> y <b>string</b>: generar nombres aleatorios para archivos.</li>
-              <li><b>request</b>: contiene lo que el navegador envÃ­a (POST, FILES, etc.).</li>
+              <li><b>request</b>: contiene lo que el navegador envía (POST, FILES, etc.).</li>
               <li><b>render_template_string</b>: renderiza HTML guardado en una variable.</li>
             </ul>
 
-            <h5 class="fw-bold mb-2">2) Carpeta donde se guardarÃ¡n las imÃ¡genes</h5>
+
+            <
+
             <pre class="code-box mb-2"><code>BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join("static", "images")
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)</code></pre>
             <p class="mb-3">
-              Se define una carpeta para subir imÃ¡genes (<code>static/images</code>). Luego se crea si no existe.
+              Se define una carpeta para subir imágenes (<code>static/images</code>). Luego se crea si no existe.
               Lo recomendado es usar una ruta absoluta con <code>BASE_DIR</code> para evitar errores al guardar.
             </p>
 
@@ -396,12 +391,12 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)</code></pre>
     nombre = ''.join(random.choice(letras) for _ in range(tamanio))
     return f"{nombre}.{ext}"</code></pre>
             <ul class="mb-3">
-              <li>Se obtiene la extensiÃ³n (jpg, png, etc.).</li>
+              <li>Se obtiene la extensión (jpg, png, etc.).</li>
               <li>Se genera un nombre aleatorio para no repetir archivos.</li>
               <li>Se devuelve: <code>nombre_aleatorio.ext</code>.</li>
             </ul>
 
-            <h5 class="fw-bold mb-2">4) POST + FILES en Flask (comparaciÃ³n con PHP)</h5>
+            <h5 class="fw-bold mb-2">4) POST + FILES en Flask (comparación con PHP)</h5>
             <p class="mb-2">
               En PHP usabas <code>$_POST</code> para datos de texto y <code>$_FILES</code> para archivos.
               En Flask se usa el objeto <code>request</code>:
@@ -426,13 +421,15 @@ request.files.get("foto")</code></pre>
               </div>
             </div>
 
-            <h5 class="fw-bold mb-2">5) Por quÃ±Â© es obligatorio: <code>multipart/form-data</code></h5>
+
+            <h5 class="fw-bold mb-2">5) Por qué es obligatorio: <code>multipart/form-data</code></h5>
+
             <p class="mb-2">
-              Para que el navegador envÃ­e un archivo correctamente, el formulario debe tener:
+              Para que el navegador envíe un archivo correctamente, el formulario debe tener:
             </p>
             <pre class="code-box mb-3"><code>&lt;form method="post" enctype="multipart/form-data"&gt;</code></pre>
             <div class="alert alert-warning mb-3">
-              Si no colocas <code>multipart/form-data</code>, <code>request.files</code> llegarÃ¡ vacÃ­o aunque
+              Si no colocas <code>multipart/form-data</code>, <code>request.files</code> llegará vacío aunque
               selecciones una imagen.
             </div>
 
@@ -452,8 +449,8 @@ request.files.get("foto")</code></pre>
             <pre class="code-box mb-2"><code>foto = request.files.get('foto')
 foto_url = None</code></pre>
             <p class="mb-3">
-              AquÃ­ Flask busca el archivo cuyo input tiene <code>name="foto"</code>.
-              Si el usuario no sube nada, <code>foto</code> puede venir vacÃ­o.
+              Aquí Flask busca el archivo cuyo input tiene <code>name="foto"</code>.
+              Si el usuario no sube nada, <code>foto</code> puede venir vacío.
             </p>
 
             <h5 class="fw-bold mb-2">8) Guardar la imagen en el servidor</h5>
@@ -463,7 +460,9 @@ foto_url = None</code></pre>
     foto.save(ruta)
     foto_url = f"/static/assets/img/{nombre}"</code></pre>
             <ul class="mb-0">
-              <li><b>foto.filename</b> verifica que sÃ­ se eligiÃ±Â³ un archivo.</li>
+
+              <li><b>foto.filename</b> verifica que sí se eligió un archivo.</li>
+
               <li><code>foto.save(...)</code> guarda el archivo en tu proyecto.</li>
               <li><code>foto_url</code> es la ruta web que luego se usa en el HTML para mostrar la imagen.</li>
             </ul>
@@ -487,7 +486,159 @@ foto_url = None</code></pre>
             </p>
           </div>
 
-          <!-- Ã¢Å“â€¦ Ejecutar -->
+
+ 
+
+<h4 class="fw-bold mt-4">Archivo: app.py</h4>
+<pre class="code-box"><code>import os
+import random
+import string
+from flask import Flask, render_template, request
+
+# Configuración de carpetas
+app_dir = os.path.dirname(os.path.abspath(__file__))
+template_dir = os.path.join(app_dir, 'templates')
+UPLOAD_FOLDER = os.path.join(app_dir, 'static', 'images')
+
+app = Flask(__name__, template_folder=template_dir)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# Función para generar nombre aleatorio
+def get_name_file(nombre_original, tamanio=15):
+    if '.' in nombre_original:
+        ext = nombre_original.rsplit('.', 1)[-1].lower()
+    else:
+        ext = ''
+    
+    caracteres = string.ascii_letters + string.digits
+    cadena = ''.join(random.choices(caracteres, k=tamanio))
+    
+    return f"{cadena}.{ext}" if ext else cadena
+
+@app.route('/', methods=['GET', 'POST'])
+def formulario_vehiculo():
+    if request.method == 'POST':
+        placa = request.form.get('placa')
+        marca = request.form.get('marca')
+        combustible = request.form.get('combustible')
+        comentarios = request.form.get('comentarios')
+
+        # Accesorios
+        accesorios = []
+        if 'radio' in request.form:
+            accesorios.append("Radio")
+        if 'aros' in request.form:
+            accesorios.append("Aros")
+        accesorios = "<br>".join(accesorios)
+
+        # Foto
+        nombre_foto = 'default.png'
+        if 'foto' in request.files:
+            file = request.files['foto']
+            if file.filename != '':
+                os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+                nombre_seguro = get_name_file(file.filename)
+                ruta = os.path.join(app.config['UPLOAD_FOLDER'], nombre_seguro)
+                file.save(ruta)
+                nombre_foto = nombre_seguro
+
+        return render_template('resultado.html',
+                               placa=placa,
+                               marca=marca,
+                               combustible=combustible,
+                               accesorios=accesorios,
+                               comentarios=comentarios,
+                               nombre_foto=nombre_foto)
+
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+</code></pre>
+
+<h4 class="fw-bold mt-4">Archivo: templates/index.html</h4>
+<pre class="code-box"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Formulario Vehículo&lt;/title&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="container mt-5"&gt;
+    &lt;div class="card shadow"&gt;
+        &lt;div class="card-header bg-primary text-white text-center"&gt;
+            &lt;h2&gt;INGRESO DE DATOS&lt;/h2&gt;
+        &lt;/div&gt;
+
+        &lt;div class="card-body"&gt;
+            &lt;form method="POST" enctype="multipart/form-data"&gt;
+
+                &lt;input class="form-control mb-2" name="placa" placeholder="Placa" required&gt;
+
+                &lt;select class="form-select mb-2" name="marca"&gt;
+                    &lt;option&gt;Toyota&lt;/option&gt;
+                    &lt;option&gt;Ford&lt;/option&gt;
+                    &lt;option&gt;Audi&lt;/option&gt;
+                &lt;/select&gt;
+
+                Combustible:
+                &lt;input type="radio" name="combustible" value="Gasolina" checked&gt; Gasolina
+                &lt;input type="radio" name="combustible" value="Diesel"&gt; Diesel
+                &lt;br&gt;&lt;br&gt;
+
+                Accesorios:
+                &lt;input type="checkbox" name="radio"&gt; Radio
+                &lt;input type="checkbox" name="aros"&gt; Aros
+                &lt;br&gt;&lt;br&gt;
+
+                Foto:
+                &lt;input type="file" name="foto" class="form-control mb-2"&gt;
+
+                &lt;textarea class="form-control mb-2" name="comentarios" placeholder="Comentarios"&gt;&lt;/textarea&gt;
+
+                &lt;button class="btn btn-primary w-100"&gt;Enviar&lt;/button&gt;
+
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h4 class="fw-bold mt-4">Archivo: templates/resultado.html</h4>
+<pre class="code-box"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Resultado&lt;/title&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="container mt-5"&gt;
+    &lt;div class="card shadow"&gt;
+        &lt;div class="card-header bg-success text-white text-center"&gt;
+            &lt;h2&gt;DATOS DEL VEHÍCULO&lt;/h2&gt;
+        &lt;/div&gt;
+
+        &lt;div class="card-body"&gt;
+            &lt;p&gt;&lt;b&gt;Placa:&lt;/b&gt; {{ placa }}&lt;/p&gt;
+            &lt;p&gt;&lt;b&gt;Marca:&lt;/b&gt; {{ marca }}&lt;/p&gt;
+            &lt;p&gt;&lt;b&gt;Combustible:&lt;/b&gt; {{ combustible }}&lt;/p&gt;
+            &lt;p&gt;&lt;b&gt;Accesorios:&lt;/b&gt; {{ accesorios | safe }}&lt;/p&gt;
+            &lt;p&gt;&lt;b&gt;Comentarios:&lt;/b&gt; {{ comentarios }}&lt;/p&gt;
+
+            &lt;img src="/static/images/{{ nombre_foto }}" class="img-fluid mt-3" width="300"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+         <!-- ✅ Ejecutar -->
+
           <div class="ej-actions">
             <a href="##formulario" class="btn btn-primary btn-pill btn-lg">
               Ejecutar ejercicio
@@ -498,7 +649,7 @@ foto_url = None</code></pre>
           <div id="formulario" class="mt-5 animate-in fade-in">
             <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
               <div class="card-header bg-primary text-white p-3">
-                <h5 class="mb-0"><i class="bi bi-car-front-fill me-2"></i>Simulador Registro de VehÃ­culo</h5>
+                <h5 class="mb-0"><i class="bi bi-car-front-fill me-2"></i>Simulador Registro de Vehículo</h5>
               </div>
               <div class="card-body p-4 bg-light">
                 <form id="form-vehiculo" onsubmit="procesarVehiculo(event)">
@@ -530,13 +681,13 @@ foto_url = None</code></pre>
                           <label class="form-check-label" for="die">Diesel</label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="combustible" value="ElÃ©ctrico" id="ele">
-                          <label class="form-check-label" for="ele">ElÃ©ctrico</label>
+                          <input class="form-check-input" type="radio" name="combustible" value="Eléctrico" id="ele">
+                          <label class="form-check-label" for="ele">Eléctrico</label>
                         </div>
                       </div>
                     </div>
                     <div class="col-md-12">
-                      <label class="form-label fw-bold">Foto del VehÃ­culo:</label>
+                      <label class="form-label fw-bold">Foto del Vehículo:</label>
                       <input type="file" class="form-control" id="foto" accept="image/*" required>
                     </div>
                     <div class="col-md-12">
@@ -545,16 +696,17 @@ foto_url = None</code></pre>
                     </div>
                   </div>
                   <button type="submit" class="btn btn-primary w-100 mt-4 btn-pill">
-                    <i class="bi bi-cloud-upload me-2"></i>Enviar y Procesar (SimulaciÃ³n Flask)
+                    <i class="bi bi-cloud-upload me-2"></i>Enviar y Procesar (Simulación Flask)
                   </button>
                 </form>
               </div>
             </div>
 
+
             <!-- RESULTADO SIMULADO -->
             <div id="resultado-vehiculo" class="card border-0 shadow-lg rounded-4 mt-4 d-none">
               <div class="card-body p-4">
-                <h4 class="fw-bold text-center mb-4">VehÃ­culo Registrado con Ã‰xito</h4>
+                <h4 class="fw-bold text-center mb-4">Vehículo Registrado con Éxito</h4>
                 <div class="row align-items-center">
                   <div class="col-md-5 text-center mb-3 mb-md-0">
                     <img id="res-foto" src="" alt="Coche" class="img-fluid rounded-4 shadow-sm"
@@ -633,8 +785,8 @@ foto_url = None</code></pre>
             <i class="bi bi-braces me-2"></i>Python Academy
           </h4>
           <p class="footer-text">
-            Proyecto acadÃ±Â©mico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
-            apasionados por la programaciÃ³n.
+            Proyecto acadñ©mico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
+            apasionados por la programación.
           </p>
           <div class="d-flex gap-3 mt-4">
             <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
@@ -644,10 +796,10 @@ foto_url = None</code></pre>
         </div>
 
         <div class="col-lg-2 col-md-4">
-          <h5 class="footer-title">NavegaciÃ³n</h5>
+          <h5 class="footer-title">Navegación</h5>
           <ul class="footer-links">
             <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
-            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> TeorÃ­a</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
             <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
             <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
 
@@ -664,7 +816,7 @@ foto_url = None</code></pre>
         </div>
 
         <div class="col-lg-3 col-md-4">
-          <h5 class="footer-title">TecnologÃ­as</h5>
+          <h5 class="footer-title">Tecnologías</h5>
           <div class="d-flex flex-wrap gap-2 mt-3">
             <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
             <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
@@ -677,7 +829,7 @@ foto_url = None</code></pre>
 
       <div class="footer-bottom">
         <p class="mb-0">
-          Â© 2026 <strong>Python Academy</strong>. Proyecto acadÃ©mico â€¢ Flask & Python
+          © 2026 <strong>Python Academy</strong>. Proyecto académico • Flask & Python
         </p>
       </div>
     </div>
@@ -704,4 +856,5 @@ foto_url = None</code></pre>
 </body>
 
 </html>
+
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
@@ -114,8 +114,8 @@
 <body>
 
 
-  <!-- Navbar Moderno -->
-  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+      <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
         <i class="bi bi-braces me-2"></i>Python Academy
@@ -133,7 +133,7 @@
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-book me-1"></i> Teoría
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
@@ -233,27 +233,20 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i
-                    class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i
-                    class="bi bi-boxes me-2 text-info"></i>Ecosistema</a>
-              </li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i
-                    class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i
-                    class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/mercado.html"><i
-                    class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
-              Comenzar <i class="bi bi-arrow-right ms-1"></i>
-            </a>
           </li>
         </ul>
       </div>
@@ -289,6 +282,7 @@
             <li><a href="#incremento">5. Incremento / Decremento</a></li>
             <li><a href="#cadenas">6. De Cadena</a></li>
             <li><a href="#ternario">7. Ternario</a></li>
+            <li><a href="#pertenencia">8. Pertenencia</a></li>
             <li><a href="#flask">8. Ejemplos en Flask</a></li>
           </ul>
         </nav>
@@ -699,9 +693,26 @@
           </div>
         </div>
 
+        <!-- 8. PERTENENCIA -->
+        <div class="topic-card" id="pertenencia">
+          <div class="topic-title"><div class="topic-icon"><i class="bi bi-search"></i></div>8. Operadores de Pertenencia</div>
+          <div class="divider-line"></div>
+          <div class="theory-box">
+            <h6><i class="bi bi-book me-1"></i>Teoría</h6>
+            <p>Permiten verificar si un elemento está dentro de una secuencia (lista, tupla, string).</p>
+          </div>
+          <table class="op-table">
+            <thead><tr><th>Operador</th><th>Descripción</th><th>Ejemplo</th></tr></thead>
+            <tbody>
+              <tr><td><span class="op-badge">in</span></td><td>Devuelve True si el valor está presente.</td><td><code>"a" in "hola"</code> (True)</td></tr>
+              <tr><td><span class="op-badge">not in</span></td><td>Devuelve True si el valor NO está.</td><td><code>5 not in [1,2,3]</code> (True)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
         <!-- 8. FLASK -->
         <div class="topic-card" id="flask">
-          <div class="topic-title"><div class="topic-icon"><i class="bi bi-flask"></i></div>8. Ejemplos Típicos dentro de Flask</div>
+          <div class="topic-title"><div class="topic-icon"><i class="bi bi-flask"></i></div>9. Ejemplos Típicos dentro de Flask</div>
           <div class="divider-line"></div>
           <div class="theory-box">
             <h6><i class="bi bi-book me-1"></i>Contexto</h6>
@@ -905,3 +916,4 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 </body>
 </html>
+
