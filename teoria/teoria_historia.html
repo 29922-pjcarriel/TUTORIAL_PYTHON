@@ -234,7 +234,6 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
@@ -868,22 +867,6 @@ def home():
                   El motor de plantillas actúa como un intermediario entre Python y
                   HTML.
                 </div>
-              </div>
-              <h5 class="fw-bold mt-4">Jinja2 en Flask</h5>
-
-              <p>
-                <strong>Jinja2</strong> es el motor de plantillas utilizado por
-                Flask. Permite insertar variables, estructuras de control y
-                reutilizar componentes dentro de archivos HTML.
-              </p>
-              <div class="bg-dark text-white p-4 rounded-3 mb-4">
-                <pre class="mb-0"><code class="language-python">from flask import Flask, render_template
-
-app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return render_template("home.html", nombre="Stalin")</code></pre>
               </div>
 
               <div class="row g-4 my-4">
