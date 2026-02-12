@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Sesiones y Login · Python vs PHP</title>
+    <meta name="description" content="Comparativa de manejo de sesiones, login y base de datos entre Python y PHP">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link href="../static/assets/css/main.css" rel="stylesheet">
+    <link href="../static/assets/css/custom.css" rel="stylesheet">
+    <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+    <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
+
+    <style>
+        .sidebar-nav {
+            position: sticky;
+            top: 100px;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        .sidebar-nav h5 { font-weight: 700; color: #1a1a2e; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid #667eea; }
+        .sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 0.5rem; }
+        .sidebar-nav a { display: block; padding: 0.6rem 1rem; color: #64748b; text-decoration: none; border-radius: 8px; font-size: 0.9rem; transition: all 0.3s ease; border-left: 3px solid transparent; }
+        .sidebar-nav a:hover { background: rgba(102, 126, 234, 0.1); color: #667eea; border-left-color: #667eea; padding-left: 1.2rem; }
+        .sidebar-nav a.active { background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%); color: #667eea; font-weight: 600; border-left-color: #667eea; }
+        .sidebar-nav::-webkit-scrollbar { width: 4px; }
+        .sidebar-nav::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .sidebar-nav::-webkit-scrollbar-thumb { background: #667eea; border-radius: 4px; }
+        .sidebar-progress { height: 4px; background: #e2e8f0; border-radius: 4px; margin-bottom: 1rem; overflow: hidden; }
+        .sidebar-progress-bar { height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); width: 0%; transition: width 0.3s ease; }
+
+        .compare-row { display: flex; gap: 1.5rem; margin: 1.5rem 0; flex-wrap: wrap; }
+        .compare-col { flex: 1; min-width: 280px; }
+        .lang-card { border-radius: 16px; padding: 1.5rem; height: 100%; border: 1px solid rgba(0,0,0,0.08); }
+        .lang-card.python { background: linear-gradient(135deg, rgba(55,118,171,0.08) 0%, rgba(255,212,59,0.08) 100%); border-left: 4px solid #3776ab; }
+        .lang-card.php { background: linear-gradient(135deg, rgba(119,123,180,0.08) 0%, rgba(137,147,190,0.08) 100%); border-left: 4px solid #777bb4; }
+        .lang-badge { display: inline-block; padding: 4px 14px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-bottom: 1rem; }
+        .lang-badge.python { background: linear-gradient(135deg, #3776ab, #ffd43b); color: white; }
+        .lang-badge.php { background: linear-gradient(135deg, #777bb4, #8993be); color: white; }
+
+        .slide-section { padding: 2rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .slide-section:last-child { border-bottom: none; }
+        .slide-number { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); color: white; font-weight: 700; font-size: 0.8rem; margin-right: 10px; }
+
+        .code-box { background: #0f172a; color: #e2e8f0; padding: 18px; border-radius: 12px; font-family: 'Fira Code', ui-monospace, monospace; font-size: 0.88rem; overflow-x: auto; margin: 12px 0; border: 1px solid rgba(255,255,255,0.1); white-space: pre; }
+        .info-box { background: rgba(102,126,234,0.08); border-radius: 12px; padding: 1.2rem; border-left: 4px solid #667eea; margin: 1rem 0; }
+
+        .file-tree { background: #1e293b; color: #94a3b8; padding: 1.2rem 1.5rem; border-radius: 12px; font-family: 'Fira Code', ui-monospace, monospace; font-size: 0.85rem; margin: 12px 0; border: 1px solid rgba(255,255,255,0.08); white-space: pre; line-height: 1.6; }
+        .file-tree .folder { color: #fbbf24; }
+        .file-tree .file-py { color: #60a5fa; }
+        .file-tree .file-php { color: #a78bfa; }
+        .file-tree .file-html { color: #f97316; }
+        .file-tree .file-css { color: #34d399; }
+
+        .devtools-box { background: #1a1a2e; border: 1px solid rgba(102,126,234,0.3); border-radius: 12px; padding: 1.2rem 1.5rem; margin: 12px 0; }
+        .devtools-box .dt-header { color: #667eea; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.8rem; border-bottom: 1px solid rgba(102,126,234,0.2); padding-bottom: 0.5rem; }
+        .devtools-box table { width: 100%; font-size: 0.82rem; }
+        .devtools-box th { color: #94a3b8; font-weight: 600; padding: 4px 8px; text-align: left; }
+        .devtools-box td { color: #e2e8f0; padding: 4px 8px; font-family: 'Fira Code', monospace; }
+        .devtools-box .cookie-name { color: #fbbf24; }
+        .devtools-box .cookie-val { color: #34d399; word-break: break-all; }
+    </style>
+</head>
+
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="../index.html">
+        <i class="bi bi-braces me-2"></i>Python Academy
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-2">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="../index.html"><i class="bi bi-house me-1"></i> Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-book me-1"></i> Teoría</a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_htmlpyhon.html"><i class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_sintaxisComentarios.html"><i class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_variablesConstantes.html"><i class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_tiposDatos.html"><i class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo el temario</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-code-square me-1"></i> Ejercicios</a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-input-cursor-text me-2 text-success"></i>Procesamiento de formularios</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio1.html">Formulario request.form</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio2.html">Formulario request.files</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio3.html">Factorial</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio4.html">Triángulo de Pascal</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio5.html">Es Primo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio6.html">Validar Cédula</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-list-ul me-2 text-success"></i>Arreglos</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio7.html">Ejemplo 01</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio8.html">Ejemplo 02</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio9.html">Arreglo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio10.html">Matriz</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio11.html">Cubo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio12.html">Tablas Dinámicas</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-diagram-2 me-2 text-success"></i>POO</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio13.html">Clases</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio14.html">Herencia</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio15.html">Abstracta</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio16.html">Interfaces</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio17.html">Polimorfismo</a></li>
+                </ul>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver todos los ejercicios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-database me-1"></i> Temas Avanzados</a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte I.html"><i class="bi bi-car-front me-2 text-danger"></i>Vehículo - Parte I</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte II.html"><i class="bi bi-car-front-fill me-2 text-danger"></i>Vehículo - Parte II</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte III.html"><i class="bi bi-gear-wide-connected me-2 text-danger"></i>Vehículo - Parte III</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Session y login.html"><i class="bi bi-lock me-2 text-danger"></i>Session y Login</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../explicacion_crud.html"><i class="bi bi-grid me-2"></i>Ver Resumen</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown"><i class="bi bi-arrow-left-right me-1"></i> Python VS PHP</a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
+              <li><a class="dropdown-item py-2" href="conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">Comenzar <i class="bi bi-arrow-right ms-1"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <main class="main">
+        <!-- Hero Interno -->
+        <section class="hero-internal">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="container relative">
+                <span class="badge-custom animate-on-scroll">MÓDULO 9</span>
+                <h1 class="animate-on-scroll delay-1">Sesiones y Login</h1>
+                <p class="animate-on-scroll delay-2">
+                    Comparativa de manejo de sesiones, autenticación y base de datos entre Python (Flask) y PHP.
+                </p>
+                <p class="animate-on-scroll delay-3" style="font-size:0.9rem; opacity:0.7;">
+                    Autoras: Nicole Carvajal · Melanie Reimundo — Universidad de las Fuerzas Armadas
+                </p>
+            </div>
+        </section>
+
+        <section class="section py-5">
+            <div class="container">
+                <div class="row justify-content-start">
+                    <!-- Sidebar -->
+                    <div class="col-lg-3 d-none d-lg-block">
+                        <nav class="sidebar-nav">
+                            <div class="sidebar-progress">
+                                <div class="sidebar-progress-bar"></div>
+                            </div>
+                            <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
+                            <ul>
+                                <li><a href="#sesiones" class="active">Sesiones</a></li>
+                                <li><a href="#almacenamiento">Almacenamiento</a></li>
+                                <li><a href="#organizacion">Organización del Proyecto</a></li>
+                                <li><a href="#flujo-python">Flujo en Python</a></li>
+                                <li><a href="#head-index">Head del Index</a></li>
+                                <li><a href="#body-index">Body del Index</a></li>
+                                <li><a href="#inicializacion">Inicialización Backend</a></li>
+                                <li><a href="#obtencion-datos">Obtención de Datos</a></li>
+                                <li><a href="#formulario-dinamico">Formulario Dinámico</a></li>
+                                <li><a href="#control-flujo">Control del Flujo</a></li>
+                                <li><a href="#vista-detalle">Vista de Detalle</a></li>
+                                <li><a href="#navegacion-login">Navegación al Login</a></li>
+                                <li><a href="#carga-login">Carga del Login</a></li>
+                                <li><a href="#formulario-login">Formulario de Login</a></li>
+                                <li><a href="#validacion-login">Validación y Sesión</a></li>
+                                <li><a href="#error-auth">Error de Autenticación</a></li>
+                                <li><a href="#visualizacion-notebook">Visualización Notebook</a></li>
+                            </ul>
+                            <hr>
+                            <a href="../PythonvsPHP.html" class="btn btn-sm btn-outline-secondary w-100 rounded-pill mt-2">
+                                <i class="bi bi-arrow-left me-2"></i>Volver al Índice
+                            </a>
+                        </nav>
+                    </div>
+
+                    <!-- Main Content -->
+                    <div class="col-lg-8">
+
+                        <!-- 1: Sesiones -->
+                        <div class="slide-section" id="sesiones">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">1</span> Sesiones</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul class="mb-0">
+                                            <li>El cliente <strong>no puede leer</strong> los datos de la sesión.</li>
+                                            <li>El cliente <strong>no puede modificar</strong> el contenido de la sesión.</li>
+                                            <li>El navegador únicamente almacena un identificador de sesión (<code>PHPSESSID</code>).</li>
+                                            <li>Los datos reales de la sesión residen <strong>exclusivamente en el servidor</strong>.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python + Flask</span>
+                                        <ul class="mb-0">
+                                            <li>El cliente <strong>puede leer</strong> el contenido de la sesión, ya que se almacena en una cookie.</li>
+                                            <li>Los datos se encuentran codificados (por ejemplo, Base64), pero <strong>no cifrados</strong>.</li>
+                                            <li>El cliente <strong>no puede modificar</strong> los datos sin invalidar la firma criptográfica.</li>
+                                            <li>La integridad de la sesión está protegida mediante la <code>secret_key</code>.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cookie PHP en DevTools -->
+                            <div class="devtools-box mt-3" data-aos="fade-up">
+                                <div class="dt-header"><i class="bi bi-browser-chrome me-1"></i> DevTools — Cookies de sesión en PHP</div>
+                                <table>
+                                    <tr><th>Name</th><th>Value</th><th>Domain</th><th>Path</th></tr>
+                                    <tr>
+                                        <td class="cookie-name">PHPSESSID</td>
+                                        <td class="cookie-val">abc123def456gh789ij0</td>
+                                        <td>localhost</td>
+                                        <td>/</td>
+                                    </tr>
+                                </table>
+                                <p class="mt-2 mb-0" style="color:#94a3b8; font-size:0.82rem;"><i class="bi bi-info-circle me-1"></i> Solo se almacena el identificador; los datos reales están en el servidor.</p>
+                            </div>
+
+                            <!-- Archivos de sesión PHP en servidor -->
+                            <div class="info-box mt-2" data-aos="fade-up">
+                                <h6 class="fw-bold mb-2"><i class="bi bi-hdd me-1"></i> Archivos de sesión PHP en el servidor</h6>
+                                <div class="file-tree"><span class="folder">C:\wamp64\tmp\</span>
+├── sess_abc123def456gh789ij0
+├── sess_klm456opq789rst012uv
+└── sess_wxyz345abc678def901gh</div>
+                                <p class="mb-0 mt-2" style="font-size:0.9rem;">Cada archivo contiene los datos serializados de <code>$_SESSION</code>.</p>
+                            </div>
+
+                            <!-- Cookie Python en DevTools -->
+                            <div class="devtools-box mt-2" data-aos="fade-up">
+                                <div class="dt-header"><i class="bi bi-browser-chrome me-1"></i> DevTools — Cookies de sesión en Python/Flask</div>
+                                <table>
+                                    <tr><th>Name</th><th>Value</th><th>Domain</th><th>Path</th></tr>
+                                    <tr>
+                                        <td class="cookie-name">session</td>
+                                        <td class="cookie-val">eyJsaXN0YU5vdGUiOlt7Im1hcmNhIjoiSFAiLCJjb2RpZ28iOiIwMDEifV19.ZxY2Qw.abc123...</td>
+                                        <td>127.0.0.1</td>
+                                        <td>/</td>
+                                    </tr>
+                                </table>
+                                <p class="mt-2 mb-0" style="color:#94a3b8; font-size:0.82rem;"><i class="bi bi-info-circle me-1"></i> Los datos están codificados en Base64 y firmados criptográficamente con la <code>secret_key</code>.</p>
+                            </div>
+                        </div>
+
+                        <!-- 2: Almacenamiento -->
+                        <div class="slide-section" id="almacenamiento">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">2</span> Almacenamiento de Sesión</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul class="mb-0">
+                                            <li>El navegador almacena únicamente una cookie con el identificador de sesión (<code>PHPSESSID</code>).</li>
+                                            <li>El servidor utiliza dicho identificador para localizar el archivo de sesión correspondiente.</li>
+                                            <li>Los datos reales de la sesión se encuentran almacenados <strong>en el servidor</strong>, no en el cliente.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">// Iniciar sesión</span>
+session_start();
+
+<span style="color:#94a3b8;">// Almacenar datos</span>
+$_SESSION['usuario'] = 'admin';
+$_SESSION['listaNote'] = $notebooks;</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python + Flask</span>
+                                        <ul class="mb-0">
+                                            <li>El navegador guarda una cookie que contiene los datos de sesión serializados.</li>
+                                            <li>La información está firmada criptográficamente mediante la <code>secret_key</code>.</li>
+                                            <li>El servidor valida la firma, pero <strong>no conserva estado</strong> entre solicitudes.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;"># Configurar clave secreta</span>
+app.secret_key = 'mi_clave_secreta'
+
+<span style="color:#94a3b8;"># Almacenar datos</span>
+session['usuario'] = 'admin'
+session['listaNote'] = notebooks</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3: Organización del Proyecto -->
+                        <div class="slide-section" id="organizacion">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">3</span> Organización del Proyecto</h3>
+                            <p>La estructura del proyecto separa claramente el frontend y el backend en ambas implementaciones: PHP y Python. Esto facilita la organización del código y el mantenimiento del sistema.</p>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <p>Cada archivo PHP actúa como parte del backend, mezclando lógica y presentación según el archivo.</p>
+                                        <div class="file-tree"><span class="folder">📁 PHP_MODIFICADO/</span>
+├── <span class="folder">📁 backend/</span>
+│   ├── <span class="file-php">index.php</span>
+│   ├── <span class="file-php">verNotebook.php</span>
+│   ├── <span class="file-php">FormularioLogin.php</span>
+│   ├── <span class="file-php">validar.php</span>
+│   ├── <span class="file-php">Conexion.php</span>
+│   ├── <span class="file-php">Constantes.php</span>
+│   └── <span class="file-php">Notebook.php</span>
+├── <span class="folder">📁 frontend/</span>
+│   ├── <span class="folder">📁 templates/</span>
+│   │   ├── <span class="file-php">index.php</span>
+│   │   ├── <span class="file-php">verNotebook.php</span>
+│   │   ├── <span class="file-php">FormularioLogin.php</span>
+│   │   └── <span class="file-php">ErrorAutenticacion.php</span>
+│   ├── <span class="folder">📁 css/</span>
+│   └── <span class="folder">📁 img/</span>
+└── <span class="file-html">index.html</span></div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <p>Flask separa las rutas (backend) de las plantillas HTML (frontend) mediante el motor Jinja.</p>
+                                        <div class="file-tree"><span class="folder">📁 PYTHON/</span>
+├── <span class="file-py">app.py</span>
+├── <span class="file-py">Conexion.py</span>
+├── <span class="file-py">Constantes.py</span>
+├── <span class="file-py">Notebook.py</span>
+├── <span class="folder">📁 templates/</span>
+│   ├── <span class="file-html">index.html</span>
+│   ├── <span class="file-html">verNotebook.html</span>
+│   ├── <span class="file-html">FormularioLogin.html</span>
+│   └── <span class="file-html">ErrorAutenticacion.html</span>
+├── <span class="folder">📁 static/</span>
+│   ├── <span class="folder">📁 css/</span>
+│   └── <span class="folder">📁 img/</span>
+└── <span class="file-html">index.html</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4: Flujo de Ejecución en Python -->
+                        <div class="slide-section" id="flujo-python">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">4</span> Flujo de Ejecución en Python</h3>
+                            <div class="lang-card python">
+                                <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                <ol>
+                                    <li>El usuario accede a la URL principal de la aplicación (<code>/</code>).</li>
+                                    <li>Flask detecta la ruta <code>/</code> y ejecuta la función <code>root()</code>, que es el primer punto de entrada del sistema.</li>
+                                    <li>Dentro de la función, el servidor localiza el archivo <code>index.html</code> que se encuentra en la raíz del proyecto.</li>
+                                    <li>El archivo <code>index.html</code> se abre y su contenido se lee completamente en memoria.</li>
+                                    <li>Ese contenido se renderiza usando Jinja, lo que permite interpretar expresiones como <code>url_for</code> para cargar correctamente estilos e imágenes.</li>
+                                    <li>Finalmente, Flask envía la página ya procesada al navegador del usuario, mostrando la pantalla inicial del sistema.</li>
+                                </ol>
+                                <div class="info-box">
+                                    <h6 class="fw-bold mb-2"><i class="bi bi-question-circle me-1"></i> ¿Qué es <code>render_template_string</code>?</h6>
+                                    <pre class="code-box mb-2">return render_template_string(content)</pre>
+                                    <ul class="mb-0">
+                                        <li>Tomar un HTML</li>
+                                        <li>Procesarlo con Jinja (el motor de plantillas)</li>
+                                        <li>Convertirlo en una página lista para el navegador</li>
+                                    </ul>
+                                </div>
+                                <h6 class="fw-bold mt-3 mb-2"><i class="bi bi-file-code me-1"></i> Archivo: app.py — Imports y configuración</h6>
+                                <pre class="code-box"><span style="color:#c084fc;">from</span> flask <span style="color:#c084fc;">import</span> Flask, render_template, render_template_string, request, session, url_for
+<span style="color:#c084fc;">from</span> Conexion <span style="color:#c084fc;">import</span> Conexion
+<span style="color:#c084fc;">from</span> Notebook <span style="color:#c084fc;">import</span> Notebook
+<span style="color:#c084fc;">import</span> os
+
+app = Flask(__name__,
+            template_folder=os.path.join(os.getcwd(), <span style="color:#a3ff12;">'templates'</span>),
+            static_folder=os.path.join(os.getcwd(), <span style="color:#a3ff12;">'static'</span>))
+app.secret_key = <span style="color:#a3ff12;">'clave_secreta_flask'</span></pre>
+
+                                <h6 class="fw-bold mt-3 mb-2"><i class="bi bi-code-slash me-1"></i> Función root() — Punto de entrada</h6>
+                                <pre class="code-box"><span style="color:#fbbf24;">@app.route</span>(<span style="color:#a3ff12;">'/'</span>)
+<span style="color:#c084fc;">def</span> <span style="color:#60a5fa;">root</span>():
+    file_path = os.path.join(os.getcwd(), <span style="color:#a3ff12;">'index.html'</span>)
+    <span style="color:#c084fc;">with</span> open(file_path, <span style="color:#a3ff12;">'r'</span>, encoding=<span style="color:#a3ff12;">'utf-8'</span>) <span style="color:#c084fc;">as</span> f:
+        content = f.read()
+    <span style="color:#c084fc;">return</span> render_template_string(content)</pre>
+                            </div>
+                        </div>
+
+                        <!-- 5: Head del Index -->
+                        <div class="slide-section" id="head-index">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">5</span> Head del Index.html</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>Es un archivo HTML estático (<code>.html</code>).</li>
+                                            <li>No depende de ningún framework.</li>
+                                            <li>Los recursos (CSS, imágenes) se cargan con rutas directas.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- Head en PHP: rutas directas --&gt;</span>
+&lt;<span style="color:#f97316;">head</span>&gt;
+  &lt;<span style="color:#f97316;">link</span> <span style="color:#60a5fa;">rel</span>=<span style="color:#a3ff12;">"stylesheet"</span>
+        <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"frontend/css/estilos.css"</span>&gt;
+  &lt;<span style="color:#f97316;">link</span> <span style="color:#60a5fa;">rel</span>=<span style="color:#a3ff12;">"icon"</span>
+        <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"frontend/img/logo.png"</span>&gt;
+&lt;/<span style="color:#f97316;">head</span>&gt;</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Es una plantilla HTML renderizada por el backend.</li>
+                                            <li>Depende de un framework (por ejemplo, Flask).</li>
+                                            <li>Los recursos se cargan de forma dinámica usando el backend.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- Head en Python: usa url_for() --&gt;</span>
+&lt;<span style="color:#f97316;">head</span>&gt;
+  &lt;<span style="color:#f97316;">link</span> <span style="color:#60a5fa;">rel</span>=<span style="color:#a3ff12;">"stylesheet"</span>
+        <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"{{ url_for('static', filename='css/estilos.css') }}"</span>&gt;
+  &lt;<span style="color:#f97316;">link</span> <span style="color:#60a5fa;">rel</span>=<span style="color:#a3ff12;">"icon"</span>
+        <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"{{ url_for('static', filename='img/logo.png') }}"</span>&gt;
+&lt;/<span style="color:#f97316;">head</span>&gt;</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6: Body del Index -->
+                        <div class="slide-section" id="body-index">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">6</span> Body del Index.html</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>Se llama directamente a un archivo PHP.</li>
+                                            <li>Ese archivo ejecuta la lógica.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- Body en PHP --&gt;</span>
+&lt;<span style="color:#f97316;">a</span> <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"backend/index.php"</span>
+   <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"btn btn-principal"</span>&gt;
+   Ingresar al Sistema
+&lt;/<span style="color:#f97316;">a</span>&gt;</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Se llama a una ruta del backend.</li>
+                                            <li>El backend decide qué vista mostrar.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- Body en Python --&gt;</span>
+&lt;<span style="color:#f97316;">a</span> <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"/index"</span>
+   <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"btn btn-principal"</span>&gt;
+   Ingresar al Sistema
+&lt;/<span style="color:#f97316;">a</span>&gt;</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 7: Inicialización del Backend -->
+                        <div class="slide-section" id="inicializacion">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">7</span> Inicialización del Backend</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Importa librerías del framework Flask.</li>
+                                            <li>Importa módulos propios del proyecto.</li>
+                                            <li>Inicializa la aplicación (Flask).</li>
+                                            <li>Define carpetas de templates y recursos estáticos.</li>
+                                            <li>Configura la clave de sesiones.</li>
+                                        </ul>
+                                        <div class="info-box">
+                                            <p class="mb-0"><strong>En Python existen dos formas de renderizar:</strong><br>
+                                            <code>render_template</code> para plantillas<br>
+                                            <code>render_template_string</code> para HTML cargado como texto.</p>
+                                        </div>
+                                        <pre class="code-box"><span style="color:#94a3b8;"># app.py — Inicialización</span>
+<span style="color:#c084fc;">from</span> flask <span style="color:#c084fc;">import</span> Flask, render_template, request, session
+<span style="color:#c084fc;">from</span> Conexion <span style="color:#c084fc;">import</span> Conexion
+<span style="color:#c084fc;">from</span> Notebook <span style="color:#c084fc;">import</span> Notebook
+<span style="color:#c084fc;">import</span> os
+
+app = Flask(__name__,
+    template_folder=os.path.join(os.getcwd(), <span style="color:#a3ff12;">'templates'</span>),
+    static_folder=os.path.join(os.getcwd(), <span style="color:#a3ff12;">'static'</span>))
+
+app.secret_key = <span style="color:#a3ff12;">'clave_secreta_flask'</span></pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>Incluye archivos necesarios para el funcionamiento.</li>
+                                            <li>Carga clases, constantes y la conexión a la base de datos.</li>
+                                            <li>Cada archivo PHP actúa como parte del backend.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">// index.php — Inicialización</span>
+&lt;?php
+session_start();
+
+require_once __DIR__ . <span style="color:#a3ff12;">'/../Constantes.php'</span>;
+require_once __DIR__ . <span style="color:#a3ff12;">'/../Conexion.php'</span>;
+require_once __DIR__ . <span style="color:#a3ff12;">'/../Notebook.php'</span>;
+
+<span style="color:#94a3b8;">// La conexión se crea directamente</span>
+$conexion = <span style="color:#c084fc;">new</span> Conexion();
+$conn = $conexion-&gt;getConexion();
+?&gt;</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8: Obtención de Datos -->
+                        <div class="slide-section" id="obtencion-datos">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">8</span> Obtención de Datos y Almacenamiento en Sesión</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Se usa para enviar información al servidor.</li>
+                                            <li>Modifica o procesa datos.</li>
+                                            <li>Los datos no viajan en la URL.</li>
+                                            <li>Se usa en formularios (login).</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;"># app.py — Ruta /index</span>
+<span style="color:#fbbf24;">@app.route</span>(<span style="color:#a3ff12;">'/index'</span>)
+<span style="color:#c084fc;">def</span> <span style="color:#60a5fa;">index</span>():
+    conn = Conexion()
+    cursor = conn.getConexion().cursor(dictionary=<span style="color:#14dfe8;">True</span>)
+    cursor.execute(<span style="color:#a3ff12;">"SELECT * FROM notebook"</span>)
+    rows = cursor.fetchall()
+
+    notebooks = []
+    <span style="color:#c084fc;">for</span> row <span style="color:#c084fc;">in</span> rows:
+        n = Notebook(row[<span style="color:#a3ff12;">'marca'</span>], row[<span style="color:#a3ff12;">'codigo'</span>], row[<span style="color:#a3ff12;">'precio'</span>])
+        notebooks.append(n.__dict__)
+
+    <span style="color:#94a3b8;"># Almacenar en sesión</span>
+    session[<span style="color:#a3ff12;">'listaNote'</span>] = notebooks
+    <span style="color:#c084fc;">return</span> render_template(<span style="color:#a3ff12;">'index.html'</span>, notebooksData=notebooks)</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li><code>__DIR__</code> es una constante mágica de PHP.</li>
+                                            <li>Representa la ruta absoluta del directorio actual.</li>
+                                            <li>Se usa para evitar errores de rutas relativas.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">// index.php — Obtención de datos</span>
+&lt;?php
+$sql = <span style="color:#a3ff12;">"SELECT * FROM notebook"</span>;
+$resultado = mysqli_query($conn, $sql);
+
+$notebooks = [];
+<span style="color:#c084fc;">while</span> ($row = mysqli_fetch_assoc($resultado)) {
+    $obj = <span style="color:#c084fc;">new</span> Notebook(
+        $row[<span style="color:#a3ff12;">'marca'</span>],
+        $row[<span style="color:#a3ff12;">'codigo'</span>],
+        $row[<span style="color:#a3ff12;">'precio'</span>]
+    );
+    $notebooks[] = $obj;
+}
+
+<span style="color:#94a3b8;">// Almacenar en sesión</span>
+$_SESSION[<span style="color:#a3ff12;">'listaNote'</span>] = $notebooks;
+
+include __DIR__ . <span style="color:#a3ff12;">'/../frontend/templates/index.php'</span>;
+?&gt;</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 9: Formulario Dinámico -->
+                        <div class="slide-section" id="formulario-dinamico">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">9</span> Generación Dinámica del Formulario</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Usa Jinja (<code>{% for %}</code>), para generar HTML dinámico.</li>
+                                            <li>El HTML solo presenta datos enviados por el backend.</li>
+                                            <li>Inserta los valores directamente en la plantilla.</li>
+                                            <li>Usa variables del diccionario.</li>
+                                            <li>Llama a una ruta del backend.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- templates/index.html (Jinja) --&gt;</span>
+&lt;<span style="color:#f97316;">form</span> <span style="color:#60a5fa;">action</span>=<span style="color:#a3ff12;">"/verNotebook"</span> <span style="color:#60a5fa;">method</span>=<span style="color:#a3ff12;">"POST"</span>&gt;
+  &lt;<span style="color:#f97316;">select</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"op"</span>&gt;
+    <span style="color:#fbbf24;">{% for item in notebooksData %}</span>
+    &lt;<span style="color:#f97316;">option</span> <span style="color:#60a5fa;">value</span>=<span style="color:#a3ff12;">"<span style="color:#fbbf24;">{{ loop.index0 }}</span>"</span>&gt;
+      <span style="color:#fbbf24;">{{ item.marca }}</span> - $<span style="color:#fbbf24;">{{ item.precio }}</span>
+    &lt;/<span style="color:#f97316;">option</span>&gt;
+    <span style="color:#fbbf24;">{% endfor %}</span>
+  &lt;/<span style="color:#f97316;">select</span>&gt;
+  &lt;<span style="color:#f97316;">button</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"submit"</span>&gt;Ver Detalle&lt;/<span style="color:#f97316;">button</span>&gt;
+&lt;/<span style="color:#f97316;">form</span>&gt;</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>Usa <code>foreach</code> dentro del HTML.</li>
+                                            <li>Ejecuta código PHP embebido en la vista.</li>
+                                            <li>Genera las opciones con <code>echo</code>.</li>
+                                            <li>Accede a métodos del objeto.</li>
+                                            <li>Llama directamente a un archivo PHP.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- frontend/templates/index.php --&gt;</span>
+&lt;<span style="color:#f97316;">form</span> <span style="color:#60a5fa;">action</span>=<span style="color:#a3ff12;">"verNotebook.php"</span> <span style="color:#60a5fa;">method</span>=<span style="color:#a3ff12;">"POST"</span>&gt;
+  &lt;<span style="color:#f97316;">select</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"op"</span>&gt;
+    &lt;?php
+    <span style="color:#c084fc;">foreach</span> ($notebooks <span style="color:#c084fc;">as</span> $key =&gt; $obj) {
+        <span style="color:#c084fc;">echo</span> <span style="color:#a3ff12;">"&lt;option value='$key'&gt;"</span>
+           . $obj-&gt;getMarca() . <span style="color:#a3ff12;">" - $"</span>
+           . $obj-&gt;getPrecio()
+           . <span style="color:#a3ff12;">"&lt;/option&gt;"</span>;
+    }
+    ?&gt;
+  &lt;/<span style="color:#f97316;">select</span>&gt;
+  &lt;<span style="color:#f97316;">button</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"submit"</span>&gt;Ver Detalle&lt;/<span style="color:#f97316;">button</span>&gt;
+&lt;/<span style="color:#f97316;">form</span>&gt;</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 10: Control del Flujo -->
+                        <div class="slide-section" id="control-flujo">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">10</span> Control del Flujo y Visualización de Datos</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Utiliza una ruta (<code>/verNotebook</code>) definida en Flask para controlar el acceso.</li>
+                                            <li>Flask decide qué función ejecutar según la ruta y el método (GET o POST).</li>
+                                            <li>Recupera los datos almacenados en la sesión usando <code>session.get</code>.</li>
+                                            <li>Lee la información enviada desde el formulario mediante <code>request.form</code> o <code>request.args</code>.</li>
+                                            <li>Selecciona el elemento correspondiente desde la estructura de datos.</li>
+                                            <li>Envía los datos a la vista utilizando <code>render_template</code>.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;"># app.py</span>
+<span style="color:#fbbf24;">@app.route</span>(<span style="color:#a3ff12;">'/verNotebook'</span>, methods=[<span style="color:#a3ff12;">'GET'</span>, <span style="color:#a3ff12;">'POST'</span>])
+<span style="color:#c084fc;">def</span> <span style="color:#60a5fa;">ver_notebook</span>():
+    notebooks = session.get(<span style="color:#a3ff12;">'listaNote'</span>, [])
+
+    <span style="color:#c084fc;">if</span> request.method == <span style="color:#a3ff12;">'POST'</span>:
+        op = <span style="color:#14dfe8;">int</span>(request.form[<span style="color:#a3ff12;">'op'</span>])
+    <span style="color:#c084fc;">else</span>:
+        op = <span style="color:#14dfe8;">int</span>(request.args.get(<span style="color:#a3ff12;">'op'</span>, <span style="color:#14dfe8;">0</span>))
+
+    objData = notebooks[op]
+    <span style="color:#c084fc;">return</span> render_template(<span style="color:#a3ff12;">'verNotebook.html'</span>, objData=objData)</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>El flujo se controla mediante un archivo PHP accedido directamente.</li>
+                                            <li>El archivo se ejecuta cuando el formulario apunta a él.</li>
+                                            <li>Recupera los datos almacenados en la sesión usando <code>$_SESSION</code>.</li>
+                                            <li>Lee la información enviada desde el formulario mediante <code>$_POST</code> o <code>$_GET</code>.</li>
+                                            <li>Selecciona el elemento correspondiente desde el arreglo de datos.</li>
+                                            <li>Incluye directamente la vista que mostrará la información al usuario.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">// verNotebook.php</span>
+&lt;?php
+session_start();
+
+$notebooks = $_SESSION[<span style="color:#a3ff12;">'listaNote'</span>];
+
+<span style="color:#c084fc;">if</span> (isset($_POST[<span style="color:#a3ff12;">'op'</span>])) {
+    $op = $_POST[<span style="color:#a3ff12;">'op'</span>];
+} <span style="color:#c084fc;">else</span> {
+    $op = $_GET[<span style="color:#a3ff12;">'op'</span>];
+}
+
+$obj = $notebooks[$op];
+
+include __DIR__ . <span style="color:#a3ff12;">'/../frontend/templates/verNotebook.php'</span>;
+?&gt;</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 11: Vista de Detalle -->
+                        <div class="slide-section" id="vista-detalle">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">11</span> Vista de Detalle del Notebook</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Es una plantilla HTML con Jinja.</li>
+                                            <li>Los datos llegan desde el backend mediante <code>render_template</code>.</li>
+                                            <li>Se accede a los valores usando variables dinámicas.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- templates/verNotebook.html --&gt;</span>
+&lt;<span style="color:#f97316;">h2</span>&gt;<span style="color:#fbbf24;">{{ objData.marca }}</span>&lt;/<span style="color:#f97316;">h2</span>&gt;
+&lt;<span style="color:#f97316;">p</span>&gt;Código: <span style="color:#fbbf24;">{{ objData.codigo }}</span>&lt;/<span style="color:#f97316;">p</span>&gt;
+&lt;<span style="color:#f97316;">p</span>&gt;Precio: $<span style="color:#fbbf24;">{{ objData.precio|int }}</span>&lt;/<span style="color:#f97316;">p</span>&gt;
+
+&lt;<span style="color:#f97316;">a</span> <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"/index"</span>&gt;Continuar&lt;/<span style="color:#f97316;">a</span>&gt;</pre>
+                                        <ul class="mb-0">
+                                            <li>Jinja se encarga de insertar los datos directamente en el HTML.</li>
+                                            <li>La vista solo se dedica a mostrar información, no a procesarla.</li>
+                                            <li>Mantiene una clara separación entre lógica (backend) y presentación (frontend).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>Es un archivo PHP que mezcla HTML y código PHP.</li>
+                                            <li>Los datos se obtienen directamente desde el objeto.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- frontend/templates/verNotebook.php --&gt;</span>
+&lt;<span style="color:#f97316;">h2</span>&gt;&lt;?php <span style="color:#c084fc;">echo</span> $obj-&gt;getMarca(); ?&gt;&lt;/<span style="color:#f97316;">h2</span>&gt;
+&lt;<span style="color:#f97316;">p</span>&gt;Código: &lt;?php <span style="color:#c084fc;">echo</span> $obj-&gt;getCodigo(); ?&gt;&lt;/<span style="color:#f97316;">p</span>&gt;
+&lt;<span style="color:#f97316;">p</span>&gt;Precio: $&lt;?php <span style="color:#c084fc;">echo</span> number_format($obj-&gt;getPrecio()); ?&gt;&lt;/<span style="color:#f97316;">p</span>&gt;
+
+&lt;<span style="color:#f97316;">a</span> <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"index.php"</span>&gt;Continuar&lt;/<span style="color:#f97316;">a</span>&gt;</pre>
+                                        <ul class="mb-0">
+                                            <li>El procesamiento y la visualización están más mezclados.</li>
+                                            <li>PHP ejecuta el código dentro del HTML en tiempo de ejecución.</li>
+                                            <li>La vista tiene más control directo sobre los datos.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 12: Navegación al Login -->
+                        <div class="slide-section" id="navegacion-login">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">12</span> Navegación hacia el Formulario de Login</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <p>El enlace apunta directamente a un archivo PHP.</p>
+                                        <pre class="code-box">&lt;<span style="color:#f97316;">a</span> <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"FormularioLogin.php"</span>
+   <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"btn btn-principal"</span>&gt;
+   Ir al Login
+&lt;/<span style="color:#f97316;">a</span>&gt;</pre>
+                                        <p class="mb-0"><strong>Al hacer clic:</strong> El servidor ejecuta <code>FormularioLogin.php</code> → Se muestra el formulario de login.</p>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <p>El enlace apunta a una ruta del backend.</p>
+                                        <pre class="code-box">&lt;<span style="color:#f97316;">a</span> <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"/FormularioLogin"</span>
+   <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"btn btn-principal"</span>&gt;
+   Ir al Login
+&lt;/<span style="color:#f97316;">a</span>&gt;</pre>
+                                        <p class="mb-0"><strong>Al hacer clic:</strong> El navegador solicita la ruta <code>/FormularioLogin</code> → Flask ejecuta la función asociada → Se renderiza el formulario de login.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-box mt-3" data-aos="fade-up">
+                                <h6 class="fw-bold"><i class="bi bi-arrow-return-right me-1"></i> Python: render_template en la ruta /index</h6>
+                                <pre class="code-box mb-0"><span style="color:#c084fc;">return</span> render_template(<span style="color:#a3ff12;">'index.html'</span>, notebooksData=notebooks)</pre>
+                            </div>
+                        </div>
+
+                        <!-- 13: Carga del Login -->
+                        <div class="slide-section" id="carga-login">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">13</span> Carga del Formulario de Login</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Se define una ruta llamada <code>/FormularioLogin</code>.</li>
+                                            <li>Flask ejecuta la función asociada a la ruta.</li>
+                                            <li>Se recuperan los datos desde la sesión.</li>
+                                            <li>Se renderiza la vista <code>FormularioLogin.html</code> usando Jinja.</li>
+                                            <li>El backend controla completamente qué se muestra.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;"># app.py</span>
+<span style="color:#fbbf24;">@app.route</span>(<span style="color:#a3ff12;">'/FormularioLogin'</span>)
+<span style="color:#c084fc;">def</span> <span style="color:#60a5fa;">formulario_login</span>():
+    notebooks = session.get(<span style="color:#a3ff12;">'listaNote'</span>, [])
+    <span style="color:#c084fc;">return</span> render_template(
+        <span style="color:#a3ff12;">'FormularioLogin.html'</span>,
+        objData=notebooks
+    )</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>Se accede directamente al archivo <code>FormularioLogin.php</code>.</li>
+                                            <li>Se inicia la sesión con <code>session_start()</code>.</li>
+                                            <li>Se obtienen los datos desde <code>$_SESSION</code>.</li>
+                                            <li>Se incluye la plantilla del formulario de login.</li>
+                                            <li>El archivo PHP se ejecuta al ser solicitado.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">// FormularioLogin.php</span>
+&lt;?php
+session_start();
+
+$notebooks = $_SESSION[<span style="color:#a3ff12;">'listaNote'</span>];
+
+include __DIR__ . <span style="color:#a3ff12;">'/../frontend/templates/FormularioLogin.php'</span>;
+?&gt;</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 14: Formulario de Login -->
+                        <div class="slide-section" id="formulario-login">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">14</span> Formulario de Login</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Es una plantilla HTML con Jinja.</li>
+                                            <li>El formulario envía los datos mediante POST a la ruta <code>/validar</code>.</li>
+                                            <li>La lista de usuarios se genera dinámicamente usando Jinja.</li>
+                                            <li>Los datos (<code>objData</code>) llegan desde el backend a través de <code>render_template</code>.</li>
+                                            <li>Al presionar LOGIN, el flujo continúa hacia la validación en el backend.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- templates/FormularioLogin.html --&gt;</span>
+&lt;<span style="color:#f97316;">form</span> <span style="color:#60a5fa;">action</span>=<span style="color:#a3ff12;">"/validar"</span> <span style="color:#60a5fa;">method</span>=<span style="color:#a3ff12;">"POST"</span>&gt;
+  &lt;<span style="color:#f97316;">label</span>&gt;Usuario:&lt;/<span style="color:#f97316;">label</span>&gt;
+  &lt;<span style="color:#f97316;">select</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"usuario"</span>&gt;
+    <span style="color:#fbbf24;">{% for item in objData %}</span>
+    &lt;<span style="color:#f97316;">option</span> <span style="color:#60a5fa;">value</span>=<span style="color:#a3ff12;">"<span style="color:#fbbf24;">{{ item.marca }}</span>"</span>&gt;
+      <span style="color:#fbbf24;">{{ item.marca }}</span>
+    &lt;/<span style="color:#f97316;">option</span>&gt;
+    <span style="color:#fbbf24;">{% endfor %}</span>
+  &lt;/<span style="color:#f97316;">select</span>&gt;
+
+  &lt;<span style="color:#f97316;">label</span>&gt;Contraseña:&lt;/<span style="color:#f97316;">label</span>&gt;
+  &lt;<span style="color:#f97316;">input</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"password"</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"clave"</span>&gt;
+
+  &lt;<span style="color:#f97316;">button</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"submit"</span>&gt;LOGIN&lt;/<span style="color:#f97316;">button</span>&gt;
+&lt;/<span style="color:#f97316;">form</span>&gt;</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>Es un archivo PHP que mezcla HTML y código PHP.</li>
+                                            <li>El formulario envía los datos mediante POST al archivo <code>validar.php</code>.</li>
+                                            <li>La lista de usuarios se genera usando código PHP dentro del HTML.</li>
+                                            <li>Al presionar LOGIN, se ejecuta el archivo <code>validar.php</code>.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- frontend/templates/FormularioLogin.php --&gt;</span>
+&lt;<span style="color:#f97316;">form</span> <span style="color:#60a5fa;">action</span>=<span style="color:#a3ff12;">"validar.php"</span> <span style="color:#60a5fa;">method</span>=<span style="color:#a3ff12;">"POST"</span>&gt;
+  &lt;<span style="color:#f97316;">label</span>&gt;Usuario:&lt;/<span style="color:#f97316;">label</span>&gt;
+  &lt;<span style="color:#f97316;">select</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"usuario"</span>&gt;
+    &lt;?php
+    <span style="color:#c084fc;">foreach</span> ($notebooks <span style="color:#c084fc;">as</span> $obj) {
+        $marca = $obj-&gt;getMarca();
+        <span style="color:#c084fc;">echo</span> <span style="color:#a3ff12;">"&lt;option value='$marca'&gt;$marca&lt;/option&gt;"</span>;
+    }
+    ?&gt;
+  &lt;/<span style="color:#f97316;">select</span>&gt;
+
+  &lt;<span style="color:#f97316;">label</span>&gt;Contraseña:&lt;/<span style="color:#f97316;">label</span>&gt;
+  &lt;<span style="color:#f97316;">input</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"password"</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"clave"</span>&gt;
+
+  &lt;<span style="color:#f97316;">button</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"submit"</span>&gt;LOGIN&lt;/<span style="color:#f97316;">button</span>&gt;
+&lt;/<span style="color:#f97316;">form</span>&gt;</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 15: Validación de Login -->
+                        <div class="slide-section" id="validacion-login">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">15</span> Validación de Login y Manejo de Sesión</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <h6 class="fw-bold">Login</h6>
+                                        <ul>
+                                            <li>El formulario envía los datos (usuario y clave) mediante POST a la ruta <code>/validar</code>.</li>
+                                            <li>Flask recibe los datos usando <code>request.form</code>.</li>
+                                            <li>Se ejecuta una consulta a la base de datos para verificar si el usuario existe.</li>
+                                            <li>Si los datos son correctos: El login se considera válido.</li>
+                                            <li>Si los datos son incorrectos: Se renderiza una vista de error.</li>
+                                        </ul>
+                                        <h6 class="fw-bold">Sesión</h6>
+                                        <ul>
+                                            <li>Flask utiliza el objeto <code>session</code>.</li>
+                                            <li>La sesión se guarda usando una clave secreta (<code>secret_key</code>).</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;"># app.py</span>
+<span style="color:#fbbf24;">@app.route</span>(<span style="color:#a3ff12;">'/validar'</span>, methods=[<span style="color:#a3ff12;">'POST'</span>])
+<span style="color:#c084fc;">def</span> <span style="color:#60a5fa;">validar</span>():
+    usuario = request.form[<span style="color:#a3ff12;">'usuario'</span>]
+    clave = request.form[<span style="color:#a3ff12;">'clave'</span>]
+
+    conn = Conexion()
+    cursor = conn.getConexion().cursor(dictionary=<span style="color:#14dfe8;">True</span>)
+    sql = <span style="color:#a3ff12;">"SELECT * FROM usuarios WHERE user=%s AND pass=%s"</span>
+    cursor.execute(sql, (usuario, clave))
+    result = cursor.fetchone()
+
+    <span style="color:#c084fc;">if</span> result:
+        session[<span style="color:#a3ff12;">'usuario'</span>] = usuario
+        notebooks = session.get(<span style="color:#a3ff12;">'listaNote'</span>, [])
+        <span style="color:#c084fc;">return</span> render_template(
+            <span style="color:#a3ff12;">'index.html'</span>,
+            notebooksData=notebooks
+        )
+    <span style="color:#c084fc;">else</span>:
+        <span style="color:#c084fc;">return</span> render_template(<span style="color:#a3ff12;">'ErrorAutenticacion.html'</span>)</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <h6 class="fw-bold">Login</h6>
+                                        <ul>
+                                            <li>El formulario envía los datos mediante POST al archivo <code>validar.php</code>.</li>
+                                            <li>PHP recibe los datos usando <code>$_POST</code>.</li>
+                                            <li>Se ejecuta una consulta SQL para verificar usuario y contraseña.</li>
+                                            <li>Si los datos son correctos: Se redirige al siguiente archivo.</li>
+                                            <li>Si los datos son incorrectos: Se incluye una vista de error.</li>
+                                        </ul>
+                                        <h6 class="fw-bold">Sesión</h6>
+                                        <ul>
+                                            <li>PHP maneja sesiones con <code>session_start()</code>.</li>
+                                            <li>Los datos se guardan en la superglobal <code>$_SESSION</code>.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">// validar.php</span>
+&lt;?php
+session_start();
+require_once __DIR__ . <span style="color:#a3ff12;">'/../Conexion.php'</span>;
+
+$usuario = $_POST[<span style="color:#a3ff12;">'usuario'</span>];
+$clave = $_POST[<span style="color:#a3ff12;">'clave'</span>];
+
+$conexion = <span style="color:#c084fc;">new</span> Conexion();
+$conn = $conexion-&gt;getConexion();
+
+$sql = <span style="color:#a3ff12;">"SELECT * FROM usuarios
+        WHERE user='$usuario' AND pass='$clave'"</span>;
+$resultado = mysqli_query($conn, $sql);
+
+<span style="color:#c084fc;">if</span> (mysqli_num_rows($resultado) &gt; 0) {
+    $_SESSION[<span style="color:#a3ff12;">'usuario'</span>] = $usuario;
+    $notebooks = $_SESSION[<span style="color:#a3ff12;">'listaNote'</span>];
+    include __DIR__ . <span style="color:#a3ff12;">'/../frontend/templates/index.php'</span>;
+} <span style="color:#c084fc;">else</span> {
+    include __DIR__ . <span style="color:#a3ff12;">'/../frontend/templates/ErrorAutenticacion.php'</span>;
+}
+?&gt;</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 16: Error de Autenticación -->
+                        <div class="slide-section" id="error-auth">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">16</span> Manejo de Error de Autenticación</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Es una plantilla HTML con Jinja.</li>
+                                            <li>Se muestra cuando el login falla en la ruta <code>/validar</code>.</li>
+                                            <li>El backend decide mostrar esta vista usando <code>render_template</code>.</li>
+                                            <li>Usa <code>url_for</code> para cargar correctamente CSS e imágenes.</li>
+                                            <li>Muestra un mensaje indicando que el usuario o la contraseña son incorrectos.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- templates/ErrorAutenticacion.html --&gt;</span>
+&lt;<span style="color:#f97316;">div</span> <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"error-container"</span>&gt;
+  &lt;<span style="color:#f97316;">img</span> <span style="color:#60a5fa;">src</span>=<span style="color:#a3ff12;">"<span style="color:#fbbf24;">{{ url_for('static', filename='img/logo.png') }}</span>"</span>&gt;
+  &lt;<span style="color:#f97316;">h2</span>&gt;Error de Autenticación&lt;/<span style="color:#f97316;">h2</span>&gt;
+  &lt;<span style="color:#f97316;">p</span>&gt;Usuario o contraseña incorrectos.&lt;/<span style="color:#f97316;">p</span>&gt;
+  &lt;<span style="color:#f97316;">a</span> <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"/FormularioLogin"</span>&gt;
+    Intentar de Nuevo
+  &lt;/<span style="color:#f97316;">a</span>&gt;
+&lt;/<span style="color:#f97316;">div</span>&gt;</pre>
+                                        <p class="mb-0">Permite volver al login sin perder el flujo del sistema.</p>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>Es un archivo PHP con HTML.</li>
+                                            <li>Se muestra cuando la validación falla en <code>validar.php</code>.</li>
+                                            <li>El archivo de validación incluye directamente esta vista.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">// En validar.php:</span>
+include __DIR__ . <span style="color:#a3ff12;">'/../frontend/templates/ErrorAutenticacion.php'</span>;</pre>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- frontend/templates/ErrorAutenticacion.php --&gt;</span>
+&lt;<span style="color:#f97316;">div</span> <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"error-container"</span>&gt;
+  &lt;<span style="color:#f97316;">img</span> <span style="color:#60a5fa;">src</span>=<span style="color:#a3ff12;">"../img/logo.png"</span>&gt;
+  &lt;<span style="color:#f97316;">h2</span>&gt;Error de Autenticación&lt;/<span style="color:#f97316;">h2</span>&gt;
+  &lt;<span style="color:#f97316;">p</span>&gt;Usuario o contraseña incorrectos.&lt;/<span style="color:#f97316;">p</span>&gt;
+  &lt;<span style="color:#f97316;">a</span> <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"FormularioLogin.php"</span>&gt;
+    Intentar de Nuevo
+  &lt;/<span style="color:#f97316;">a</span>&gt;
+&lt;/<span style="color:#f97316;">div</span>&gt;</pre>
+                                        <p class="mb-0">Reinicia el flujo del login desde el archivo correspondiente.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 17: Visualización del Notebook -->
+                        <div class="slide-section" id="visualizacion-notebook">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">17</span> Visualización del Notebook Seleccionado</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Se define una ruta llamada <code>/verNotebook</code> que acepta GET y POST.</li>
+                                            <li>Flask ejecuta la función asociada a la ruta.</li>
+                                            <li>Se recupera la lista de notebooks desde la sesión.</li>
+                                            <li>Se obtiene el valor enviado por el formulario (<code>op</code>) usando:
+                                                <ul>
+                                                    <li><code>request.form</code> si es POST</li>
+                                                    <li><code>request.args</code> si es GET</li>
+                                                </ul>
+                                            </li>
+                                            <li>Se selecciona el notebook correspondiente a partir de la sesión.</li>
+                                            <li>Finalmente, se renderiza la vista <code>verNotebook.html</code> enviando el objeto seleccionado.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;"># app.py — Ruta completa</span>
+<span style="color:#fbbf24;">@app.route</span>(<span style="color:#a3ff12;">'/verNotebook'</span>, methods=[<span style="color:#a3ff12;">'GET'</span>, <span style="color:#a3ff12;">'POST'</span>])
+<span style="color:#c084fc;">def</span> <span style="color:#60a5fa;">ver_notebook</span>():
+    notebooks = session.get(<span style="color:#a3ff12;">'listaNote'</span>, [])
+
+    <span style="color:#c084fc;">if</span> request.method == <span style="color:#a3ff12;">'POST'</span>:
+        op = <span style="color:#14dfe8;">int</span>(request.form[<span style="color:#a3ff12;">'op'</span>])
+    <span style="color:#c084fc;">else</span>:
+        op = <span style="color:#14dfe8;">int</span>(request.args.get(<span style="color:#a3ff12;">'op'</span>, <span style="color:#14dfe8;">0</span>))
+
+    objData = notebooks[op]
+    <span style="color:#c084fc;">return</span> render_template(
+        <span style="color:#a3ff12;">'verNotebook.html'</span>,
+        objData=objData
+    )</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>Se accede directamente al archivo <code>verNotebook.php</code>.</li>
+                                            <li>Se inicia la sesión con <code>session_start()</code>.</li>
+                                            <li>Se obtiene la lista de notebooks desde <code>$_SESSION</code>.</li>
+                                            <li>Se lee el valor enviado por el formulario (<code>op</code>) usando <code>$_POST</code> o <code>$_GET</code>.</li>
+                                            <li>Se selecciona el notebook correspondiente.</li>
+                                            <li>Se incluye directamente la plantilla del frontend.</li>
+                                        </ul>
+                                        <pre class="code-box"><span style="color:#94a3b8;">// verNotebook.php — Archivo completo</span>
+&lt;?php
+session_start();
+
+require_once __DIR__ . <span style="color:#a3ff12;">'/../Notebook.php'</span>;
+
+$notebooks = $_SESSION[<span style="color:#a3ff12;">'listaNote'</span>];
+
+<span style="color:#c084fc;">if</span> (isset($_POST[<span style="color:#a3ff12;">'op'</span>])) {
+    $op = $_POST[<span style="color:#a3ff12;">'op'</span>];
+} <span style="color:#c084fc;">else</span> {
+    $op = $_GET[<span style="color:#a3ff12;">'op'</span>];
+}
+
+$obj = $notebooks[$op];
+
+include __DIR__ . <span style="color:#a3ff12;">'/../frontend/templates/verNotebook.php'</span>;
+?&gt;</pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h5 class="fw-bold mt-4 mb-3"><i class="bi bi-eye me-2"></i>Vista de Detalle (Frontend)</h5>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> verNotebook.html</span>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- templates/verNotebook.html --&gt;</span>
+&lt;<span style="color:#f97316;">link</span> <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"<span style="color:#fbbf24;">{{ url_for('static', filename='css/estilos.css') }}</span>"</span>
+      <span style="color:#60a5fa;">rel</span>=<span style="color:#a3ff12;">"stylesheet"</span>&gt;
+
+&lt;<span style="color:#f97316;">div</span> <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"card"</span>&gt;
+  &lt;<span style="color:#f97316;">h2</span>&gt;<span style="color:#fbbf24;">{{ objData.marca }}</span>&lt;/<span style="color:#f97316;">h2</span>&gt;
+  &lt;<span style="color:#f97316;">p</span>&gt;Código: <span style="color:#fbbf24;">{{ objData.codigo }}</span>&lt;/<span style="color:#f97316;">p</span>&gt;
+  &lt;<span style="color:#f97316;">p</span>&gt;Precio: $<span style="color:#fbbf24;">{{ objData.precio|int }}</span>&lt;/<span style="color:#f97316;">p</span>&gt;
+  &lt;<span style="color:#f97316;">a</span> <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"/index"</span>
+     <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"btn"</span>&gt;Continuar&lt;/<span style="color:#f97316;">a</span>&gt;
+&lt;/<span style="color:#f97316;">div</span>&gt;</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> verNotebook.php</span>
+                                        <pre class="code-box"><span style="color:#94a3b8;">&lt;!-- frontend/templates/verNotebook.php --&gt;</span>
+&lt;<span style="color:#f97316;">link</span> <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"../css/estilos.css"</span>
+      <span style="color:#60a5fa;">rel</span>=<span style="color:#a3ff12;">"stylesheet"</span>&gt;
+
+&lt;<span style="color:#f97316;">div</span> <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"card"</span>&gt;
+  &lt;<span style="color:#f97316;">h2</span>&gt;&lt;?php <span style="color:#c084fc;">echo</span> $obj-&gt;getMarca(); ?&gt;&lt;/<span style="color:#f97316;">h2</span>&gt;
+  &lt;<span style="color:#f97316;">p</span>&gt;Código: &lt;?php <span style="color:#c084fc;">echo</span> $obj-&gt;getCodigo(); ?&gt;&lt;/<span style="color:#f97316;">p</span>&gt;
+  &lt;<span style="color:#f97316;">p</span>&gt;Precio: $&lt;?php <span style="color:#c084fc;">echo</span> number_format($obj-&gt;getPrecio()); ?&gt;&lt;/<span style="color:#f97316;">p</span>&gt;
+  &lt;<span style="color:#f97316;">a</span> <span style="color:#60a5fa;">href</span>=<span style="color:#a3ff12;">"index.php"</span>
+     <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"btn"</span>&gt;Continuar&lt;/<span style="color:#f97316;">a</span>&gt;
+&lt;/<span style="color:#f97316;">div</span>&gt;</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navegación entre páginas -->
+                        <div class="d-flex justify-content-between mt-5 pt-4">
+                            <a href="conexion_mysql.html" class="btn btn-outline-secondary rounded-pill px-4">
+                                <i class="bi bi-arrow-left me-2"></i>Conexión a MySQL
+                            </a>
+                            <a href="../PythonvsPHP.html" class="btn btn-glow rounded-pill px-4">
+                                Volver al Índice <i class="bi bi-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer-modern mt-5">
+        <div class="container text-center">
+            <p class="mb-0 text-white-50">© 2026 Python Academy · Módulo Especial de Comparativa Backend</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../static/assets/js/effects.js"></script>
+    <script src="../static/assets/js/navbar-nested.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+
+        // Sidebar scroll spy
+        const sections = document.querySelectorAll('.slide-section');
+        const sidebarLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
+        const progressBar = document.querySelector('.sidebar-progress-bar');
+
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY + 150;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (window.scrollY / docHeight) * 100;
+            if (progressBar) progressBar.style.width = scrollPercent + '%';
+
+            sections.forEach(section => {
+                if (section.offsetTop <= scrollPos && (section.offsetTop + section.offsetHeight) > scrollPos) {
+                    sidebarLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + section.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

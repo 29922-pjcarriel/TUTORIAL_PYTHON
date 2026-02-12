@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Introducción - PHP vs Python</title>
+    <meta name="description" content="Introducción a las diferencias entre PHP y Python">
+    <meta name="keywords" content="PHP, Python, comparación, desarrollo web">
+
+    <!-- Favicons -->
+    <link href="../static/assets/img/NddbbHGnvbyGEcK.jfif" rel="icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../static/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="../static/assets/css/main.css" rel="stylesheet">
+    <link href="../static/assets/css/custom.css" rel="stylesheet">
+    <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+    <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
+
+    <style>
+        .hero-intro {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('../static/assets/img/NddbbHGnvbyGEcK.jfif');
+            background-size: cover;
+            background-position: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(20, 223, 232, 0.1), transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(147, 51, 234, 0.1), transparent 50%);
+        }
+
+        .vs-container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .vs-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            color: #a3ff12;
+            text-shadow: 0 0 20px rgba(163, 255, 18, 0.5);
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .vs-separator {
+            font-size: clamp(2rem, 6vw, 4rem);
+            color: #14dfe8;
+            font-weight: 300;
+            margin: 20px 0;
+            text-shadow: 0 0 30px rgba(20, 223, 232, 0.8);
+        }
+
+        .intro-card {
+            background: rgba(15, 23, 42, 0.95);
+            border: 2px solid rgba(20, 223, 232, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #14dfe8, #a3ff12, #9333ea);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .intro-card:hover::before {
+            opacity: 0.2;
+        }
+
+        .intro-section-title {
+            color: #a3ff12;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .intro-text {
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .comparison-item {
+            background: linear-gradient(135deg, rgba(20, 223, 232, 0.1), rgba(147, 51, 234, 0.1));
+            border: 1px solid rgba(20, 223, 232, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .comparison-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(20, 223, 232, 0.3);
+        }
+
+        .comparison-header {
+            color: #14dfe8;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .comparison-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .comparison-list li {
+            color: #cbd5e1;
+            font-size: 1rem;
+            line-height: 1.8;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #a3ff12;
+            font-weight: 700;
+        }
+
+        .robot-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(20, 223, 232, 0.3);
+        }
+
+        .flow-diagram {
+            background: rgba(15, 23, 42, 0.9);
+            border: 2px solid rgba(20, 223, 232, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .code-example {
+            background: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #14dfe8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            color: #e2e8f0;
+        }
+
+        .syntax-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .syntax-block {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(20, 223, 232, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .syntax-title {
+            color: #14dfe8;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .syntax-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="index-page">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+        <div class="container">
+            <a class="navbar-brand navbar-brand-custom" href="../index.html">
+                <i class="bi bi-braces me-2"></i>Python Academy
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-2">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="../index.html">
+                            <i class="bi bi-house me-1"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-book me-1"></i> Teoría
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+                            <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
+                            <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo el temario</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+                            <li><a class="dropdown-item py-2" href="introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+                            <li><a class="dropdown-item py-2" href="sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
+                            <li><a class="dropdown-item py-2" href="operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+                            <li><a class="dropdown-item py-2" href="estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+                            <li><a class="dropdown-item py-2" href="funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+                            <li><a class="dropdown-item py-2" href="excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+                            <li><a class="dropdown-item py-2" href="poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
+                            <li><a class="dropdown-item py-2" href="conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+                            <li><a class="dropdown-item py-2" href="sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
+                            Comenzar <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero-intro">
+            <div class="vs-container">
+                <div class="vs-title" data-aos="fade-down">PHP</div>
+                <div class="vs-separator" data-aos="zoom-in" data-aos-delay="200">VS</div>
+                <div class="vs-title" data-aos="fade-up" data-aos-delay="400">PYTHON</div>
+            </div>
+        </section>
+
+        <!-- Introducción -->
+        <section class="section-padding bg-dark">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7" data-aos="fade-right">
+                        <div class="intro-card">
+                            <h2 class="intro-section-title">INTRODUCCIÓN</h2>
+                            <p class="intro-text">
+                                <strong>PHP y Python son lenguajes muy usados en desarrollo web</strong>, pero funcionan de manera 
+                                diferente desde la forma en que se ejecuta el código hasta su sintaxis y estructura.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
+                        <img src="../static/assets/img/GbpDbaqNYisaexC.jfif" alt="Robot" class="robot-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diferencias Generales -->
+        <section class="section-padding bg-gradient">
+            <div class="container">
+                <h2 class="intro-section-title" data-aos="fade-up">DIFERENCIAS GENERALES<br>ENTRE PHP Y PYTHON</h2>
+                
+                <div class="comparison-grid">
+                    <!-- PHP -->
+                    <div class="comparison-item" data-aos="fade-right">
+                        <h3 class="comparison-header">PHP</h3>
+                        <ul class="comparison-list">
+                            <li>Lenguaje diseñado principalmente para el desarrollo web.</li>
+                            <li>Se ejecuta principalmente en el servidor web (Apache, Nginx).</li>
+                            <li>Sintaxis inspirada en C, Java y Perl; usa símbolos como $.</li>
+                            <li>Se integra directamente con HTML.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Python + Flask -->
+                    <div class="comparison-item" data-aos="fade-left" data-aos-delay="200">
+                        <h3 class="comparison-header">PYTHON + FLASK</h3>
+                        <ul class="comparison-list">
+                            <li>Lenguaje de propósito general (web, IA, datos, automatización, etc.).</li>
+                            <li>Se ejecuta mediante un intérprete y puede usarse en muchos entornos.</li>
+                            <li>Sintaxis simple y legible; usa la indentación para estructurar el código.</li>
+                            <li>Usa frameworks como Django o Flask para desarrollo web.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ¿Cómo funciona PHP para desarrollo web? -->
+        <section class="section-padding bg-dark">
+            <div class="container">
+                <h2 class="intro-section-title" data-aos="fade-up">¿Cómo funciona PHP para<br>DESARROLLO WEB?</h2>
+                
+                <div class="flow-diagram" data-aos="zoom-in">
+                    <div class="syntax-comparison">
+                        <div class="syntax-block">
+                            <h4 class="syntax-title">Flujo de PHP</h4>
+                            <ul class="comparison-list">
+                                <li>PHP se ejecuta directamente en el servidor.</li>
+                                <li>El servidor procesa el archivo .php.</li>
+                                <li>El navegador solo recibe HTML.</li>
+                            </ul>
+                            <div class="code-example">
+&lt;?php<br>
+<span style="color: #14dfe8;">echo</span> <span style="color: #a3ff12;">"Hola mundo"</span>;<br>
+?&gt;
+                            </div>
+                        </div>
+
+                        <div class="syntax-block">
+                            <h4 class="syntax-title">Flujo de Python</h4>
+                            <ul class="comparison-list">
+                                <li>Se usan frameworks como Flask.</li>
+                                <li>Se importa Flask y se crea una aplicación.</li>
+                                <li>El programador inicia el servidor manualmente.</li>
+                            </ul>
+                            <div class="code-example">
+<span style="color: #9333ea;">from</span> flask <span style="color: #9333ea;">import</span> Flask<br><br>
+app = Flask(__name__)<br><br>
+@app.route(<span style="color: #a3ff12;">"/"</span>)<br>
+<span style="color: #9333ea;">def</span> <span style="color: #14dfe8;">inicio</span>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #9333ea;">return</span> <span style="color: #a3ff12;">"Hola mundo"</span><br><br>
+<span style="color: #9333ea;">if</span> __name__ == <span style="color: #a3ff12;">"__main__"</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;app.run(debug=<span style="color: #14dfe8;">True</span>, host=<span style="color: #a3ff12;">"127.0.0.1"</span>, port=<span style="color: #f59e0b;">5000</span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diferencias de Sintaxis -->
+        <section class="section-padding bg-gradient">
+            <div class="container">
+                <h2 class="intro-section-title" data-aos="fade-up">DIFERENCIAS DE SINTAXIS</h2>
+                
+                <div class="intro-card" data-aos="fade-up">
+                    <h3 style="color: #a3ff12; font-size: 1.8rem; margin-bottom: 1.5rem;">VARIABLES Y TIPOS DE DATOS</h3>
+                    <p class="intro-text" style="text-align: center; margin-bottom: 2rem;">
+                        <strong>PHP y Python usan tipado dinámico:</strong> el tipo de dato se asigna automáticamente en tiempo de ejecución.
+                    </p>
+
+                    <div class="syntax-comparison">
+                        <!-- PHP -->
+                        <div class="syntax-block" data-aos="fade-right">
+                            <h4 class="syntax-title">PHP</h4>
+                            <div class="code-example">
+<span style="color: #666;">&lt;?php</span><br>
+<span style="color: #f59e0b;">$edad</span> = <span style="color: #14dfe8;">18</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;">// Entero</span><br>
+<span style="color: #f59e0b;">$precio</span> = <span style="color: #14dfe8;">19.99</span>;&nbsp;&nbsp;<span style="color: #64748b;">// Decimal</span><br>
+<span style="color: #f59e0b;">$nombre</span> = <span style="color: #a3ff12;">"Carlos"</span>;&nbsp;<span style="color: #64748b;">// Texto</span><br>
+<span style="color: #f59e0b;">$activo</span> = <span style="color: #14dfe8;">true</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;">// Booleano</span><br><br>
+
+<span style="color: #f59e0b;">$numeros</span> = <span style="color: #9333ea;">array</span>(<span style="color: #14dfe8;">1</span>, <span style="color: #14dfe8;">2</span>, <span style="color: #14dfe8;">3</span>);&nbsp;&nbsp;<span style="color: #64748b;">// Arreglo</span><br>
+<span style="color: #f59e0b;">$persona</span> = [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;">// Arreglo asociativo</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a3ff12;">"nombre"</span> => <span style="color: #a3ff12;">"Ana"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a3ff12;">"edad"</span> => <span style="color: #14dfe8;">22</span><br>
+];<br><br>
+
+<span style="color: #f59e0b;">$valor</span> = <span style="color: #9333ea;">null</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;">// Nulo</span><br>
+<span style="color: #666;">?&gt;</span>
+                            </div>
+                        </div>
+
+                        <!-- Python -->
+                        <div class="syntax-block" data-aos="fade-left" data-aos-delay="200">
+                            <h4 class="syntax-title">PYTHON</h4>
+                            <div class="code-example">
+edad = <span style="color: #14dfe8;">18</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;"># Entero</span><br>
+precio = <span style="color: #14dfe8;">19.99</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;"># Decimal</span><br>
+nombre = <span style="color: #a3ff12;">"Carlos"</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;"># Texto</span><br>
+activo = <span style="color: #14dfe8;">True</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;"># Booleano</span><br><br>
+
+numeros = [<span style="color: #14dfe8;">1</span>, <span style="color: #14dfe8;">2</span>, <span style="color: #14dfe8;">3</span>]&nbsp;&nbsp;<span style="color: #64748b;"># Lista</span><br>
+persona = {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;"># Diccionario</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a3ff12;">"nombre"</span>: <span style="color: #a3ff12;">"Ana"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a3ff12;">"edad"</span>: <span style="color: #14dfe8;">22</span><br>
+}<br><br>
+
+valor = <span style="color: #14dfe8;">None</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64748b;"># Nulo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-dark text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Python Academy. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Vendor JS Files -->
+    <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/assets/vendor/aos/aos.js"></script>
+
+    <!-- Main JS File -->
+    <script src="../static/assets/js/main.js"></script>
+    <script src="../static/assets/js/navbar-nested.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+
+</body>
+
+</html>

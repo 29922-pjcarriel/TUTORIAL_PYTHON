@@ -153,17 +153,15 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="PythonVsPHP/sintaxis.html"><i
-                    class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
-              <li><a class="dropdown-item py-2" href="PythonVsPHP/ecosistema.html"><i
-                    class="bi bi-boxes me-2 text-info"></i>Ecosistema</a>
-              </li>
-              <li><a class="dropdown-item py-2" href="PythonVsPHP/rendimiento.html"><i
-                    class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
-              <li><a class="dropdown-item py-2" href="PythonVsPHP/despliegue.html"><i
-                    class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
-              <li><a class="dropdown-item py-2" href="PythonVsPHP/mercado.html"><i
-                    class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
+              <li><a class="dropdown-item py-2" href="PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
+              <li><a class="dropdown-item py-2" href="PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -188,7 +186,7 @@
                 <i class="bi bi-lightning-fill me-3"></i>Python vs PHP
             </h1>
             <p class="page-hero-subtitle" data-aos="fade-up" data-aos-delay="100">
-                Una comparativa técnica detallada dividida en 5 módulos clave para entender las diferencias y
+                Una comparativa técnica detallada dividida en 9 módulos clave para entender las diferencias y
                 similitudes.
             </p>
         </div>
@@ -208,10 +206,28 @@
             <div class="row g-4" id="temasGrid">
 
                 <!-- Tema 1 -->
+                <!-- Tema 1: Introducción -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-1">
+                        <div class="tema-card-header gradient-5">
                             <span class="number">01</span>
+                            <span class="icon"><i class="bi bi-info-circle"></i></span>
+                            <h3>Introducción</h3>
+                        </div>
+                        <div class="tema-card-body">
+                            <p>PHP y Python: diferencias generales, cómo funciona cada uno para el desarrollo web, variables y tipos de datos.</p>
+                            <a href="PythonVsPHP/introduccion.html" class="btn-tema">
+                                <i class="bi bi-play-fill"></i> Leer más
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 2: Sintaxis -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+                    <div class="tema-card">
+                        <div class="tema-card-header gradient-1">
+                            <span class="number">02</span>
                             <span class="icon"><i class="bi bi-code-slash"></i></span>
                             <h3>Sintaxis y Curva de Aprendizaje</h3>
                         </div>
@@ -225,71 +241,119 @@
                     </div>
                 </div>
 
-                <!-- Tema 2 -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
-                    <div class="tema-card">
-                        <div class="tema-card-header gradient-2">
-                            <span class="number">02</span>
-                            <span class="icon"><i class="bi bi-layers"></i></span>
-                            <h3>Ecosistema Web y Frameworks</h3>
-                        </div>
-                        <div class="tema-card-body">
-                            <p>Django & Flask vs Laravel & Symfony. Una mirada a las herramientas que potencian cada
-                                lenguaje.</p>
-                            <a href="PythonVsPHP/ecosistema.html" class="btn-tema">
-                                <i class="bi bi-play-fill"></i> Leer más
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tema 3 -->
+                <!-- Tema 3: Operadores -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-3">
+                        <div class="tema-card-header gradient-2">
                             <span class="number">03</span>
-                            <span class="icon"><i class="bi bi-speedometer2"></i></span>
-                            <h3>Rendimiento y Escalabilidad</h3>
+                            <span class="icon"><i class="bi bi-funnel"></i></span>
+                            <h3>Operadores de Igualdad y Lógicos</h3>
                         </div>
                         <div class="tema-card-body">
-                            <p>Velocidad de ejecución y manejo de peticiones concurrentes. ¿Cuál escala mejor para tu
-                                proyecto?</p>
-                            <a href="PythonVsPHP/rendimiento.html" class="btn-tema">
+                            <p>Operadores de comparación, igualdad estricta y operadores lógicos AND, OR, NOT en ambos lenguajes.</p>
+                            <a href="PythonVsPHP/operadores.html" class="btn-tema">
                                 <i class="bi bi-play-fill"></i> Leer más
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tema 4 -->
+                <!-- Tema 4: Estructuras de Control -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-4">
+                        <div class="tema-card-header gradient-3">
                             <span class="number">04</span>
-                            <span class="icon"><i class="bi bi-cloud-upload"></i></span>
-                            <h3>Despliegue y Hosting</h3>
+                            <span class="icon"><i class="bi bi-diagram-3"></i></span>
+                            <h3>Estructuras de Control</h3>
                         </div>
                         <div class="tema-card-body">
-                            <p>Facilidad de puesta en producción y costos de servidor. Diferencias prácticas en el
-                                deploy.</p>
-                            <a href="PythonVsPHP/despliegue.html" class="btn-tema">
+                            <p>Condicionales (if, ternario), bucles (for, foreach, while, do-while) y switch/match comparados.</p>
+                            <a href="PythonVsPHP/estructuras_control.html" class="btn-tema">
                                 <i class="bi bi-play-fill"></i> Leer más
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tema 5 -->
+                <!-- Tema 5: Funciones -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="tema-card">
                         <div class="tema-card-header gradient-5">
                             <span class="number">05</span>
-                            <span class="icon"><i class="bi bi-briefcase"></i></span>
-                            <h3>Mercado Laboral 2026</h3>
+                            <span class="icon"><i class="bi bi-braces-asterisk"></i></span>
+                            <h3>Funciones</h3>
                         </div>
                         <div class="tema-card-body">
-                            <p>Salarios promedio, demanda en startups vs corporativos. ¿Qué lenguaje paga mejor hoy?</p>
-                            <a href="PythonVsPHP/mercado.html" class="btn-tema">
+                            <p>Definición, llamada y sensibilidad a mayúsculas en funciones de PHP y Python.</p>
+                            <a href="PythonVsPHP/funciones.html" class="btn-tema">
+                                <i class="bi bi-play-fill"></i> Leer más
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 6: Excepciones -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="350">
+                    <div class="tema-card">
+                        <div class="tema-card-header gradient-1">
+                            <span class="number">06</span>
+                            <span class="icon"><i class="bi bi-exclamation-triangle"></i></span>
+                            <h3>Manejo de Excepciones</h3>
+                        </div>
+                        <div class="tema-card-body">
+                            <p>Estructura try/catch vs try/except, throw vs raise, finally y manejo de errores en ambos lenguajes.</p>
+                            <a href="PythonVsPHP/excepciones.html" class="btn-tema">
+                                <i class="bi bi-play-fill"></i> Leer más
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 7: POO -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="tema-card">
+                        <div class="tema-card-header gradient-2">
+                            <span class="number">07</span>
+                            <span class="icon"><i class="bi bi-box"></i></span>
+                            <h3>Programación Orientada a Objetos</h3>
+                        </div>
+                        <div class="tema-card-body">
+                            <p>Clases, atributos, constructores, métodos (public, protected, private), inclusión e instanciación.</p>
+                            <a href="PythonVsPHP/poo.html" class="btn-tema">
+                                <i class="bi bi-play-fill"></i> Leer más
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 8: Conexión a MySQL -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="450">
+                    <div class="tema-card">
+                        <div class="tema-card-header gradient-3">
+                            <span class="number">08</span>
+                            <span class="icon"><i class="bi bi-database"></i></span>
+                            <h3>Conexión a MySQL</h3>
+                        </div>
+                        <div class="tema-card-body">
+                            <p>Instalación, constantes, función de conexión y ejecución de consultas SQL en PHP y Python.</p>
+                            <a href="PythonVsPHP/conexion_mysql.html" class="btn-tema">
+                                <i class="bi bi-play-fill"></i> Leer más
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 9: Sesiones y Login -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="tema-card">
+                        <div class="tema-card-header gradient-4">
+                            <span class="number">09</span>
+                            <span class="icon"><i class="bi bi-shield-lock"></i></span>
+                            <h3>Sesiones y Login</h3>
+                        </div>
+                        <div class="tema-card-body">
+                            <p>Comparativa completa de sesiones, autenticación, base de datos y flujo de login entre PHP y Python Flask.</p>
+                            <a href="PythonVsPHP/sesiones.html" class="btn-tema">
                                 <i class="bi bi-play-fill"></i> Leer más
                             </a>
                         </div>

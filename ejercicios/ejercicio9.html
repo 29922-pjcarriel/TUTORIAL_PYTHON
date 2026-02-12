@@ -1,10 +1,10 @@
-﻿ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Arreglo Â· Python Academy</title>
+  <title>Arreglo · Python Academy</title>
   <meta name="description" content="Trabajo con arreglos/listas.">
 
   <link
@@ -157,7 +157,42 @@
       border-radius: 4px;
       color: white;
     }
+
+    /* ====== ESTILOS DE SALIDA G8 (frontend) ====== */
+    .badge-pais {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background-color: #e3f2fd;
+      color: #0d47a1;
+      font-weight: 600;
+      font-size: 0.92rem;
+      margin: 4px 6px 0 0;
+      border: 1px solid rgba(13, 71, 161, .15);
+    }
+
+    .continente-box {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(0, 0, 0, .08);
+      background: #ffffff;
+    }
+
+    .continente-titulo {
+      font-weight: 800;
+      color: #0a2540;
+      margin-bottom: 10px;
+      letter-spacing: .02em;
+    }
+
+    .mensaje-vacio {
+      font-style: italic;
+      color: #666;
+      margin-top: 6px;
+    }
   </style>
+
   <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
   <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
 </head>
@@ -168,8 +203,7 @@
     <div class="loader-spinner"></div>
   </div>
 
-
-  <!-- Navbar Moderno -->
+  <!-- Navbar Moderno (NO CAMBIADO) -->
   <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
@@ -299,6 +333,8 @@
                     class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/mercado.html"><i
                     class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i
+                    class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -322,7 +358,7 @@
 
         <div class="hero-top-actions">
           <a href="../ejercicios.html" class="btn btn-outline-secondary btn-pill-sm">
-            <i class="bi bi-arrow-left me-1"></i> Volver al menÃº
+            <i class="bi bi-arrow-left me-1"></i> Volver al menú
           </a>
         </div>
 
@@ -331,97 +367,131 @@
         <p class="lead text-muted">Trabajo con arreglos/listas.</p>
       </div>
     </section>
-    <!-- HERO -->
-
 
     <!-- CONTENIDO -->
     <section class="ej-wrap">
       <div class="container">
         <div class="ej-panel">
 
-          <!-- ENUNCIADO (EDITAR AQUÃ) -->
+          <!-- ENUNCIADO (G8) -->
           <div class="explain-card mb-4">
             <h4 class="fw-bold mb-2">Enunciado</h4>
 
-            <!-- Tus compaÃ±eros cambian este texto -->
             <p class="mb-2">
-              AquÃ­ escribe el enunciado del ejercicio (quÃ© se debe realizar y cuÃ¡l es el objetivo).
+              Se tiene un <b>diccionario</b> llamado <code>G8</code> donde:
+              <br>
+              <b>Clave</b> = Continente (<code>EUROPA</code>, <code>ASIA</code>, <code>AMERICA</code>, etc.)
+              <br>
+              <b>Valor</b> = una <b>lista de países</b> del G8 o <code>null</code> si ese continente no tiene países del G8.
             </p>
+
+            <ul class="mb-2">
+              <li><b>Imprimir la estructura completa</b> del diccionario G8.</li>
+              <li><b>Recorrer el diccionario</b> e imprimir los países por cada continente.</li>
+              <li>Si el valor es <code>null</code>, mostrar: <i>No tiene países en el G8</i>.</li>
+            </ul>
 
             <p class="mb-0 hint">
-              Objetivo: explica claramente quÃ© aprenderÃ¡ el estudiante con este ejercicio.
+              Objetivo: practicar diccionarios (clave/valor), listas y validación de valores nulos.
             </p>
           </div>
 
-          <!-- EXPLICACIÃ±â€œN DEL CÃ“DIGO (EDITAR AQUÃ­) -->
+          <!-- EXPLICACIÓN (G8) -->
           <div class="explain-card mb-4">
-            <h4 class="fw-bold mb-3">ExplicaciÃ³n del cÃ³digo (paso a paso)</h4>
+            <h4 class="fw-bold mb-3">Explicación del código (paso a paso)</h4>
 
-            <!-- ===== BLOQUE 1 ===== -->
-            <h5 class="fw-bold mb-2">1) Â¿QuÃ© hace el programa?</h5>
-            <p class="mb-3">
-              Describe en 2-3 lÃ­neas la lÃ³gica general del ejercicio.
-            </p>
-
-            <!-- ===== BLOQUE 2 ===== -->
-            <h5 class="fw-bold mb-2">2) Entradas del usuario</h5>
+            <h5 class="fw-bold mb-2">1) Diccionario G8 (clave → valor)</h5>
             <p class="mb-2">
-              Explica quÃ© datos ingresa el usuario y cÃ³mo se validan.
+              Un diccionario guarda pares <b>clave</b> y <b>valor</b>.
+              Aquí la clave es el continente y el valor es una lista de países (o <code>null</code>).
             </p>
 
-            <pre class="code-box mb-3"><code># Ejemplo de bloque de cÃ³digo
-# Tus compaÃ±eros pegan aquÃ­ el cÃ³digo real (con indentaciÃ³n)
-numero = int(input("Ingrese un nÃºmero: "))</code></pre>
+            <pre class="code-box mb-3"><code>G8 = {
+  "EUROPA": ["Alemania", "Francia", "Italia", "Reino Unido"],
+  "ASIA": ["Rusia", "Japón"],
+  "AMERICA": ["USA", "Canada"],
+  "AFRICA": null,
+  "OCEANIA": null
+}</code></pre>
 
-            <!-- ===== BLOQUE 3 ===== -->
-            <h5 class="fw-bold mb-2">3) Proceso / CÃ¡lculo</h5>
+            <h5 class="fw-bold mb-2">2) Imprimir toda la estructura</h5>
             <p class="mb-2">
-              Explica la parte principal de la lÃ³gica (bucles, condicionales, funciones, etc.).
+              Para mostrar el diccionario completo en pantalla se convierte a texto con formato usando
+              <code>JSON.stringify</code>.
             </p>
 
-            <pre class="code-box mb-3"><code># Ejemplo
-resultado = 1
-for i in range(1, numero + 1):
-    resultado *= i</code></pre>
+            <pre class="code-box mb-3"><code>salidaEstructura.textContent = JSON.stringify(G8, null, 2);</code></pre>
 
-            <!-- ===== BLOQUE 4 ===== -->
-            <h5 class="fw-bold mb-2">4) Salida / Resultados</h5>
+            <h5 class="fw-bold mb-2">3) Recorrer continentes y países</h5>
             <p class="mb-2">
-              Explica quÃ±Â© se muestra al final y por quÃ±Â©.
+              <code>Object.entries(G8)</code> devuelve pares <code>[continente, paises]</code>.
+              Si <code>paises</code> es una lista, se imprime cada país; si es <code>null</code>, se muestra el mensaje.
             </p>
 
-            <pre class="code-box"><code>print("El resultado es:", resultado)</code></pre>
+            <pre class="code-box"><code>for (const [continente, paises] of Object.entries(G8)) {
+  if (Array.isArray(paises) && paises.length > 0) {
+    // imprimir países
+  } else {
+    // "No tiene países en el G8"
+  }
+}</code></pre>
 
             <p class="hint mt-3 mb-0">
-              Consejo: No se salten pasos. Explicar Ã¢â‚¬Å“por quÃ±Â©Ã¢â‚¬Â es mÃ¡s importante que solo pegar cÃ³digo.
+              Este ejercicio se ejecuta 100% en frontend con JavaScript. No se usa Jinja ni Flask.
             </p>
           </div>
 
-          <!-- Ã¢Å“â€¦ BOTÃ±â€œN EJECUTAR -->
-          <div class="ej-actions">
-            <a href="##formulario" class="btn btn-primary btn-pill btn-lg">
+          <!-- BOTÓN EJECUTAR -->
+          <div class="ej-actions" id="ejecutar-codigo">
+
+            <a href="#formulario" class="btn btn-primary btn-pill btn-lg" onclick="ejecutarG8()">
               Ejecutar ejercicio
             </a>
           </div>
-          <!-- ANTERIOR / SIGUIENTE -->
+
+          <!-- EJECUCIÓN / SALIDA -->
+          <div id="formulario" class="form-shell">
+            <div class="form-card">
+              <h4 class="fw-bold mb-2">Ejecución del ejercicio</h4>
+              <p class="text-muted mb-4">
+                Resultado del diccionario G8 (frontend con JavaScript).
+              </p>
+
+              <div id="error-msg" class="alert alert-danger d-none mb-3"></div>
+
+              <div class="explain-card mb-4">
+                <h5 class="fw-bold mb-2">1) Imprime la estructura</h5>
+                <pre class="code-box" id="out-estructura">Presiona "Ejecutar ejercicio".</pre>
+              </div>
+
+              <div class="explain-card mb-4">
+                <h5 class="fw-bold mb-2">2) Impresión de los países</h5>
+                <div id="out-paises">
+                  <div class="hint">Presiona "Ejecutar ejercicio".</div>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-outline-secondary btn-pill mt-4 w-100" onclick="reiniciarG8()">
+                Reiniciar
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-
     <!-- ANTERIOR / SIGUIENTE -->
-    <div class="ej-nav-bottom">
-      <a href="ejercicio8.html" class="btn btn-outline-primary btn-pill"><i class="bi bi-arrow-left me-1"></i>
-        Anterior</a>
-      <a href="ejercicio10.html" class="btn btn-primary btn-pill">Siguiente <i class="bi bi-arrow-right ms-1"></i></a>
+    <div class="container">
+      <div class="ej-nav-bottom">
+        <a href="ejercicio8.html" class="btn btn-outline-primary btn-pill"><i class="bi bi-arrow-left me-1"></i>
+          Anterior</a>
+        <a href="ejercicio10.html" class="btn btn-primary btn-pill">Siguiente <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
     </div>
-
-    </div>
-    </div>
-    </section>
   </main>
 
-  <!-- Footer Moderno -->
+  <!-- Footer Moderno (NO CAMBIADO) -->
   <footer class="footer-modern">
     <div class="container">
       <div class="row g-5">
@@ -430,8 +500,8 @@ for i in range(1, numero + 1):
             <i class="bi bi-braces me-2"></i>Python Academy
           </h4>
           <p class="footer-text">
-            Proyecto acadÃ©mico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
-            apasionados por la programaciÃ³n.
+            Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
+            apasionados por la programación.
           </p>
           <div class="d-flex gap-3 mt-4">
             <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
@@ -441,10 +511,10 @@ for i in range(1, numero + 1):
         </div>
 
         <div class="col-lg-2 col-md-4">
-          <h5 class="footer-title">NavegaciÃ³n</h5>
+          <h5 class="footer-title">Navegación</h5>
           <ul class="footer-links">
             <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
-            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> TeorÃ­a</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
             <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
             <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
 
@@ -461,7 +531,7 @@ for i in range(1, numero + 1):
         </div>
 
         <div class="col-lg-3 col-md-4">
-          <h5 class="footer-title">TecnologÃ­as</h5>
+          <h5 class="footer-title">Tecnologías</h5>
           <div class="d-flex flex-wrap gap-2 mt-3">
             <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
             <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
@@ -474,7 +544,7 @@ for i in range(1, numero + 1):
 
       <div class="footer-bottom">
         <p class="mb-0">
-          Â© 2026 <strong>Python Academy</strong>. Proyecto acadÃ©mico â€¢ Flask & Python
+          © 2026 <strong>Python Academy</strong>. Proyecto académico • Flask & Python
         </p>
       </div>
     </div>
@@ -489,8 +559,8 @@ for i in range(1, numero + 1):
 
   <script src="../static/assets/js/effects.js"></script>
   <script src="../static/assets/js/navbar-nested.js"></script>
+
   <script>
-    // Initialize AOS
     AOS.init({
       duration: 800,
       easing: 'ease-out-cubic',
@@ -498,7 +568,73 @@ for i in range(1, numero + 1):
       offset: 50
     });
   </script>
+
+  <script>
+    // ===========================
+    // EJERCICIO G8 (SOLO FRONTEND)
+    // ===========================
+
+    const G8 = {
+      "EUROPA": ["Alemania", "Francia", "Italia", "Reino Unido"],
+      "ASIA": ["Rusia", "Japón"],
+      "AMERICA": ["USA", "Canada"],
+      "AFRICA": null,
+      "OCEANIA": null
+    };
+
+    function ejecutarG8() {
+      const errorDiv = document.getElementById("error-msg");
+      errorDiv.classList.add("d-none");
+      errorDiv.textContent = "";
+
+      // 1) Estructura completa
+      document.getElementById("out-estructura").textContent = JSON.stringify(G8, null, 2);
+
+      // 2) Países por continente
+      const contenedor = document.getElementById("out-paises");
+      contenedor.innerHTML = "";
+
+      for (const [continente, paises] of Object.entries(G8)) {
+        const box = document.createElement("div");
+        box.className = "continente-box";
+
+        const titulo = document.createElement("div");
+        titulo.className = "continente-titulo";
+        titulo.textContent = continente;
+
+        box.appendChild(titulo);
+
+        if (Array.isArray(paises) && paises.length > 0) {
+          for (const pais of paises) {
+            const badge = document.createElement("span");
+            badge.className = "badge-pais";
+            badge.textContent = pais;
+            box.appendChild(badge);
+          }
+        } else {
+          const vacio = document.createElement("div");
+          vacio.className = "mensaje-vacio";
+          vacio.textContent = "No tiene países en el G8";
+          box.appendChild(vacio);
+        }
+
+        contenedor.appendChild(box);
+      }
+    }
+
+    function reiniciarG8() {
+    document.getElementById("error-msg").classList.add("d-none");
+    document.getElementById("out-estructura").textContent = 'Presiona "Ejecutar ejercicio".';
+    document.getElementById("out-paises").innerHTML = '<div class="hint">Presiona "Ejecutar ejercicio".</div>';
+
+    // Subir nuevamente a la sección del botón "Ejecutar ejercicio"
+    const top = document.getElementById("ejecutar-codigo");
+    if (top) {
+      top.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+    
+  </script>
 </body>
 
 </html>
-
