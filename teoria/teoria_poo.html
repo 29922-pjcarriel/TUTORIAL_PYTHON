@@ -114,7 +114,7 @@
 </head>
 
 <body>
-      <!-- Navbar -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
@@ -152,7 +152,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver
+                  todo
                   el temario</a></li>
             </ul>
           </li>
@@ -234,17 +235,29 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/crud_vehiculo.html"><i class="bi bi-car-front-fill me-2 text-primary"></i>CRUD Vehículo</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i
+                    class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i
+                    class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i
+                    class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i
+                    class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i
+                    class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i
+                    class="bi bi-box me-2 text-purple"></i>POO</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i
+                    class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i
+                    class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/crud_vehiculo.html"><i
+                    class="bi bi-car-front-fill me-2 text-primary"></i>CRUD Vehículo</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i
+                    class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -284,12 +297,14 @@
               </div>
               <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
               <ul>
-                <li><a href="#clases" class="active">Clase vs Objeto</a></li>
-                <li><a href="#herencia">Sintaxis en Python</a></li>
-
-                <li><a href="#polimorfismo">Â¡Felicidades!</a></li>
-                <li><a href="#cuestionario">Cuestionario POO</a></li>
-
+                <li><a href="#que-es-poo" class="active">¿Qué es POO?</a></li>
+                <li><a href="#clases-objetos">Clases y Objetos</a></li>
+                <li><a href="#atributos-metodos">Atributos y Métodos</a></li>
+                <li><a href="#encapsulamiento">Encapsulamiento</a></li>
+                <li><a href="#herencia">Herencia</a></li>
+                <li><a href="#polimorfismo">Polimorfismo</a></li>
+                <li><a href="#lab-interactivo">Laboratorio Interactivo</a></li>
+                <li><a href="#cuestionario">Cuestionario</a></li>
               </ul>
             </nav>
           </div>
@@ -297,81 +312,527 @@
           <!-- Main Content -->
           <div class="col-lg-8">
 
-            <h3 class="fw-bold mb-3" id="clases">Clase vs Objeto</h3>
-            <p>Una <strong>Clase</strong> es el "plano" o molde. Un <strong>Objeto</strong> es lo que construyes con ese
-              molde.</p>
+            <!-- INTRODUCCIÓN -->
+            <h3 class="fw-bold mb-3" id="que-es-poo">¿Qué es la Programación Orientada a Objetos?</h3>
+            <p>
+              La <strong>Programación Orientada a Objetos (POO)</strong> es un paradigma de programación que utiliza
+              "objetos" para modelar datos y comportamiento. En lugar de pensar en el código como una lista de
+              instrucciones paso a paso (programación procedural), en POO pensamos en <strong>entidades</strong> que
+              interactúan entre sí.
+            </p>
+            <p>
+              Python es un lenguaje <em>multi-paradigma</em>, pero su diseño central gira en torno a objetos. En Python,
+              <strong>¡todo es un objeto!</strong>: cadenas, números, listas e incluso funciones.
+            </p>
 
-            <div class="text-center my-4">
-              <div class="row">
-                <div class="col-6 border-end">
-                  <h5 class="text-primary">Clase (Molde)</h5>
-                  <p class="small">"Coche"</p>
+            <div class="alert alert-info d-flex align-items-center my-4">
+              <i class="bi bi-lightbulb-fill fs-4 me-3"></i>
+              <div>
+                <strong>Concepto Clave:</strong> La POO nos permite organizar el código de manera que sea más
+                fácil de entender, reutilizar y mantener, imitando cómo funcionan las cosas en el mundo real.
+              </div>
+            </div>
+
+            <hr class="my-5">
+
+            <!-- CLASES Y OBJETOS -->
+            <h3 class="fw-bold mb-3" id="clases-objetos">Clases y Objetos</h3>
+            <p>
+              Para entender POO, debemos distinguir entre dos conceptos fundamentales:
+            </p>
+
+            <div class="row g-4 my-4">
+              <div class="col-md-6">
+                <div class="card h-100 border-primary border-2 shadow-sm">
+                  <div class="card-header bg-primary text-white fw-bold">Clase (El Plano)</div>
+                  <div class="card-body">
+                    <p class="card-text">
+                      Es el <strong>molde</strong> o plantilla. Define cómo serán los objetos, pero no contiene datos
+                      reales por sí misma.
+                    </p>
+                    <p class="text-muted small"><i class="bi bi-arrow-right me-2"></i>Ejemplo: Plano de una casa.</p>
+                  </div>
                 </div>
-                <div class="col-6">
-                  <h5 class="text-success">Objetos (Instancias)</h5>
-                  <p class="small">"Ferrari Rojo", "Toyota Azul"</p>
+              </div>
+              <div class="col-md-6">
+                <div class="card h-100 border-success border-2 shadow-sm">
+                  <div class="card-header bg-success text-white fw-bold">Objeto (La Instancia)</div>
+                  <div class="card-body">
+                    <p class="card-text">
+                      Es la <strong>creación concreta</strong> basada en la clase. Puedes crear infinitos objetos de una
+                      sola clase.
+                    </p>
+                    <p class="text-muted small"><i class="bi bi-arrow-right me-2"></i>Ejemplo: La casa construida en
+                      la calle #123.</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <h3 class="fw-bold mt-5 mb-3" id="herencia">Sintaxis en Python</h3>
-            <p>Usamos el método especial <code>__init__</code> (constructor) para inicializar el objeto.</p>
+            <hr class="my-5">
 
-            <div class="bg-dark text-white p-4 rounded-3 mb-4 font-monospace">
-              class Perro:<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, nombre, raza):<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.nombre = nombre<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.raza = raza<br><br>
-              &nbsp;&nbsp;&nbsp;&nbsp;def ladrar(self):<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "¡Guau!"<br><br>
+            <!-- ATRIBUTOS Y MÉTODOS -->
+            <h3 class="fw-bold mb-3" id="atributos-metodos">Atributos y Métodos</h3>
+            <p>
+              Dentro de una clase, definimos dos tipos de características:
+            </p>
+            <ul class="list-group list-group-flush mb-4">
+              <li class="list-group-item bg-transparent">
+                <i class="bi bi-box me-2 text-primary"></i><strong>Atributos:</strong> Son las características o
+                datos (variables) del objeto. <em>Ej: color, marca, modelo.</em>
+              </li>
+              <li class="list-group-item bg-transparent">
+                <i class="bi bi-gear-wide-connected me-2 text-primary"></i><strong>Métodos:</strong> Son las acciones
+                o funciones que el objeto puede realizar. <em>Ej: encender(), frenar().</em>
+              </li>
+            </ul>
 
-              # Crear objetos (Instanciar)<br>
-              mi_perro = Perro("Firulais", "Labrador")<br>
-              print(mi_perro.nombre) # Salida: Firulais
+            <h5 class="fw-bold text-dark mt-4">El Constructor <code>__init__</code></h5>
+            <p>
+              Es un método especial que se ejecuta <strong>automáticamente</strong> al crear un nuevo objeto. Se usa
+              para
+              inicializar los atributos.
+            </p>
+            <p>
+              El parámetro <code>self</code> es obligatorio como primer argumento en los métodos de instancia y hace
+              referencia al <strong>objeto actual</strong> que se está manipulando.
+            </p>
+
+            <div class="bg-dark text-white p-4 rounded-3 mb-4 position-relative">
+              <div class="position-absolute top-0 end-0 p-2 text-muted small">Python</div>
+              <pre class="m-0"><code class="language-python">class Coche:
+    # Constructor
+    def __init__(self, marca, modelo):
+        self.marca = marca      # Atributo
+        self.modelo = modelo    # Atributo
+        self.encendido = False  # Atributo por defecto
+
+    # Método
+    def arrancar(self):
+        self.encendido = True
+        print(f"El {self.marca} {self.modelo} ha arrancado.")
+
+# Creación de Objetos
+mi_coche = Coche("Toyota", "Corolla")
+mi_coche.arrancar()  # Salida: El Toyota Corolla ha arrancado.</code></pre>
             </div>
 
+            <hr class="my-5">
 
-            <!-- CUESTIONARIO -->
+            <!-- ENCAPSULAMIENTO -->
+            <h3 class="fw-bold mb-3" id="encapsulamiento">Encapsulamiento</h3>
+            <p>
+              Es la práctica de restringir el acceso directo a ciertos componentes de un objeto para proteger su
+              integridad. En Python no existe "private" estricto como en Java, pero usamos convenciones:
+            </p>
+            <ul>
+              <li><code>_variable</code> (un guion bajo): Indica que es de uso interno (convención).</li>
+              <li><code>__variable</code> (doble guion bajo): Hace más difícil el acceso desde fuera (name mangling).
+              </li>
+            </ul>
+
+            <hr class="my-5">
+
+            <!-- HERENCIA -->
+            <h3 class="fw-bold mb-3" id="herencia">Herencia</h3>
+            <p>
+              Permite crear una nueva clase (Hija) basada en una existente (Padre), heredando sus atributos y métodos.
+              Favorece la reutilización de código (DRY: Don't Repeat Yourself).
+            </p>
+
+            <div class="bg-dark text-white p-4 rounded-3 mb-4">
+              <pre class="m-0"><code class="language-python">class Animal:
+    def hablar(self):
+        pass
+
+class Perro(Animal):  # Hereda de Animal
+    def hablar(self):
+        return "¡Guau!"
+
+class Gato(Animal):   # Hereda de Animal
+    def hablar(self):
+        return "¡Miau!"</code></pre>
+            </div>
+
+            <hr class="my-5">
+
+            <!-- POLIMORFISMO -->
+            <h3 class="fw-bold mb-3" id="polimorfismo">Polimorfismo</h3>
+            <p>
+              Es la capacidad de diferentes objetos de responder a la misma llamada de método de formas distintas. En el
+              ejemplo anterior, tanto <code>Perro</code> como <code>Gato</code> tienen el método <code>hablar()</code>,
+              pero cada uno lo implementa a su manera.
+            </p>
+
+            <hr class="my-5 border-3 border-primary opacity-100">
+
+            <!-- LABORATORIO INTERACTIVO -->
+            <div class="mb-5" id="lab-interactivo">
+              <div class="card border-0 shadow-lg overflow-hidden">
+                <div
+                  class="card-header bg-gradient-primary text-white p-3 d-flex justify-content-between align-items-center"
+                  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                  <h4 class="mb-0 fw-bold"><i class="bi bi-terminal-fill me-2"></i>Laboratorio Interactivo</h4>
+                  <span class="badge bg-white text-primary">Python 3.12</span>
+                </div>
+                <div class="card-body bg-light">
+                  <p class="card-text text-secondary mb-3">
+                    Analiza el siguiente código que simula una batalla entre Héroes. Presiona "Ejecutar" para ver el
+                    resultado de la batalla en tiempo real.
+                  </p>
+
+                  <!-- Code Editor Look -->
+                  <div class="position-relative mb-3">
+                    <div
+                      class="code-header bg-secondary text-white small px-3 py-1 rounded-top d-flex justify-content-between">
+                      <span>main.py</span>
+                      <span><i class="bi bi-file-earmark-code"></i></span>
+                    </div>
+                    <div class="bg-dark text-light p-3 rounded-bottom font-monospace"
+                      style="font-size: 0.9rem; overflow-x: auto;">
+                      <pre class="m-0" id="source-code"><span style="color: #f92672;">class</span> <span style="color: #a6e22e;">Heroe</span>:
+    <span style="color: #f92672;">def</span> <span style="color: #a6e22e;">__init__</span>(<span style="color: #fd971f;">self</span>, nombre, poder, vida=<span style="color: #ae81ff;">100</span>):
+        <span style="color: #fd971f;">self</span>.nombre = nombre
+        <span style="color: #fd971f;">self</span>.poder = poder
+        <span style="color: #fd971f;">self</span>.vida = vida
+
+    <span style="color: #f92672;">def</span> <span style="color: #a6e22e;">atacar</span>(<span style="color: #fd971f;">self</span>, enemigo):
+        print(<span style="color: #e6db74;">f"⚔️ </span><span style="color: #ae81ff;">{self.nombre}</span><span style="color: #e6db74;"> ataca a </span><span style="color: #ae81ff;">{enemigo.nombre}</span><span style="color: #e6db74;"> con fuerza </span><span style="color: #ae81ff;">{self.poder}</span><span style="color: #e6db74;">"</span>)
+        enemigo.recibir_dano(<span style="color: #fd971f;">self</span>.poder)
+
+    <span style="color: #f92672;">def</span> <span style="color: #a6e22e;">recibir_dano</span>(<span style="color: #fd971f;">self</span>, cantidad):
+        <span style="color: #fd971f;">self</span>.vida -= cantidad
+        print(<span style="color: #e6db74;">f"🛡️ </span><span style="color: #ae81ff;">{self.nombre}</span><span style="color: #e6db74;"> recibe daño. Vida restante: </span><span style="color: #ae81ff;">{self.vida}</span><span style="color: #e6db74;">"</span>)
+        <span style="color: #f92672;">if</span> <span style="color: #fd971f;">self</span>.vida <= <span style="color: #ae81ff;">0</span>:
+            print(<span style="color: #e6db74;">f"💀 </span><span style="color: #ae81ff;">{self.nombre}</span><span style="color: #e6db74;"> ha sido derrotado."</span>)
+
+<span style="color: #75715e;"># --- Simulación ---</span>
+h1 = Heroe(<span style="color: #e6db74;">"PythonMan"</span>, <span style="color: #ae81ff;">35</span>)
+h2 = Heroe(<span style="color: #e6db74;">"BugZilla"</span>, <span style="color: #ae81ff;">20</span>)
+
+h1.atacar(h2)
+h2.atacar(h1)
+h1.atacar(h2)
+h1.atacar(h2)</pre>
+                    </div>
+                  </div>
+
+                  <!-- Controls -->
+                  <div class="d-flex gap-2 mb-3">
+                    <button class="btn btn-success" id="btn-run" onclick="runSimulation()">
+                      <i class="bi bi-play-fill me-1"></i> Ejecutar Código
+                    </button>
+                    <button class="btn btn-outline-secondary" onclick="clearConsole()">
+                      <i class="bi bi-eraser me-1"></i> Limpiar
+                    </button>
+                  </div>
+
+                  <!-- Console Output -->
+                  <div class="bg-black text-success font-monospace p-3 rounded" id="console-output"
+                    style="min-height: 150px; border-left: 5px solid #28a745;">
+                    <span class="opacity-50">// El resultado aparecerá aquí...Esperando ejecución.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script>
+              function runSimulation() {
+                const output = document.getElementById('console-output');
+                const btn = document.getElementById('btn-run');
+
+                // Reset state
+                output.innerHTML = '<span class="text-white">Iniciando intérprete Python 3.12...</span><br>';
+                btn.disabled = true;
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Ejecutando...';
+
+                // Simulation steps
+                const logs = [
+                  { text: 'Cargando módulos...', delay: 500, color: 'text-secondary' },
+                  { text: '⚔️ PythonMan ataca a BugZilla con fuerza 35', delay: 1000, color: 'text-warning' },
+                  { text: '🛡️ BugZilla recibe daño. Vida restante: 65', delay: 1200, color: 'text-info' },
+                  { text: '⚔️ BugZilla ataca a PythonMan con fuerza 20', delay: 2000, color: 'text-warning' },
+                  { text: '🛡️ PythonMan recibe daño. Vida restante: 80', delay: 2200, color: 'text-info' },
+                  { text: '⚔️ PythonMan ataca a BugZilla con fuerza 35', delay: 3000, color: 'text-warning' },
+                  { text: '🛡️ BugZilla recibe daño. Vida restante: 30', delay: 3200, color: 'text-info' },
+                  { text: '⚔️ PythonMan ataca a BugZilla con fuerza 35', delay: 4000, color: 'text-warning' },
+                  { text: '🛡️ BugZilla recibe daño. Vida restante: -5', delay: 4200, color: 'text-info' },
+                  { text: '💀 BugZilla ha sido derrotado.', delay: 4300, color: 'text-danger fw-bold' },
+                  { text: '>>> Programa finalizado con código 0', delay: 4500, color: 'text-muted' },
+                ];
+
+                let currentTime = 0;
+
+                logs.forEach((log) => {
+                  currentTime += (Math.random() * 500) + 500; // Add randomness
+                  setTimeout(() => {
+                    output.innerHTML += `<div class="${log.color}">${log.text}</div>`;
+                    output.scrollTop = output.scrollHeight; // Auto scroll
+                  }, currentTime);
+                });
+
+                setTimeout(() => {
+                  btn.disabled = false;
+                  btn.innerHTML = '<i class="bi bi-play-fill me-1"></i> Ejecutar Código';
+                }, currentTime);
+              }
+
+              function clearConsole() {
+                document.getElementById('console-output').innerHTML = '<span class="opacity-50">// Consola limpia. Listo para ejecutar.</span>';
+              }
+            </script>
+
+            <!-- CUESTIONARIO INTERACTIVO -->
             <h3 class="fw-bold mt-5 mb-3" id="cuestionario">Cuestionario de POO</h3>
-            <div class="card border-0 shadow-sm mb-5">
-              <div class="card-body">
-                <div class="accordion" id="quizPOO">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#qp1">
-                        1. ¿Qué método se ejecuta automáticamente al crear un objeto?
-                      </button>
-                    </h2>
-                    <div id="qp1" class="accordion-collapse collapse" data-bs-parent="#quizPOO">
-                      <div class="accordion-body text-success">
-                        El método constructor <code>__init__</code>.
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#qp2">
-                        2. ¿Qué palabra clave hace referencia al objeto actual dentro de la clase?
-                      </button>
-                    </h2>
-                    <div id="qp2" class="accordion-collapse collapse" data-bs-parent="#quizPOO">
-                      <div class="accordion-body text-success">
-                        La palabra clave <code>self</code>.
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <style>
+              .quiz-card {
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                padding: 2rem;
+                border: 1px solid #e5e7eb;
+              }
+
+              .quiz-option {
+                display: block;
+                width: 100%;
+                text-align: left;
+                padding: 1rem;
+                margin-bottom: 0.5rem;
+                border-radius: 8px;
+                transition: all 0.2s;
+                border: 2px solid #e5e7eb;
+                background: white;
+              }
+
+              .quiz-option:hover:not(:disabled) {
+                background: #f3f4f6;
+                border-color: #d1d5db;
+              }
+
+              .quiz-option.correct {
+                background-color: #dcfce7 !important;
+                border-color: #22c55e !important;
+                color: #15803d;
+              }
+
+              .quiz-option.wrong {
+                background-color: #fee2e2 !important;
+                border-color: #ef4444 !important;
+                color: #b91c1c;
+              }
+
+              .quiz-progress {
+                font-size: 0.9rem;
+                color: #6b7280;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+              }
+            </style>
+
+            <div class="quiz-card">
+              <!-- Progreso -->
+              <div class="quiz-progress mb-3">
+                Pregunta <span id="numPregunta">1</span> de <span id="totalPreguntas">7</span>
+              </div>
+
+              <!-- Pregunta -->
+              <h5 class="fw-bold mb-4 fs-5" id="preguntaTitulo">Cargando pregunta...</h5>
+
+              <!-- Opciones -->
+              <div id="opciones" class="d-grid gap-2"></div>
+
+              <!-- Feedback -->
+              <div id="feedback" class="alert d-none mt-3" role="alert"></div>
+
+              <!-- Solución -->
+              <div id="solucion" class="alert alert-info d-none mt-2 small"></div>
+
+              <!-- Botón siguiente -->
+              <div class="text-end mt-4">
+                <button id="btnSiguiente" class="btn btn-primary px-4 py-2 rounded-pill fw-semibold d-none"
+                  onclick="siguientePregunta()">
+                  Siguiente <i class="bi bi-arrow-right ms-2"></i>
+                </button>
               </div>
             </div>
 
+            <script>
+              const preguntasPOO = [
+                {
+                  titulo: "¿Qué es la Programación Orientada a Objetos (POO)?",
+                  opciones: [
+                    { texto: "Un sistema para diseñar bases de datos relacionales", correcta: false },
+                    { texto: "Un paradigma de programación basado en Clases y Objetos", correcta: true },
+                    { texto: "Una librería gráfica de Python", correcta: false }
+                  ],
+                  solucion: "La POO es un paradigma que utiliza objetos para modelar datos y comportamientos del mundo real."
+                },
+                {
+                  titulo: "¿Cuál es la diferencia principal entre una Clase y un Objeto?",
+                  opciones: [
+                    { texto: "La Clase es el molde y el Objeto es la instancia concreta", correcta: true },
+                    { texto: "Son exactamente lo mismo con diferente nombre", correcta: false },
+                    { texto: "El Objeto define la estructura y la Clase contiene los datos", correcta: false }
+                  ],
+                  solucion: "Una clase es el plano (definición) y un objeto es lo que construyes usando ese plano."
+                },
+                {
+                  titulo: "¿Qué método especial se usa como constructor en Python?",
+                  opciones: [
+                    { texto: "public void main()", correcta: false },
+                    { texto: "__construct__", correcta: false },
+                    { texto: "__init__", correcta: true }
+                  ],
+                  solucion: "__init__ es el método que se ejecuta automáticamente al crear una nueva instancia de una clase."
+                },
+                {
+                  titulo: "¿Para qué sirve el parámetro 'self' en los métodos de una clase?",
+                  opciones: [
+                    { texto: "Para importar librerías externas", correcta: false },
+                    { texto: "Para referirse al objeto actual que está ejecutando el código", correcta: true },
+                    { texto: "Es una palabra reservada para bucles", correcta: false }
+                  ],
+                  solucion: "self es una referencia a la instancia actual de la clase, y se usa para acceder a sus variables y métodos."
+                },
+                {
+                  titulo: "¿Qué es el Encapsulamiento?",
+                  opciones: [
+                    { texto: "La capacidad de heredar de múltiples clases", correcta: false },
+                    { texto: "Restringir el acceso directo a ciertos componentes de un objeto", correcta: true },
+                    { texto: "Convertir un objeto a texto", correcta: false }
+                  ],
+                  solucion: "El encapsulamiento protege la integridad de los datos impidiendo accesos no autorizados desde fuera de la clase."
+                },
+                {
+                  titulo: "¿Qué permite hacer la Herencia?",
+                  opciones: [
+                    { texto: "Crear nuevas clases basadas en clases existentes", correcta: true },
+                    { texto: "Duplicar código manualmente", correcta: false },
+                    { texto: "Ejecutar código más rápido", correcta: false }
+                  ],
+                  solucion: "La herencia permite que una clase hija adquiera (herede) atributos y métodos de una clase padre, promoviendo la reutilización."
+                },
+                {
+                  titulo: "Si un Perro y un Gato responden diferente al método hablar(), ¿qué concepto es?",
+                  opciones: [
+                    { texto: "Abstracción", correcta: false },
+                    { texto: "Polimorfismo", correcta: true },
+                    { texto: "Instanciación", correcta: false }
+                  ],
+                  solucion: "Polimorfismo es la capacidad de objetos de diferentes clases de responder al mismo mensaje de formas distintas."
+                }
+              ];
 
-            <h3 class="fw-bold mt-5 mb-3" id="polimorfismo">¡Felicidades!</h3>
+              let indice = 0;
+              let puntaje = 0;
+              let respondida = false;
+
+              document.getElementById("totalPreguntas").textContent = preguntasPOO.length;
+
+              function cargarPregunta() {
+                if (indice >= preguntasPOO.length) {
+                  mostrarResultado();
+                  return;
+                }
+
+                const p = preguntasPOO[indice];
+                respondida = false;
+
+                document.getElementById("numPregunta").textContent = indice + 1;
+                document.getElementById("preguntaTitulo").textContent = p.titulo;
+
+                const opcionesDiv = document.getElementById("opciones");
+                opcionesDiv.innerHTML = "";
+
+                p.opciones.forEach((op) => {
+                  const btn = document.createElement("button");
+                  btn.className = "quiz-option text-start";
+                  btn.textContent = op.texto;
+                  btn.onclick = () => responder(btn, op.correcta, p.solucion);
+                  opcionesDiv.appendChild(btn);
+                });
+
+                document.getElementById("feedback").classList.add("d-none");
+                document.getElementById("solucion").classList.add("d-none");
+                document.getElementById("btnSiguiente").classList.add("d-none");
+              }
+
+              function responder(btn, correcta, solucion) {
+                if (respondida) return;
+                respondida = true;
+
+                const feedback = document.getElementById("feedback");
+                const solucionDiv = document.getElementById("solucion");
+
+                document.querySelectorAll(".quiz-option").forEach((b) => (b.disabled = true));
+
+                if (correcta) {
+                  puntaje++;
+                  btn.classList.add("correct");
+                  feedback.className = "alert alert-success mt-3";
+                  feedback.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i> ¡Correcto!';
+                } else {
+                  btn.classList.add("wrong");
+                  feedback.className = "alert alert-danger mt-3";
+                  feedback.innerHTML = '<i class="bi bi-x-circle-fill me-2"></i> Incorrecto.';
+                  solucionDiv.textContent = solucion;
+                  solucionDiv.classList.remove("d-none");
+                }
+
+                feedback.classList.remove("d-none");
+                document.getElementById("btnSiguiente").classList.remove("d-none");
+              }
+
+              function siguientePregunta() {
+                indice++;
+                cargarPregunta();
+              }
+
+              function mostrarResultado() {
+                const nota = Math.round((puntaje / preguntasPOO.length) * 10);
+                const aprobado = nota >= 7;
+
+                document.querySelector(".quiz-card").innerHTML = `
+                    <div class="text-center py-4">
+                      <div class="mb-4">
+                        <i class="bi ${aprobado ? 'bi-trophy-fill text-warning' : 'bi-journal-x text-secondary'} display-1"></i>
+                      </div>
+                      <h3 class="fw-bold mb-3">Resultado Final</h3>
+                      <div class="display-3 fw-bold ${aprobado ? 'text-success' : 'text-danger'} mb-2">
+                        ${nota}/10
+                      </div>
+                      <p class="text-muted mb-4 fs-5">
+                        Has respondido correctamente <strong>${puntaje}</strong> de <strong>${preguntasPOO.length}</strong> preguntas.
+                      </p>
+                      
+                      <div class="alert ${aprobado ? 'alert-success' : 'alert-warning'} d-inline-block px-4 py-3 mb-4">
+                        ${aprobado
+                    ? '<i class="bi bi-stars me-2"></i> ¡Excelente! Has dominado los conceptos de POO.'
+                    : '<i class="bi bi-arrow-repeat me-2"></i> Te recomendamos repasar la teoría e intentarlo de nuevo.'}
+                      </div>
+
+                      <div>
+                        <button class="btn btn-primary px-5 py-2 rounded-pill fw-bold shadow-sm" onclick="location.reload()">
+                           Intentar de Nuevo
+                        </button>
+                      </div>
+                    </div>
+                  `;
+              }
+
+              // Iniciar el quiz
+              cargarPregunta();
+            </script>
+
             <div class="alert alert-success mt-5 text-center">
-              <h4 class="alert-heading fw-bold">¡Felicidades! <i class="bi bi-balloon-fill text-danger me-2"></i></h4>
-              <p>Has completado toda la sección teórica del curso.</p>
+              <h4 class="alert-heading fw-bold">¡Excelente Trabajo! <i class="bi bi-trophy-fill text-warning me-2"></i>
+              </h4>
+              <p>Ahora entiendes los fundamentos del paradigma más usado en la industria.</p>
               <hr>
-              <a href="#modulos" class="btn btn-success fw-bold px-4">Ir a los Ejercicios Prácticos</a>
+              <a href="../ejercicios.html" class="btn btn-success fw-bold px-4">Ir a Ejercicios Prácticos</a>
             </div>
 
             <div class="d-flex justify-content-between mt-5 pt-4 border-top">
@@ -535,4 +996,3 @@
 </body>
 
 </html>
-
