@@ -1,11 +1,11 @@
-ï»¿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Ejemplo 02 Â· Python Academy</title>
-  <meta name="description" content="Ejercicio de prÃ¡ctica con arreglos (Ejemplo 02).">
+  <title>Ejemplo 02 · Python Academy</title>
+  <meta name="description" content="Listas (índices numéricos) y diccionarios (índices asociativos).">
 
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
@@ -78,6 +78,8 @@
       border-top: 1px solid rgba(0, 0, 0, .08);
       display: flex;
       justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .form-shell {
@@ -88,7 +90,7 @@
 
     .form-card {
       width: 100%;
-      max-width: 720px;
+      max-width: 900px;
       border-radius: 18px;
       border: 1px solid rgba(0, 0, 0, .08);
       box-shadow: 0 10px 25px rgba(0, 0, 0, .06);
@@ -138,26 +140,28 @@
       color: #556;
     }
 
-    .python-notice {
-      background: linear-gradient(135deg, #3776ab 0%, #ffd43b 100%);
-      border-radius: 16px;
-      padding: 24px;
-      color: white;
-      margin-top: 20px;
+    /* ====== SALIDA EN PANTALLA ====== */
+    .lista-cantones {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #e3f2fd;
+      border-radius: 10px;
+      color: #0d47a1;
+      border: 1px solid rgba(13, 71, 161, .15);
     }
 
-    .python-notice h5 {
-      color: white;
-      font-weight: 700;
+    .capital-info {
+      margin-bottom: 8px;
+      padding: 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, .08);
     }
 
-    .python-notice code {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 2px 8px;
-      border-radius: 4px;
-      color: white;
+    .capital-info b {
+      color: #0a2540;
     }
   </style>
+
   <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
   <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
 </head>
@@ -169,7 +173,7 @@
   </div>
 
 
-  <!-- Navbar Moderno -->
+  <!-- Navbar Moderno (IGUAL AL TUYO, SIN CAMBIOS) -->
   <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
@@ -288,15 +292,19 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-                            <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i
+                    class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i
+                    class="bi bi-boxes me-2 text-info"></i>Ecosistema</a>
+              </li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i
+                    class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i
+                    class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/mercado.html"><i
+                    class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i
+                    class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -320,105 +328,160 @@
 
         <div class="hero-top-actions">
           <a href="../ejercicios.html" class="btn btn-outline-secondary btn-pill-sm">
-            <i class="bi bi-arrow-left me-1"></i> Volver al menÃº
+            <i class="bi bi-arrow-left me-1"></i> Volver al menú
           </a>
         </div>
 
         <span class="badge bg-primary mb-3">Arreglos</span>
         <h1 class="display-5 mb-2">Ejemplo 02</h1>
-        <p class="lead text-muted">Ejercicio de prÃ¡ctica con arreglos (Ejemplo 02).</p>
+        <p class="lead text-muted">Índices numéricos + índices asociativos.</p>
       </div>
     </section>
-    <!-- HERO -->
-
 
     <!-- CONTENIDO -->
     <section class="ej-wrap">
       <div class="container">
         <div class="ej-panel">
 
-          <!-- ENUNCIADO (EDITAR AQUÃ) -->
+          <!-- ENUNCIADO -->
           <div class="explain-card mb-4">
             <h4 class="fw-bold mb-2">Enunciado</h4>
 
-            <!-- Tus compaÃ±eros cambian este texto -->
             <p class="mb-2">
-              AquÃ­ escribe el enunciado del ejercicio (quÃ© se debe realizar y cuÃ¡l es el objetivo).
+              Se tiene una lista llamada <code>cantones</code> (lista de listas) y un diccionario llamado <code>capitales</code>.
+              <br>
+              <b>cantones</b> se usa con <b>índices numéricos</b> (0, 1, 2, ...).
+              <br>
+              <b>capitales</b> se usa con <b>claves</b> (por ejemplo: <code>"Pichincha"</code>).
             </p>
+
+            <ul class="mb-2">
+              <li>Mostrar la estructura completa del diccionario <code>capitales</code>.</li>
+              <li>Mostrar los cantones recorriendo solo los valores del diccionario.</li>
+              <li>Mostrar la capital de cada provincia (siempre es el elemento <code>[0]</code> de la lista).</li>
+            </ul>
 
             <p class="mb-0 hint">
-              Objetivo: explica claramente quÃ© aprenderÃ¡ el estudiante con este ejercicio.
+              Objetivo: practicar <b>listas</b> y <b>diccionarios</b>, entendiendo la diferencia entre
+              <b>índices numéricos</b> y <b>índices asociativos</b>.
             </p>
           </div>
 
-          <!-- EXPLICACIÃ“N DEL CÃ“DIGO (EDITAR AQUÃ) -->
+          <!-- TEORÍA / EXPLICACIÓN DEL CÓDIGO -->
           <div class="explain-card mb-4">
-            <h4 class="fw-bold mb-3">ExplicaciÃ³n del cÃ³digo (paso a paso)</h4>
+            <h4 class="fw-bold mb-3">Teoría y explicación (paso a paso)</h4>
 
-            <!-- ===== BLOQUE 1 ===== -->
-            <h5 class="fw-bold mb-2">1) Â¿QuÃ© hace el programa?</h5>
-            <p class="mb-3">
-              Describe en 2-3 lÃ­neas la lÃ³gica general del ejercicio.
-            </p>
-
-            <!-- ===== BLOQUE 2 ===== -->
-            <h5 class="fw-bold mb-2">2) Entradas del usuario</h5>
+            <h5 class="fw-bold mb-2">1) Índices numéricos (lista de listas)</h5>
             <p class="mb-2">
-              Explica quÃ© datos ingresa el usuario y cÃ³mo se validan.
+              Una <b>lista</b> se recorre o se consulta usando posiciones numéricas.
+              Por ejemplo, <code>cantones[0]</code> devuelve la primera lista.
             </p>
+            <pre class="code-box mb-3"><code>cantones = [
+    ["QUITO", "CAYAMBE", "RUMIÑAHUI"],
+    ["GUAYAQUIL", "DAULE"],
+    ["CUENCA", "GUALACEO"],
+    ["PORTOVIEJO", "MANTA", "ROCAFUERTE", "CHONE", "JIPIJAPA"]
+]</code></pre>
 
-            <pre class="code-box mb-3"><code># Ejemplo de bloque de cÃ³digo
-# Tus compaÃ±eros pegan aquÃ­ el cÃ³digo real (con indentaciÃ³n)
-numero = int(input("Ingrese un nÃºmero: "))</code></pre>
-
-            <!-- ===== BLOQUE 3 ===== -->
-            <h5 class="fw-bold mb-2">3) Proceso / CÃ¡lculo</h5>
+            <h5 class="fw-bold mb-2">2) Índices asociativos (diccionario)</h5>
             <p class="mb-2">
-              Explica la parte principal de la lÃ³gica (bucles, condicionales, funciones, etc.).
+              Un <b>diccionario</b> relaciona una <b>clave</b> con un <b>valor</b>.
+              Aquí la clave es la provincia y el valor es la lista de cantones.
             </p>
+            <pre class="code-box mb-3"><code>capitales = {
+    "Pichincha": cantones[0],
+    "Guayas": cantones[1],
+    "Azuay": cantones[2],
+    "Manabi": cantones[3],
+    "Esmeraldas": ["ATACAMES", "TONSUPA", "QUININDE", "MUISNE"]
+}</code></pre>
 
-            <pre class="code-box mb-3"><code># Ejemplo
-resultado = 1
-for i in range(1, numero + 1):
-    resultado *= i</code></pre>
-
-            <!-- ===== BLOQUE 4 ===== -->
-            <h5 class="fw-bold mb-2">4) Salida / Resultados</h5>
+            <h5 class="fw-bold mb-2">3) ¿Cómo se obtiene la capital?</h5>
             <p class="mb-2">
-              Explica quÃ© se muestra al final y por quÃ©.
+              En este ejercicio, la capital es el <b>primer elemento</b> de la lista, por eso se usa <code>[0]</code>.
             </p>
+            <pre class="code-box mb-3"><code># Ejemplos:
+capital_pichincha = capitales["Pichincha"][0]  # "QUITO"
+capital_guayas    = capitales["Guayas"][0]     # "GUAYAQUIL"</code></pre>
 
-            <pre class="code-box"><code>print("El resultado es:", resultado)</code></pre>
+            <h5 class="fw-bold mb-2">4) Recorridos importantes del diccionario</h5>
+            <p class="mb-2">
+              En Python, hay 3 recorridos comunes:
+            </p>
+            <pre class="code-box mb-3"><code># A) Estructura completa (ver todo el diccionario)
+print(capitales)
 
-            <p class="hint mt-3 mb-0">
-              Consejo: No se salten pasos. Explicar Ã¢â‚¬Å“por quÃ±Â©Ã¢â‚¬Â es mÃ¡s importante que solo pegar cÃ³digo.
+# B) Solo valores (listas de cantones)
+for lista in capitales.values():
+    print(lista)
+
+# C) Clave + valor (provincia y su lista)
+for provincia, lista in capitales.items():
+    print("La capital de", provincia, "es:", lista[0])</code></pre>
+
+            <p class="hint mb-0">
+              Nota importante: cuando usas <code>cantones[0]</code> dentro del diccionario, no estás “copiando”,
+              estás usando esa misma lista como valor de la clave.
             </p>
           </div>
 
-          <!-- Ã¢Å“â€¦ BOTÃ±â€œN EJECUTAR -->
+          <!-- BOTÓN EJECUTAR -->
           <div class="ej-actions">
-            <a href="##formulario" class="btn btn-primary btn-pill btn-lg">
+            <a href="#formulario" class="btn btn-primary btn-pill btn-lg" onclick="ejecutarEjemplo02();">
               Ejecutar ejercicio
+            </a>
+
+            <button type="button" class="btn btn-outline-secondary btn-pill btn-lg" onclick="reiniciarEjemplo02();">
+              Reiniciar
+            </button>
+          </div>
+
+          <!-- EJECUCIÓN / SALIDA -->
+          <div id="formulario" class="form-shell">
+            <div class="form-card">
+
+              <h4 class="fw-bold mb-2">Ejecución del ejercicio</h4>
+              <p class="text-muted mb-4">
+                Resultado del ejercicio (estructura, valores y capitales).
+              </p>
+
+              <!-- 1) Estructura completa -->
+              <div class="explain-card mb-4">
+                <h5 class="fw-bold mb-2">1) Estructura completa (diccionario)</h5>
+                <pre class="code-box" id="out-estructura">Presiona "Ejecutar ejercicio".</pre>
+              </div>
+
+              <!-- 2) Cantones (values) -->
+              <div class="explain-card mb-4">
+                <h5 class="fw-bold mb-2">2) Listas de cantones (recorriendo solo valores)</h5>
+                <div id="out-cantones">
+                  <div class="lista-cantones">Presiona "Ejecutar ejercicio".</div>
+                </div>
+              </div>
+
+              <!-- 3) Capitales (items) -->
+              <div class="explain-card">
+                <h5 class="fw-bold mb-2">3) Capital por provincia (provincia + primer elemento)</h5>
+                <div id="out-capitales">
+                  <div class="capital-info">Presiona "Ejecutar ejercicio".</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ANTERIOR / SIGUIENTE -->
+          <div class="ej-nav-bottom">
+            <a href="ejercicio8.html" class="btn btn-outline-primary btn-pill">
+              <i class="bi bi-arrow-left me-1"></i> Anterior
+            </a>
+            <a href="ejercicio10.html" class="btn btn-primary btn-pill">
+              Siguiente <i class="bi bi-arrow-right ms-1"></i>
             </a>
           </div>
 
-          <!-- Ã¢Å“â€¦ FORMULARIO / SALIDA (sale despuÃ±Â©s del botÃ±Â³n) -->
-
-
-          <!-- ANTERIOR / SIGUIENTE -->
         </div>
       </div>
-    </section>
-
-    <!-- ANTERIOR / SIGUIENTE -->
-    <div class="ej-nav-bottom">
-      <a href="ejercicio7.html" class="btn btn-outline-primary btn-pill"><i class="bi bi-arrow-left me-1"></i>
-        Anterior</a>
-      <a href="ejercicio9.html" class="btn btn-primary btn-pill">Siguiente <i class="bi bi-arrow-right ms-1"></i></a>
-    </div>
-
-    </div>
-    </div>
     </section>
   </main>
 
@@ -431,8 +494,7 @@ for i in range(1, numero + 1):
             <i class="bi bi-braces me-2"></i>Python Academy
           </h4>
           <p class="footer-text">
-            Proyecto acadÃ©mico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
-            apasionados por la programaciÃ³n.
+            Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes.
           </p>
           <div class="d-flex gap-3 mt-4">
             <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
@@ -442,13 +504,12 @@ for i in range(1, numero + 1):
         </div>
 
         <div class="col-lg-2 col-md-4">
-          <h5 class="footer-title">NavegaciÃ³n</h5>
+          <h5 class="footer-title">Navegación</h5>
           <ul class="footer-links">
             <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
-            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> TeorÃ­a</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
             <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
             <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
-
           </ul>
         </div>
 
@@ -462,7 +523,7 @@ for i in range(1, numero + 1):
         </div>
 
         <div class="col-lg-3 col-md-4">
-          <h5 class="footer-title">TecnologÃ­as</h5>
+          <h5 class="footer-title">Tecnologías</h5>
           <div class="d-flex flex-wrap gap-2 mt-3">
             <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
             <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
@@ -475,7 +536,7 @@ for i in range(1, numero + 1):
 
       <div class="footer-bottom">
         <p class="mb-0">
-          Â© 2026 <strong>Python Academy</strong>. Proyecto acadÃ©mico â€¢ Flask & Python
+          © 2026 <strong>Python Academy</strong>. Proyecto académico • Flask & Python
         </p>
       </div>
     </div>
@@ -487,11 +548,10 @@ for i in range(1, numero + 1):
   <script src="../static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="../static/assets/js/main.js"></script>
   <script src="../static/assets/js/sidebar.js"></script>
-
   <script src="../static/assets/js/effects.js"></script>
   <script src="../static/assets/js/navbar-nested.js"></script>
+
   <script>
-    // Initialize AOS
     AOS.init({
       duration: 800,
       easing: 'ease-out-cubic',
@@ -499,7 +559,59 @@ for i in range(1, numero + 1):
       offset: 50
     });
   </script>
+
+  <script>
+    // Datos del ejercicio (cantones + capitales)
+    const cantones = [
+      ["QUITO", "CAYAMBE", "RUMIÑAHUI"],
+      ["GUAYAQUIL", "DAULE"],
+      ["CUENCA", "GUALACEO"],
+      ["PORTOVIEJO", "MANTA", "ROCAFUERTE", "CHONE", "JIPIJAPA"]
+    ];
+
+    const capitales = {
+      "Pichincha": cantones[0],
+      "Guayas": cantones[1],
+      "Azuay": cantones[2],
+      "Manabi": cantones[3],
+      "Esmeraldas": ["ATACAMES", "TONSUPA", "QUININDE", "MUISNE"]
+    };
+
+    function ejecutarEjemplo02() {
+      // 1) Estructura completa
+      document.getElementById("out-estructura").textContent = JSON.stringify(capitales, null, 2);
+
+      // 2) Valores (listas de cantones)
+      const contCantones = document.getElementById("out-cantones");
+      contCantones.innerHTML = "";
+      Object.values(capitales).forEach((lista) => {
+        const div = document.createElement("div");
+        div.className = "lista-cantones";
+        div.textContent = JSON.stringify(lista);
+        contCantones.appendChild(div);
+      });
+
+      // 3) Provincia + capital (primer elemento)
+      const contCapitales = document.getElementById("out-capitales");
+      contCapitales.innerHTML = "";
+      Object.entries(capitales).forEach(([provincia, lista]) => {
+        const div = document.createElement("div");
+        div.className = "capital-info";
+        div.innerHTML = `La capital de <b>${provincia}</b> es: ${lista[0]}`;
+        contCapitales.appendChild(div);
+      });
+    }
+
+    function reiniciarEjemplo02() {
+      document.getElementById("out-estructura").textContent = 'Presiona "Ejecutar ejercicio".';
+
+      const contCantones = document.getElementById("out-cantones");
+      contCantones.innerHTML = '<div class="lista-cantones">Presiona "Ejecutar ejercicio".</div>';
+
+      const contCapitales = document.getElementById("out-capitales");
+      contCapitales.innerHTML = '<div class="capital-info">Presiona "Ejecutar ejercicio".</div>';
+    }
+  </script>
 </body>
 
 </html>
-
