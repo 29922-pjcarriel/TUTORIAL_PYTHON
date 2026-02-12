@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Vehiculo-Parte II · Python Academy</title>
-  <meta name="description" content="Parte II: conexión Flask ↔ MySQL, botones Detalle y Borrar + Navbar con Matrículas.">
+  <meta name="description"
+    content="Parte II: conexión Flask ↔ MySQL, botones Detalle y Borrar + Navbar con Matrículas.">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
@@ -127,19 +128,96 @@
               <i class="bi bi-house me-1"></i> Inicio
             </a>
           </li>
-
-          <!-- Temas avanzados -->
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-book me-1"></i> Teoría
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i
+                    class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i
+                    class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_htmlpyhon.html"><i
+                    class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_sintaxisComentarios.html"><i
+                    class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_variablesConstantes.html"><i
+                    class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_tiposDatos.html"><i
+                    class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo
+                  el temario</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-code-square me-1"></i> Ejercicios
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
+                    class="bi bi-input-cursor-text me-2 text-success"></i>Procesamiento de formularios</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio1.html">Formulario request.form</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio2.html">Formulario request.files</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
+                    class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio3.html">Factorial</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio4.html">Triángulo de Pascal</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio5.html">Es Primo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio6.html">Validar Cédula</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
+                    class="bi bi-list-ul me-2 text-success"></i>Arreglos</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio7.html">Ejemplo 01</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio8.html">Ejemplo 02</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio9.html">Arreglo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio10.html">Matriz</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio11.html">Cubo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio12.html">Tablas Dinámicas</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
+                    class="bi bi-diagram-2 me-2 text-success"></i>POO</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio13.html">Clases</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio14.html">Herencia</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio15.html">Abstracta</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio16.html">Interfaces</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio17.html">Polimorfismo</a></li>
+                </ul>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver
+                  todos los ejercicios</a></li>
+            </ul>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-database me-1"></i> Temas Avanzados
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte I.html"><i
+              <li><a class="dropdown-item py-2" href="Vehiculo-Parte I.html"><i
                     class="bi bi-car-front me-2 text-danger"></i>Vehículo - Parte I</a></li>
-              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte II.html"><i
+              <li><a class="dropdown-item py-2" href="Vehiculo-Parte II.html"><i
                     class="bi bi-car-front-fill me-2 text-danger"></i>Vehículo - Parte II</a></li>
-              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte III.html"><i
+              <li><a class="dropdown-item py-2" href="Vehiculo-Parte III.html"><i
                     class="bi bi-gear-wide-connected me-2 text-danger"></i>Vehículo - Parte III</a></li>
+              <li><a class="dropdown-item py-2" href="Session y login.html"><i
+                    class="bi bi-lock me-2 text-danger"></i>Session y Login</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -147,22 +225,29 @@
                     class="bi bi-grid me-2"></i>Ver Resumen</a></li>
             </ul>
           </li>
-
-          <!-- ✅ Navbar extra: Vehículos / Matrículas -->
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/crud_vehiculo.html"><i class="bi bi-car-front-fill me-2 text-primary"></i>CRUD Vehículo</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+            </ul>
+          </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="#" aria-disabled="true">
-              <i class="bi bi-car-front me-1"></i> Vehículos
+            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
+              Comenzar <i class="bi bi-arrow-right ms-1"></i>
             </a>
           </li>
-
-          <li class="nav-item">
-            <!-- Este botón es SOLO de navegación visual (front).
-                 La ejecución real del enlace se hace en Flask usando el parámetro d (base64). -->
-            <a class="nav-link nav-link-custom" href="#" aria-disabled="true">
-              <i class="bi bi-card-checklist me-1"></i> Matrículas
-            </a>
-          </li>
-
         </ul>
       </div>
     </div>
@@ -195,17 +280,21 @@
         </p>
 
         <p>
-          A diferencia de la Parte I (que solo preparaba la base y la interfaz), en esta Parte II el objetivo es que el módulo
+          A diferencia de la Parte I (que solo preparaba la base y la interfaz), en esta Parte II el objetivo es que el
+          módulo
           de <b>Vehículos</b> muestre acciones reales en pantalla, especialmente:
         </p>
 
         <ul class="mb-2">
-          <li><b>Detalle (Read completo):</b> al dar clic en “Detalle” debe mostrarse toda la información del vehículo.</li>
-          <li><b>Borrar (Delete):</b> al dar clic en “Borrar” debe eliminar el vehículo y mostrarse un mensaje de confirmación.</li>
+          <li><b>Detalle (Read completo):</b> al dar clic en “Detalle” debe mostrarse toda la información del vehículo.
+          </li>
+          <li><b>Borrar (Delete):</b> al dar clic en “Borrar” debe eliminar el vehículo y mostrarse un mensaje de
+            confirmación.</li>
         </ul>
 
         <div class="alert alert-info mt-3 mb-0">
-          <b>Importante:</b> En esta web se describe el ejercicio (front). La ejecución real se hace en tu proyecto Flask,
+          <b>Importante:</b> En esta web se describe el ejercicio (front). La ejecución real se hace en tu proyecto
+          Flask,
           controlando operaciones con el parámetro <code>d</code> (base64).
         </div>
 
@@ -279,7 +368,8 @@
         </ul>
 
         <div class="alert alert-success mb-0">
-          ✅ <b>Evidencia:</b> al dar clic en “Detalle”, <b>sí debe cambiar la pantalla</b> y mostrarse la información completa.
+          ✅ <b>Evidencia:</b> al dar clic en “Detalle”, <b>sí debe cambiar la pantalla</b> y mostrarse la información
+          completa.
         </div>
 
         <!-- 6 -->
@@ -291,7 +381,8 @@
         <ul>
           <li>Recibir la operación <code>del/id</code>.</li>
           <li>Eliminar el vehículo.</li>
-          <li>Mostrar un mensaje de confirmación: <b>“El registro se eliminó correctamente”</b> o un error si no se pudo.</li>
+          <li>Mostrar un mensaje de confirmación: <b>“El registro se eliminó correctamente”</b> o un error si no se
+            pudo.</li>
           <li>Incluir botón <b>Regresar</b> al listado.</li>
         </ul>
 
@@ -311,19 +402,16 @@
 
         <!-- 8 -->
         <h3 class="section-title">8. Video de Ejecución</h3>
-        <p>
-          Inserta aquí el video donde se vea: listado → detalle → borrar → navegación a matrículas.
-        </p>
+
 
         <div class="video-container">
-          <div class="video-placeholder">
-            <div>
-              <i class="bi bi-play-circle fs-1 mb-2"></i>
-              <h4>[Video Placeholder]</h4>
-              <p>Aquí se insertará el video explicativo de la Parte II</p>
-            </div>
-          </div>
+          <iframe src="https://www.youtube.com/embed/BXJZwuxCBt4" title="Video de Ejecución - Vehículo Parte II"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
         </div>
+
 
         <!-- Navegación -->
         <div class="d-flex justify-content-between mt-5 pt-4 border-top">
@@ -339,9 +427,65 @@
     </section>
   </main>
 
-  <footer class="footer-modern py-5">
-    <div class="container text-center">
-      <p class="mb-0">© 2026 Python Academy - Módulo CRUD</p>
+  <!-- Footer -->
+  <footer class="footer-modern">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h4 class="footer-brand">
+            <i class="bi bi-braces me-2"></i>Python Academy
+          </h4>
+          <p class="footer-text">
+            Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
+            apasionados por la programación.
+          </p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Navegación</h5>
+          <ul class="footer-links">
+            <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
+            <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
+            <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> Temas Avanzados</a>
+            </li>
+
+            <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> Explicación CRUD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Temas Populares</h5>
+          <ul class="footer-links">
+            <li><a href="../teoria/teoria_infraestructura.html"><i class="bi bi-chevron-right"></i> Backend</a></li>
+            <li><a href="../teoria/teoria_tiposDatos.html"><i class="bi bi-chevron-right"></i> Tipos de Datos</a></li>
+            <li><a href="../teoria/teoria_poo.html"><i class="bi bi-chevron-right"></i> POO</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Tecnologías</h5>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
+            <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
+            <span class="badge bg-warning bg-opacity-25 text-white px-3 py-2">MySQL</span>
+            <span class="badge bg-info bg-opacity-25 text-white px-3 py-2">HTML5</span>
+            <span class="badge bg-danger bg-opacity-25 text-white px-3 py-2">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="mb-0">
+          © 2026 <strong>Python Academy</strong>. Proyecto académico • Flask & Python
+        </p>
+      </div>
     </div>
   </footer>
 

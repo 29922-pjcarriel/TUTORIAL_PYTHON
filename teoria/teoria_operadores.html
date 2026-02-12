@@ -1,121 +1,755 @@
 ﻿﻿<!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Operadores · Python Academy</title>
   <meta name="description" content="Operadores - Curso de Python Academy">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    :root{--primary:#667eea;--secondary:#764ba2;--dark:#1a1a2e;}
-    *{box-sizing:border-box;}
-    body{font-family:'Roboto',sans-serif;background:#f4f6ff;margin:0;padding:0;}
+    :root {
+      --primary: #667eea;
+      --secondary: #764ba2;
+      --dark: #1a1a2e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f4f6ff;
+      margin: 0;
+      padding: 0;
+    }
+
     /* NAVBAR */
-    .navbar-modern{background:rgba(26,26,46,0.97);backdrop-filter:blur(12px);padding:.75rem 0;border-bottom:1px solid rgba(102,126,234,.2);}
-    .navbar-brand-custom{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;color:#fff!important;}
-    .nav-link-custom{color:rgba(255,255,255,.8)!important;font-weight:500;font-size:.9rem;transition:color .2s;padding:.5rem .75rem!important;}
-    .nav-link-custom:hover,.nav-link-custom.active{color:#fff!important;}
-    .dropdown-menu{background:#1a1a2e;border:1px solid rgba(102,126,234,.25)!important;}
-    .dropdown-item{color:rgba(255,255,255,.75)!important;font-size:.88rem;}
-    .dropdown-item:hover{background:rgba(102,126,234,.2)!important;color:#fff!important;}
-    .dropdown-divider{border-color:rgba(255,255,255,.1)!important;}
-    .btn-glow{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff!important;border:none;font-weight:600;border-radius:50px;padding:.45rem 1.2rem;font-size:.88rem;transition:box-shadow .3s,transform .2s;}
-    .btn-glow:hover{box-shadow:0 4px 18px rgba(102,126,234,.55);transform:translateY(-1px);}
+    .navbar-modern {
+      background: rgba(26, 26, 46, 0.97);
+      backdrop-filter: blur(12px);
+      padding: .75rem 0;
+      border-bottom: 1px solid rgba(102, 126, 234, .2);
+    }
+
+    .navbar-brand-custom {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #fff !important;
+    }
+
+    .nav-link-custom {
+      color: rgba(255, 255, 255, .8) !important;
+      font-weight: 500;
+      font-size: .9rem;
+      transition: color .2s;
+      padding: .5rem .75rem !important;
+    }
+
+    .nav-link-custom:hover,
+    .nav-link-custom.active {
+      color: #fff !important;
+    }
+
+    .dropdown-menu {
+      background: #1a1a2e;
+      border: 1px solid rgba(102, 126, 234, .25) !important;
+    }
+
+    .dropdown-item {
+      color: rgba(255, 255, 255, .75) !important;
+      font-size: .88rem;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(102, 126, 234, .2) !important;
+      color: #fff !important;
+    }
+
+    .dropdown-divider {
+      border-color: rgba(255, 255, 255, .1) !important;
+    }
+
+    .btn-glow {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff !important;
+      border: none;
+      font-weight: 600;
+      border-radius: 50px;
+      padding: .45rem 1.2rem;
+      font-size: .88rem;
+      transition: box-shadow .3s, transform .2s;
+    }
+
+    .btn-glow:hover {
+      box-shadow: 0 4px 18px rgba(102, 126, 234, .55);
+      transform: translateY(-1px);
+    }
+
     /* HERO */
-    .hero-internal{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);padding:6rem 0 3.5rem;margin-top:58px;position:relative;overflow:hidden;}
-    .hero-internal .shape{position:absolute;border-radius:50%;opacity:.07;}
-    .hero-internal .shape-1{width:450px;height:450px;background:#667eea;top:-120px;right:-80px;}
-    .hero-internal .shape-2{width:280px;height:280px;background:#764ba2;bottom:-60px;left:8%;}
-    .badge-custom{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.75rem;font-weight:700;padding:.35rem 1rem;border-radius:50px;letter-spacing:1.5px;display:inline-block;margin-bottom:1rem;}
-    .hero-internal h1{font-family:'Montserrat',sans-serif;font-weight:800;font-size:3rem;color:#fff;margin-bottom:.75rem;}
-    .hero-internal p{color:rgba(255,255,255,.7);font-size:1.1rem;max-width:620px;}
+    .hero-internal {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 6rem 0 3.5rem;
+      margin-top: 58px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-internal .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: .07;
+    }
+
+    .hero-internal .shape-1 {
+      width: 450px;
+      height: 450px;
+      background: #667eea;
+      top: -120px;
+      right: -80px;
+    }
+
+    .hero-internal .shape-2 {
+      width: 280px;
+      height: 280px;
+      background: #764ba2;
+      bottom: -60px;
+      left: 8%;
+    }
+
+    .badge-custom {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 700;
+      padding: .35rem 1rem;
+      border-radius: 50px;
+      letter-spacing: 1.5px;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .hero-internal h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: .75rem;
+    }
+
+    .hero-internal p {
+      color: rgba(255, 255, 255, .7);
+      font-size: 1.1rem;
+      max-width: 620px;
+    }
+
     /* SIDEBAR */
-    .sidebar-nav{position:sticky;top:80px;background:white;border-radius:16px;padding:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.05);max-height:calc(100vh - 100px);overflow-y:auto;}
-    .sidebar-nav h5{font-weight:700;color:#1a1a2e;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:2px solid #667eea;font-size:.93rem;}
-    .sidebar-nav ul{list-style:none;padding:0;margin:0;}
-    .sidebar-nav li{margin-bottom:.3rem;}
-    .sidebar-nav a{display:block;padding:.5rem 1rem;color:#64748b;text-decoration:none;border-radius:8px;font-size:.83rem;transition:all .25s;border-left:3px solid transparent;}
-    .sidebar-nav a:hover{background:rgba(102,126,234,.1);color:#667eea;border-left-color:#667eea;padding-left:1.2rem;}
-    .sidebar-nav a.active{background:linear-gradient(135deg,rgba(102,126,234,.15),rgba(118,75,162,.15));color:#667eea;font-weight:600;border-left-color:#667eea;}
-    .sidebar-progress{height:4px;background:#e2e8f0;border-radius:4px;margin-bottom:1rem;overflow:hidden;}
-    .sidebar-progress-bar{height:100%;background:linear-gradient(90deg,#667eea,#764ba2);width:0%;transition:width .3s;}
-    .sidebar-nav::-webkit-scrollbar{width:4px;}
-    .sidebar-nav::-webkit-scrollbar-thumb{background:#667eea;border-radius:4px;}
+    .sidebar-nav {
+      position: sticky;
+      top: 80px;
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+      border: 1px solid rgba(0, 0, 0, .05);
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+    }
+
+    .sidebar-nav h5 {
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 1rem;
+      padding-bottom: .75rem;
+      border-bottom: 2px solid #667eea;
+      font-size: .93rem;
+    }
+
+    .sidebar-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar-nav li {
+      margin-bottom: .3rem;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: .5rem 1rem;
+      color: #64748b;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: .83rem;
+      transition: all .25s;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-nav a:hover {
+      background: rgba(102, 126, 234, .1);
+      color: #667eea;
+      border-left-color: #667eea;
+      padding-left: 1.2rem;
+    }
+
+    .sidebar-nav a.active {
+      background: linear-gradient(135deg, rgba(102, 126, 234, .15), rgba(118, 75, 162, .15));
+      color: #667eea;
+      font-weight: 600;
+      border-left-color: #667eea;
+    }
+
+    .sidebar-progress {
+      height: 4px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .sidebar-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      width: 0%;
+      transition: width .3s;
+    }
+
+    .sidebar-nav::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb {
+      background: #667eea;
+      border-radius: 4px;
+    }
+
     /* CARDS */
-    .topic-card{background:white;border-radius:16px;padding:2rem;margin-bottom:2.5rem;box-shadow:0 4px 20px rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.05);}
-    .topic-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.45rem;color:#1a1a2e;margin-bottom:.5rem;display:flex;align-items:center;gap:.65rem;}
-    .topic-icon{width:38px;height:38px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:.9rem;flex-shrink:0;}
-    .divider-line{height:3px;background:linear-gradient(90deg,#667eea,#764ba2,transparent);border-radius:2px;margin-bottom:1.5rem;}
+    .topic-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .06);
+      border: 1px solid rgba(0, 0, 0, .05);
+    }
+
+    .topic-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.45rem;
+      color: #1a1a2e;
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+    }
+
+    .topic-icon {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+
+    .divider-line {
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #764ba2, transparent);
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
     /* BOXES */
-    .theory-box{background:linear-gradient(135deg,rgba(102,126,234,.06),rgba(118,75,162,.06));border:1px solid rgba(102,126,234,.2);border-left:4px solid #667eea;border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.5rem;}
-    .theory-box h6{font-weight:700;color:#667eea;margin-bottom:.6rem;font-size:.8rem;text-transform:uppercase;letter-spacing:1px;}
-    .theory-box p{color:#374151;font-size:.92rem;line-height:1.7;margin-bottom:.4rem;}
-    .theory-box p:last-child{margin-bottom:0;}
-    .info-box{background:rgba(40,167,69,.07);border:1px solid rgba(40,167,69,.25);border-left:4px solid #28a745;border-radius:12px;padding:1rem 1.5rem;margin-bottom:1.5rem;}
-    .info-box h6{color:#28a745;font-weight:700;margin-bottom:.4rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.8px;}
-    .info-box p{color:#374151;font-size:.9rem;margin:0;line-height:1.65;}
-    .warning-box{background:rgba(255,193,7,.07);border:1px solid rgba(255,193,7,.3);border-left:4px solid #ffc107;border-radius:12px;padding:1rem 1.5rem;margin-bottom:1.5rem;}
-    .warning-box h6{color:#d97706;font-weight:700;margin-bottom:.4rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.8px;}
-    .warning-box p{color:#374151;font-size:.9rem;margin:0;line-height:1.65;}
+    .theory-box {
+      background: linear-gradient(135deg, rgba(102, 126, 234, .06), rgba(118, 75, 162, .06));
+      border: 1px solid rgba(102, 126, 234, .2);
+      border-left: 4px solid #667eea;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .theory-box h6 {
+      font-weight: 700;
+      color: #667eea;
+      margin-bottom: .6rem;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .theory-box p {
+      color: #374151;
+      font-size: .92rem;
+      line-height: 1.7;
+      margin-bottom: .4rem;
+    }
+
+    .theory-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-box {
+      background: rgba(40, 167, 69, .07);
+      border: 1px solid rgba(40, 167, 69, .25);
+      border-left: 4px solid #28a745;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-box h6 {
+      color: #28a745;
+      font-weight: 700;
+      margin-bottom: .4rem;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    .info-box p {
+      color: #374151;
+      font-size: .9rem;
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    .warning-box {
+      background: rgba(255, 193, 7, .07);
+      border: 1px solid rgba(255, 193, 7, .3);
+      border-left: 4px solid #ffc107;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .warning-box h6 {
+      color: #d97706;
+      font-weight: 700;
+      margin-bottom: .4rem;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    .warning-box p {
+      color: #374151;
+      font-size: .9rem;
+      margin: 0;
+      line-height: 1.65;
+    }
+
     /* TABLES */
-    .op-table{width:100%;border-collapse:collapse;margin-bottom:1.5rem;border-radius:10px;overflow:hidden;}
-    .op-table th{background:linear-gradient(135deg,#1a1a2e,#16213e);color:white;padding:.75rem 1rem;font-size:.83rem;font-weight:600;text-align:left;}
-    .op-table td{padding:.7rem 1rem;border-bottom:1px solid #f1f5f9;font-size:.88rem;color:#374151;}
-    .op-table tr:last-child td{border-bottom:none;}
-    .op-table tr:hover td{background:rgba(102,126,234,.04);}
-    .op-table code{background:rgba(102,126,234,.12);color:#667eea;padding:.18rem .5rem;border-radius:5px;font-weight:600;font-size:.86rem;}
-    .op-badge{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#28a745,#20c997);color:white;border-radius:7px;font-weight:700;font-size:.78rem;padding:.22rem .6rem;font-family:monospace;min-width:40px;letter-spacing:.3px;}
+    .op-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .op-table th {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: white;
+      padding: .75rem 1rem;
+      font-size: .83rem;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .op-table td {
+      padding: .7rem 1rem;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: .88rem;
+      color: #374151;
+    }
+
+    .op-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .op-table tr:hover td {
+      background: rgba(102, 126, 234, .04);
+    }
+
+    .op-table code {
+      background: rgba(102, 126, 234, .12);
+      color: #667eea;
+      padding: .18rem .5rem;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: .86rem;
+    }
+
+    .op-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
+      border-radius: 7px;
+      font-weight: 700;
+      font-size: .78rem;
+      padding: .22rem .6rem;
+      font-family: monospace;
+      min-width: 40px;
+      letter-spacing: .3px;
+    }
+
     /* LOGIC LIST */
-    .logic-list{list-style:none;padding:0;}
-    .logic-list li{background:white;border:1px solid #e2e8f0;border-radius:10px;padding:.9rem 1.2rem;margin-bottom:.7rem;display:flex;align-items:flex-start;gap:1rem;transition:box-shadow .2s;}
-    .logic-list li:hover{box-shadow:0 4px 16px rgba(0,0,0,.08);}
-    .logic-icon{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-radius:7px;padding:.3rem .65rem;font-weight:800;font-family:monospace;font-size:.85rem;flex-shrink:0;}
-    .logic-desc strong{display:block;color:#1a1a2e;font-weight:700;margin-bottom:.15rem;font-size:.92rem;}
-    .logic-desc span{color:#64748b;font-size:.86rem;}
+    .logic-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .logic-list li {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: .9rem 1.2rem;
+      margin-bottom: .7rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: box-shadow .2s;
+    }
+
+    .logic-list li:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .08);
+    }
+
+    .logic-icon {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border-radius: 7px;
+      padding: .3rem .65rem;
+      font-weight: 800;
+      font-family: monospace;
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+
+    .logic-desc strong {
+      display: block;
+      color: #1a1a2e;
+      font-weight: 700;
+      margin-bottom: .15rem;
+      font-size: .92rem;
+    }
+
+    .logic-desc span {
+      color: #64748b;
+      font-size: .86rem;
+    }
+
     /* CODE */
-    .code-wrapper{margin-bottom:1.5rem;border-radius:12px;overflow:hidden;border:1px solid #2d2d4e;}
-    .code-header{background:#252535;padding:.55rem 1rem;display:flex;align-items:center;justify-content:space-between;}
-    .code-dots{display:flex;gap:6px;}
-    .code-dot{width:11px;height:11px;border-radius:50%;}
-    .dot-r{background:#ff5f57;}.dot-y{background:#ffbd2e;}.dot-g{background:#28ca41;}
-    .code-label{color:rgba(255,255,255,.45);font-size:.76rem;font-family:monospace;}
-    .btn-run{background:linear-gradient(135deg,#28a745,#20c997);color:white;border:none;padding:.28rem .85rem;border-radius:6px;font-size:.78rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:.35rem;transition:all .2s;}
-    .btn-run:hover{transform:scale(1.05);box-shadow:0 3px 12px rgba(40,167,69,.4);}
-    .btn-run:active{transform:scale(.97);}
-    pre.code-body{background:#1e1e2e;margin:0;padding:1.2rem 1.5rem;color:#cdd6f4;font-size:.86rem;line-height:1.75;overflow-x:auto;font-family:'Consolas','Courier New',monospace;}
-    .out-area{background:#0d1117;border-top:1px solid #2d2d4e;padding:.7rem 1.5rem;color:#a6e3a1;font-family:monospace;font-size:.84rem;line-height:1.75;display:none;white-space:pre-wrap;}
-    .out-area.show{display:block;}
-    .out-label{color:rgba(255,255,255,.35);font-size:.73rem;display:block;margin-bottom:.35rem;}
+    .code-wrapper {
+      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #2d2d4e;
+    }
+
+    .code-header {
+      background: #252535;
+      padding: .55rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .code-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .code-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .dot-r {
+      background: #ff5f57;
+    }
+
+    .dot-y {
+      background: #ffbd2e;
+    }
+
+    .dot-g {
+      background: #28ca41;
+    }
+
+    .code-label {
+      color: rgba(255, 255, 255, .45);
+      font-size: .76rem;
+      font-family: monospace;
+    }
+
+    .btn-run {
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
+      border: none;
+      padding: .28rem .85rem;
+      border-radius: 6px;
+      font-size: .78rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      transition: all .2s;
+    }
+
+    .btn-run:hover {
+      transform: scale(1.05);
+      box-shadow: 0 3px 12px rgba(40, 167, 69, .4);
+    }
+
+    .btn-run:active {
+      transform: scale(.97);
+    }
+
+    pre.code-body {
+      background: #1e1e2e;
+      margin: 0;
+      padding: 1.2rem 1.5rem;
+      color: #cdd6f4;
+      font-size: .86rem;
+      line-height: 1.75;
+      overflow-x: auto;
+      font-family: 'Consolas', 'Courier New', monospace;
+    }
+
+    .out-area {
+      background: #0d1117;
+      border-top: 1px solid #2d2d4e;
+      padding: .7rem 1.5rem;
+      color: #a6e3a1;
+      font-family: monospace;
+      font-size: .84rem;
+      line-height: 1.75;
+      display: none;
+      white-space: pre-wrap;
+    }
+
+    .out-area.show {
+      display: block;
+    }
+
+    .out-label {
+      color: rgba(255, 255, 255, .35);
+      font-size: .73rem;
+      display: block;
+      margin-bottom: .35rem;
+    }
+
     /* syntax */
-    .kw{color:#cba6f7}.fn{color:#89b4fa}.st{color:#a6e3a1}.nm{color:#fab387}.cm{color:#6c7086;font-style:italic}.oc{color:#89dceb}.vr{color:#cdd6f4}
+    .kw {
+      color: #cba6f7
+    }
+
+    .fn {
+      color: #89b4fa
+    }
+
+    .st {
+      color: #a6e3a1
+    }
+
+    .nm {
+      color: #fab387
+    }
+
+    .cm {
+      color: #6c7086;
+      font-style: italic
+    }
+
+    .oc {
+      color: #89dceb
+    }
+
+    .vr {
+      color: #cdd6f4
+    }
+
     /* NAV BUTTONS */
-    .nav-btns{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid #e2e8f0;}
-    .btn-prev{display:flex;align-items:center;gap:.5rem;padding:.65rem 1.5rem;border:2px solid #e2e8f0;border-radius:50px;color:#64748b;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .25s;background:white;}
-    .btn-prev:hover{border-color:#667eea;color:#667eea;}
-    .btn-next{display:flex;align-items:center;gap:.5rem;padding:.65rem 1.5rem;background:linear-gradient(135deg,#667eea,#764ba2);border:none;border-radius:50px;color:white!important;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .25s;}
-    .btn-next:hover{box-shadow:0 6px 20px rgba(102,126,234,.4);transform:translateY(-1px);}
+    .nav-btns {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .btn-prev {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .65rem 1.5rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 50px;
+      color: #64748b;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: all .25s;
+      background: white;
+    }
+
+    .btn-prev:hover {
+      border-color: #667eea;
+      color: #667eea;
+    }
+
+    .btn-next {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .65rem 1.5rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border: none;
+      border-radius: 50px;
+      color: white !important;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: all .25s;
+    }
+
+    .btn-next:hover {
+      box-shadow: 0 6px 20px rgba(102, 126, 234, .4);
+      transform: translateY(-1px);
+    }
+
     /* FOOTER */
-    .footer-modern{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);padding:3rem 0 1.5rem;margin-top:4rem;}
-    .footer-brand{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:1.25rem;}
-    .footer-text{color:rgba(255,255,255,.55);font-size:.87rem;line-height:1.7;margin-top:.75rem;}
-    .footer-title{color:rgba(255,255,255,.9);font-weight:700;font-size:.88rem;margin-bottom:1rem;}
-    .footer-links{list-style:none;padding:0;}
-    .footer-links li{margin-bottom:.5rem;}
-    .footer-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.87rem;transition:color .2s;}
-    .footer-links a:hover{color:#fff;}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:2rem;padding-top:1.25rem;text-align:center;color:rgba(255,255,255,.4);font-size:.82rem;}
-    .icon-hover-scale{transition:transform .2s;display:inline-block;}
-    .icon-hover-scale:hover{transform:scale(1.2);}
-    @media(max-width:768px){.hero-internal h1{font-size:2rem;}.topic-card{padding:1.25rem;}}
+    .footer-modern {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      padding: 3rem 0 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .footer-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: #fff;
+      font-size: 1.25rem;
+    }
+
+    .footer-text {
+      color: rgba(255, 255, 255, .55);
+      font-size: .87rem;
+      line-height: 1.7;
+      margin-top: .75rem;
+    }
+
+    .footer-title {
+      color: rgba(255, 255, 255, .9);
+      font-weight: 700;
+      font-size: .88rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: .5rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, .55);
+      text-decoration: none;
+      font-size: .87rem;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      text-align: center;
+      color: rgba(255, 255, 255, .4);
+      font-size: .82rem;
+    }
+
+    .icon-hover-scale {
+      transition: transform .2s;
+      display: inline-block;
+    }
+
+    .icon-hover-scale:hover {
+      transform: scale(1.2);
+    }
+
+    @media(max-width:768px) {
+      .hero-internal h1 {
+        font-size: 2rem;
+      }
+
+      .topic-card {
+        padding: 1.25rem;
+      }
+    }
+
+    /* QUIZ */
+    .quiz-option {
+      text-align: left;
+      padding: 12px 20px;
+      font-weight: 500;
+      border: 2px solid #e9ecef;
+      transition: all .2s;
+      background: white;
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .quiz-option:hover {
+      background-color: #f8f9fa;
+      border-color: #dee2e6;
+    }
+
+    .quiz-option.correct {
+      background-color: #d1e7dd;
+      border-color: #badbcc;
+      color: #0f5132;
+    }
+
+    .quiz-option.wrong {
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+      color: #842029;
+    }
   </style>
   <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
 </head>
+
 <body>
 
 
-      <!-- Navbar -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
@@ -138,17 +772,17 @@
               <i class="bi bi-book me-1"></i> Teoría
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i
+              <li><a class="dropdown-item py-2" href="teoria_infraestructura.html"><i
                     class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i
+              <li><a class="dropdown-item py-2" href="teoria_historia.html"><i
                     class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_htmlpyhon.html"><i
+              <li><a class="dropdown-item py-2" href="teoria_htmlpyhon.html"><i
                     class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_sintaxisComentarios.html"><i
+              <li><a class="dropdown-item py-2" href="teoria_sintaxisComentarios.html"><i
                     class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_variablesConstantes.html"><i
+              <li><a class="dropdown-item py-2" href="teoria_variablesConstantes.html"><i
                     class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
-              <li><a class="dropdown-item py-2" href="../teoria/teoria_tiposDatos.html"><i
+              <li><a class="dropdown-item py-2" href="teoria_tiposDatos.html"><i
                     class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
               <li>
                 <hr class="dropdown-divider">
@@ -236,7 +870,6 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-info"></i>Sintaxis</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
@@ -259,76 +892,140 @@
     </div>
   </nav>
 
-<main>
-<!-- HERO -->
-<section class="hero-internal">
-  <div class="shape shape-1"></div>
-  <div class="shape shape-2"></div>
-  <div class="container">
-    <span class="badge-custom">TEMA 7</span>
-    <h1>Operadores en Python</h1>
-    <p>Las herramientas matemáticas, lógicas y de asignación para procesar datos y tomar decisiones en tus programas.</p>
-  </div>
-</section>
-
-<!-- CONTENT -->
-<section class="py-5">
-  <div class="container">
-    <div class="row g-4">
-      <!-- SIDEBAR -->
-      <div class="col-lg-3 d-none d-lg-block">
-        <nav class="sidebar-nav">
-          <div class="sidebar-progress"><div class="sidebar-progress-bar" id="progressBar"></div></div>
-          <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
-          <ul>
-            <li><a href="#aritmeticos" class="active">1. Aritméticos</a></li>
-            <li><a href="#asignacion">2. De Asignación</a></li>
-            <li><a href="#comparacion">3. De Comparación</a></li>
-            <li><a href="#logicos">4. Lógicos</a></li>
-            <li><a href="#incremento">5. Incremento / Decremento</a></li>
-            <li><a href="#cadenas">6. De Cadena</a></li>
-            <li><a href="#ternario">7. Ternario</a></li>
-            <li><a href="#pertenencia">8. Pertenencia</a></li>
-            <li><a href="#flask">8. Ejemplos en Flask</a></li>
-          </ul>
-        </nav>
+  <main>
+    <!-- HERO -->
+    <section class="hero-internal">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="container">
+        <span class="badge-custom">TEMA 7</span>
+        <h1>Operadores en Python</h1>
+        <p>Las herramientas matemáticas, lógicas y de asignación para procesar datos y tomar decisiones en tus
+          programas.</p>
       </div>
+    </section>
 
-      <!-- MAIN CONTENT -->
-      <div class="col-lg-9">
+    <!-- CONTENT -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4">
+          <!-- SIDEBAR -->
+          <div class="col-lg-3 d-none d-lg-block">
+            <nav class="sidebar-nav">
+              <div class="sidebar-progress">
+                <div class="sidebar-progress-bar" id="progressBar"></div>
+              </div>
+              <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
+              <ul>
+                <li><a href="#aritmeticos" class="active">1. Aritméticos</a></li>
+                <li><a href="#asignacion">2. De Asignación</a></li>
+                <li><a href="#comparacion">3. De Comparación</a></li>
+                <li><a href="#logicos">4. Lógicos</a></li>
+                <li><a href="#incremento">5. Incremento / Decremento</a></li>
+                <li><a href="#cadenas">6. De Cadena</a></li>
+                <li><a href="#ternario">7. Ternario</a></li>
+                <li><a href="#pertenencia">8. Pertenencia</a></li>
+                <li><a href="#flask">9. Ejemplos en Flask</a></li>
+                <li><a href="#cuestionario">10. Cuestionario</a></li>
+              </ul>
+            </nav>
+          </div>
 
-        <!-- 1. ARITMÉTICOS -->
-        <div class="topic-card" id="aritmeticos">
-          <div class="topic-title"><div class="topic-icon"><i class="bi bi-calculator"></i></div>1. Operadores Aritméticos</div>
-          <div class="divider-line"></div>
-          <div class="theory-box">
-            <h6><i class="bi bi-book me-1"></i>Teoría</h6>
-            <p>En Python existen los operadores aritméticos clásicos: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> y la negación <code>-a</code>. Además, Python incluye <code>//</code> (división entera) y <code>**</code> (potencia).</p>
-            <p>El operador <code>/</code> siempre devuelve un número decimal (<strong>float</strong>), aunque <code>a</code> y <code>b</code> sean enteros. Para obtener solo la parte entera del cociente se usa <code>//</code>.</p>
-            <p>En Flask, los campos A y B del formulario se reciben con <code>request.form.get()</code> y luego se aplican los operadores sobre los valores ya convertidos a número.</p>
-          </div>
-          <div class="table-responsive mb-4">
-            <table class="op-table">
-              <thead><tr><th>Operador</th><th>Nombre</th><th>Ejemplo</th><th>Resultado</th></tr></thead>
-              <tbody>
-                <tr><td><span class="op-badge">+</span></td><td>Suma</td><td><code>10 + 3</code></td><td><code>13</code></td></tr>
-                <tr><td><span class="op-badge">-</span></td><td>Resta</td><td><code>10 - 3</code></td><td><code>7</code></td></tr>
-                <tr><td><span class="op-badge">*</span></td><td>Multiplicación</td><td><code>10 * 3</code></td><td><code>30</code></td></tr>
-                <tr><td><span class="op-badge">/</span></td><td>División (Float)</td><td><code>10 / 3</code></td><td><code>3.333...</code></td></tr>
-                <tr><td><span class="op-badge">//</span></td><td>División Entera</td><td><code>10 // 3</code></td><td><code>3</code></td></tr>
-                <tr><td><span class="op-badge">%</span></td><td>Módulo (Residuo)</td><td><code>10 % 3</code></td><td><code>1</code></td></tr>
-                <tr><td><span class="op-badge">**</span></td><td>Potencia</td><td><code>10 ** 3</code></td><td><code>1000</code></td></tr>
-                <tr><td><span class="op-badge">neg</span></td><td>Negación</td><td><code>-a</code></td><td><code>-10</code></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="code-wrapper">
-            <div class="code-header">
-              <div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div>
-              <span class="code-label">aritmeticos.py</span>
-              <button class="btn-run" onclick="run('o1')"><i class="bi bi-play-fill"></i> Ejecutar</button>
-            </div>
-            <pre class="code-body"><span class="vr">a</span> <span class="oc">=</span> <span class="nm">10</span>
+          <!-- MAIN CONTENT -->
+          <div class="col-lg-9">
+
+            <!-- 1. ARITMÉTICOS -->
+            <div class="topic-card" id="aritmeticos">
+              <div class="topic-title">
+                <div class="topic-icon"><i class="bi bi-calculator"></i></div>1. Operadores Aritméticos
+              </div>
+              <div class="divider-line"></div>
+              <div class="theory-box">
+                <h6><i class="bi bi-book me-1"></i>Teoría</h6>
+                <p>En Python existen los operadores aritméticos clásicos: <code>+</code>, <code>-</code>,
+                  <code>*</code>, <code>/</code>, <code>%</code> y la negación <code>-a</code>. Además, Python incluye
+                  <code>//</code> (división entera) y <code>**</code> (potencia).
+                </p>
+                <p>El operador <code>/</code> siempre devuelve un número decimal (<strong>float</strong>), aunque
+                  <code>a</code> y <code>b</code> sean enteros. Para obtener solo la parte entera del cociente se usa
+                  <code>//</code>.
+                </p>
+                <p>En Flask, los campos A y B del formulario se reciben con <code>request.form.get()</code> y luego se
+                  aplican los operadores sobre los valores ya convertidos a número.</p>
+              </div>
+              <div class="table-responsive mb-4">
+                <table class="op-table">
+                  <thead>
+                    <tr>
+                      <th>Operador</th>
+                      <th>Nombre</th>
+                      <th>Ejemplo</th>
+                      <th>Resultado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="op-badge">+</span></td>
+                      <td>Suma</td>
+                      <td><code>10 + 3</code></td>
+                      <td><code>13</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">-</span></td>
+                      <td>Resta</td>
+                      <td><code>10 - 3</code></td>
+                      <td><code>7</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">*</span></td>
+                      <td>Multiplicación</td>
+                      <td><code>10 * 3</code></td>
+                      <td><code>30</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">/</span></td>
+                      <td>División (Float)</td>
+                      <td><code>10 / 3</code></td>
+                      <td><code>3.333...</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">//</span></td>
+                      <td>División Entera</td>
+                      <td><code>10 // 3</code></td>
+                      <td><code>3</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">%</span></td>
+                      <td>Módulo (Residuo)</td>
+                      <td><code>10 % 3</code></td>
+                      <td><code>1</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">**</span></td>
+                      <td>Potencia</td>
+                      <td><code>10 ** 3</code></td>
+                      <td><code>1000</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">neg</span></td>
+                      <td>Negación</td>
+                      <td><code>-a</code></td>
+                      <td><code>-10</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="code-wrapper">
+                <div class="code-header">
+                  <div class="code-dots">
+                    <div class="code-dot dot-r"></div>
+                    <div class="code-dot dot-y"></div>
+                    <div class="code-dot dot-g"></div>
+                  </div>
+                  <span class="code-label">aritmeticos.py</span>
+                  <button class="btn-run" onclick="run('o1')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                </div>
+                <pre class="code-body"><span class="vr">a</span> <span class="oc">=</span> <span class="nm">10</span>
 <span class="vr">b</span> <span class="oc">=</span> <span class="nm">3</span>
 
 <span class="fn">print</span>(<span class="st">f"Suma:             a + b  = {a + b}"</span>)
@@ -339,46 +1036,108 @@
 <span class="fn">print</span>(<span class="st">f"Módulo/Residuo:   a % b  = {a % b}"</span>)
 <span class="fn">print</span>(<span class="st">f"Potencia:         a ** b = {a ** b}"</span>)
 <span class="fn">print</span>(<span class="st">f"Negación:         -a     = {-a}"</span>)</pre>
-            <div class="out-area" id="o1"><span class="out-label">▶ Salida:</span></div>
-          </div>
-          <div class="info-box">
-            <h6><i class="bi bi-flask me-1"></i>Aplicación en Flask</h6>
-            <p>Se obtienen los valores con <code>a_raw = (request.form.get('a') or '').strip()</code> y <code>b_raw = (request.form.get('b') or '').strip()</code>, se convierten a número y se aplica cada operador mostrando los resultados en una tabla dinámica.</p>
-          </div>
-        </div>
-
-        <!-- 2. ASIGNACIÓN -->
-        <div class="topic-card" id="asignacion">
-          <div class="topic-title"><div class="topic-icon"><i class="bi bi-pencil-square"></i></div>2. Operadores de Asignación</div>
-          <div class="divider-line"></div>
-          <div class="theory-box">
-            <h6><i class="bi bi-book me-1"></i>Teoría</h6>
-            <p>Los operadores de asignación se usan para <strong>actualizar variables combinando una operación con la asignación</strong>: <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>, etc.</p>
-            <p>A diferencia de PHP, en Python <strong>no existe el operador <code>.=</code></strong> para concatenar strings. En Python se usa <code>+=</code> con el operador <code>+</code> para ese propósito.</p>
-            <p>Cada operador de asignación parte siempre del <strong>valor original de A</strong>. Por ejemplo, <code>a += b</code> equivale a <code>a = a + b</code>.</p>
-          </div>
-          <div class="table-responsive mb-4">
-            <table class="op-table">
-              <thead><tr><th>Operador</th><th>Expresión</th><th>Equivale a</th><th>Resultado (A=10, B=5)</th></tr></thead>
-              <tbody>
-                <tr><td><span class="op-badge">=</span></td><td><code>a = A</code></td><td><code>a = 10</code></td><td><code>10</code></td></tr>
-                <tr><td><span class="op-badge">+=</span></td><td><code>a += B</code></td><td><code>a = a + 5</code></td><td><code>15</code></td></tr>
-                <tr><td><span class="op-badge">-=</span></td><td><code>a -= B</code></td><td><code>a = a - 5</code></td><td><code>5</code></td></tr>
-                <tr><td><span class="op-badge">*=</span></td><td><code>a *= B</code></td><td><code>a = a * 5</code></td><td><code>50</code></td></tr>
-                <tr><td><span class="op-badge">/=</span></td><td><code>a /= B</code></td><td><code>a = a / 5</code></td><td><code>2.0</code></td></tr>
-                <tr><td><span class="op-badge">%=</span></td><td><code>a %= B</code></td><td><code>a = a % 5</code></td><td><code>0</code></td></tr>
-                <tr><td><span class="op-badge">+=1</span></td><td><code>a += 1</code></td><td>simula <code>++a</code></td><td><code>11</code></td></tr>
-                <tr><td><span class="op-badge">-=1</span></td><td><code>a -= 1</code></td><td>simula <code>--a</code></td><td><code>9</code></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="code-wrapper">
-            <div class="code-header">
-              <div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div>
-              <span class="code-label">asignacion.py</span>
-              <button class="btn-run" onclick="run('o2')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                <div class="out-area" id="o1"><span class="out-label">▶ Salida:</span></div>
+              </div>
+              <div class="info-box">
+                <h6><i class="bi bi-flask me-1"></i>Aplicación en Flask</h6>
+                <p>Se obtienen los valores con <code>a_raw = (request.form.get('a') or '').strip()</code> y
+                  <code>b_raw = (request.form.get('b') or '').strip()</code>, se convierten a número y se aplica cada
+                  operador mostrando los resultados en una tabla dinámica.
+                </p>
+              </div>
             </div>
-            <pre class="code-body"><span class="vr">a</span> <span class="oc">=</span> <span class="nm">10</span>   <span class="cm"># valor original</span>
+
+            <!-- 2. ASIGNACIÓN -->
+            <div class="topic-card" id="asignacion">
+              <div class="topic-title">
+                <div class="topic-icon"><i class="bi bi-pencil-square"></i></div>2. Operadores de Asignación
+              </div>
+              <div class="divider-line"></div>
+              <div class="theory-box">
+                <h6><i class="bi bi-book me-1"></i>Teoría</h6>
+                <p>Los operadores de asignación se usan para <strong>actualizar variables combinando una operación con
+                    la asignación</strong>: <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>,
+                  <code>%=</code>, etc.
+                </p>
+                <p>A diferencia de PHP, en Python <strong>no existe el operador <code>.=</code></strong> para concatenar
+                  strings. En Python se usa <code>+=</code> con el operador <code>+</code> para ese propósito.</p>
+                <p>Cada operador de asignación parte siempre del <strong>valor original de A</strong>. Por ejemplo,
+                  <code>a += b</code> equivale a <code>a = a + b</code>.
+                </p>
+              </div>
+              <div class="table-responsive mb-4">
+                <table class="op-table">
+                  <thead>
+                    <tr>
+                      <th>Operador</th>
+                      <th>Expresión</th>
+                      <th>Equivale a</th>
+                      <th>Resultado (A=10, B=5)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="op-badge">=</span></td>
+                      <td><code>a = A</code></td>
+                      <td><code>a = 10</code></td>
+                      <td><code>10</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">+=</span></td>
+                      <td><code>a += B</code></td>
+                      <td><code>a = a + 5</code></td>
+                      <td><code>15</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">-=</span></td>
+                      <td><code>a -= B</code></td>
+                      <td><code>a = a - 5</code></td>
+                      <td><code>5</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">*=</span></td>
+                      <td><code>a *= B</code></td>
+                      <td><code>a = a * 5</code></td>
+                      <td><code>50</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">/=</span></td>
+                      <td><code>a /= B</code></td>
+                      <td><code>a = a / 5</code></td>
+                      <td><code>2.0</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">%=</span></td>
+                      <td><code>a %= B</code></td>
+                      <td><code>a = a % 5</code></td>
+                      <td><code>0</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">+=1</span></td>
+                      <td><code>a += 1</code></td>
+                      <td>simula <code>++a</code></td>
+                      <td><code>11</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">-=1</span></td>
+                      <td><code>a -= 1</code></td>
+                      <td>simula <code>--a</code></td>
+                      <td><code>9</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="code-wrapper">
+                <div class="code-header">
+                  <div class="code-dots">
+                    <div class="code-dot dot-r"></div>
+                    <div class="code-dot dot-y"></div>
+                    <div class="code-dot dot-g"></div>
+                  </div>
+                  <span class="code-label">asignacion.py</span>
+                  <button class="btn-run" onclick="run('o2')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                </div>
+                <pre class="code-body"><span class="vr">a</span> <span class="oc">=</span> <span class="nm">10</span>   <span class="cm"># valor original</span>
 <span class="vr">b</span> <span class="oc">=</span> <span class="nm">5</span>
 <span class="fn">print</span>(<span class="st">f"Asignación simple: a = {a}"</span>)
 
@@ -402,45 +1161,102 @@
 
 <span class="vr">a0</span> <span class="oc">=</span> <span class="vr">a</span><span class="oc">;</span> <span class="vr">a0</span> <span class="oc">-=</span> <span class="nm">1</span>
 <span class="fn">print</span>(<span class="st">f"Simula --a:        a -= 1  → {a0}"</span>)</pre>
-            <div class="out-area" id="o2"><span class="out-label">▶ Salida:</span></div>
-          </div>
-          <div class="info-box">
-            <h6><i class="bi bi-flask me-1"></i>En el código Flask</h6>
-            <p><code>asign.append({"op": "+=", "expr": "a += B", "res": _fmt(a0 + b)})</code> — Se construye dinámicamente la tabla de resultados partiendo siempre del valor original de <code>a</code>.</p>
-          </div>
-        </div>
-
-        <!-- 3. COMPARACIÓN -->
-        <div class="topic-card" id="comparacion">
-          <div class="topic-title"><div class="topic-icon"><i class="bi bi-arrow-left-right"></i></div>3. Operadores de Comparación</div>
-          <div class="divider-line"></div>
-          <div class="theory-box">
-            <h6><i class="bi bi-book me-1"></i>Teoría</h6>
-            <p>Python utiliza <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> para comparar valores. Siempre devuelven un <strong>booleano</strong> (<code>True</code> o <code>False</code>).</p>
-            <p>A diferencia de PHP, en Python <strong>no existe <code>===</code></strong> (igualdad estricta de tipo). Python distingue entre <strong>igualdad</strong> (<code>==</code>) e <strong>identidad</strong> (<code>is</code>): el operador <code>is</code> verifica si dos variables apuntan al mismo objeto en memoria.</p>
-            <p>En Flask, se usa <code>if a is None</code> para validar si la conversión de texto a número falló, y así mostrar mensajes de error cuando los campos están vacíos.</p>
-          </div>
-          <div class="table-responsive mb-4">
-            <table class="op-table">
-              <thead><tr><th>Operador</th><th>Significado</th><th>Ejemplo (A=10, B=20)</th><th>Resultado</th></tr></thead>
-              <tbody>
-                <tr><td><span class="op-badge">==</span></td><td>Igualdad</td><td><code>A == B</code></td><td><code>False</code></td></tr>
-                <tr><td><span class="op-badge">!=</span></td><td>Diferencia</td><td><code>A != B</code></td><td><code>True</code></td></tr>
-                <tr><td><span class="op-badge">&gt;</span></td><td>Mayor que</td><td><code>A &gt; B</code></td><td><code>False</code></td></tr>
-                <tr><td><span class="op-badge">&lt;</span></td><td>Menor que</td><td><code>A &lt; B</code></td><td><code>True</code></td></tr>
-                <tr><td><span class="op-badge">&gt;=</span></td><td>Mayor o igual</td><td><code>A &gt;= B</code></td><td><code>False</code></td></tr>
-                <tr><td><span class="op-badge">&lt;=</span></td><td>Menor o igual</td><td><code>A &lt;= B</code></td><td><code>True</code></td></tr>
-                <tr><td><span class="op-badge">is</span></td><td>Identidad (mismo objeto en memoria)</td><td><code>a is None</code></td><td><code>False</code></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="code-wrapper">
-            <div class="code-header">
-              <div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div>
-              <span class="code-label">comparacion.py</span>
-              <button class="btn-run" onclick="run('o3')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                <div class="out-area" id="o2"><span class="out-label">▶ Salida:</span></div>
+              </div>
+              <div class="info-box">
+                <h6><i class="bi bi-flask me-1"></i>En el código Flask</h6>
+                <p><code>asign.append({"op": "+=", "expr": "a += B", "res": _fmt(a0 + b)})</code> — Se construye
+                  dinámicamente la tabla de resultados partiendo siempre del valor original de <code>a</code>.</p>
+              </div>
             </div>
-            <pre class="code-body"><span class="vr">a</span> <span class="oc">=</span> <span class="nm">10</span>
+
+            <!-- 3. COMPARACIÓN -->
+            <div class="topic-card" id="comparacion">
+              <div class="topic-title">
+                <div class="topic-icon"><i class="bi bi-arrow-left-right"></i></div>3. Operadores de Comparación
+              </div>
+              <div class="divider-line"></div>
+              <div class="theory-box">
+                <h6><i class="bi bi-book me-1"></i>Teoría</h6>
+                <p>Python utiliza <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>,
+                  <code>&lt;=</code>, <code>&gt;=</code> para comparar valores. Siempre devuelven un
+                  <strong>booleano</strong> (<code>True</code> o <code>False</code>).
+                </p>
+                <p>A diferencia de PHP, en Python <strong>no existe <code>===</code></strong> (igualdad estricta de
+                  tipo). Python distingue entre <strong>igualdad</strong> (<code>==</code>) e <strong>identidad</strong>
+                  (<code>is</code>): el operador <code>is</code> verifica si dos variables apuntan al mismo objeto en
+                  memoria.</p>
+                <p>En Flask, se usa <code>if a is None</code> para validar si la conversión de texto a número falló, y
+                  así mostrar mensajes de error cuando los campos están vacíos.</p>
+              </div>
+              <div class="table-responsive mb-4">
+                <table class="op-table">
+                  <thead>
+                    <tr>
+                      <th>Operador</th>
+                      <th>Significado</th>
+                      <th>Ejemplo (A=10, B=20)</th>
+                      <th>Resultado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="op-badge">==</span></td>
+                      <td>Igualdad</td>
+                      <td><code>A == B</code></td>
+                      <td><code>False</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">!=</span></td>
+                      <td>Diferencia</td>
+                      <td><code>A != B</code></td>
+                      <td><code>True</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">&gt;</span></td>
+                      <td>Mayor que</td>
+                      <td><code>A &gt; B</code></td>
+                      <td><code>False</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">&lt;</span></td>
+                      <td>Menor que</td>
+                      <td><code>A &lt; B</code></td>
+                      <td><code>True</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">&gt;=</span></td>
+                      <td>Mayor o igual</td>
+                      <td><code>A &gt;= B</code></td>
+                      <td><code>False</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">&lt;=</span></td>
+                      <td>Menor o igual</td>
+                      <td><code>A &lt;= B</code></td>
+                      <td><code>True</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">is</span></td>
+                      <td>Identidad (mismo objeto en memoria)</td>
+                      <td><code>a is None</code></td>
+                      <td><code>False</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="code-wrapper">
+                <div class="code-header">
+                  <div class="code-dots">
+                    <div class="code-dot dot-r"></div>
+                    <div class="code-dot dot-y"></div>
+                    <div class="code-dot dot-g"></div>
+                  </div>
+                  <span class="code-label">comparacion.py</span>
+                  <button class="btn-run" onclick="run('o3')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                </div>
+                <pre
+                  class="code-body"><span class="vr">a</span> <span class="oc">=</span> <span class="nm">10</span>
 <span class="vr">b</span> <span class="oc">=</span> <span class="nm">20</span>
 
 <span class="fn">print</span>(<span class="st">f"a == b  (igualdad)       → {a == b}"</span>)
@@ -463,61 +1279,79 @@
 
 <span class="fn">print</span>(<span class="st">"\n" </span><span class="oc">+</span> <span class="fn">validar_campo</span>(<span class="kw">None</span>, <span class="st">"A"</span>))
 <span class="fn">print</span>(<span class="fn">validar_campo</span>(<span class="nm">10</span>, <span class="st">"A"</span>))</pre>
-            <div class="out-area" id="o3"><span class="out-label">▶ Salida:</span></div>
-          </div>
-          <div class="warning-box">
-            <h6><i class="bi bi-exclamation-triangle me-1"></i>PHP vs Python</h6>
-            <p>En PHP existe <code>===</code> que compara valor Y tipo al mismo tiempo. En Python no existe ese operador: se usa <code>==</code> para igualdad de valor e <code>is</code> solo para verificar identidad de objetos (especialmente útil con <code>None</code>).</p>
-          </div>
-        </div>
-
-        <!-- 4. LÓGICOS -->
-        <div class="topic-card" id="logicos">
-          <div class="topic-title"><div class="topic-icon"><i class="bi bi-diagram-3"></i></div>4. Operadores Lógicos</div>
-          <div class="divider-line"></div>
-          <div class="theory-box">
-            <h6><i class="bi bi-book me-1"></i>Teoría</h6>
-            <p>Los operadores lógicos en Python son <code>and</code>, <code>or</code> y <code>not</code>. Equivalen a <code>&amp;&amp;</code>, <code>||</code> y <code>!</code> de PHP.</p>
-            <p><strong>XOR (exclusivo):</strong> Python no tiene un operador XOR lógico nativo, pero cuando se trabaja con booleanos se puede usar <code>^</code> o comparar desigualdad (<code>!=</code>) entre booleanos para el mismo efecto.</p>
-            <p>En Flask, se combinan con el estado del Checkbox "Licencia" obtenido con <code>licencia = bool(request.form.get('licencia'))</code>.</p>
-          </div>
-          <ul class="logic-list mb-4">
-            <li>
-              <span class="logic-icon">and</span>
-              <div class="logic-desc">
-                <strong>AND (Y lógico) — equivale a &amp;&amp; en PHP</strong>
-                <span>Devuelve <code>True</code> solo si <strong>ambas</strong> condiciones son verdaderas. Si la primera es <code>False</code>, Python no evalúa la segunda (cortocircuito).</span>
+                <div class="out-area" id="o3"><span class="out-label">▶ Salida:</span></div>
               </div>
-            </li>
-            <li>
-              <span class="logic-icon">or</span>
-              <div class="logic-desc">
-                <strong>OR (O lógico) — equivale a || en PHP</strong>
-                <span>Devuelve <code>True</code> si <strong>al menos una</strong> condición es verdadera. Si la primera es <code>True</code>, no evalúa la segunda (cortocircuito).</span>
+              <div class="warning-box">
+                <h6><i class="bi bi-exclamation-triangle me-1"></i>PHP vs Python</h6>
+                <p>En PHP existe <code>===</code> que compara valor Y tipo al mismo tiempo. En Python no existe ese
+                  operador: se usa <code>==</code> para igualdad de valor e <code>is</code> solo para verificar
+                  identidad de objetos (especialmente útil con <code>None</code>).</p>
               </div>
-            </li>
-            <li>
-              <span class="logic-icon">not</span>
-              <div class="logic-desc">
-                <strong>NOT (negación) — equivale a ! en PHP</strong>
-                <span>Invierte el valor booleano: si era <code>True</code> pasa a <code>False</code> y viceversa.</span>
-              </div>
-            </li>
-            <li>
-              <span class="logic-icon">xor</span>
-              <div class="logic-desc">
-                <strong>XOR (exclusivo) — usando ^ o !=</strong>
-                <span>Devuelve <code>True</code> solo si exactamente <strong>uno</strong> de los dos valores es verdadero. Se simula con <code>bool1 ^ bool2</code> o <code>bool1 != bool2</code>.</span>
-              </div>
-            </li>
-          </ul>
-          <div class="code-wrapper">
-            <div class="code-header">
-              <div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div>
-              <span class="code-label">logicos.py</span>
-              <button class="btn-run" onclick="run('o4')"><i class="bi bi-play-fill"></i> Ejecutar</button>
             </div>
-            <pre class="code-body"><span class="vr">a</span> <span class="oc">=</span> <span class="nm">10</span>
+
+            <!-- 4. LÓGICOS -->
+            <div class="topic-card" id="logicos">
+              <div class="topic-title">
+                <div class="topic-icon"><i class="bi bi-diagram-3"></i></div>4. Operadores Lógicos
+              </div>
+              <div class="divider-line"></div>
+              <div class="theory-box">
+                <h6><i class="bi bi-book me-1"></i>Teoría</h6>
+                <p>Los operadores lógicos en Python son <code>and</code>, <code>or</code> y <code>not</code>. Equivalen
+                  a <code>&amp;&amp;</code>, <code>||</code> y <code>!</code> de PHP.</p>
+                <p><strong>XOR (exclusivo):</strong> Python no tiene un operador XOR lógico nativo, pero cuando se
+                  trabaja con booleanos se puede usar <code>^</code> o comparar desigualdad (<code>!=</code>) entre
+                  booleanos para el mismo efecto.</p>
+                <p>En Flask, se combinan con el estado del Checkbox "Licencia" obtenido con
+                  <code>licencia = bool(request.form.get('licencia'))</code>.
+                </p>
+              </div>
+              <ul class="logic-list mb-4">
+                <li>
+                  <span class="logic-icon">and</span>
+                  <div class="logic-desc">
+                    <strong>AND (Y lógico) — equivale a &amp;&amp; en PHP</strong>
+                    <span>Devuelve <code>True</code> solo si <strong>ambas</strong> condiciones son verdaderas. Si la
+                      primera es <code>False</code>, Python no evalúa la segunda (cortocircuito).</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="logic-icon">or</span>
+                  <div class="logic-desc">
+                    <strong>OR (O lógico) — equivale a || en PHP</strong>
+                    <span>Devuelve <code>True</code> si <strong>al menos una</strong> condición es verdadera. Si la
+                      primera es <code>True</code>, no evalúa la segunda (cortocircuito).</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="logic-icon">not</span>
+                  <div class="logic-desc">
+                    <strong>NOT (negación) — equivale a ! en PHP</strong>
+                    <span>Invierte el valor booleano: si era <code>True</code> pasa a <code>False</code> y
+                      viceversa.</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="logic-icon">xor</span>
+                  <div class="logic-desc">
+                    <strong>XOR (exclusivo) — usando ^ o !=</strong>
+                    <span>Devuelve <code>True</code> solo si exactamente <strong>uno</strong> de los dos valores es
+                      verdadero. Se simula con <code>bool1 ^ bool2</code> o <code>bool1 != bool2</code>.</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="code-wrapper">
+                <div class="code-header">
+                  <div class="code-dots">
+                    <div class="code-dot dot-r"></div>
+                    <div class="code-dot dot-y"></div>
+                    <div class="code-dot dot-g"></div>
+                  </div>
+                  <span class="code-label">logicos.py</span>
+                  <button class="btn-run" onclick="run('o4')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                </div>
+                <pre
+                  class="code-body"><span class="vr">a</span> <span class="oc">=</span> <span class="nm">10</span>
 <span class="vr">b</span> <span class="oc">=</span> <span class="nm">5</span>
 <span class="vr">licencia</span> <span class="oc">=</span> <span class="kw">True</span>   <span class="cm"># simula checkbox "Tiene licencia"</span>
 
@@ -535,34 +1369,47 @@
 <span class="fn">print</span>(<span class="st">"\n--- Cortocircuito ---"</span>)
 <span class="fn">print</span>(<span class="st">f"False and True  → {False and True}"</span>)   <span class="cm"># no evalúa la derecha</span>
 <span class="fn">print</span>(<span class="st">f"True  or  False → {True or False}"</span>)     <span class="cm"># no evalúa la derecha</span></pre>
-            <div class="out-area" id="o4"><span class="out-label">▶ Salida:</span></div>
-          </div>
-          <div class="info-box">
-            <h6><i class="bi bi-flask me-1"></i>En el código Flask</h6>
-            <p><code>c2 = licencia</code> obtenido de <code>bool(request.form.get('licencia'))</code>. Luego: <code>log.append({"op": "and", "expr": "(A &gt; B) and Licencia", "res": (c1 and c2)})</code>.</p>
-          </div>
-        </div>
-
-        <!-- 5. INCREMENTO -->
-        <div class="topic-card" id="incremento">
-          <div class="topic-title"><div class="topic-icon"><i class="bi bi-plus-slash-minus"></i></div>5. Incremento y Decremento</div>
-          <div class="divider-line"></div>
-          <div class="theory-box">
-            <h6><i class="bi bi-book me-1"></i>Teoría</h6>
-            <p>En Python <strong>no existen los operadores <code>++</code> ni <code>--</code></strong> que son comunes en PHP, JavaScript y C. Se reemplazan por <code>+= 1</code> y <code>-= 1</code> respectivamente.</p>
-            <p>En la interfaz Flask esto se muestra como una simulación dentro de la tabla de asignación, dejando claro que Python usa una sintaxis más explícita y legible.</p>
-          </div>
-          <div class="warning-box">
-            <h6><i class="bi bi-exclamation-triangle me-1"></i>¡Python NO tiene ++ ni --!</h6>
-            <p>Si escribes <code>a++</code> en Python obtendrás un <strong>SyntaxError</strong>. Usa siempre <code>a += 1</code> para incrementar y <code>a -= 1</code> para decrementar.</p>
-          </div>
-          <div class="code-wrapper">
-            <div class="code-header">
-              <div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div>
-              <span class="code-label">incremento_decremento.py</span>
-              <button class="btn-run" onclick="run('o5')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                <div class="out-area" id="o4"><span class="out-label">▶ Salida:</span></div>
+              </div>
+              <div class="info-box">
+                <h6><i class="bi bi-flask me-1"></i>En el código Flask</h6>
+                <p><code>c2 = licencia</code> obtenido de <code>bool(request.form.get('licencia'))</code>. Luego:
+                  <code>log.append({"op": "and", "expr": "(A &gt; B) and Licencia", "res": (c1 and c2)})</code>.
+                </p>
+              </div>
             </div>
-            <pre class="code-body"><span class="vr">a</span> <span class="oc">=</span> <span class="nm">10</span>
+
+            <!-- 5. INCREMENTO -->
+            <div class="topic-card" id="incremento">
+              <div class="topic-title">
+                <div class="topic-icon"><i class="bi bi-plus-slash-minus"></i></div>5. Incremento y Decremento
+              </div>
+              <div class="divider-line"></div>
+              <div class="theory-box">
+                <h6><i class="bi bi-book me-1"></i>Teoría</h6>
+                <p>En Python <strong>no existen los operadores <code>++</code> ni <code>--</code></strong> que son
+                  comunes en PHP, JavaScript y C. Se reemplazan por <code>+= 1</code> y <code>-= 1</code>
+                  respectivamente.</p>
+                <p>En la interfaz Flask esto se muestra como una simulación dentro de la tabla de asignación, dejando
+                  claro que Python usa una sintaxis más explícita y legible.</p>
+              </div>
+              <div class="warning-box">
+                <h6><i class="bi bi-exclamation-triangle me-1"></i>¡Python NO tiene ++ ni --!</h6>
+                <p>Si escribes <code>a++</code> en Python obtendrás un <strong>SyntaxError</strong>. Usa siempre
+                  <code>a += 1</code> para incrementar y <code>a -= 1</code> para decrementar.
+                </p>
+              </div>
+              <div class="code-wrapper">
+                <div class="code-header">
+                  <div class="code-dots">
+                    <div class="code-dot dot-r"></div>
+                    <div class="code-dot dot-y"></div>
+                    <div class="code-dot dot-g"></div>
+                  </div>
+                  <span class="code-label">incremento_decremento.py</span>
+                  <button class="btn-run" onclick="run('o5')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                </div>
+                <pre class="code-body"><span class="vr">a</span> <span class="oc">=</span> <span class="nm">10</span>
 <span class="fn">print</span>(<span class="st">f"Valor inicial: {a}"</span>)
 
 <span class="cm"># Simulación de ++a</span>
@@ -579,41 +1426,72 @@
 <span class="kw">for</span> <span class="vr">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="nm">5</span>):
     <span class="vr">contador</span> <span class="oc">+=</span> <span class="nm">1</span>
     <span class="fn">print</span>(<span class="st">f"  Vuelta {i+1}: contador = {contador}"</span>)</pre>
-            <div class="out-area" id="o5"><span class="out-label">▶ Salida:</span></div>
-          </div>
-          <div class="info-box">
-            <h6><i class="bi bi-code me-1"></i>En el código Flask</h6>
-            <p><code>asign.append({"op": "+=1", "expr": "a += 1 (simula ++a)", "res": _fmt(a0 + 1)})</code></p>
-          </div>
-        </div>
-
-        <!-- 6. CADENAS -->
-        <div class="topic-card" id="cadenas">
-          <div class="topic-title"><div class="topic-icon"><i class="bi bi-fonts"></i></div>6. Operadores de Cadena (Concatenación)</div>
-          <div class="divider-line"></div>
-          <div class="theory-box">
-            <h6><i class="bi bi-book me-1"></i>Teoría</h6>
-            <p>Python usa <code>+</code> para concatenar strings o <strong>f-strings</strong> (recomendado por ser más legible y eficiente). En Jinja2 (motor de plantillas de Flask) se usa <code>~</code> para concatenar variables en las plantillas HTML.</p>
-            <p>Las <strong>f-strings</strong> se escriben con una <code>f</code> antes de las comillas y permiten insertar expresiones Python directamente dentro de <code>{}</code>: <code>f"Hola {nombre}"</code>.</p>
-          </div>
-          <div class="table-responsive mb-4">
-            <table class="op-table">
-              <thead><tr><th>Método</th><th>Expresión</th><th>Resultado</th></tr></thead>
-              <tbody>
-                <tr><td><span class="op-badge">+</span></td><td><code>"Hola " + texto</code></td><td><code>"Hola Mundo"</code></td></tr>
-                <tr><td><span class="op-badge">f""</span></td><td><code>f"Resultado de {A} + {B} es {A+B}"</code></td><td><code>"Resultado de 10 + 5 es 15"</code></td></tr>
-                <tr><td><span class="op-badge">join</span></td><td><code>", ".join(lista)</code></td><td>Concatenación limpia de lista</td></tr>
-                <tr><td><span class="op-badge">~</span></td><td><code>var1 ~ var2</code> (Jinja2)</td><td>Solo en plantillas Flask</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="code-wrapper">
-            <div class="code-header">
-              <div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div>
-              <span class="code-label">cadenas_concatenacion.py</span>
-              <button class="btn-run" onclick="run('o6')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                <div class="out-area" id="o5"><span class="out-label">▶ Salida:</span></div>
+              </div>
+              <div class="info-box">
+                <h6><i class="bi bi-code me-1"></i>En el código Flask</h6>
+                <p><code>asign.append({"op": "+=1", "expr": "a += 1 (simula ++a)", "res": _fmt(a0 + 1)})</code></p>
+              </div>
             </div>
-            <pre class="code-body"><span class="vr">a</span> <span class="oc">=</span> <span class="nm">10</span>
+
+            <!-- 6. CADENAS -->
+            <div class="topic-card" id="cadenas">
+              <div class="topic-title">
+                <div class="topic-icon"><i class="bi bi-fonts"></i></div>6. Operadores de Cadena (Concatenación)
+              </div>
+              <div class="divider-line"></div>
+              <div class="theory-box">
+                <h6><i class="bi bi-book me-1"></i>Teoría</h6>
+                <p>Python usa <code>+</code> para concatenar strings o <strong>f-strings</strong> (recomendado por ser
+                  más legible y eficiente). En Jinja2 (motor de plantillas de Flask) se usa <code>~</code> para
+                  concatenar variables en las plantillas HTML.</p>
+                <p>Las <strong>f-strings</strong> se escriben con una <code>f</code> antes de las comillas y permiten
+                  insertar expresiones Python directamente dentro de <code>{}</code>: <code>f"Hola {nombre}"</code>.</p>
+              </div>
+              <div class="table-responsive mb-4">
+                <table class="op-table">
+                  <thead>
+                    <tr>
+                      <th>Método</th>
+                      <th>Expresión</th>
+                      <th>Resultado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="op-badge">+</span></td>
+                      <td><code>"Hola " + texto</code></td>
+                      <td><code>"Hola Mundo"</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">f""</span></td>
+                      <td><code>f"Resultado de {A} + {B} es {A+B}"</code></td>
+                      <td><code>"Resultado de 10 + 5 es 15"</code></td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">join</span></td>
+                      <td><code>", ".join(lista)</code></td>
+                      <td>Concatenación limpia de lista</td>
+                    </tr>
+                    <tr>
+                      <td><span class="op-badge">~</span></td>
+                      <td><code>var1 ~ var2</code> (Jinja2)</td>
+                      <td>Solo en plantillas Flask</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="code-wrapper">
+                <div class="code-header">
+                  <div class="code-dots">
+                    <div class="code-dot dot-r"></div>
+                    <div class="code-dot dot-y"></div>
+                    <div class="code-dot dot-g"></div>
+                  </div>
+                  <span class="code-label">cadenas_concatenacion.py</span>
+                  <button class="btn-run" onclick="run('o6')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                </div>
+                <pre class="code-body"><span class="vr">a</span> <span class="oc">=</span> <span class="nm">10</span>
 <span class="vr">b</span> <span class="oc">=</span> <span class="nm">5</span>
 <span class="vr">texto</span> <span class="oc">=</span> <span class="st">"Mundo"</span>
 
@@ -636,39 +1514,67 @@
 
 <span class="cm"># Repetición con *</span>
 <span class="fn">print</span>(<span class="st">f"Repetición (*):      {'—' * 25}"</span>)</pre>
-            <div class="out-area" id="o6"><span class="out-label">▶ Salida:</span></div>
-          </div>
-          <div class="info-box">
-            <h6><i class="bi bi-flask me-1"></i>En el código Flask</h6>
-            <p>Se usan f-strings para mostrar resultados: <code>f"El resultado de {_fmt(a)} + {_fmt(b)} es {_fmt(a+b)}"</code>. Para listas de checkboxes se usa <code>"&lt;br&gt;".join(accesorios)</code>.</p>
-          </div>
-        </div>
-
-        <!-- 7. TERNARIO -->
-        <div class="topic-card" id="ternario">
-          <div class="topic-title"><div class="topic-icon"><i class="bi bi-question-circle"></i></div>7. Operador Ternario (Condicional en una línea)</div>
-          <div class="divider-line"></div>
-          <div class="theory-box">
-            <h6><i class="bi bi-book me-1"></i>Teoría</h6>
-            <p>El operador ternario de Python permite escribir una condición completa <strong>en una sola línea</strong>. Su formato es:</p>
-            <p style="text-align:center;font-family:monospace;font-size:1rem;color:#667eea;margin:.8rem 0;"><strong>valor_si_verdadero &nbsp; if &nbsp; condicion &nbsp; else &nbsp; valor_si_falso</strong></p>
-            <p>En Flask se evalúa el campo "Edad" con: <code>res = ("Mayor de edad" if edad >= 18 else "Menor de edad")</code>. El valor entero lo procesa <code>_to_int(edad_raw)</code>.</p>
-          </div>
-          <div class="table-responsive mb-4">
-            <table class="op-table">
-              <thead><tr><th>Operador</th><th>Expresión</th><th>Edad = 17</th><th>Edad = 25</th></tr></thead>
-              <tbody>
-                <tr><td><span class="op-badge">?:</span></td><td><code>"Mayor" if edad &gt;= 18 else "Menor"</code></td><td><code>"Menor de edad"</code></td><td><code>"Mayor de edad"</code></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="code-wrapper">
-            <div class="code-header">
-              <div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div>
-              <span class="code-label">ternario.py</span>
-              <button class="btn-run" onclick="run('o7')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                <div class="out-area" id="o6"><span class="out-label">▶ Salida:</span></div>
+              </div>
+              <div class="info-box">
+                <h6><i class="bi bi-flask me-1"></i>En el código Flask</h6>
+                <p>Se usan f-strings para mostrar resultados:
+                  <code>f"El resultado de {_fmt(a)} + {_fmt(b)} es {_fmt(a+b)}"</code>. Para listas de checkboxes se usa
+                  <code>"&lt;br&gt;".join(accesorios)</code>.
+                </p>
+              </div>
             </div>
-            <pre class="code-body"><span class="cm"># Ternario básico — evaluación de edad (como en Flask)</span>
+
+            <!-- 7. TERNARIO -->
+            <div class="topic-card" id="ternario">
+              <div class="topic-title">
+                <div class="topic-icon"><i class="bi bi-question-circle"></i></div>7. Operador Ternario (Condicional en
+                una línea)
+              </div>
+              <div class="divider-line"></div>
+              <div class="theory-box">
+                <h6><i class="bi bi-book me-1"></i>Teoría</h6>
+                <p>El operador ternario de Python permite escribir una condición completa <strong>en una sola
+                    línea</strong>. Su formato es:</p>
+                <p style="text-align:center;font-family:monospace;font-size:1rem;color:#667eea;margin:.8rem 0;">
+                  <strong>valor_si_verdadero &nbsp; if &nbsp; condicion &nbsp; else &nbsp; valor_si_falso</strong>
+                </p>
+                <p>En Flask se evalúa el campo "Edad" con:
+                  <code>res = ("Mayor de edad" if edad >= 18 else "Menor de edad")</code>. El valor entero lo procesa
+                  <code>_to_int(edad_raw)</code>.
+                </p>
+              </div>
+              <div class="table-responsive mb-4">
+                <table class="op-table">
+                  <thead>
+                    <tr>
+                      <th>Operador</th>
+                      <th>Expresión</th>
+                      <th>Edad = 17</th>
+                      <th>Edad = 25</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="op-badge">?:</span></td>
+                      <td><code>"Mayor" if edad &gt;= 18 else "Menor"</code></td>
+                      <td><code>"Menor de edad"</code></td>
+                      <td><code>"Mayor de edad"</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="code-wrapper">
+                <div class="code-header">
+                  <div class="code-dots">
+                    <div class="code-dot dot-r"></div>
+                    <div class="code-dot dot-y"></div>
+                    <div class="code-dot dot-g"></div>
+                  </div>
+                  <span class="code-label">ternario.py</span>
+                  <button class="btn-run" onclick="run('o7')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                </div>
+                <pre class="code-body"><span class="cm"># Ternario básico — evaluación de edad (como en Flask)</span>
 <span class="vr">edad</span> <span class="oc">=</span> <span class="nm">17</span>
 <span class="vr">res</span> <span class="oc">=</span> <span class="st">"Mayor de edad"</span> <span class="kw">if</span> <span class="vr">edad</span> <span class="oc">&gt;=</span> <span class="nm">18</span> <span class="kw">else</span> <span class="st">"Menor de edad"</span>
 <span class="fn">print</span>(<span class="st">f"Edad {edad}: {res}"</span>)
@@ -691,47 +1597,77 @@
 <span class="vr">accesorios</span> <span class="oc">=</span> [<span class="st">"Radio"</span>, <span class="st">"Aros"</span>]
 <span class="vr">tiene</span> <span class="oc">=</span> <span class="st">"Sí"</span> <span class="kw">if</span> <span class="vr">accesorios</span> <span class="kw">else</span> <span class="st">"No"</span>
 <span class="fn">print</span>(<span class="st">f"¿Tiene accesorios?: {tiene}"</span>)</pre>
-            <div class="out-area" id="o7"><span class="out-label">▶ Salida:</span></div>
-          </div>
-          <div class="info-box">
-            <h6><i class="bi bi-lightbulb me-1"></i>Tip</h6>
-            <p>El ternario de Python se lee de forma natural: "dame <em>este valor</em> <strong>si</strong> se cumple la condición, <strong>de lo contrario</strong> dame <em>este otro</em>". Es más legible que el <code>? :</code> de PHP.</p>
-          </div>
-        </div>
-
-        <!-- 8. PERTENENCIA -->
-        <div class="topic-card" id="pertenencia">
-          <div class="topic-title"><div class="topic-icon"><i class="bi bi-search"></i></div>8. Operadores de Pertenencia</div>
-          <div class="divider-line"></div>
-          <div class="theory-box">
-            <h6><i class="bi bi-book me-1"></i>Teoría</h6>
-            <p>Permiten verificar si un elemento está dentro de una secuencia (lista, tupla, string).</p>
-          </div>
-          <table class="op-table">
-            <thead><tr><th>Operador</th><th>Descripción</th><th>Ejemplo</th></tr></thead>
-            <tbody>
-              <tr><td><span class="op-badge">in</span></td><td>Devuelve True si el valor está presente.</td><td><code>"a" in "hola"</code> (True)</td></tr>
-              <tr><td><span class="op-badge">not in</span></td><td>Devuelve True si el valor NO está.</td><td><code>5 not in [1,2,3]</code> (True)</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- 8. FLASK -->
-        <div class="topic-card" id="flask">
-          <div class="topic-title"><div class="topic-icon"><i class="bi bi-flask"></i></div>9. Ejemplos Típicos dentro de Flask</div>
-          <div class="divider-line"></div>
-          <div class="theory-box">
-            <h6><i class="bi bi-book me-1"></i>Contexto</h6>
-            <p>En Flask, muchas comparaciones y validaciones se hacen con <code>request.form</code> y <code>request.files</code>. Los operadores vistos en los temas anteriores se aplican directamente sobre los datos que llegan del formulario HTML.</p>
-            <p>Dos patrones muy frecuentes son: la <strong>concatenación limpia con <code>join</code></strong> para construir listas de selecciones de checkboxes, y el uso de <code>is not None</code> para validar archivos subidos.</p>
-          </div>
-          <div class="code-wrapper">
-            <div class="code-header">
-              <div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div>
-              <span class="code-label">flask_accesorios.py — Checkboxes + join + ternario</span>
-              <button class="btn-run" onclick="run('o8a')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                <div class="out-area" id="o7"><span class="out-label">▶ Salida:</span></div>
+              </div>
+              <div class="info-box">
+                <h6><i class="bi bi-lightbulb me-1"></i>Tip</h6>
+                <p>El ternario de Python se lee de forma natural: "dame <em>este valor</em> <strong>si</strong> se
+                  cumple la condición, <strong>de lo contrario</strong> dame <em>este otro</em>". Es más legible que el
+                  <code>? :</code> de PHP.
+                </p>
+              </div>
             </div>
-            <pre class="code-body"><span class="cm"># from flask import request  ← en Flask real</span>
+
+            <!-- 8. PERTENENCIA -->
+            <div class="topic-card" id="pertenencia">
+              <div class="topic-title">
+                <div class="topic-icon"><i class="bi bi-search"></i></div>8. Operadores de Pertenencia
+              </div>
+              <div class="divider-line"></div>
+              <div class="theory-box">
+                <h6><i class="bi bi-book me-1"></i>Teoría</h6>
+                <p>Permiten verificar si un elemento está dentro de una secuencia (lista, tupla, string).</p>
+              </div>
+              <table class="op-table">
+                <thead>
+                  <tr>
+                    <th>Operador</th>
+                    <th>Descripción</th>
+                    <th>Ejemplo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="op-badge">in</span></td>
+                    <td>Devuelve True si el valor está presente.</td>
+                    <td><code>"a" in "hola"</code> (True)</td>
+                  </tr>
+                  <tr>
+                    <td><span class="op-badge">not in</span></td>
+                    <td>Devuelve True si el valor NO está.</td>
+                    <td><code>5 not in [1,2,3]</code> (True)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 8. FLASK -->
+            <div class="topic-card" id="flask">
+              <div class="topic-title">
+                <div class="topic-icon"><i class="bi bi-flask"></i></div>9. Ejemplos Típicos dentro de Flask
+              </div>
+              <div class="divider-line"></div>
+              <div class="theory-box">
+                <h6><i class="bi bi-book me-1"></i>Contexto</h6>
+                <p>En Flask, muchas comparaciones y validaciones se hacen con <code>request.form</code> y
+                  <code>request.files</code>. Los operadores vistos en los temas anteriores se aplican directamente
+                  sobre los datos que llegan del formulario HTML.
+                </p>
+                <p>Dos patrones muy frecuentes son: la <strong>concatenación limpia con <code>join</code></strong> para
+                  construir listas de selecciones de checkboxes, y el uso de <code>is not None</code> para validar
+                  archivos subidos.</p>
+              </div>
+              <div class="code-wrapper">
+                <div class="code-header">
+                  <div class="code-dots">
+                    <div class="code-dot dot-r"></div>
+                    <div class="code-dot dot-y"></div>
+                    <div class="code-dot dot-g"></div>
+                  </div>
+                  <span class="code-label">flask_accesorios.py — Checkboxes + join + ternario</span>
+                  <button class="btn-run" onclick="run('o8a')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                </div>
+                <pre class="code-body"><span class="cm"># from flask import request  ← en Flask real</span>
 
 <span class="cm"># Simulamos request.form.get()</span>
 <span class="kw">class</span> <span class="fn">MockForm</span>:
@@ -756,15 +1692,19 @@
 
 <span class="fn">print</span>(<span class="st">f"Accesorios seleccionados: {accesorios_html}"</span>)
 <span class="fn">print</span>(<span class="st">f"¿Tiene accesorios?:       {tiene_accesorios}"</span>)</pre>
-            <div class="out-area" id="o8a"><span class="out-label">▶ Salida:</span></div>
-          </div>
-          <div class="code-wrapper">
-            <div class="code-header">
-              <div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div>
-              <span class="code-label">flask_archivos.py — Validación con is not None</span>
-              <button class="btn-run" onclick="run('o8b')"><i class="bi bi-play-fill"></i> Ejecutar</button>
-            </div>
-            <pre class="code-body"><span class="cm"># from flask import request  ← en Flask real</span>
+                <div class="out-area" id="o8a"><span class="out-label">▶ Salida:</span></div>
+              </div>
+              <div class="code-wrapper">
+                <div class="code-header">
+                  <div class="code-dots">
+                    <div class="code-dot dot-r"></div>
+                    <div class="code-dot dot-y"></div>
+                    <div class="code-dot dot-g"></div>
+                  </div>
+                  <span class="code-label">flask_archivos.py — Validación con is not None</span>
+                  <button class="btn-run" onclick="run('o8b')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+                </div>
+                <pre class="code-body"><span class="cm"># from flask import request  ← en Flask real</span>
 
 <span class="cm"># Simulamos request.files.get()</span>
 <span class="kw">class</span> <span class="fn">MockFile</span>:
@@ -787,140 +1727,345 @@
 
 <span class="fn">print</span>(<span class="st">"Caso 3 — foto válida:"</span>)
 <span class="fn">procesar_foto</span>(<span class="fn">MockFile</span>(<span class="st">"perfil.jpg"</span>))</pre>
-            <div class="out-area" id="o8b"><span class="out-label">▶ Salida:</span></div>
-          </div>
-          <div class="info-box">
-            <h6><i class="bi bi-lightbulb me-1"></i>Resumen de patrones Flask</h6>
-            <p>Los operadores de Python se combinan constantemente en Flask: <code>is not None</code> (identidad + negación), <code>and</code>/<code>or</code> para validaciones compuestas, <code>join</code> para concatenar listas de checkboxes, y el <strong>ternario</strong> para asignar valores condicionales en una sola línea.</p>
-          </div>
+                <div class="out-area" id="o8b"><span class="out-label">▶ Salida:</span></div>
+              </div>
+              <div class="info-box">
+                <h6><i class="bi bi-lightbulb me-1"></i>Resumen de patrones Flask</h6>
+                <p>Los operadores de Python se combinan constantemente en Flask: <code>is not None</code> (identidad +
+                  negación), <code>and</code>/<code>or</code> para validaciones compuestas, <code>join</code> para
+                  concatenar listas de checkboxes, y el <strong>ternario</strong> para asignar valores condicionales en
+                  una sola línea.</p>
+              </div>
 
-          <!-- NAV BUTTONS -->
-          <div class="nav-btns">
-            <a href="teoria_tiposDatos.html" class="btn-prev"><i class="bi bi-arrow-left"></i> Anterior: Tipos de Datos</a>
-            <a href="teoria_estructuras_de_control.html" class="btn-next">Siguiente: Estructuras de Control <i class="bi bi-arrow-right"></i></a>
+              <!-- NAV BUTTONS -->
+              <div class="nav-btns">
+                <a href="teoria_tiposDatos.html" class="btn-prev"><i class="bi bi-arrow-left"></i> Anterior: Tipos de
+                  Datos</a>
+                <a href="teoria_estructuras_de_control.html" class="btn-next">Siguiente: Estructuras de Control <i
+                    class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+
+
+
+            <!-- CUESTIONARIO -->
+            <div class="topic-card" id="cuestionario">
+              <div class="topic-title">
+                <div class="topic-icon"><i class="bi bi-patch-question-fill"></i></div>10. Demuestra lo aprendido
+              </div>
+              <div class="divider-line"></div>
+
+              <div class="quiz-card p-4 mx-auto"
+                style="background: white; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 700px;">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <span class="badge bg-primary rounded-pill">Pregunta <span id="numPregunta">1</span> de <span
+                      id="totalPreguntas">7</span></span>
+                </div>
+
+                <h5 class="fw-bold mb-4" id="preguntaTitulo">Cargando pregunta...</h5>
+
+                <div class="d-grid gap-2 mb-4" id="opciones">
+                  <!-- Opciones se generan con JS -->
+                </div>
+
+                <div id="feedback" class="alert d-none" role="alert"></div>
+                <div id="solucion" class="alert alert-info d-none mt-2" role="alert"></div>
+
+                <button id="btnSiguiente" class="btn btn-primary w-100 d-none" onclick="siguientePregunta()">
+                  Siguiente Pregunta <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-modern">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h4 class="footer-brand">
+            <i class="bi bi-braces me-2"></i>Python Academy
+          </h4>
+          <p class="footer-text">
+            Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
+            apasionados por la programación.
+          </p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-twitter-x"></i></a>
           </div>
         </div>
 
-      </div>
-    </div>
-  </div>
-</section>
-</main>
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Navegación</h5>
+          <ul class="footer-links">
+            <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
+            <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
+            <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> Temas Avanzados</a>
+            </li>
 
-<!-- FOOTER -->
-<footer class="footer-modern">
-  <div class="container">
-    <div class="row g-5">
-      <div class="col-lg-4">
-        <h4 class="footer-brand"><i class="bi bi-braces me-2"></i>Python Academy</h4>
-        <p class="footer-text">Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes apasionados por la programación.</p>
-        <div class="d-flex gap-3 mt-4">
-          <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
-          <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-linkedin"></i></a>
-          <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-twitter-x"></i></a>
+            <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> Explicación CRUD</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Temas Populares</h5>
+          <ul class="footer-links">
+            <li><a href="../teoria/teoria_infraestructura.html"><i class="bi bi-chevron-right"></i> Backend</a></li>
+            <li><a href="../teoria/teoria_tiposDatos.html"><i class="bi bi-chevron-right"></i> Tipos de Datos</a></li>
+            <li><a href="../teoria/teoria_poo.html"><i class="bi bi-chevron-right"></i> POO</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Tecnologías</h5>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
+            <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
+            <span class="badge bg-warning bg-opacity-25 text-white px-3 py-2">MySQL</span>
+            <span class="badge bg-info bg-opacity-25 text-white px-3 py-2">HTML5</span>
+            <span class="badge bg-danger bg-opacity-25 text-white px-3 py-2">Bootstrap</span>
+          </div>
         </div>
       </div>
-      <div class="col-lg-2 col-md-4">
-        <h5 class="footer-title">Navegación</h5>
-        <ul class="footer-links">
-          <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
-          <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
-          <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
-          <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-3 col-md-4">
-        <h5 class="footer-title">Temas Populares</h5>
-        <ul class="footer-links">
-          <li><a href="../teoria/teoria_infraestructura.html"><i class="bi bi-chevron-right"></i> Backend</a></li>
-          <li><a href="../teoria/teoria_tiposDatos.html"><i class="bi bi-chevron-right"></i> Tipos de Datos</a></li>
-          <li><a href="../teoria/teoria_poo.html"><i class="bi bi-chevron-right"></i> POO</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-3 col-md-4">
-        <h5 class="footer-title">Tecnologías</h5>
-        <div class="d-flex flex-wrap gap-2 mt-3">
-          <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
-          <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
-          <span class="badge bg-warning bg-opacity-25 text-white px-3 py-2">MySQL</span>
-          <span class="badge bg-info bg-opacity-25 text-white px-3 py-2">HTML5</span>
-          <span class="badge bg-danger bg-opacity-25 text-white px-3 py-2">Bootstrap</span>
-        </div>
+
+      <div class="footer-bottom">
+        <p class="mb-0">
+          © 2026 <strong>Python Academy</strong>. Proyecto académico • Flask & Python
+        </p>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p class="mb-0">© 2026 <strong>Python Academy</strong>. Proyecto académico • Flask &amp; Python</p>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-/* SIMULADOR DE EJECUCIÓN */
-const OUTPUTS = {
-  o1:["Suma:             a + b  = 13","Resta:            a - b  = 7","Multiplicación:   a * b  = 30","División float:   a / b  = 3.3333333333333335","División entera:  a // b = 3","Módulo/Residuo:   a % b  = 1","Potencia:         a ** b = 1000","Negación:         -a     = -10"],
-  o2:["Asignación simple: a = 10","Suma-asignación:   a += b  → 15","Resta-asignación:  a -= b  → 5","Mult.-asignación:  a *= b  → 50","Div.-asignación:   a /= b  → 2.0","Mód.-asignación:   a %= b  → 0","Simula ++a:        a += 1  → 11","Simula --a:        a -= 1  → 9"],
-  o3:["a == b  (igualdad)       → False","a != b  (diferencia)     → True","a > b   (mayor que)      → False","a < b   (menor que)      → True","a >= 10 (mayor o igual)  → True","a <= 10 (menor o igual)  → True","","x is None  (identidad)   → True","x == None  (igualdad)    → True","","Error: A debe ser un número","A válido: 10"],
-  o4:["a > b                    → True","licencia                 → True","(a>b) and licencia       → True","(a>b) or  licencia       → True","not (a > b)              → False","(a>b) XOR licencia (^)   → False","","--- Cortocircuito ---","False and True  → False","True  or  False → True"],
-  o5:["Valor inicial: 10","a += 1  (simula ++a): 11","a -= 1  (simula --a): 10","","Contador con += 1:","  Vuelta 1: contador = 1","  Vuelta 2: contador = 2","  Vuelta 3: contador = 3","  Vuelta 4: contador = 4","  Vuelta 5: contador = 5"],
-  o6:["Concatenación (+):   Hola Mundo","F-string:            El resultado de 10 + 5 es 15","Usando +=:           Python es genial","join (lista):        Radio, Aros, Luces LED","Repetición (*):      ─────────────────────────"],
-  o7:["Edad 17: Menor de edad","Edad 25: Mayor de edad","Campo vacío:  Edad no ingresada","Nota 75: Aprobado","¿Tiene accesorios?: Sí"],
-  o8a:["Accesorios seleccionados: Radio, Aros","¿Tiene accesorios?:       Sí"],
-  o8b:["Caso 1 — foto = None:","  ✗ No se subió ningún archivo o el nombre está vacío","Caso 2 — foto con nombre vacío:","  ✗ No se subió ningún archivo o el nombre está vacío","Caso 3 — foto válida:","  ✓ Archivo válido recibido: perfil.jpg"]
-};
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    /* SIMULADOR DE EJECUCIÓN */
+    const OUTPUTS = {
+      o1: ["Suma:             a + b  = 13", "Resta:            a - b  = 7", "Multiplicación:   a * b  = 30", "División float:   a / b  = 3.3333333333333335", "División entera:  a // b = 3", "Módulo/Residuo:   a % b  = 1", "Potencia:         a ** b = 1000", "Negación:         -a     = -10"],
+      o2: ["Asignación simple: a = 10", "Suma-asignación:   a += b  → 15", "Resta-asignación:  a -= b  → 5", "Mult.-asignación:  a *= b  → 50", "Div.-asignación:   a /= b  → 2.0", "Mód.-asignación:   a %= b  → 0", "Simula ++a:        a += 1  → 11", "Simula --a:        a -= 1  → 9"],
+      o3: ["a == b  (igualdad)       → False", "a != b  (diferencia)     → True", "a > b   (mayor que)      → False", "a < b   (menor que)      → True", "a >= 10 (mayor o igual)  → True", "a <= 10 (menor o igual)  → True", "", "x is None  (identidad)   → True", "x == None  (igualdad)    → True", "", "Error: A debe ser un número", "A válido: 10"],
+      o4: ["a > b                    → True", "licencia                 → True", "(a>b) and licencia       → True", "(a>b) or  licencia       → True", "not (a > b)              → False", "(a>b) XOR licencia (^)   → False", "", "--- Cortocircuito ---", "False and True  → False", "True  or  False → True"],
+      o5: ["Valor inicial: 10", "a += 1  (simula ++a): 11", "a -= 1  (simula --a): 10", "", "Contador con += 1:", "  Vuelta 1: contador = 1", "  Vuelta 2: contador = 2", "  Vuelta 3: contador = 3", "  Vuelta 4: contador = 4", "  Vuelta 5: contador = 5"],
+      o6: ["Concatenación (+):   Hola Mundo", "F-string:            El resultado de 10 + 5 es 15", "Usando +=:           Python es genial", "join (lista):        Radio, Aros, Luces LED", "Repetición (*):      ─────────────────────────"],
+      o7: ["Edad 17: Menor de edad", "Edad 25: Mayor de edad", "Campo vacío:  Edad no ingresada", "Nota 75: Aprobado", "¿Tiene accesorios?: Sí"],
+      o8a: ["Accesorios seleccionados: Radio, Aros", "¿Tiene accesorios?:       Sí"],
+      o8b: ["Caso 1 — foto = None:", "  ✗ No se subió ningún archivo o el nombre está vacío", "Caso 2 — foto con nombre vacío:", "  ✗ No se subió ningún archivo o el nombre está vacío", "Caso 3 — foto válida:", "  ✓ Archivo válido recibido: perfil.jpg"]
+    };
 
-function run(id){
-  const el=document.getElementById(id);
-  const btn=el.closest('.code-wrapper').querySelector('.btn-run');
-  btn.innerHTML='<i class="bi bi-hourglass-split"></i> Ejecutando...';
-  btn.style.background='linear-gradient(135deg,#6c757d,#495057)';
-  btn.disabled=true;
-  setTimeout(()=>{
-    const lines=OUTPUTS[id]||["Sin salida"];
-    el.innerHTML='<span class="out-label">▶ Salida:</span>';
-    lines.forEach((l,i)=>setTimeout(()=>{
-      const d=document.createElement('div');
-      d.textContent=l;
-      el.appendChild(d);
-    },i*60));
-    el.classList.add('show');
-    btn.innerHTML='<i class="bi bi-check-lg"></i> Ejecutado';
-    btn.style.background='linear-gradient(135deg,#28a745,#20c997)';
-    btn.disabled=false;
-    setTimeout(()=>{btn.innerHTML='<i class="bi bi-play-fill"></i> Ejecutar';},2200);
-  },700);
-}
-
-/* SIDEBAR SCROLL SPY */
-document.addEventListener('DOMContentLoaded',()=>{
-  const links=document.querySelectorAll('.sidebar-nav a');
-  const secs=[];
-  links.forEach(l=>{
-    const id=l.getAttribute('href').substring(1);
-    const s=document.getElementById(id);
-    if(s) secs.push({element:s,link:l});
-  });
-  function update(){
-    const y=window.scrollY+140;
-    let cur=secs[0];
-    secs.forEach(s=>{if(s.element.offsetTop<=y) cur=s;});
-    links.forEach(l=>l.classList.remove('active'));
-    if(cur){
-      cur.link.classList.add('active');
-      const idx=secs.indexOf(cur);
-      document.getElementById('progressBar').style.width=((idx+1)/secs.length*100)+'%';
+    function run(id) {
+      const el = document.getElementById(id);
+      const btn = el.closest('.code-wrapper').querySelector('.btn-run');
+      btn.innerHTML = '<i class="bi bi-hourglass-split"></i> Ejecutando...';
+      btn.style.background = 'linear-gradient(135deg,#6c757d,#495057)';
+      btn.disabled = true;
+      setTimeout(() => {
+        const lines = OUTPUTS[id] || ["Sin salida"];
+        el.innerHTML = '<span class="out-label">▶ Salida:</span>';
+        lines.forEach((l, i) => setTimeout(() => {
+          const d = document.createElement('div');
+          d.textContent = l;
+          el.appendChild(d);
+        }, i * 60));
+        el.classList.add('show');
+        btn.innerHTML = '<i class="bi bi-check-lg"></i> Ejecutado';
+        btn.style.background = 'linear-gradient(135deg,#28a745,#20c997)';
+        btn.disabled = false;
+        setTimeout(() => { btn.innerHTML = '<i class="bi bi-play-fill"></i> Ejecutar'; }, 2200);
+      }, 700);
     }
-  }
-  links.forEach(l=>l.addEventListener('click',e=>{
-    e.preventDefault();
-    const t=document.getElementById(l.getAttribute('href').substring(1));
-    if(t) window.scrollTo({top:t.offsetTop-90,behavior:'smooth'});
-  }));
-  window.addEventListener('scroll',update);
-  update();
-});
-</script>
-<script src="../static/assets/js/navbar-nested.js"></script>
-</body>
-</html>
 
+    /* SIDEBAR SCROLL SPY */
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.sidebar-nav a');
+      const secs = [];
+      links.forEach(l => {
+        const id = l.getAttribute('href').substring(1);
+        const s = document.getElementById(id);
+        if (s) secs.push({ element: s, link: l });
+      });
+      function update() {
+        const y = window.scrollY + 140;
+        let cur = secs[0];
+        secs.forEach(s => { if (s.element.offsetTop <= y) cur = s; });
+        links.forEach(l => l.classList.remove('active'));
+        if (cur) {
+          cur.link.classList.add('active');
+          const idx = secs.indexOf(cur);
+          document.getElementById('progressBar').style.width = ((idx + 1) / secs.length * 100) + '%';
+        }
+      }
+      links.forEach(l => l.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.getElementById(l.getAttribute('href').substring(1));
+        if (t) window.scrollTo({ top: t.offsetTop - 90, behavior: 'smooth' });
+      }));
+      window.addEventListener('scroll', update);
+      update();
+    });
+  </script>
+  <script>
+    /* QUIZ LOGIC */
+    const preguntasOperadores = [
+      {
+        titulo: "¿Cuál es el resultado de 10 // 3 en Python?",
+        opciones: [
+          { texto: "3.3333", correcta: false },
+          { texto: "3", correcta: true },
+          { texto: "1", correcta: false }
+        ],
+        solucion: "El operador // realiza una división entera, descartando la parte decimal."
+      },
+      {
+        titulo: "¿Qué operador se usa para elevar un número a una potencia?",
+        opciones: [
+          { texto: "^", correcta: false },
+          { texto: "pow", correcta: false },
+          { texto: "**", correcta: true }
+        ],
+        solucion: "En Python, la potencia se calcula con el operador ** (ej: 2 ** 3 = 8). El operador ^ es para XOR bit a bit."
+      },
+      {
+        titulo: "¿Existe el operador ++ (incremento) en Python?",
+        opciones: [
+          { texto: "Sí, funciona igual que en C++", correcta: false },
+          { texto: "Sí, pero solo para enteros", correcta: false },
+          { texto: "No, se debe usar += 1", correcta: true }
+        ],
+        solucion: "Python no tiene operadores de incremento/decremento (++ / --). Se usa la asignación aumentada += 1."
+      },
+      {
+        titulo: "¿Qué diferencia hay entre == e is?",
+        opciones: [
+          { texto: "Son exactamente lo mismo", correcta: false },
+          { texto: "== compara valores, is compara identidad (memoria)", correcta: true },
+          { texto: "is compara valores, == compara identidad", correcta: false }
+        ],
+        solucion: "== verifica si los valores son iguales, mientras que is verifica si son el mismo objeto en memoria (muy usado con None)."
+      },
+      {
+        titulo: "¿Cuál es la sintaxis correcta del operador ternario?",
+        opciones: [
+          { texto: "condicion ? valor_si : valor_no", correcta: false },
+          { texto: "valor_si if condicion else valor_no", correcta: true },
+          { texto: "if condicion then valor_si else valor_no", correcta: false }
+        ],
+        solucion: "Python usa la estructura 'valor_A if condicion else valor_B'."
+      },
+      {
+        titulo: "¿Qué operador usarías para verificar si un elemento está en una lista?",
+        opciones: [
+          { texto: "exists", correcta: false },
+          { texto: "inside", correcta: false },
+          { texto: "in", correcta: true }
+        ],
+        solucion: "El operador de pertenencia 'in' devuelve True si el elemento se encuentra en la secuencia."
+      },
+      {
+        titulo: "¿Qué devuelve la expresión 'True or False'?",
+        opciones: [
+          { texto: "False", correcta: false },
+          { texto: "True", correcta: true },
+          { texto: "None", correcta: false }
+        ],
+        solucion: "El operador 'or' devuelve True si al menos uno de los operandos es verdadero."
+      }
+    ];
+
+    const preguntas = preguntasOperadores;
+    let indice = 0;
+    let puntaje = 0;
+    let respondida = false;
+
+    document.getElementById("totalPreguntas").textContent = preguntas.length;
+
+    function cargarPregunta() {
+      const p = preguntas[indice];
+      respondida = false;
+      document.getElementById("numPregunta").textContent = indice + 1;
+      document.getElementById("preguntaTitulo").textContent = p.titulo;
+
+      const opcionesDiv = document.getElementById("opciones");
+      opcionesDiv.innerHTML = "";
+
+      p.opciones.forEach(op => {
+        const btn = document.createElement("button");
+        btn.className = "quiz-option";
+        btn.textContent = op.texto;
+        btn.onclick = () => responder(btn, op.correcta, p.solucion);
+        opcionesDiv.appendChild(btn);
+      });
+
+      document.getElementById("feedback").classList.add("d-none");
+      document.getElementById("solucion").classList.add("d-none");
+      document.getElementById("btnSiguiente").classList.add("d-none");
+    }
+
+    function responder(btn, correcta, solucion) {
+      if (respondida) return;
+      respondida = true;
+
+      const feedback = document.getElementById("feedback");
+      const solucionDiv = document.getElementById("solucion");
+
+      document.querySelectorAll(".quiz-option").forEach(b => b.disabled = true);
+
+      if (correcta) {
+        puntaje++;
+        btn.classList.add("correct");
+        feedback.className = "alert alert-success mt-3";
+        feedback.innerHTML = '<i class="bi bi-check-circle-fill text-success"></i> Respuesta correcta.';
+      } else {
+        btn.classList.add("wrong");
+        feedback.className = "alert alert-warning mt-3";
+        feedback.textContent = 'Respuesta incorrecta.';
+        solucionDiv.textContent = solucion;
+        solucionDiv.classList.remove("d-none");
+      }
+
+      feedback.classList.remove("d-none");
+      document.getElementById("btnSiguiente").classList.remove("d-none");
+    }
+
+    function siguientePregunta() {
+      indice++;
+      if (indice < preguntas.length) {
+        cargarPregunta();
+      } else {
+        mostrarResultado();
+      }
+    }
+
+    function mostrarResultado() {
+      const nota = Math.round((puntaje / preguntas.length) * 10);
+      document.querySelector(".quiz-card").innerHTML = `
+    <div class="text-center">
+      <h4 class="fw-bold mb-3"><i class="bi bi-trophy-fill text-warning"></i> Resultado Final</h4>
+      <div class="display-4 fw-bold text-primary mb-2">${nota}/10</div>
+      <p class="text-muted">Aciertos: ${puntaje} de ${preguntas.length}</p>
+      
+      <div class="alert ${nota >= 7 ? 'alert-success' : 'alert-warning'} mt-4">
+        ${nota >= 7 ? '¡Excelente! Dominas los operadores en Python.' : 'Buen intento. Revisa la lección y prueba otra vez.'}
+      </div>
+      
+      <button class="btn btn-outline-primary mt-3" onclick="location.reload()">
+         Intentar de nuevo
+      </button>
+    </div>
+  `;
+    }
+
+    // Iniciar Cuestionario al cargar
+    cargarPregunta();
+  </script>
+  <script src="../static/assets/js/navbar-nested.js"></script>
+</body>
+
+</html>
