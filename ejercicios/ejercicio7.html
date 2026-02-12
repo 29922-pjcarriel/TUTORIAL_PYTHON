@@ -1,8 +1,5 @@
 
 <!DOCTYPE html>
->>>>>>> c5a1852cbd487177481a33340f39584450d526ab
-=======
-﻿<!DOCTYPE html>
 
 <html lang="es">
 
@@ -390,6 +387,114 @@ for i in range(1, numero + 1):
               Consejo: No se salten pasos. Explicar "por qué" es más importante que solo pegar código.
             </p>
           </div>
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-3">Archivos del proyecto</h4>
+
+<pre class="code-box">
+01.Clase7_Arreglos/
+│
+├── app.py
+│
+└── templates/
+    └── index.html
+</pre>
+
+  <p class="hint mb-0">
+    Crea la estructura anterior y copia el código de cada archivo.
+  </p>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: app.py</h5>
+
+<pre class="code-box"><code>from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/", methods=["GET"])
+@app.route("/&lt;path:subruta&gt;", methods=["GET"])  # por tu lanzador
+def index(subruta=None):
+    # Equivalentes a tu PHP
+    Color = ["BLANCO", "ROJO", "VERDE"]
+    C = ["BLANCO", "ROJO", "VERDE"]
+    datos = ["Juan", 44, 1500.25]
+
+    ciud = ["PICHINCHA", "CAYAMBE", "RUMIÑAHUI", "PORTOVIEJO"]
+
+    ciudades = [
+        ["PICHINCHA", "CAYAMBE", "RUMIÑAHUI"],
+        ["GUAYAQUIL", "DAULE"],
+        ["CUENCA", "GUALACEO"],
+        ["PORTOVIEJO", "MANABI", "ROCAFUERTE", "CHONE", "JIPIJAPA"],
+    ]
+
+    return render_template(
+        "index.html",
+        Color=Color,
+        C=C,
+        datos=datos,
+        ciud=ciud,
+        ciudades=ciudades
+    )
+
+if __name__ == "__main__":
+    app.run(debug=True)
+</code></pre>
+
+  <p class="hint mb-0">
+    Este archivo crea arreglos y una matriz (lista de listas) y los envía al template con Jinja.
+  </p>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: templates/index.html</h5>
+
+<pre class="code-box"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;ARREGLOS&lt;/title&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;h2&gt;IMPRIMIR A LA CRIOLLA&lt;/h2&gt;
+
+  {% for fila in ciudades %}
+    {% for item in fila %}
+      {{ item }}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+    {% endfor %}
+    &lt;br&gt;
+  {% endfor %}
+
+  &lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;h2&gt;IMPRIME LA ESTRUCTURA (tipo print_r)&lt;/h2&gt;
+  &lt;pre&gt;{{ ciudades }}&lt;/pre&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+  <p class="hint mb-0">
+    Aquí se recorre la matriz con dos for (fila e item) y también se imprime completa con &lt;pre&gt;.
+  </p>
+</div>
+
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-2">Ejecutar el proyecto</h4>
+
+<pre class="code-box"><code>pip install flask
+python app.py
+</code></pre>
+
+  <p class="hint mb-0">
+    Abre en el navegador: <b>http://127.0.0.1:5000/ejercicios/ejercicio7</b>
+  </p>
+</div>
+
+
+
 
           <!-- BOTON EJECUTAR -->
           <div class="ej-actions">
@@ -399,22 +504,26 @@ for i in range(1, numero + 1):
           </div>
 
           <!-- FORMULARIO / SALIDA (sale después del botón) -->
+          <!-- SIMULACIÓN JS -->
+          <div id="formulario" class="form-shell">
+            <div class="form-card text-center">
+
+              <h4 class="fw-bold mb-3">Simulación (JavaScript) - Arreglos</h4>
+
+              <button class="btn btn-success mb-3" onclick="mostrarArreglos()">
+                Mostrar Arreglos
+              </button>
+
+              <div id="resultadoArreglos" class="alert alert-info d-none text-start"></div>
+
+            </div>
+          </div>
 
 
           <!-- ANTERIOR / SIGUIENTE -->
         </div>
       </div>
     </section>
-    <!-- NOTA: PARA EJECUTAR NECESITA PYTHON -->
-    <div class="python-notice">
-      <h5><i class="bi bi-terminal me-2"></i>¿Cómo ejecutar este ejercicio?</h5>
-      <p class="mb-2">Este ejercicio requiere el servidor Flask ejecutándose para funcionar correctamente.</p>
-      <ol class="mb-0">
-        <li>Abre una terminal en la carpeta <code>Python</code></li>
-        <li>Ejecuta: <code>python app.py</code></li>
-        <li>Abre en tu navegador: <code>http://127.0.0.1:5000/ejercicios/ejercicio7</code></li>
-      </ol>
-    </div>
 
     <!-- ANTERIOR / SIGUIENTE -->
     <div class="ej-nav-bottom">
@@ -505,6 +614,37 @@ for i in range(1, numero + 1):
       offset: 50
     });
   </script>
+
+  <script>
+function mostrarArreglos() {
+
+  // Simulación de los datos del Flask
+  const ciudades = [
+    ["PICHINCHA", "CAYAMBE", "RUMIÑAHUI"],
+    ["GUAYAQUIL", "DAULE"],
+    ["CUENCA", "GUALACEO"],
+    ["PORTOVIEJO", "MANABI", "ROCAFUERTE", "CHONE", "JIPIJAPA"]
+  ];
+
+  let salida = "<strong>Impresión de la matriz:</strong><br><br>";
+
+  // Simula los for anidados de Jinja
+  ciudades.forEach(fila => {
+    fila.forEach(item => {
+      salida += item + " &nbsp;&nbsp;&nbsp;";
+    });
+    salida += "<br>";
+  });
+
+  salida += "<br><strong>Estructura completa:</strong><br>";
+  salida += JSON.stringify(ciudades, null, 2);
+
+  const div = document.getElementById("resultadoArreglos");
+  div.innerHTML = salida;
+  div.classList.remove("d-none");
+}
+</script>
+
 </body>
 
 </html>
