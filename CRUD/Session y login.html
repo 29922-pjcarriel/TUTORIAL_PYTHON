@@ -1,96 +1,97 @@
-﻿ï»¿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Session y login Â· Python Academy</title>
-    <meta name="description" content="ImplementaciÃ³n de sesiones y autenticaciÃ³n de usuarios.">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Session y login · Python Academy</title>
+  <meta name="description" content="Ejercicios prácticos de Sesiones y Login con Flask y MySQL.">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link href="../static/assets/css/main.css" rel="stylesheet">
-    <link href="../static/assets/css/custom.css" rel="stylesheet">
-    <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+  <link href="../static/assets/css/main.css" rel="stylesheet">
+  <link href="../static/assets/css/custom.css" rel="stylesheet">
+  <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+  <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
 
-    <style>
-        .hero-crud {
-            background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
-            padding: 100px 0 60px;
-            color: white;
-        }
+  <style>
+    .hero-crud {
+      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+      padding: 120px 0 80px;
+      color: white;
+    }
 
-        .crud-panel {
-            border-radius: 20px;
-            background: white;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            margin-top: -40px;
-            position: relative;
-            z-index: 10;
-        }
+    .crud-panel {
+      border-radius: 20px;
+      background: white;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      margin-top: -40px;
+      position: relative;
+      z-index: 10;
+    }
 
-        .code-box {
-            background: #0f172a;
-            color: #e2e8f0;
-            padding: 20px;
-            border-radius: 12px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.9rem;
-            overflow-x: auto;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .code-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 12px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            background: #000;
-            margin: 30px 0;
-        }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #000;
+      margin: 30px 0;
+    }
 
-        .video-container iframe,
-        .video-container .video-placeholder {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%);
-        }
+    .video-container iframe,
+    .video-container .video-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    }
 
-        .section-title {
-            border-left: 4px solid #8b5cf6;
-            padding-left: 15px;
-            margin: 30px 0 20px;
-            font-weight: 700;
-            color: #1e293b;
-        }
-    </style>
+    .section-title {
+      border-left: 4px solid #8b5cf6;
+      padding-left: 15px;
+      margin: 30px 0 20px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Page Loader -->
-    <div class="page-loader">
-        <div class="loader-spinner"></div>
-    </div>
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-spinner"></div>
+  </div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
         <i class="bi bi-braces me-2"></i>Python Academy
@@ -127,7 +128,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver
+                  todo
                   el temario</a></li>
             </ul>
           </li>
@@ -180,7 +182,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver todos los ejercicios</a></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver
+                  todos los ejercicios</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -224,7 +227,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i
+                    class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -237,95 +241,138 @@
     </div>
   </nav>
 
-    <main>
-        <section class="hero-crud text-center">
-            <div class="container">
-                <span class="badge bg-light text-primary px-3 py-2 rounded-pill mb-3">MÃ³dulo Seguridad</span>
-                <h1 class="display-4 fw-bold">Session y Login</h1>
-                <p class="lead opacity-75">AutenticaciÃ³n y GestiÃ³n de Sesiones Seguras.</p>
-            </div>
-        </section>
+  <main>
+    <section class="hero-crud text-center">
+      <div class="container">
+        <span class="badge bg-light text-primary px-3 py-2 rounded-pill mb-3">Módulo Seguridad</span>
+        <h1 class="display-4 fw-bold">Session y Login</h1>
+        <p class="lead opacity-75">Autenticación y Gestión de Sesiones.</p>
+      </div>
+    </section>
 
-        <section class="container mb-5">
-            <div class="crud-panel" data-aos="fade-up">
+    <section class="container mb-5">
+      <div class="crud-panel" data-aos="fade-up">
 
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <a href="../explicacion_crud.html" class="btn btn-outline-secondary btn-sm rounded-pill">
-                        <i class="bi bi-arrow-left me-1"></i> Volver a CRUD
-                    </a>
-                </div>
-
-                <h3 class="section-title">1. IntroducciÃ³n a Sesiones</h3>
-                <p>Las sesiones nos permiten mantener el estado del usuario a travÃ©s de mÃºltiples peticiones HTTP. Es
-                    fundamental para crear Ã¡reas protegidas dentro de nuestra aplicaciÃ³n.</p>
-
-                <h3 class="section-title">2. ImplementaciÃ³n del Login</h3>
-                <p>Verificaremos las credenciales del usuario y utilizaremos el objeto <code>session</code> de Flask
-                    para marcar al usuario como autenticado.</p>
-
-                <h3 class="section-title">3. ExplicaciÃ³n del CÃ³digo</h3>
-                <p>Manejo de sesiones en Flask:</p>
-
-                <pre class="code-box"><code># Ejemplo de Login y SesiÃ³n
-from flask import session, redirect, url_for
-
-app.secret_key = 'mi_clave_secreta_super_segura'
-
-@app.route('/login', methods=['POST'])
-def login():
-    usuario = request.form['usuario']
-    clave = request.form['clave']
-    
-    if usuario == 'admin' and clave == '1234':
-        session['usuario'] = usuario
-        return redirect(url_for('dashboard'))
-    return "Acceso denegado"
-
-@app.route('/logout')
-def logout():
-    session.pop('usuario', None)
-    return redirect(url_for('index'))</code></pre>
-
-                <h3 class="section-title">4. Video de EjecuciÃ³n</h3>
-                <p>Aprende a proteger tus rutas y gestionar el cierre de sesiÃ³n:</p>
-
-                <div class="video-container">
-                    <div class="video-placeholder">
-                        <div>
-                            <i class="bi bi-play-circle fs-1 mb-2"></i>
-                            <h4>[Video Placeholder]</h4>
-                            <p>AquÃ­ se insertarÃ¡ el video explicativo de Login y Session</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-between mt-5 pt-4 border-top">
-                    <a href="Vehiculo-Parte III.html" class="btn btn-outline-primary rounded-pill px-4">
-                        <i class="bi bi-chevron-left me-1"></i> Anterior: Parte III
-                    </a>
-                    <button class="btn btn-primary rounded-pill px-4" disabled>
-                        Finalizar curso <i class="bi bi-check-circle ms-1"></i>
-                    </button>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer-modern py-5">
-        <div class="container text-center">
-            <p class="mb-0">Â© 2026 Python Academy - MÃ³dulo CRUD</p>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <a href="../explicacion_crud.html" class="btn btn-outline-secondary btn-sm rounded-pill">
+            <i class="bi bi-arrow-left me-1"></i> Volver a CRUD
+          </a>
         </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../static/assets/js/effects.js"></script>
+        <!-- EJERCICIO 1 -->
+        <h3 class="section-title">Ejercicio 1: Gestión de Sesiones (Notebooks)</h3>
+
+        <p>
+          Este primer ejercicio se centra exclusivamente en el <b>manejo de variables de sesión</b> en Flask.
+          No utilizamos base de datos ni validación de usuarios; simplemente seleccionamos un producto y lo mantenemos
+          en la memoria de la sesión.
+        </p>
+
+        <div class="alert alert-secondary mt-3">
+          <b>Objetivo:</b> Seleccionar una marca en la página principal y que el sistema "recuerde" esta selección en la
+          página de detalles, persistiendo la información durante la navegación.
+        </div>
+
+        <h5 class="mt-4 mb-2 fw-bold text-primary"><i class="bi bi-code-slash me-2"></i>Componentes de este Ejercicio
+        </h5>
+        <ul>
+          <li><b>app.py:</b> Script simple que configura <code>session["marca_seleccionada"]</code>.</li>
+          <li><b>templates/index.html:</b> Formulario de selección de marca.</li>
+          <li><b>templates/verNotebook.html:</b> Vista que recupera la variable <code>session</code>.</li>
+        </ul>
+
+        <div class="video-container mt-4">
+          <div class="video-placeholder">
+            <div>
+              <i class="bi bi-play-circle fs-1 mb-2"></i>
+              <h4>[Video: Ejercicio Sesiones]</h4>
+              <p>Explicación del ejercicio básico de persistencia de datos</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5">
+
+        <!-- EJERCICIO 2 -->
+        <h3 class="section-title">Ejercicio 2: Login con MySQL</h3>
+
+        <p>
+          Este segundo ejercicio es independiente del anterior. Aquí implementamos un sistema completo de
+          <b>Autenticación de Usuarios</b>
+          utilizando una base de datos MySQL (<code>sesionesbd</code>) y una estructura de archivos más organizada.
+        </p>
+
+        <h5 class="mt-4 mb-2 fw-bold text-primary"><i class="bi bi-folder2-open me-2"></i>Estructura de Archivos
+          (Ejercicio Login)</h5>
+        <p>Organizamos el código separando clases, paginas (vistas) y controlador:</p>
+        <div class="code-box">
+          <pre class="m-0">
+|-- app.py              # Controlador Principal (Login + MySQL)
+|
+|-- paginas/            # Carpeta para las Vistas HTML
+|   |-- index.html      # Página de Bienvenida / Menú
+|   |-- login.html      # Formulario de Acceso
+|   |-- home.html       # Página Principal (Dashboard)
+|   |-- error.html      # Pantalla de Error de Login
+|
+|-- clases11/           # Clases de Negocio
+|   |-- notebook.py     # Clase 'Notebook'
+</pre>
+        </div>
+
+        <h5 class="mt-4 mb-2 fw-bold text-primary"><i class="bi bi-diagram-3 me-2"></i>Lógica de Funcionamiento</h5>
+        <ol>
+          <li><b>Inicio:</b> El usuario accede a la ruta <code>/</code> o <code>/login</code> para ver el formulario.
+          </li>
+          <li><b>Validación (MySQL):</b> Al enviar el formulario a <code>/validar</code>, Flask conecta con la base de
+            datos <code>sesionesbd</code>.</li>
+          <li><b>Verificación:</b>
+            <ul>
+              <li>Si existe el usuario: Se crea <code>session["usuario"]</code> y <code>session["login"] = True</code>.
+              </li>
+              <li>Si NO existe: Se muestra la vista <code>error.html</code>.</li>
+            </ul>
+          </li>
+          <li><b>Acceso:</b> Si el login es correcto, el sistema renderiza la vista protegida con los datos del usuario.
+          </li>
+        </ol>
+
+        <div class="video-container mt-4">
+          <div class="video-placeholder">
+            <div>
+              <i class="bi bi-play-circle fs-1 mb-2"></i>
+              <h4>[Video: Ejercicio Login]</h4>
+              <p>Explicación del sistema de Login con MySQL y estructura de carpetas</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+          <a href="Vehiculo-Parte III.html" class="btn btn-outline-primary rounded-pill px-4">
+            <i class="bi bi-chevron-left me-1"></i> Anterior: Parte III
+          </a>
+          <button class="btn btn-primary rounded-pill px-4" disabled>
+            Finalizar curso <i class="bi bi-check-circle ms-1"></i>
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-modern py-5">
+    <div class="container text-center">
+      <p class="mb-0">© 2026 Python Academy - Módulo CRUD</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../static/assets/js/effects.js"></script>
   <script src="../static/assets/js/navbar-nested.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-    </script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 
 </html>
-
