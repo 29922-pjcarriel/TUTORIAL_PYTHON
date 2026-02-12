@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Herencia · Python Academy</title>
-  <meta name="description" content="Ejercicio de herencia en POO.">
+  <meta name="description" content="Ejercicio práctico sobre Herencia en Programación Orientada a Objetos.">
 
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
@@ -120,6 +120,7 @@
       border-radius: 16px;
       padding: 18px;
       background: #fbfdff;
+      margin-bottom: 20px;
     }
 
     .code-box {
@@ -164,7 +165,6 @@
 </head>
 
 <body>
-      <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
@@ -308,7 +308,6 @@
   </nav>
 
   <main class="main">
-    <!-- HERO -->
     <section class="hero-ej">
       <div class="container text-center">
         <br></br>
@@ -320,315 +319,299 @@
 
         <span class="badge bg-primary mb-3">POO</span>
         <h1 class="display-5 mb-2">Herencia</h1>
-        <p class="lead text-muted">Ejercicio de herencia en POO.</p>
+        <p class="lead text-muted">Ejercicio de jerarquía de clases y reutilización de código.</p>
       </div>
     </section>
-    <!-- HERO -->
 
-
-    <!-- CONTENIDO -->
     <section class="ej-wrap">
       <div class="container">
         <div class="ej-panel">
 
-          <!-- ENUNCIADO (EDITAR AQUÍ) -->
-          <div class="explain-card mb-4">
+          <div class="explain-card">
+            <h4 class="fw-bold mb-2">¿Qué es la Herencia en POO?</h4>
+            <p>
+              La <strong>Herencia</strong> es un pilar fundamental de la POO que permite crear una nueva clase (clase hija) basada en una clase existente (clase padre). 
+              La clase hija hereda todos los atributos y métodos de la clase padre, pudiendo además añadir nuevos comportamientos o modificar los existentes.
+            </p>
+          </div>
+
+          <div class="explain-card">
             <h4 class="fw-bold mb-2">Enunciado</h4>
-            <p class="mb-2">
-              Implementar un sistema que utilice <strong>Herencia</strong> para gestionar diferentes tipos de personas
-              en una empresa. Se debe crear una clase base <code>Persona</code> y una clase derivada
-              <code>Empleado</code> que añada atributos de sueldo y cargo, calculando automáticamente beneficios
-              adicionales.
-            </p>
-            <p class="mb-0 hint">
-              Objetivo: Comprender cómo las clases pueden heredar atributos y métodos de otras, permitiendo la
-              reutilización de código y la creación de jerarquías lógicas.
+            <p>
+              Implementar una estructura de clases donde exista una clase base llamada <strong>FiguraBase</strong> que contenga atributos comunes (tipo, área y perímetro). 
+              Luego, crear subclases específicas como <strong>Cuadrado</strong>, <strong>Rectángulo</strong> y <strong>Triángulo</strong> que hereden de la base y realicen sus propios cálculos de área y perímetro.
             </p>
           </div>
 
-          <!-- EXPLICACIÓN DEL CÓDIGO (EDITAR AQUÍ) -->
+          <div class="explain-card">
+            <h4 class="fw-bold mb-2">¿Por qué este ejercicio aplica Herencia?</h4>
+            <ul>
+              <li>Existe una relación <strong>"es un"</strong>: Un cuadrado <em>es una</em> figura.</li>
+              <li>Se utiliza <strong>super()</strong> para invocar al constructor del padre.</li>
+              <li>Se aplica <strong>reutilización de código</strong> al definir atributos comunes en una sola clase superior.</li>
+              <li>Permite el <strong>polimorfismo</strong> al manejar diferentes figuras bajo un mismo tipo base.</li>
+            </ul>
+          </div>
+<div class="explain-card mb-4">
+            <h4 class="fw-bold mb-3">Explicación detallada del código (Herencia)</h4>
+
+            <h5 class="fw-bold">1) Importación de librerías</h5>
+            <p>
+              Se importa <code>math</code> para el cálculo de la raíz cuadrada en la fórmula de Herón y <code>request</code> 
+              para procesar los datos del formulario.
+            </p>
+            <pre class="code-box">import math
+from flask import request</pre>
+
+            <h5 class="fw-bold mt-4">2) Definición de la Superclase <code>FiguraBase</code></h5>
+            <p>
+              Esta es la clase padre que centraliza los atributos comunes: <code>_tipo</code>, <code>_a</code> (área) 
+              y <code>_p</code> (perímetro). Actúa como el molde base para todas las figuras.
+            </p>
+            <pre class="code-box">class FiguraBase:
+    def __init__(self, tipo=None):
+        self._tipo = tipo
+        self._a = 0.0
+        self._p = 0.0</pre>
+
+            <h5 class="fw-bold mt-4">3) Constructor de la Subclase <code>Cuadrado</code></h5>
+            <p>
+              La clase <code>Cuadrado</code> hereda de <code>FiguraBase</code>. Usamos <code>super().__init__("cuadrado")</code> 
+              para invocar al constructor del padre y pasarle el tipo de figura.
+            </p>
+            <pre class="code-box">class Cuadrado(FiguraBase):
+    def __init__(self, lado=0):
+        super().__init__("cuadrado")
+        self.lado = float(lado)</pre>
+
+            <h5 class="fw-bold mt-4">4) Especialización de métodos: Área</h5>
+            <p>
+              Cada clase hija implementa su propia lógica. En el cuadrado, el área se calcula multiplicando 
+              el lado por sí mismo y se guarda en el atributo heredado <code>_a</code>.
+            </p>
+            <pre class="code-box">def area(self):
+    self._a = self.lado * self.lado</pre>
+
+            <h5 class="fw-bold mt-4">5) Especialización de métodos: Perímetro</h5>
+            <p>
+              De igual forma, el perímetro se calcula multiplicando el lado por cuatro y se almacena en <code>_p</code>.
+            </p>
+            <pre class="code-box">def perimetro(self):
+    self._p = self.lado * 4</pre>
+
+            <h5 class="fw-bold mt-4">6) Subclase <code>Rectangulo</code></h5>
+            <p>
+              Esta subclase recibe dos parámetros (<code>l1</code> y <code>l2</code>) y los utiliza para realizar 
+              los cálculos correspondientes a su geometría.
+            </p>
+            <pre class="code-box">class Rectangulo(FiguraBase):
+    def __init__(self, l1, l2):
+        super().__init__("rectangulo")
+        self.l1 = float(l1)
+        self.l2 = float(l2)</pre>
+
+            <h5 class="fw-bold mt-4">7) Subclase <code>Triangulo</code> y Fórmula de Herón</h5>
+            <p>
+              El triángulo hereda de la base y utiliza la fórmula de Herón para el área. 
+              Primero calcula el perímetro y luego la raíz cuadrada del semiperímetro.
+            </p>
+            <pre class="code-box">def area(self):
+    self.perimetro()
+    s = self._p / 2
+    self._a = math.sqrt(s * (s - self.l1) * (s - self.l2) * (s - self.l3))</pre>
+
+            <h5 class="fw-bold mt-4">8) Función <code>ejecutar()</code> y Selección de Objeto</h5>
+            <p>
+              Dependiendo del tipo recibido por el formulario, se instancia la subclase específica (Cuadrado, Rectángulo o Triángulo), 
+              demostrando la flexibilidad de la herencia.
+            </p>
+            <pre class="code-box">if tipo == "cuadrado":
+    figura = Cuadrado(lado1)
+elif tipo == "rectangulo":
+    figura = Rectangulo(lado1, lado2)</pre>
+
+            <h5 class="fw-bold mt-4">9) Ejecución Polimórfica</h5>
+            <p>
+              Aunque <code>figura</code> puede ser cualquier objeto hijo, llamamos a los métodos <code>area()</code> 
+              y <code>perimetro()</code> de forma genérica.
+            </p>
+            <pre class="code-box">figura.area()
+figura.perimetro()</pre>
+
+            <h5 class="fw-bold mt-4">10) Presentación de Resultados</h5>
+            <p>
+              Se recuperan los valores finales desde la instancia para mostrarlos en un bloque HTML 
+              con formato profesional.
+            </p>
+            <pre class="code-box">return f"""
+&lt;div class='alert alert-success'&gt;
+  &lt;h4&gt;Resultado (Clase: {figura.__class__.__name__})&lt;/h4&gt;
+  &lt;p&gt;&lt;strong&gt;Área:&lt;/strong&gt; {figura._a:.2f}&lt;/p&gt;
+&lt;/div&gt;
+"""</pre>
+          </div>
+
           <div class="explain-card mb-4">
-            <h4 class="fw-bold mb-3">Explicación del código (paso a paso)</h4>
-
-            <h5 class="fw-bold mb-2">1) Clase Base: Persona</h5>
-            <p class="mb-3">
-              Definimos los atributos comunes como nombre y edad. Todos los empleados son personas, por lo que heredarán
-              estas características.
+            <h4 class="fw-bold">CÓDIGO COMPLETO DEL EJERCICIO (Clase05_herencia.py)</h4>
+            <p class="hint">
+              Implementación completa de la jerarquía de clases con Herencia en Python.
             </p>
-            <pre class="code-box mb-3"><code>class Persona:
-    def __init__(self, nombre, edad):
-        self.nombre = nombre
-        self.edad = edad</code></pre>
 
-            <h5 class="fw-bold mb-2">2) Clase Derivada: Empleado</h5>
-            <p class="mb-2">
-              La clase <code>Empleado</code> hereda de <code>Persona</code> usando <code>super()</code> y añade el
-              sueldo.
-            </p>
-            <pre class="code-box mb-3"><code>class Empleado(Persona):
-    def __init__(self, nombre, edad, sueldo):
-        super().__init__(nombre, edad)
-        self.sueldo = sueldo</code></pre>
-
-            <h5 class="fw-bold mb-2">3) Lógica de Negocio</h5>
-            <p class="mb-2">
-              El programa calcula un bono del 10% basado en el sueldo base del empleado.
-            </p>
-            <pre class="code-box mb-3"><code>def calcular_total(self):
-    return self.sueldo * 1.10</code></pre>
-
-            <p class="hint mt-3 mb-0">
-              La herencia permite que el Empleado tenga 'nombre' sin haberlo definido explícitamente en su propia clase.
-            </p>
-          </div>
-<div class="explain-card mb-4">
-  <h4 class="fw-bold mb-3">Archivos del proyecto</h4>
-
-<pre class="code-box">HerenciaPOO/
-│
-├── HerenciaPOO.py
-│
-├── poo_herencia/
-│   ├── figura.py
-│   ├── cuadrado.py
-│   ├── rectangulo.py
-│   └── triangulo.py
-│
-└── templates/
-    └── figuras_herencia.html
-</pre>
-
-  <p class="hint mb-0">
-    Crea la estructura anterior y copia el código de cada archivo.
-  </p>
-</div>
-
-<div class="explain-card mb-4">
-  <h5 class="fw-bold mb-2">Archivo: HerenciaPOO.py</h5>
-
-<pre class="code-box"><code>from flask import Flask, render_template
-import sys
-import os
-
-# Ajuste de ruta necesario para importar las clases correctamente
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
-# Importa las clases derivadas
-from poo_herencia.cuadrado import Cuadrado
-from poo_herencia.rectangulo import Rectangulo
-from poo_herencia.triangulo import Triangulo
+            <pre class="code-box">
+import math
+from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    # 1. Objeto Cuadrado
-    C1 = Cuadrado(4)
-    C1.area()
-    C1.perimetro()
-
-    # 2. Objeto Rectángulo
-    R1 = Rectangulo("rectangulo", 5, 4)
-    R1.area()
-    R1.perimetro()
-
-    # 3. Objeto Triángulo
-    T1 = Triangulo("triangulo", 5, 4, 3)
-    T1.area()
-    T1.perimetro()
-
-    # Salida para template
-    resultados = [
-        {'titulo': "DATOS DEL CUADRADO", 'output': C1.get_output()},
-        {'titulo': "DATOS DEL RECTANGULO", 'output': R1.get_output()},
-        {'titulo': "DATOS DEL TRIANGULO", 'output': T1.get_output()},
-    ]
-
-    return render_template('figuras_herencia.html', resultados=resultados)
-
-if __name__ == '__main__':
-    app.run(debug=True, port=5002)
-</code></pre>
-</div>
-
-
-<div class="explain-card mb-4">
-  <h5 class="fw-bold mb-2">Archivo: poo_herencia/figura.py</h5>
-
-<pre class="code-box"><code>class Figura:
-    """Clase base para figuras geométricas."""
-
-    def __init__(self, dato=None):
-        self.__tipo = dato
-        self._area = 0.0
-        self._perimetro = 0.0
+# =====================================================
+# SUPERCLASE (CLASE PADRE)
+# =====================================================
+class FiguraBase:
+    def __init__(self, tipo=None):
+        self._tipo = tipo
+        self._a = 0.0  # Area
+        self._p = 0.0  # Perimetro
 
     def get_tipo(self):
-        return self.__tipo
+        return self._tipo
 
-    def area(self):
-        raise NotImplementedError("El método 'area' debe ser implementado en la clase derivada.")
-
-    def perimetro(self):
-        raise NotImplementedError("El método 'perimetro' debe ser implementado en la clase derivada.")
-
-    def get_output(self):
-        output = [
-            f"TIPO = {self.get_tipo()}",
-            f"AREA = {self._area:.2f}",
-            f"PERIMETRO = {int(self._perimetro)}"
-        ]
-        return output
-</code></pre>
-</div>
-
-<div class="explain-card mb-4">
-  <h5 class="fw-bold mb-2">Archivo: poo_herencia/cuadrado.py</h5>
-
-<pre class="code-box"><code>from .figura import Figura
-
-class Cuadrado(Figura):
-    def __init__(self, l1=0):
+# =====================================================
+# SUBCLASES (CLASES HIJAS)
+# =====================================================
+class Cuadrado(FiguraBase):
+    def __init__(self, lado=0):
         super().__init__("cuadrado")
-        self.__lado = l1
+        self.lado = float(lado)
 
     def area(self):
-        self._area = self.__lado * self.__lado
+        self._a = self.lado * self.lado
 
     def perimetro(self):
-        self._perimetro = self.__lado * 4
+        self._p = self.lado * 4
 
-    def get_output(self):
-        output = super().get_output()
-        output.insert(1, f"LADO = {self.__lado}")
-        return output
-</code></pre>
-</div>
-
-
-<div class="explain-card mb-4">
-  <h5 class="fw-bold mb-2">Archivo: poo_herencia/rectangulo.py</h5>
-
-<pre class="code-box"><code>from .figura import Figura
-
-class Rectangulo(Figura):
-    def __init__(self, tipo, l1, l2):
-        super().__init__(tipo)
-        self.__lado1 = l1
-        self.__lado2 = l2
+class Rectangulo(FiguraBase):
+    def __init__(self, l1, l2):
+        super().__init__("rectangulo")
+        self.l1 = float(l1)
+        self.l2 = float(l2)
 
     def area(self):
-        self._area = self.__lado1 * self.__lado2
+        self._a = self.l1 * self.l2
 
     def perimetro(self):
-        self._perimetro = (self.__lado1 * 2) + (self.__lado2 * 2)
+        self._p = 2 * (self.l1 + self.l2)
 
-    def get_output(self):
-        output = super().get_output()
-        output.insert(1, f"LADO 1 = {self.__lado1}")
-        output.insert(2, f"LADO 2 = {self.__lado2}")
-        return output
-</code></pre>
-</div>
-
-<div class="explain-card mb-4">
-  <h5 class="fw-bold mb-2">Archivo: poo_herencia/triangulo.py</h5>
-
-<pre class="code-box"><code>from .figura import Figura
-import math
-
-class Triangulo(Figura):
-    def __init__(self, tipo, l1, l2, l3):
-        super().__init__(tipo)
-        self.__lado1 = l1
-        self.__lado2 = l2
-        self.__lado3 = l3
+class Triangulo(FiguraBase):
+    def __init__(self, l1, l2, l3):
+        super().__init__("triangulo")
+        self.l1 = float(l1)
+        self.l2 = float(l2)
+        self.l3 = float(l3)
 
     def perimetro(self):
-        self._perimetro = self.__lado1 + self.__lado2 + self.__lado3
+        self._p = self.l1 + self.l2 + self.l3
 
     def area(self):
         self.perimetro()
-        sp = self._perimetro / 2
-        try:
-            self._area = math.sqrt(sp * (sp - self.__lado1) * (sp - self.__lado2) * (sp - self.__lado3))
-        except ValueError:
-            self._area = 0.0
+        s = self._p / 2
+        self._a = math.sqrt(s * (s - self.l1) * (s - self.l2) * (s - self.l3))
 
-    def get_output(self):
-        output = super().get_output()
-        output.insert(1, f"LADO 1 = {self.__lado1}")
-        output.insert(2, f"LADO 2 = {self.__lado2}")
-        output.insert(3, f"LADO 3 = {self.__lado3}")
-        return output
-</code></pre>
-</div>
+# =====================================================
+# RUTA Y LOGICA DE EJECUCION
+# =====================================================
+@app.route("/", methods=["GET", "POST"])
+def ejecutar():
+    if request.method == "POST":
+        tipo = request.form.get("tipo")
+        lado1 = float(request.form.get("lado1", 0))
+        lado2 = float(request.form.get("lado2", 0))
+        lado3 = float(request.form.get("lado3", 0))
 
-<div class="explain-card mb-4">
-  <h4 class="fw-bold mb-2">Ejecutar el proyecto</h4>
+        if tipo == "cuadrado":
+            figura = Cuadrado(lado1)
+        elif tipo == "rectangulo":
+            figura = Rectangulo(lado1, lado2)
+        elif tipo == "triangulo":
+            figura = Triangulo(lado1, lado2, lado3)
 
-<pre class="code-box"><code>pip install flask
-python HerenciaPOO.py
-</code></pre>
+        figura.area()
+        figura.perimetro()
 
-  <p class="hint mb-0">
-    Abre el navegador en: <b>http://127.0.0.1:5002</b>
-  </p>
-</div>
+        return f"""
+        &lt;div class='alert alert-success'&gt;
+          &lt;h2&gt;Resultado (Herencia)&lt;/h2&gt;
+          &lt;p&gt;&lt;strong&gt;Objeto de clase:&lt;/strong&gt; {figura.__class__.__name__}&lt;/p&gt;
+          &lt;p&gt;&lt;strong&gt;Área calculada:&lt;/strong&gt; {figura._a:.2f}&lt;/p&gt;
+          &lt;p&gt;&lt;strong&gt;Perímetro calculado:&lt;/strong&gt; {figura._p:.2f}&lt;/p&gt;
+          &lt;a href="ejercicio14.html"&gt;← Volver&lt;/a&gt;
+        &lt;/div&gt;
+        """
+    return "Metodo GET no implementado en este fragmento"
 
-
-          <!-- ✅ BOTÓN EJECUTAR -->
-
-          <div class="ej-actions">
-            <a href="##formulario" class="btn btn-primary btn-pill btn-lg">
+if __name__ == "__main__":
+    app.run(debug=True)
+</pre>
+          </div>
+<div class="ej-actions">
+            <a href="#formulario" class="btn btn-primary btn-pill btn-lg">
               Ejecutar ejercicio
             </a>
           </div>
 
-          <!-- ✅ FORMULARIO / SALIDA -->
           <div id="formulario" class="mt-5 animate-in fade-in">
             <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
-              <div class="card-header bg-success text-white p-3">
-                <h5 class="mb-0"><i class="bi bi-people-fill me-2"></i>Simulador de Herencia (RRHH)</h5>
+              <div class="card-header bg-primary text-white p-3">
+                <h5 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Simulador de Herencia (Subclases)</h5>
               </div>
               <div class="card-body p-4 bg-light">
                 <form id="form-herencia" onsubmit="procesarHerencia(event)">
-                  <div class="row g-3">
-                    <div class="col-md-6">
-                      <label class="form-label fw-bold">Nombre Completo:</label>
-                      <input type="text" id="nombre-h" class="form-control" placeholder="Ej: Juan Pérez" required>
+                  <div class="mb-3">
+                    <label class="form-label fw-bold">Seleccionar Clase Hija:</label>
+                    <select class="form-select" id="tipo-herencia" onchange="toggleInputsHerencia()" required>
+                      <option value="">Seleccione la subclase</option>
+                      <option value="cuadrado">Cuadrado (Hereda de FiguraBase)</option>
+                      <option value="rectangulo">Rectángulo (Hereda de FiguraBase)</option>
+                      <option value="triangulo">Triángulo (Hereda de FiguraBase)</option>
+                    </select>
+                  </div>
+
+                  <div id="inputs-dinamicos">
+                    <div class="mb-3 d-none" id="box-h-l1">
+                      <label class="form-label fw-bold" id="label-l1">Lado 1:</label>
+                      <input type="number" step="any" id="h-l1" class="form-control" placeholder="0.0">
                     </div>
-                    <div class="col-md-3">
-                      <label class="form-label fw-bold">Edad:</label>
-                      <input type="number" id="edad-h" class="form-control" placeholder="25" required>
+                    <div class="mb-3 d-none" id="box-h-l2">
+                      <label class="form-label fw-bold" id="label-l2">Lado 2:</label>
+                      <input type="number" step="any" id="h-l2" class="form-control" placeholder="0.0">
                     </div>
-                    <div class="col-md-3">
-                      <label class="form-label fw-bold">Sueldo Base ($):</label>
-                      <input type="number" id="sueldo-h" class="form-control" placeholder="1000" required>
+                    <div class="mb-3 d-none" id="box-h-l3">
+                      <label class="form-label fw-bold">Lado 3:</label>
+                      <input type="number" step="any" id="h-l3" class="form-control" placeholder="0.0">
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-success w-100 btn-pill mt-4 py-3 fw-bold shadow-sm">
-                    <i class="bi bi-person-plus-fill me-2"></i>Crear Empleado (Heredar de Persona)
+
+                  <button type="submit" class="btn btn-primary w-100 btn-pill py-3 fw-bold">
+                    <i class="bi bi-cpu-fill me-1"></i>Instanciar Subclase y Calcular
                   </button>
                 </form>
 
-                <div id="resultado-herencia" class="mt-4 d-none animate-in slide-in-bottom">
-                  <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-                    <div class="card-body p-4 border-start border-4 border-success">
-                      <h5 class="fw-bold text-success mb-3">Objeto de Clase 'Empleado' generado</h5>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <p class="mb-1 text-muted">Datos Heredados de Persona:</p>
-                          <p class="mb-0"><strong>Nombre:</strong> <span id="res-nombre-h">-</span></p>
-                          <p class="mb-0"><strong>Edad:</strong> <span id="res-edad-h">-</span> años</p>
-                        </div>
-                        <div class="col-md-6">
-                          <p class="mb-1 text-muted">Datos de Clase Empleado:</p>
-                          <p class="mb-0"><strong>Sueldo Base:</strong> $<span id="res-sueldo-h">-</span></p>
-                          <p class="mb-0 text-success"><strong>Total + Bono (10%):</strong> $<span
-                              id="res-total-h">-</span></p>
-                        </div>
-                      </div>
+                <div id="resultado-herencia" class="mt-4 d-none">
+                  <div class="alert alert-primary border-0 shadow-sm rounded-4 p-4">
+                    <h5 class="fw-bold text-primary mb-3 text-center">
+                        <i class="bi bi-info-circle-fill me-2"></i>Estado del Objeto en Memoria
+                    </h5>
+                    <div class="row g-3">
+                      <div class="col-6 text-end text-muted">Clase Detectada:</div>
+                      <div class="col-6 text-start fw-bold text-primary" id="res-clase">-</div>
+                      <div class="col-6 text-end text-muted">Hereda de:</div>
+                      <div class="col-6 text-start fw-bold">FiguraBase</div>
+                      <div class="col-6 text-end text-muted">Área (Atributo _a):</div>
+                      <div class="col-6 text-start fw-bold" id="res-h-area">-</div>
+                      <div class="col-6 text-end text-muted">Perímetro (Atributo _p):</div>
+                      <div class="col-6 text-start fw-bold" id="res-h-perimetro">-</div>
+                    </div>
+                    <div class="mt-3 p-2 bg-white rounded-3 small text-center text-muted border">
+                        <i class="bi bi-code-square me-1"></i> El objeto utiliza el constructor de la superclase mediante super().
                     </div>
                   </div>
                 </div>
@@ -637,62 +620,76 @@ python HerenciaPOO.py
           </div>
 
           <script>
-            class Persona {
-              constructor(nombre, edad) {
-                this.nombre = nombre;
-                this.edad = edad;
-              }
-            }
-
-            class Empleado extends Persona {
-              constructor(nombre, edad, sueldo) {
-                super(nombre, edad);
-                this.sueldo = parseFloat(sueldo);
-              }
-
-              calcularTotal() {
-                return this.sueldo * 1.10;
+            function toggleInputsHerencia() {
+              const tipo = document.getElementById('tipo-herencia').value;
+              const b1 = document.getElementById('box-h-l1');
+              const b2 = document.getElementById('box-h-l2');
+              const b3 = document.getElementById('box-h-l3');
+              
+              b1.classList.add('d-none'); b2.classList.add('d-none'); b3.classList.add('d-none');
+              
+              if (tipo === 'cuadrado') {
+                b1.classList.remove('d-none');
+                document.getElementById('label-l1').textContent = "Lado:";
+              } else if (tipo === 'rectangulo') {
+                b1.classList.remove('d-none'); b2.classList.remove('d-none');
+                document.getElementById('label-l1').textContent = "Base:";
+                document.getElementById('label-l2').textContent = "Altura:";
+              } else if (tipo === 'triangulo') {
+                b1.classList.remove('d-none'); b2.classList.remove('d-none'); b3.classList.remove('d-none');
+                document.getElementById('label-l1').textContent = "Lado 1:";
+                document.getElementById('label-l2').textContent = "Lado 2:";
               }
             }
 
             function procesarHerencia(e) {
               e.preventDefault();
-              const nombre = document.getElementById('nombre-h').value;
-              const edad = document.getElementById('edad-h').value;
-              const sueldo = document.getElementById('sueldo-h').value;
+              const tipo = document.getElementById('tipo-herencia').value;
+              const l1 = parseFloat(document.getElementById('h-l1').value || 0);
+              const l2 = parseFloat(document.getElementById('h-l2').value || 0);
+              const l3 = parseFloat(document.getElementById('h-l3').value || 0);
 
-              const emp = new Empleado(nombre, edad, sueldo);
+              let area = 0, perimetro = 0, nombreClase = "";
 
-              document.getElementById('res-nombre-h').textContent = emp.nombre;
-              document.getElementById('res-edad-h').textContent = emp.edad;
-              document.getElementById('res-sueldo-h').textContent = emp.sueldo.toFixed(2);
-              document.getElementById('res-total-h').textContent = emp.calcularTotal().toFixed(2);
+              if (tipo === 'cuadrado') {
+                area = l1 * l1; perimetro = l1 * 4; nombreClase = "Cuadrado";
+              } else if (tipo === 'rectangulo') {
+                area = l1 * l2; perimetro = 2 * (l1 + l2); nombreClase = "Rectangulo";
+              } else if (tipo === 'triangulo') {
+                perimetro = l1 + l2 + l3;
+                const s = perimetro / 2;
+                area = Math.sqrt(s * (s - l1) * (s - l2) * (s - l3));
+                nombreClase = "Triangulo";
+              }
+
+              if (isNaN(area)) { alert("Valores inválidos para la figura."); return; }
+
+              document.getElementById('res-clase').textContent = nombreClase;
+              document.getElementById('res-h-area').textContent = area.toFixed(2) + " u²";
+              document.getElementById('res-h-perimetro').textContent = perimetro.toFixed(2) + " u";
 
               document.getElementById('resultado-herencia').classList.remove('d-none');
               document.getElementById('resultado-herencia').scrollIntoView({ behavior: 'smooth' });
             }
           </script>
-
-
-          <!-- ANTERIOR / SIGUIENTE -->
         </div>
       </div>
     </section>
 
-    <!-- ANTERIOR / SIGUIENTE -->
-    <div class="ej-nav-bottom">
-      <a href="ejercicio13.html" class="btn btn-outline-primary btn-pill"><i class="bi bi-arrow-left me-1"></i>
-        Anterior</a>
-      <a href="ejercicio15.html" class="btn btn-primary btn-pill">Siguiente <i class="bi bi-arrow-right ms-1"></i></a>
+    <div class="container mb-5">
+        <div class="ej-nav-bottom">
+          <a href="ejercicio13.html" class="btn btn-outline-primary btn-pill"><i class="bi bi-arrow-left me-1"></i> Anterior (Clases)</a>
+          <a href="ejercicio15.html" class="btn btn-primary btn-pill">Siguiente (Abstractas) <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
     </div>
 
-    </div>
-    </div>
-    </section>
   </main>
 
+<<<<<<< HEAD
+=======
   <!-- Footer Moderno -->
   <!-- Footer -->
+>>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
   <footer class="footer-modern">
     <div class="container">
       <div class="row g-5">
@@ -717,11 +714,15 @@ python HerenciaPOO.py
             <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
             <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
             <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
+<<<<<<< HEAD
+            <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
+=======
             <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> Temas Avanzados</a>
             </li>
 
             <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> Explicación CRUD</a></li>
 
+>>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
           </ul>
         </div>
 
@@ -760,11 +761,9 @@ python HerenciaPOO.py
   <script src="../static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="../static/assets/js/main.js"></script>
   <script src="../static/assets/js/sidebar.js"></script>
-
   <script src="../static/assets/js/effects.js"></script>
   <script src="../static/assets/js/navbar-nested.js"></script>
   <script>
-    // Initialize AOS
     AOS.init({
       duration: 800,
       easing: 'ease-out-cubic',
@@ -773,6 +772,4 @@ python HerenciaPOO.py
     });
   </script>
 </body>
-
 </html>
-
