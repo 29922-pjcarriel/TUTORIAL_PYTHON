@@ -21,9 +21,23 @@
     <style>
         .hero-crud {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            padding: 100px 0 60px;
-            color: white;
+            padding: 120px 0 80px;
+            color: #ffffff; /* texto blanco */
         }
+
+        .hero-crud h1 {
+            color: #ffffff;
+        }
+
+        .hero-crud .lead {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .hero-crud .badge {
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
 
         .crud-panel {
             border-radius: 20px;
@@ -239,9 +253,9 @@
     <main>
         <section class="hero-crud text-center">
             <div class="container">
-                <span class="badge bg-primary px-3 py-2 rounded-pill mb-3">MÃ³dulo CRUD - Paso 01</span>
+                <span class="badge bg-primary px-3 py-2 rounded-pill mb-3">Módulo CRUD - Paso 01</span>
                 <h1 class="display-4 fw-bold">Vehiculo - Parte I</h1>
-                <p class="lead opacity-75">ConfiguraciÃ³n de base de datos y modelos de datos.</p>
+                <p class="lead opacity-75">Configuración de base de datos y modelos de datos.</p>
             </div>
         </section>
 
@@ -254,53 +268,110 @@
                     </a>
                 </div>
 
-                <h3 class="section-title">1. IntroducciÃ³n al Proyecto</h3>
-                <p>En esta primera parte, estableceremos las bases para nuestro sistema CRUD (Create, Read, Update,
-                    Delete) de vehÃ­culos. Utilizaremos Flask como backend y SQLAlchemy (u otro ORM) para interactuar con
-                    la base de datos.</p>
 
-                <h3 class="section-title">2. Estructura de la Base de Datos</h3>
-                <p>Necesitamos definir la tabla <code>vehiculos</code> con los siguientes campos:</p>
+                <h3 class="section-title">1. Enunciado del Ejercicio (Vehículo - Parte I)</h3>
+
+                <p>
+                En este módulo construiremos un sistema de <b>matriculación de vehículos</b> aplicando el enfoque CRUD
+                (Create, Read, Update, Delete) usando <b>Python con Flask</b> como backend y <b>MySQL</b> como base de datos.
+                </p>
+
+                <p>
+                <b>Importante:</b> Esta es la <b>Parte I</b> del proyecto, por lo tanto <b>NO se implementa todavía el CRUD completo</b>.
+                En esta etapa el objetivo es preparar el módulo “Vehículos” con la base necesaria para continuar en las siguientes partes.
+                </p>
+
+                <p>
+                En esta Parte I el estudiante aprenderá a:
+                </p>
+
                 <ul>
-                    <li><code>id</code>: Identificador Ãºnico (Primary Key).</li>
-                    <li><code>marca</code>: Marca del vehÃ­culo.</li>
-                    <li><code>modelo</code>: Modelo especÃ­fico.</li>
-                    <li><code>placa</code>: NÃºmero de placa Ãºnico.</li>
-                    <li><code>color</code>: Color del vehÃ­culo.</li>
+                  <li><b>Preparar la base de datos</b> ejecutando el script SQL del proyecto y comprendiendo las relaciones del modelo entidad–relación.</li>
+                  <li><b>Mostrar el listado de vehículos</b> como pantalla inicial del módulo (vista principal).</li>
+                  <li><b>Manejar rutas controladas por parámetro</b> utilizando una ruta por <code>GET</code> llamada <code>d</code>, que representa una operación y un id con el formato:
+                    <code>C/1</code>, <code>R/5</code>, <code>U/3</code>, <code>D/2</code> (operación/id).
+                  </li>
                 </ul>
 
-                <h3 class="section-title">3. ExplicaciÃ³n del CÃ³digo</h3>
-                <p>A continuaciÃ³n se muestra la configuraciÃ³n inicial del servidor y el modelo de datos:</p>
+                <div class="alert alert-secondary mt-3">
+                  <b>Ruta por parámetro:</b> el sistema lee el parámetro <code>d</code> y lo divide en:
+                  <b>operación</b> y <b>id</b>. Por ejemplo: <code>d=C/1</code>.
+                </div>
 
-                <pre class="code-box"><code># Ejemplo de configuraciÃ³n de Base de Datos
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+                <p class="mb-2">
+                Cuando la operación es <b>C</b> (Create), se despliega el <b>formulario de registro de vehículo</b>.
+                Este formulario permite ingresar y enviar la información por <b>POST</b> al servidor:
+                </p>
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://usuario:password@localhost/empresa'
-db = SQLAlchemy(app)
+                <ul>
+                  <li><b>Placa</b></li>
+                  <li><b>Marca</b> (combo cargado desde la base de datos)</li>
+                  <li><b>Motor</b></li>
+                  <li><b>Chasis</b></li>
+                  <li><b>Combustible</b> (selección tipo radio: por ejemplo Gasolina / Diésel / Eléctrico, según el catálogo)</li>
+                  <li><b>Año</b> (combo dinámico generado automáticamente)</li>
+                  <li><b>Color</b> (combo cargado desde la base de datos)</li>
+                  <li><b>Foto</b> (upload / carga de archivo)</li>
+                  <li><b>Avalúo</b></li>
+                </ul>
 
-class Vehiculo(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    marca = db.Column(db.String(50))
-    modelo = db.Column(db.String(50))
-    placa = db.Column(db.String(20), unique=True)
-    
-    def __init__(self, marca, modelo, placa):
-        self.marca = marca
-        self.modelo = modelo
-        self.placa = placa</code></pre>
+                <p>
+                En esta Parte I el formulario se deja preparado y funcional a nivel de interfaz y rutas,
+                para que en la Parte II se complete el guardado real en la base de datos y en la Parte III se cierre el CRUD.
+                </p>
 
-                <h3 class="section-title">4. Video de EjecuciÃ³n</h3>
-                <p>En este video se explica paso a paso cÃ³mo configurar el entorno y verificar la conexiÃ³n a la base de
-                    datos:</p>
+                <div class="alert alert-info mt-3 mb-0">
+                  <b>Alcance Parte I:</b> Base de datos + listado + formulario (sin guardar / sin editar / sin eliminar).<br>
+                  <b>Parte II:</b> Conexión Flask ↔ MySQL + guardar (Create).<br>
+                  <b>Parte III:</b> CRUD completo (Read / Update / Delete) + mejoras.
+                </div>
+
+
+                <h3 class="section-title">2. Modelo de Base de Datos (ER)</h3>
+
+                <p>
+                A continuación se presenta el <b>modelo entidad–relación</b> del sistema.
+                Este modelo define cómo se organiza la información y será la base para las operaciones CRUD que se implementarán
+                posteriormente en Flask.
+                </p>
+
+                <ul>
+                  <li><b>marca</b> y <b>color</b>: catálogos para clasificar vehículos.</li>
+                  <li><b>vehiculo</b>: tabla principal (placa, motor, chasis, combustible, año, avalúo, etc.).</li>
+                  <li><b>agencia</b>: puntos de atención donde se realiza la matriculación.</li>
+                  <li><b>matricula</b>: registra la matrícula de un vehículo en un año y en una agencia.</li>
+                </ul>
+
+                <div class="text-center my-4">
+                  <img src="../static/assets/img/modelo_vehiculos.jpeg"
+                      class="img-fluid rounded shadow"
+                      style="max-width: 950px;"
+                      alt="Modelo ER - Matriculación de Vehículos">
+                </div>
+
+                <div class="text-center mt-4">
+                  <a class="btn btn-success btn-lg rounded-pill"
+                    href="../static/assets/sql/matriculacionfinal.sql"
+                    download>
+                    <i class="bi bi-download me-2"></i> Descargar Script SQL (Base de Datos)
+                  </a>
+                </div>
+
+                <p class="text-muted text-center mt-3 mb-0">
+                    Descarga el script, crea la base de datos y ejecuta el archivo para generar las tablas.
+                </p>
+
+                <h3 class="section-title">3. Video de Ejecución</h3>
+                <p>
+                    En este video se explica paso a paso cómo configurar el entorno y verificar la conexión a la base de datos:
+                </p>
 
                 <div class="video-container">
                     <div class="video-placeholder">
                         <div>
                             <i class="bi bi-play-circle fs-1 mb-2"></i>
                             <h4>[Video Placeholder]</h4>
-                            <p>AquÃ­ se insertarÃ¡ el video explicativo de la Parte I</p>
+                            <p>Aquí se insertará el video explicativo de la Parte I</p>
                         </div>
                     </div>
                 </div>
