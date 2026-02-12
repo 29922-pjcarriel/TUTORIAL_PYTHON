@@ -434,6 +434,267 @@ area = sqrt(s*(s-a)*(s-b)*(s-c))</code></pre>
                 triángulo.</li>
             </ul>
           </div>
+<!-- ============================= -->
+<!-- ARCHIVOS DEL EJERCICIO -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-3">8) Archivos del proyecto (Paso importante)</h4>
+
+  <p>
+    Para ejecutar este ejercicio en tu computadora con Flask, debes crear la siguiente estructura:
+  </p>
+
+<pre class="code-box">
+01.Clase1_Formulario_Post/
+│
+├── app.py
+├── backend_formulario/
+│   ├── __init__.py
+│   └── geometry.py
+│
+├── templates/
+│   └── index.html
+│
+└── static/
+    └── css/
+        └── styles.css  (opcional)
+</pre>
+
+  <p class="hint">
+    Ahora crea cada archivo y copia el código correspondiente.
+  </p>
+</div>
+
+<!-- ============================= -->
+<!-- app.py -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: app.py</h5>
+
+<pre class="code-box"><code>from flask import Flask, render_template, request
+from backend_formulario.geometry import process_figure
+
+app = Flask(__name__)
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    result = None
+    errors = []
+    form_data = {"figura": "", "l1": "", "l2": "", "l3": ""}
+
+    if request.method == "POST":
+        figura = request.form.get("figura", "").strip()
+        l1 = request.form.get("l1", "").strip()
+        l2 = request.form.get("l2", "").strip()
+        l3 = request.form.get("l3", "").strip()
+
+        form_data["figura"] = figura
+        form_data["l1"] = l1
+        form_data["l2"] = l2
+        form_data["l3"] = l3
+
+        result, errors = process_figure(figura, l1, l2, l3)
+
+    return render_template("index.html", result=result, errors=errors, form_data=form_data)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+</code></pre>
+
+  <p class="hint">
+    Este archivo inicia Flask y procesa los datos enviados por el formulario.
+  </p>
+</div>
+
+<!-- ============================= -->
+<!-- geometry.py -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: backend_formulario/geometry.py</h5>
+
+<pre class="code-box"><code>import math
+
+def to_positive_float(value_str, field_name, errors):
+    if value_str == "":
+        return None
+    try:
+        value = float(value_str)
+        if value <= 0:
+            errors.append(f"El valor de {field_name} debe ser positivo.")
+            return None
+        return value
+    except ValueError:
+        errors.append(f"El valor de {field_name} debe ser numérico.")
+        return None
+
+def is_valid_triangle(sides, errors):
+    a,b,c = sides
+    if a+b<=c or a+c<=b or b+c<=a:
+        errors.append("Los lados ingresados no forman un triángulo válido.")
+        return False
+    return True
+
+def triangle_type(sides):
+    a,b,c = sides
+    if a==b and b==c:
+        return "equilátero"
+    elif a==b or a==c or b==c:
+        return "isósceles"
+    else:
+        return "escaleno"
+
+def process_figure(figura, l1_str, l2_str, l3_str):
+    errors=[]
+    result=None
+
+    if not figura:
+        errors.append("Debe seleccionar una figura.")
+        return None, errors
+
+    figura=figura.lower()
+
+    l1 = to_positive_float(l1_str,"l1",errors) if l1_str!="" else None
+    l2 = to_positive_float(l2_str,"l2",errors) if l2_str!="" else None
+    l3 = to_positive_float(l3_str,"l3",errors) if l3_str!="" else None
+
+    if figura=="cuadrado":
+        if l1 is None:
+            errors.append("Debe ingresar l1.")
+        else:
+            area=l1*l1
+            perimetro=4*l1
+            result={"figura":"Cuadrado","lados":[l1],"area":area,"perimetro":perimetro}
+
+    elif figura=="rectangulo":
+        if l1 is None or l2 is None:
+            errors.append("Debe ingresar l1 y l2.")
+        else:
+            area=l1*l2
+            perimetro=2*(l1+l2)
+            result={"figura":"Rectángulo","lados":[l1,l2],"area":area,"perimetro":perimetro}
+
+    elif figura=="triangulo":
+        if l1 is None or l2 is None or l3 is None:
+            errors.append("Debe ingresar l1, l2 y l3.")
+        else:
+            lados=[l1,l2,l3]
+            if is_valid_triangle(lados,errors):
+                perimetro=sum(lados)
+                s=perimetro/2
+                area=math.sqrt(s*(s-l1)*(s-l2)*(s-l3))
+                tipo=triangle_type(lados)
+                result={"figura":"Triángulo","lados":lados,"area":area,"perimetro":perimetro,"tipo_triangulo":tipo}
+
+    return result, errors
+</code></pre>
+
+  <p class="hint">
+    Este archivo contiene la lógica de validación y los cálculos matemáticos.
+  </p>
+</div>
+
+
+<!-- ============================= -->
+<!-- index.html COMPLETO -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: templates/index.html (copiar y pegar)</h5>
+
+<pre class="code-box"><code>&lt;!doctype html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Formulario Figuras&lt;/title&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+
+&lt;body class="bg-light"&gt;
+&lt;div class="container py-5"&gt;
+&lt;h1 class="text-center mb-4"&gt;Formulario de Figuras&lt;/h1&gt;
+
+{% if errors %}
+&lt;div class="alert alert-danger"&gt;
+&lt;ul&gt;
+{% for e in errors %}
+&lt;li&gt;{{e}}&lt;/li&gt;
+{% endfor %}
+&lt;/ul&gt;
+&lt;/div&gt;
+{% endif %}
+
+&lt;div class="card p-4"&gt;
+&lt;form method="POST"&gt;
+
+&lt;select name="figura" class="form-select mb-3"&gt;
+&lt;option value=""&gt;Seleccione figura&lt;/option&gt;
+&lt;option value="cuadrado"&gt;Cuadrado&lt;/option&gt;
+&lt;option value="rectangulo"&gt;Rectángulo&lt;/option&gt;
+&lt;option value="triangulo"&gt;Triángulo&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;input class="form-control mb-2" name="l1" placeholder="l1"&gt;
+&lt;input class="form-control mb-2" name="l2" placeholder="l2"&gt;
+&lt;input class="form-control mb-2" name="l3" placeholder="l3"&gt;
+
+&lt;button class="btn btn-primary w-100"&gt;Calcular&lt;/button&gt;
+
+&lt;/form&gt;
+&lt;/div&gt;
+
+{% if result %}
+&lt;div class="card p-4 mt-3"&gt;
+&lt;p&gt;&lt;b&gt;Figura:&lt;/b&gt; {{result.figura}}&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Lados:&lt;/b&gt; {{result.lados}}&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Área:&lt;/b&gt; {{result.area}}&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Perímetro:&lt;/b&gt; {{result.perimetro}}&lt;/p&gt;
+
+{% if result.tipo_triangulo %}
+&lt;p&gt;&lt;b&gt;Tipo triángulo:&lt;/b&gt; {{result.tipo_triangulo}}&lt;/p&gt;
+{% endif %}
+
+&lt;/div&gt;
+{% endif %}
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p class="hint">
+Copia este archivo y guárdalo dentro de la carpeta <b>templates</b> con el nombre <b>index.html</b>.
+</p>
+</div>
+
+
+<!-- ============================= -->
+<!-- EJECUTAR -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-2">9) Ejecutar el proyecto</h4>
+
+<pre class="code-box"><code>pip install flask
+python app.py
+</code></pre>
+
+  <p class="hint">
+    Luego abre el navegador en:<br>
+    <b>http://127.0.0.1:5000</b>
+  </p>
+</div>
+
+<!-- ============================= -->
+<!-- ERRORES COMUNES -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Errores comunes</h5>
+  <ul class="hint">
+    <li>No crear la carpeta <b>templates</b></li>
+    <li>No crear el archivo <b>__init__.py</b> dentro de backend_formulario</li>
+    <li>Error en la ruta: backend_formulario.geometry</li>
+    <li>No instalar Flask</li>
+  </ul>
+</div>
+
 
           <!-- INTERFAZ JS -->
           <div id="ejercicio-js" class="animate-in fade-in">

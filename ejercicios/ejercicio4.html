@@ -400,6 +400,163 @@
             </p>
           </div>
 
+<!-- ============================= -->
+<!-- ARCHIVOS DEL EJERCICIO 4 -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-3">5) Archivos del proyecto (Flask)</h4>
+
+  <p>
+    Para ejecutar este ejercicio en Flask, crea la siguiente estructura:
+  </p>
+
+<pre class="code-box">
+01.Clase4_Pascal/
+│
+├── app.py
+│
+└── templates/
+    └── index.html
+</pre>
+
+  <p class="hint">
+    Luego crea cada archivo y copia el código mostrado a continuación.
+  </p>
+</div>
+
+<!-- ============================= -->
+<!-- app.py -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: app.py (copiar y pegar)</h5>
+
+<pre class="code-box"><code>from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+# ============================
+# LÓGICA DEL TRIÁNGULO DE PASCAL
+# ============================
+
+def generar_triangulo_pascal(filas):
+    if filas < 1 or filas > 10:
+        return []
+    
+    pascal = []
+    
+    for i in range(filas):
+        pascal.append([])
+        pascal[i].append(1)
+        
+        for j in range(1, i):
+            pascal[i].append(pascal[i-1][j-1] + pascal[i-1][j])
+        
+        if i > 0:
+            pascal[i].append(1)
+    
+    return pascal
+
+
+def formatear_triangulo_pascal(pascal):
+    if not pascal:
+        return ""
+    
+    filas = len(pascal)
+    cols = 2 * filas - 1
+    centro = filas - 1
+    ancho = 4
+    
+    grid = [['' for _ in range(cols)] for _ in range(filas)]
+    
+    for r in range(filas):
+        for k in range(len(pascal[r])):
+            c = centro - r + 2 * k
+            grid[r][c] = str(pascal[r][k])
+    
+    html = '&lt;pre style="font-size:20px; line-height:1.3; text-align:center; font-family:Courier New, monospace;"&gt;'
+    
+    for r in range(filas):
+        for c in range(cols):
+            if grid[r][c] == '':
+                html += ' ' * ancho
+            else:
+                html += grid[r][c].center(ancho)
+        html += '\\n'
+    
+    html += '&lt;/pre&gt;'
+    
+    return html
+
+
+# ============================
+# RUTA PRINCIPAL
+# ============================
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    triangulo_html = ""
+    filas = ""
+
+    if request.method == "POST":
+        try:
+            filas = int(request.form.get("filas"))
+            pascal = generar_triangulo_pascal(filas)
+            triangulo_html = formatear_triangulo_pascal(pascal)
+        except:
+            triangulo_html = "&lt;p style='color:red;'&gt;Ingrese un número válido (1-10)&lt;/p&gt;"
+
+    return render_template("index.html", triangulo=triangulo_html, filas=filas)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+</code></pre>
+
+<p class="hint">
+Este archivo recibe el número de filas mediante POST, genera el triángulo y lo envía al HTML.
+</p>
+</div>
+
+<!-- ============================= -->
+<!-- templates/index.html -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: templates/index.html (copiar y pegar)</h5>
+
+<pre class="code-box"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Triángulo de Pascal&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body style="text-align:center; font-family:Arial;"&gt;
+
+    &lt;h1&gt;Generador del Triángulo de Pascal&lt;/h1&gt;
+
+    &lt;form method="POST"&gt;
+        &lt;label&gt;Número de filas (1-10):&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+        &lt;input type="number" name="filas" min="1" max="10" required value="{{ filas }}"&gt;
+        &lt;br&gt;&lt;br&gt;
+        &lt;button type="submit"&gt;Generar&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;br&gt;&lt;br&gt;
+
+    &lt;div&gt;
+        {{ triangulo|safe }}
+    &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p class="hint">
+Guarda este archivo dentro de la carpeta <b>templates</b>.
+</p>
+</div>
+
+
           <!-- INTERFAZ JS -->
           <div id="ejercicio-js" class="animate-in fade-in">
 

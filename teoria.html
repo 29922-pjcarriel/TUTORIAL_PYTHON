@@ -289,6 +289,27 @@
             background: #22c55e;
             color: white;
         }
+        
+                .team-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .team-list span {
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #e0e0e0;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .team-list span:hover {
+            background: linear-gradient(45deg, #0dcaf0, #6f42c1);
+            color: white;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
@@ -473,24 +494,6 @@
             <p class="page-hero-subtitle" data-aos="fade-up" data-aos-delay="100">
                 12 temas estructurados para dominar Python desde los fundamentos hasta programación orientada a objetos
             </p>
-
-            <!-- Progress Path -->
-            <div class="progress-path mt-5" data-aos="fade-up" data-aos-delay="200">
-                <a href="teoria/teoria_infraestructura.html" class="progress-step active" title="Tema 1">1</a>
-                <a href="teoria/teoria_historia.html" class="progress-step" title="Tema 2">2</a>
-                <a href="teoria/teoria_htmlpyhon.html" class="progress-step" title="Tema 3">3</a>
-                <a href="teoria/teoria_sintaxisComentarios.html" class="progress-step" title="Tema 4">4</a>
-                <a href="teoria/teoria_variablesConstantes.html" class="progress-step" title="Tema 5">5</a>
-                <a href="teoria/teoria_tiposDatos.html" class="progress-step" title="Tema 6">6</a>
-                <a href="teoria/teoria_operadores.html" class="progress-step" title="Tema 7">7</a>
-                <a href="teoria/teoria_estructuras_de_control.html" class="progress-step" title="Tema 8">8</a>
-                <a href="teoria/teoria_manejoFormularios.html" class="progress-step" title="Tema 9">9</a>
-                <a href="teoria/teoria_arreglos.html" class="progress-step" title="Tema 10">10</a>
-                <a href="teoria/teoria_poo.html" class="progress-step" title="Tema 11">11</a>
-                <a href="PythonvsPHP.html" class="progress-step" title="Tema 12">12</a>
-                <a href="PythonvsPHP.html" class="progress-step" title="Tema 13">13</a>
-
-            </div>
         </div>
     </section>
 
@@ -705,48 +708,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Tema 12 -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="tema-card">
-                        <div class="tema-card-header gradient-3">
-                            <span class="number">12</span>
-                            <span class="icon"><i class="bi bi-arrow-left-right"></i></span>
-                            <h3>Python vs PHP</h3>
-                        </div>
-                        <div class="tema-card-body">
-                            <p>
-                                Analiza las diferencias clave, rendimiento y ecosistemas
-                                de los dos lenguajes backend más populares.
-                            </p>
-                            <a href="PythonvsPHP.html" class="btn-tema">
-                                <i class="bi bi-play-fill"></i> Comenzar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tema 13 -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="450">
-                    <div class="tema-card">
-                        <div class="tema-card-header gradient-1">
-                            <span class="number">13</span>
-                            <span class="icon"><i class="bi bi-database"></i></span>
-                            <h3>Desarrollo CRUD</h3>
-                        </div>
-                        <div class="tema-card-body">
-                            <p>
-                                Aprende a integrar bases de datos, manejar sesiones
-                                y construir operaciones Crear, Leer, Actualizar y Eliminar.
-                            </p>
-                            <a href="explicacion_crud.html" class="btn-tema">
-                                <i class="bi bi-play-fill"></i> Comenzar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         </div>
 
@@ -785,14 +746,27 @@
                         <li><a href="index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
                         <li><a href="teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
                         <li><a href="ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
+                        <li><a href="explicacion_crud.html"><i class="bi bi-chevron-right"></i> Temas
+                                Avanzados</a></li>
+                        <li><a href="PythonvsPHP.html"><i class="bi bi-chevron-right"></i> Comparativa</a></li>
+
                     </ul>
                 </div>
 
                 <div class="col-lg-4">
-                    <h5 class="footer-title">Equipo</h5>
-                    <p class="footer-text small">
-                        Karla, Josue, Nicol, Naomi, Pamela, Estefano
-                    </p>
+                    <h5 class="footer-title text-light mb-4">
+                        <i class="bi bi-stars text-info me-2"></i>
+                        Equipo de Desarrollo
+                    </h5>
+
+                    <div class="team-list">
+                        <span>Karla Molina</span>
+                        <span>Josue Tapia</span>
+                        <span>Nicol Yarpas</span>
+                        <span>Naomi Obando</span>
+                        <span>Pamela Carriel</span>
+                        <span>Estefano</span>
+                    </div>
                 </div>
             </div>
 
