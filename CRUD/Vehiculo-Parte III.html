@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Vehículo Parte III (Update & Delete) · Python Academy</title>
-    <meta name="description" content="Implementación de las operaciones Update y Delete del CRUD con integridad referencial.">
+    <title>Vehiculo-Parte III · Python Academy</title>
+    <meta name="description" content="Implementación de las operaciones Update y Delete del CRUD.">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,31 +20,22 @@
     <style>
         .hero-crud {
             background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            padding: 120px 0 80px;
+            padding: 100px 0 60px;
             color: white;
             margin-bottom: 0;
-            position: relative;
-            overflow: hidden;
         }
         
-        .code-block {
+        /* Estilo para bloques de código */
+        pre {
             background: #1e1e1e;
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Fira Code', monospace;
             border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            font-family: 'Fira Code', 'Consolas', monospace;
-            font-size: 0.9rem;
-            color: #d4d4d4;
-            max-height: 500px;
+            color: #f8f9fa; /* Texto blanco para legibilidad */
+            max-height: 400px;
             overflow-y: auto;
         }
-
-        .keyword { color: #569cd6; }
-        .string { color: #ce9178; }
-        .function { color: #dcdcaa; }
-        .comment { color: #6a9955; font-style: italic; }
-        .variable { color: #9cdcfe; }
     </style>
 </head>
 
@@ -63,72 +54,51 @@
                     <li class="nav-item"><a class="nav-link nav-link-custom" href="../index.html">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link nav-link-custom" href="../teoria.html">Teoría</a></li>
                     <li class="nav-item"><a class="nav-link nav-link-custom" href="../ejercicios.html">Ejercicios</a></li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link nav-link-custom dropdown-toggle active" href="#" id="crudDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Módulo CRUD
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg p-2" aria-labelledby="crudDropdown" style="border-radius: 12px;">
-                            <li><a class="dropdown-item rounded p-2" href="../explicacion_crud.html">Introducción</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item rounded p-2" href="Vehiculo-Parte I.html">Parte I: Configuración</a></li>
-                            <li><a class="dropdown-item rounded p-2" href="Vehiculo-Parte II.html">Parte II: Insertar/Listar</a></li>
-                            <li><a class="dropdown-item rounded p-2 active" href="Vehiculo-Parte III.html">Parte III: Editar/Eliminar</a></li>
-                            <li><a class="dropdown-item rounded p-2" href="Session y login.html">Session y Login</a></li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom active" href="../explicacion_crud.html">Temas Avanzados</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <main>
-        <section class="hero-crud text-center">
-            <div class="container" data-aos="fade-up">
-                <span class="badge bg-white text-warning mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase shadow-sm">Módulo 3</span>
-                <h1 class="display-3 fw-bold mb-3">Vehículo - Parte III</h1>
-                <p class="lead opacity-90 mx-auto mb-4" style="max-width: 800px;">
-                    Finalizando el ciclo de vida del dato: Implementación de la lógica de <strong>Actualización (UPDATE)</strong> y <strong>Eliminación (DELETE)</strong> asegurando la integridad referencial en la base de datos.
+        <section class="hero-crud">
+            <div class="container text-center" data-aos="fade-up">
+                <span class="badge bg-white text-warning mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase">Módulo 3</span>
+                <h1 class="display-4 fw-bold mb-3">Vehículo - Parte III</h1>
+                <p class="lead opacity-90 mx-auto" style="max-width: 700px;">
+                    Finalizando el ciclo de vida del dato: Actualización (Update) y Eliminación (Delete) con manejo de integridad referencial.
                 </p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="#update-section" class="btn btn-light fw-bold text-warning rounded-pill px-4 shadow">
-                        <i class="bi bi-arrow-down-circle me-2"></i>Ver Update
-                    </a>
-                    <a href="#delete-section" class="btn btn-outline-light rounded-pill px-4">
-                        <i class="bi bi-arrow-down-circle me-2"></i>Ver Delete
-                    </a>
-                </div>
             </div>
         </section>
 
-        <section id="update-section" class="py-5 bg-white">
+        <section class="py-5">
             <div class="container">
-                <div class="row align-items-center mb-5">
-                    <div class="col-lg-5" data-aos="fade-right">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="bg-warning text-dark fw-bold rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; font-size: 1.5rem;">1</div>
-                            <h2 class="fw-bold mb-0 text-dark">Lógica de Actualización</h2>
+                
+                <div class="row align-items-center mb-5" data-aos="fade-right">
+                    <div class="col-lg-6">
+                        <h2 class="fw-bold text-dark mb-3"><span class="text-warning">1.</span> Lógica de Actualización</h2>
+                        <p class="text-muted">
+                            Para editar, reutilizamos el formulario de creación. La diferencia fundamental es que 
+                            capturamos el <code>ID</code> del vehículo (que viene en un campo oculto) para saber qué registro modificar en la base de datos.
+                        </p>
+                        <div class="alert alert-light border-start border-warning border-4 shadow-sm">
+                            <strong>Nota Clave:</strong> La sentencia SQL debe incluir obligatoriamente el <code>WHERE id = ...</code>, de lo contrario, se actualizarían todos los registros de la tabla.
                         </div>
-                        <p class="text-muted lead">
-                            La actualización reutiliza el formulario de creación, pero con una diferencia clave: el <strong>ID del vehículo</strong>.
-                        </p>
-                        <p>
-                            Al recibir los datos por <code>POST</code>, capturamos el ID oculto para saber qué registro específico modificar en la base de datos.
-                        </p>
-                        <ul class="list-group list-group-flush mt-4">
-                            <li class="list-group-item bg-transparent"><i class="bi bi-check-circle-fill text-success me-2"></i>Captura de datos completos del formulario.</li>
-                            <li class="list-group-item bg-transparent"><i class="bi bi-check-circle-fill text-success me-2"></i>Construcción dinámica del SQL Update.</li>
-                            <li class="list-group-item bg-transparent"><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Importante:</strong> Uso de la cláusula <code>WHERE id = ...</code></li>
-                        </ul>
                     </div>
-                    
-                    <div class="col-lg-7" data-aos="fade-left">
-                        <div class="code-block">
-<pre class="m-0">
-<span class="keyword">def</span> <span class="function">update_vehiculo</span>(<span class="variable">self</span>, <span class="variable">POST</span>):
-    <span class="variable">id_vehiculo</span> = <span class="variable">POST</span>.get(<span class="string">"id"</span>)
+                    <div class="col-lg-6">
+                        <div class="card shadow border-0">
+                            <div class="card-header bg-dark text-white d-flex justify-content-between">
+                                <small>vehiculo.py (Método Update)</small>
+                                <span class="badge bg-warning text-dark">Python</span>
+                            </div>
+                            <div class="card-body bg-dark p-0">
+<pre class="m-0 text-warning" style="background: transparent;">
+def update_vehiculo(self, POST):
+    # 1. Captura de datos del formulario (request.form)
+    id_vehiculo = POST.get("id")
     
-    <span class="variable">sql</span> = <span class="string">f"""
+    # 2. Construcción de la consulta UPDATE
+    sql = f"""
         UPDATE vehiculo SET
             placa       = '{POST.get("placa")}',
             marca       = {POST.get("marca")},
@@ -139,68 +109,56 @@
             color       = {POST.get("colorCMB")},
             avaluo      = {POST.get("avaluo")}
         WHERE id = {id_vehiculo};
-    """</span>
+    """
     
-    <span class="variable">self</span>.con.query(<span class="variable">sql</span>)
-    <span class="keyword">return</span> <span class="string">"&lt;div class='alert alert-success'&gt;Actualizado ✔&lt;/div&gt;"</span>
+    # 3. Ejecución
+    self.con.query(sql)
+    return "&lt;div class='alert alert-success'&gt;Actualizado&lt;/div&gt;"
 </pre>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <div class="py-4 bg-light text-center">
-            <i class="bi bi-arrow-down text-muted fs-3"></i>
-        </div>
+                <hr class="my-5 opacity-25">
 
-        <section id="delete-section" class="py-5 bg-white">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-7 order-2 order-lg-1" data-aos="fade-right">
-                        <div class="code-block">
-<pre class="m-0 text-white">
-<span class="keyword">def</span> <span class="function">delete_vehiculo</span>(<span class="variable">self</span>, <span class="variable">id</span>):
-    <span class="comment"># 1. Eliminar matrículas (Hijos)</span>
-    <span class="variable">self</span>.con.query(<span class="string">f"DELETE FROM matricula WHERE vehiculo={id};"</span>)      
-    
-    <span class="comment"># 2. Eliminar vehículo (Padre)</span>
-    <span class="variable">self</span>.con.query(<span class="string">f"DELETE FROM vehiculo WHERE id={id};"</span>)
-    
-    <span class="keyword">return</span> <span class="string">"&lt;div class='alert alert-danger'&gt;Eliminado ✔&lt;/div&gt;"</span>
-</pre>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-5 order-1 order-lg-2 ps-lg-5" data-aos="fade-left">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="bg-danger text-white fw-bold rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; font-size: 1.5rem;">2</div>
-                            <h2 class="fw-bold mb-0 text-dark">Lógica de Eliminación</h2>
-                        </div>
-                        <p class="text-muted lead">
-                            La eliminación requiere cuidado especial debido a las relaciones en la base de datos (Foreign Keys).
+                <div class="row align-items-center mb-5" data-aos="fade-left">
+                    <div class="col-lg-6 order-lg-2">
+                        <h2 class="fw-bold text-dark mb-3"><span class="text-danger">2.</span> Lógica de Eliminación</h2>
+                        <p class="text-muted">
+                            La eliminación es crítica. Antes de borrar el vehículo, debemos asegurarnos de mantener la <strong>Integridad Referencial</strong> de la base de datos.
                         </p>
-                        <div class="alert alert-danger bg-danger bg-opacity-10 border-danger border-opacity-25 mt-3">
-                            <h5 class="alert-heading fw-bold"><i class="bi bi-exclamation-triangle-fill me-2"></i>Integridad Referencial</h5>
-                            <p class="mb-0 small">
-                                Un vehículo no puede ser eliminado si existen matrículas que dependen de él. Por eso, el código ejecuta primero la eliminación de las <strong>matrículas (hijos)</strong> y finalmente la del <strong>vehículo (padre)</strong>.
-                            </p>
+                        <p>
+                            Si borramos un vehículo que tiene matrículas registradas, la base de datos dará error. 
+                            Por eso, el código primero elimina las "hijas" (matrículas) y luego al "padre" (vehículo).
+                        </p>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="card shadow border-0">
+                            <div class="card-header bg-danger text-white d-flex justify-content-between">
+                                <small>vehiculo.py (Método Delete)</small>
+                                <span class="badge bg-white text-danger">Integridad Referencial</span>
+                            </div>
+                            <div class="card-body bg-dark p-0">
+                                <pre class="m-0 text-white" style="background: transparent;">
+def delete_vehiculo(self, id):
+    # 1. Eliminación en cascada manual
+    # Primero borramos las matrículas asociadas para evitar errores de FK
+    self.con.query(f"DELETE FROM matricula WHERE vehiculo={id};")      
+    
+    # 2. Eliminamos el vehículo
+    self.con.query(f"DELETE FROM vehiculo WHERE id={id};")
+    
+    return "&lt;div class='alert alert-danger'&gt;Eliminado&lt;/div&gt;"
+</pre>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="py-5 bg-light border-top">
-            <div class="container" data-aos="fade-up">
-                <div class="text-center mb-5">
-                    <span class="text-warning fw-bold text-uppercase small ls-2">Demostración en Vivo</span>
-                    <h2 class="fw-bold mt-2">Video Explicativo Parte III</h2>
-                    <p class="text-muted">Revisión funcional de la edición, eliminación y validación de integridad.</p>
-                </div>
-
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
+                <div class="row mt-5" data-aos="fade-up">
+                    <div class="col-12 text-center">
+                        <h3 class="fw-bold mb-4">Video Demostrativo</h3>
                         <div class="ratio ratio-16x9 shadow-lg rounded-4 overflow-hidden border border-5 border-white">
                             <iframe 
                                 src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
@@ -210,29 +168,26 @@
                                 allowfullscreen>
                             </iframe>
                         </div>
+                        <p class="text-muted mt-3 small">Demostración funcional de la edición y eliminación de registros.</p>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="py-5">
-            <div class="container">
-                <div class="d-flex justify-content-between pt-4 border-top">
-                    <a href="Vehiculo-Parte II.html" class="btn btn-outline-secondary rounded-pill px-4 py-2 fw-bold transition-hover">
-                        <i class="bi bi-arrow-left me-2"></i> Anterior: Parte II
+                <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                    <a href="Vehiculo-Parte II.html" class="btn btn-outline-secondary rounded-pill px-4">
+                        <i class="bi bi-chevron-left me-1"></i> Anterior: Parte II
                     </a>
-                    <a href="Session y login.html" class="btn btn-warning text-dark rounded-pill px-4 py-2 fw-bold shadow-sm transition-hover">
-                        Siguiente: Login y Sesiones <i class="bi bi-arrow-right ms-2"></i>
+                    <a href="Session y login.html" class="btn btn-warning text-white rounded-pill px-4 shadow-sm">
+                        Siguiente: Session y Login <i class="bi bi-chevron-right ms-1"></i>
                     </a>
                 </div>
+
             </div>
         </section>
-
     </main>
 
     <footer class="footer-modern py-5 bg-dark text-white mt-5">
         <div class="container text-center">
-            <p class="mb-0 text-white-50">© 2026 Python Academy - Módulo CRUD</p>
+            <p class="mb-0">© 2026 Python Academy - Módulo CRUD</p>
         </div>
     </footer>
 
