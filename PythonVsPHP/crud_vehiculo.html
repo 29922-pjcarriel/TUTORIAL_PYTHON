@@ -40,6 +40,77 @@
             position: relative;
         }
 
+        /* ===== HERO INTRO ===== */
+        .hero-intro {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            padding: 140px 0 70px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-intro::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(118, 75, 162, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(255, 212, 59, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-intro::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 80px;
+            background: linear-gradient(to top, #fff 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .vs-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .vs-title {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 60%, #c4b5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+        }
+
+        .vs-separator {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffd43b;
+            background: rgba(255, 212, 59, 0.15);
+            border: 2px solid rgba(255, 212, 59, 0.3);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(255, 212, 59, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(255, 212, 59, 0.4); }
+        }
+
         .code-demo {
             background: #1e1e1e;
             /* Dark background matches screenshots */
