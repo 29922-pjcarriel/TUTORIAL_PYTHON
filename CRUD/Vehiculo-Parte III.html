@@ -2,46 +2,48 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Vehiculo-Parte III · Python Academy</title>
-    <meta name="description" content="Implementación de las operaciones Update y Delete del CRUD.">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Vehiculo-Parte III · Python Academy</title>
+  <meta name="description" content="Implementación de las operaciones Update y Delete del CRUD.">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link href="../static/assets/css/main.css" rel="stylesheet">
-    <link href="../static/assets/css/custom.css" rel="stylesheet">
-    <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
-    <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
+  <link href="../static/assets/css/main.css" rel="stylesheet">
+  <link href="../static/assets/css/custom.css" rel="stylesheet">
+  <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+  <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
 
-    <style>
-        .hero-crud {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            padding: 100px 0 60px;
-            color: white;
-            margin-bottom: 0;
-        }
-        
-        /* Estilo para bloques de código */
-        pre {
-            background: #1e1e1e;
-            border-radius: 8px;
-            padding: 15px;
-            font-family: 'Fira Code', monospace;
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #f8f9fa; /* Texto blanco para legibilidad */
-            max-height: 400px;
-            overflow-y: auto;
-        }
-    </style>
+  <style>
+    .hero-crud {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      padding: 100px 0 60px;
+      color: white;
+      margin-bottom: 0;
+    }
+
+    /* Estilo para bloques de código */
+    pre {
+      background: #1e1e1e;
+      border-radius: 8px;
+      padding: 15px;
+      font-family: 'Fira Code', monospace;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #f8f9fa;
+      /* Texto blanco para legibilidad */
+      max-height: 400px;
+      overflow-y: auto;
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- Navbar -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
@@ -79,7 +81,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver
+                  todo
                   el temario</a></li>
             </ul>
           </li>
@@ -161,17 +164,29 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/crud_vehiculo.html"><i class="bi bi-car-front-fill me-2 text-primary"></i>CRUD Vehículo</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i
+                    class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i
+                    class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i
+                    class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i
+                    class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i
+                    class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i
+                    class="bi bi-box me-2 text-purple"></i>POO</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i
+                    class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i
+                    class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/crud_vehiculo.html"><i
+                    class="bi bi-car-front-fill me-2 text-primary"></i>CRUD Vehículo</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i
+                    class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -184,39 +199,42 @@
     </div>
   </nav>
 
-    <main>
-        <section class="hero-crud">
-            <div class="container text-center" data-aos="fade-up">
-                <span class="badge bg-white text-warning mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase">Módulo 3</span>
-                <h1 class="display-4 fw-bold mb-3">Vehículo - Parte III</h1>
-                <p class="lead opacity-90 mx-auto" style="max-width: 700px;">
-                    Finalizando el ciclo de vida del dato: Actualización (Update) y Eliminación (Delete) con manejo de integridad referencial.
-                </p>
-            </div>
-        </section>
+  <main>
+    <section class="hero-crud">
+      <div class="container text-center" data-aos="fade-up">
+        <span class="badge bg-white text-warning mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase">Módulo 3</span>
+        <h1 class="display-4 fw-bold mb-3">Vehículo - Parte III</h1>
+        <p class="lead opacity-90 mx-auto" style="max-width: 700px;">
+          Finalizando el ciclo de vida del dato: Actualización (Update) y Eliminación (Delete) con manejo de integridad
+          referencial.
+        </p>
+      </div>
+    </section>
 
-        <section class="py-5">
-            <div class="container">
-                
-                <div class="row align-items-center mb-5" data-aos="fade-right">
-                    <div class="col-lg-6">
-                        <h2 class="fw-bold text-dark mb-3"><span class="text-warning">1.</span> Lógica de Actualización</h2>
-                        <p class="text-muted">
-                            Para editar, reutilizamos el formulario de creación. La diferencia fundamental es que 
-                            capturamos el <code>ID</code> del vehículo (que viene en un campo oculto) para saber qué registro modificar en la base de datos.
-                        </p>
-                        <div class="alert alert-light border-start border-warning border-4 shadow-sm">
-                            <strong>Nota Clave:</strong> La sentencia SQL debe incluir obligatoriamente el <code>WHERE id = ...</code>, de lo contrario, se actualizarían todos los registros de la tabla.
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card shadow border-0">
-                            <div class="card-header bg-dark text-white d-flex justify-content-between">
-                                <small>vehiculo.py (Método Update)</small>
-                                <span class="badge bg-warning text-dark">Python</span>
-                            </div>
-                            <div class="card-body bg-dark p-0">
-<pre class="m-0 text-warning" style="background: transparent;">
+    <section class="py-5">
+      <div class="container">
+
+        <div class="row align-items-center mb-5" data-aos="fade-right">
+          <div class="col-lg-6">
+            <h2 class="fw-bold text-dark mb-3"><span class="text-warning">1.</span> Lógica de Actualización</h2>
+            <p class="text-muted">
+              Para editar, reutilizamos el formulario de creación. La diferencia fundamental es que
+              capturamos el <code>ID</code> del vehículo (que viene en un campo oculto) para saber qué registro
+              modificar en la base de datos.
+            </p>
+            <div class="alert alert-light border-start border-warning border-4 shadow-sm">
+              <strong>Nota Clave:</strong> La sentencia SQL debe incluir obligatoriamente el
+              <code>WHERE id = ...</code>, de lo contrario, se actualizarían todos los registros de la tabla.
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card shadow border-0">
+              <div class="card-header bg-dark text-white d-flex justify-content-between">
+                <small>vehiculo.py (Método Update)</small>
+                <span class="badge bg-warning text-dark">Python</span>
+              </div>
+              <div class="card-body bg-dark p-0">
+                <pre class="m-0 text-warning" style="background: transparent;">
 def update_vehiculo(self, POST):
     # 1. Captura de datos del formulario (request.form)
     id_vehiculo = POST.get("id")
@@ -239,32 +257,33 @@ def update_vehiculo(self, POST):
     self.con.query(sql)
     return "&lt;div class='alert alert-success'&gt;Actualizado&lt;/div&gt;"
 </pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                <hr class="my-5 opacity-25">
+        <hr class="my-5 opacity-25">
 
-                <div class="row align-items-center mb-5" data-aos="fade-left">
-                    <div class="col-lg-6 order-lg-2">
-                        <h2 class="fw-bold text-dark mb-3"><span class="text-danger">2.</span> Lógica de Eliminación</h2>
-                        <p class="text-muted">
-                            La eliminación es crítica. Antes de borrar el vehículo, debemos asegurarnos de mantener la <strong>Integridad Referencial</strong> de la base de datos.
-                        </p>
-                        <p>
-                            Si borramos un vehículo que tiene matrículas registradas, la base de datos dará error. 
-                            Por eso, el código primero elimina las "hijas" (matrículas) y luego al "padre" (vehículo).
-                        </p>
-                    </div>
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="card shadow border-0">
-                            <div class="card-header bg-danger text-white d-flex justify-content-between">
-                                <small>vehiculo.py (Método Delete)</small>
-                                <span class="badge bg-white text-danger">Integridad Referencial</span>
-                            </div>
-                            <div class="card-body bg-dark p-0">
-                                <pre class="m-0 text-white" style="background: transparent;">
+        <div class="row align-items-center mb-5" data-aos="fade-left">
+          <div class="col-lg-6 order-lg-2">
+            <h2 class="fw-bold text-dark mb-3"><span class="text-danger">2.</span> Lógica de Eliminación</h2>
+            <p class="text-muted">
+              La eliminación es crítica. Antes de borrar el vehículo, debemos asegurarnos de mantener la
+              <strong>Integridad Referencial</strong> de la base de datos.
+            </p>
+            <p>
+              Si borramos un vehículo que tiene matrículas registradas, la base de datos dará error.
+              Por eso, el código primero elimina las "hijas" (matrículas) y luego al "padre" (vehículo).
+            </p>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="card shadow border-0">
+              <div class="card-header bg-danger text-white d-flex justify-content-between">
+                <small>vehiculo.py (Método Delete)</small>
+                <span class="badge bg-white text-danger">Integridad Referencial</span>
+              </div>
+              <div class="card-body bg-dark p-0">
+                <pre class="m-0 text-white" style="background: transparent;">
 def delete_vehiculo(self, id):
     # 1. Eliminación en cascada manual
     # Primero borramos las matrículas asociadas para evitar errores de FK
@@ -275,40 +294,32 @@ def delete_vehiculo(self, id):
     
     return "&lt;div class='alert alert-danger'&gt;Eliminado&lt;/div&gt;"
 </pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-5" data-aos="fade-up">
-                    <div class="col-12 text-center">
-                        <h3 class="fw-bold mb-4">Video Demostrativo</h3>
-                        <iframe 
-                          src="https://www.youtube.com/embed/UQbHQTBDZT8"
-                          title="Explicación Vehículo Parte III" 
-                          frameborder="0" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                          allowfullscreen>
-                        </iframe>
-
-                        <p class="text-muted mt-3 small">Demostración funcional de la edición y eliminación de registros.</p>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-between mt-5 pt-4 border-top">
-                    <a href="Vehiculo-Parte II.html" class="btn btn-outline-secondary rounded-pill px-4">
-                        <i class="bi bi-chevron-left me-1"></i> Anterior: Parte II
-                    </a>
-                    <a href="Session y login.html" class="btn btn-warning text-white rounded-pill px-4 shadow-sm">
-                        Siguiente: Session y Login <i class="bi bi-chevron-right ms-1"></i>
-                    </a>
-                </div>
-
+              </div>
             </div>
-        </section>
-    </main>
+          </div>
+        </div>
 
-    <!-- Footer -->
+        <div class="video-container">
+          <iframe width="1021" height="541" src="https://www.youtube.com/embed/UQbHQTBDZT8"
+            title="2 - CRUD Vehiculo_PARTE_III_Final" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+          <a href="Vehiculo-Parte II.html" class="btn btn-outline-secondary rounded-pill px-4">
+            <i class="bi bi-chevron-left me-1"></i> Anterior: Parte II
+          </a>
+          <a href="Session y login.html" class="btn btn-warning text-white rounded-pill px-4 shadow-sm">
+            Siguiente: Session y Login <i class="bi bi-chevron-right ms-1"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer class="footer-modern">
     <div class="container">
       <div class="row g-5">
@@ -370,12 +381,13 @@ def delete_vehiculo(self, id):
     </div>
   </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../static/assets/js/effects.js"></script>
-    <script src="../static/assets/js/navbar-nested.js"></script>
-    <script>
-        AOS.init();
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../static/assets/js/effects.js"></script>
+  <script src="../static/assets/js/navbar-nested.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
+
 </html>
