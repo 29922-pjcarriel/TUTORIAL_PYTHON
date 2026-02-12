@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Sesiones y Login · Python vs PHP</title>
+    <meta name="description" content="Comparativa de manejo de sesiones, login y base de datos entre Python y PHP">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link href="../static/assets/css/main.css" rel="stylesheet">
+    <link href="../static/assets/css/custom.css" rel="stylesheet">
+    <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
+    <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
+
+    <style>
+        .sidebar-nav {
+            position: sticky;
+            top: 100px;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        .sidebar-nav h5 { font-weight: 700; color: #1a1a2e; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid #667eea; }
+        .sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 0.5rem; }
+        .sidebar-nav a { display: block; padding: 0.6rem 1rem; color: #64748b; text-decoration: none; border-radius: 8px; font-size: 0.9rem; transition: all 0.3s ease; border-left: 3px solid transparent; }
+        .sidebar-nav a:hover { background: rgba(102, 126, 234, 0.1); color: #667eea; border-left-color: #667eea; padding-left: 1.2rem; }
+        .sidebar-nav a.active { background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%); color: #667eea; font-weight: 600; border-left-color: #667eea; }
+        .sidebar-nav::-webkit-scrollbar { width: 4px; }
+        .sidebar-nav::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .sidebar-nav::-webkit-scrollbar-thumb { background: #667eea; border-radius: 4px; }
+        .sidebar-progress { height: 4px; background: #e2e8f0; border-radius: 4px; margin-bottom: 1rem; overflow: hidden; }
+        .sidebar-progress-bar { height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); width: 0%; transition: width 0.3s ease; }
+
+        .compare-row { display: flex; gap: 1.5rem; margin: 1.5rem 0; flex-wrap: wrap; }
+        .compare-col { flex: 1; min-width: 280px; }
+        .lang-card { border-radius: 16px; padding: 1.5rem; height: 100%; border: 1px solid rgba(0,0,0,0.08); }
+        .lang-card.python { background: linear-gradient(135deg, rgba(55,118,171,0.08) 0%, rgba(255,212,59,0.08) 100%); border-left: 4px solid #3776ab; }
+        .lang-card.php { background: linear-gradient(135deg, rgba(119,123,180,0.08) 0%, rgba(137,147,190,0.08) 100%); border-left: 4px solid #777bb4; }
+        .lang-badge { display: inline-block; padding: 4px 14px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-bottom: 1rem; }
+        .lang-badge.python { background: linear-gradient(135deg, #3776ab, #ffd43b); color: white; }
+        .lang-badge.php { background: linear-gradient(135deg, #777bb4, #8993be); color: white; }
+
+        .slide-section { padding: 2rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .slide-section:last-child { border-bottom: none; }
+        .slide-number { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); color: white; font-weight: 700; font-size: 0.8rem; margin-right: 10px; }
+
+        .code-box { background: #0f172a; color: #e2e8f0; padding: 18px; border-radius: 12px; font-family: 'Fira Code', ui-monospace, monospace; font-size: 0.88rem; overflow-x: auto; margin: 12px 0; border: 1px solid rgba(255,255,255,0.1); white-space: pre; }
+        .info-box { background: rgba(102,126,234,0.08); border-radius: 12px; padding: 1.2rem; border-left: 4px solid #667eea; margin: 1rem 0; }
+
+        .slide-img-container { margin: 1rem 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .slide-img-container:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .slide-img-container img { width: 100%; height: auto; display: block; }
+        .slide-img-caption { background: linear-gradient(135deg, #1a1a2e, #16213e); color: #94a3b8; padding: 8px 14px; font-size: 0.8rem; display: flex; align-items: center; gap: 6px; }
+        .slide-img-caption i { color: #667eea; }
+        .slide-img-caption .badge-slide { background: rgba(102,126,234,0.2); color: #667eea; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; font-weight: 600; }
+    </style>
+</head>
+
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="../index.html">
+        <i class="bi bi-braces me-2"></i>Python Academy
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-2">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="../index.html"><i class="bi bi-house me-1"></i> Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-book me-1"></i> Teoría</a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_infraestructura.html"><i class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_historia.html"><i class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_htmlpyhon.html"><i class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_sintaxisComentarios.html"><i class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_variablesConstantes.html"><i class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
+              <li><a class="dropdown-item py-2" href="../teoria/teoria_tiposDatos.html"><i class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo el temario</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-code-square me-1"></i> Ejercicios</a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-input-cursor-text me-2 text-success"></i>Procesamiento de formularios</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio1.html">Formulario request.form</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio2.html">Formulario request.files</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio3.html">Factorial</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio4.html">Triángulo de Pascal</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio5.html">Es Primo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio6.html">Validar Cédula</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-list-ul me-2 text-success"></i>Arreglos</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio7.html">Ejemplo 01</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio8.html">Ejemplo 02</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio9.html">Arreglo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio10.html">Matriz</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio11.html">Cubo</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio12.html">Tablas Dinámicas</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i class="bi bi-diagram-2 me-2 text-success"></i>POO</a>
+                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio13.html">Clases</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio14.html">Herencia</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio15.html">Abstracta</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio16.html">Interfaces</a></li>
+                  <li><a class="dropdown-item" href="../ejercicios/ejercicio17.html">Polimorfismo</a></li>
+                </ul>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver todos los ejercicios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-database me-1"></i> Temas Avanzados</a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte I.html"><i class="bi bi-car-front me-2 text-danger"></i>Vehículo - Parte I</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte II.html"><i class="bi bi-car-front-fill me-2 text-danger"></i>Vehículo - Parte II</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Vehiculo-Parte III.html"><i class="bi bi-gear-wide-connected me-2 text-danger"></i>Vehículo - Parte III</a></li>
+              <li><a class="dropdown-item py-2" href="../CRUD/Session y login.html"><i class="bi bi-lock me-2 text-danger"></i>Session y Login</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../explicacion_crud.html"><i class="bi bi-grid me-2"></i>Ver Resumen</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown"><i class="bi bi-arrow-left-right me-1"></i> Python VS PHP</a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i class="bi bi-boxes me-2 text-info"></i>Ecosistema</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/mercado.html"><i class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">Comenzar <i class="bi bi-arrow-right ms-1"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <main class="main">
+        <!-- Hero Interno -->
+        <section class="hero-internal">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="container relative">
+                <span class="badge-custom animate-on-scroll">MÓDULO 6</span>
+                <h1 class="animate-on-scroll delay-1">Sesiones y Login</h1>
+                <p class="animate-on-scroll delay-2">
+                    Comparativa de manejo de sesiones, autenticación y base de datos entre Python (Flask) y PHP.
+                </p>
+                <p class="animate-on-scroll delay-3" style="font-size:0.9rem; opacity:0.7;">
+                    Autoras: Nicole Carvajal · Melanie Reimundo — Universidad de las Fuerzas Armadas
+                </p>
+            </div>
+        </section>
+
+        <section class="section py-5">
+            <div class="container">
+                <div class="row justify-content-start">
+                    <!-- Sidebar -->
+                    <div class="col-lg-3 d-none d-lg-block">
+                        <nav class="sidebar-nav">
+                            <div class="sidebar-progress">
+                                <div class="sidebar-progress-bar"></div>
+                            </div>
+                            <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
+                            <ul>
+                                <li><a href="#sesiones" class="active">Sesiones</a></li>
+                                <li><a href="#almacenamiento">Almacenamiento</a></li>
+                                <li><a href="#organizacion">Organización del Proyecto</a></li>
+                                <li><a href="#flujo-python">Flujo en Python</a></li>
+                                <li><a href="#head-index">Head del Index</a></li>
+                                <li><a href="#body-index">Body del Index</a></li>
+                                <li><a href="#inicializacion">Inicialización Backend</a></li>
+                                <li><a href="#obtencion-datos">Obtención de Datos</a></li>
+                                <li><a href="#formulario-dinamico">Formulario Dinámico</a></li>
+                                <li><a href="#control-flujo">Control del Flujo</a></li>
+                                <li><a href="#vista-detalle">Vista de Detalle</a></li>
+                                <li><a href="#navegacion-login">Navegación al Login</a></li>
+                                <li><a href="#carga-login">Carga del Login</a></li>
+                                <li><a href="#formulario-login">Formulario de Login</a></li>
+                                <li><a href="#validacion-login">Validación y Sesión</a></li>
+                                <li><a href="#error-auth">Error de Autenticación</a></li>
+                                <li><a href="#visualizacion-notebook">Visualización Notebook</a></li>
+                            </ul>
+                            <hr>
+                            <a href="../PythonvsPHP.html" class="btn btn-sm btn-outline-secondary w-100 rounded-pill mt-2">
+                                <i class="bi bi-arrow-left me-2"></i>Volver al Índice
+                            </a>
+                        </nav>
+                    </div>
+
+                    <!-- Main Content -->
+                    <div class="col-lg-8">
+
+                        <!-- Diapositiva 1-2: Sesiones -->
+                        <div class="slide-section" id="sesiones">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">1</span> Sesiones</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul class="mb-0">
+                                            <li>El cliente <strong>no puede leer</strong> los datos de la sesión.</li>
+                                            <li>El cliente <strong>no puede modificar</strong> el contenido de la sesión.</li>
+                                            <li>El navegador únicamente almacena un identificador de sesión (<code>PHPSESSID</code>).</li>
+                                            <li>Los datos reales de la sesión residen <strong>exclusivamente en el servidor</strong>.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python + Flask</span>
+                                        <ul class="mb-0">
+                                            <li>El cliente <strong>puede leer</strong> el contenido de la sesión, ya que se almacena en una cookie.</li>
+                                            <li>Los datos se encuentran codificados (por ejemplo, Base64), pero <strong>no cifrados</strong>.</li>
+                                            <li>El cliente <strong>no puede modificar</strong> los datos sin invalidar la firma criptográfica.</li>
+                                            <li>La integridad de la sesión está protegida mediante la <code>secret_key</code>.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide-img-container mt-3" data-aos="fade-up">
+                                <img src="../static/assets/img/sesiones/slide3_7.png" alt="Cookies de sesión en PHP - DevTools">
+                                <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 3</span> Almacenamiento de cookies de sesión en PHP (DevTools)</div>
+                            </div>
+                            <div class="slide-img-container mt-2" data-aos="fade-up">
+                                <img src="../static/assets/img/sesiones/slide3_8.png" alt="Archivos de sesión PHP en el servidor">
+                                <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 3</span> Archivos de sesión PHP almacenados en el servidor (wamp64/tmp)</div>
+                            </div>
+                            <div class="slide-img-container mt-2" data-aos="fade-up">
+                                <img src="../static/assets/img/sesiones/slide4_7.png" alt="Cookies de sesión en Python - DevTools">
+                                <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 4</span> Almacenamiento de cookies de sesión en Python/Flask (DevTools)</div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 3-4: Almacenamiento -->
+                        <div class="slide-section" id="almacenamiento">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">2</span> Almacenamiento de Sesión</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul class="mb-0">
+                                            <li>El navegador almacena únicamente una cookie con el identificador de sesión (<code>PHPSESSID</code>).</li>
+                                            <li>El servidor utiliza dicho identificador para localizar el archivo de sesión correspondiente.</li>
+                                            <li>Los datos reales de la sesión se encuentran almacenados <strong>en el servidor</strong>, no en el cliente.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python + Flask</span>
+                                        <ul class="mb-0">
+                                            <li>El navegador guarda una cookie que contiene los datos de sesión serializados.</li>
+                                            <li>La información está firmada criptográficamente mediante la <code>secret_key</code>.</li>
+                                            <li>El servidor valida la firma, pero <strong>no conserva estado</strong> entre solicitudes.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 5: Organización -->
+                        <div class="slide-section" id="organizacion">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">3</span> Organización del Proyecto</h3>
+                            <p>La estructura del proyecto separa claramente el frontend y el backend en ambas implementaciones: PHP y Python. Esto facilita la organización del código y el mantenimiento del sistema.</p>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <p class="mb-0">Cada archivo PHP actúa como parte del backend, mezclando lógica y presentación según el archivo.</p>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <p class="mb-0">Flask separa las rutas (backend) de las plantillas HTML (frontend) mediante el motor Jinja.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container mt-3" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide5_5.png" alt="Estructura carpeta PHP_MODIFICADO">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 5</span> Estructura del proyecto PHP</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container mt-3" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide5_6.png" alt="Estructura carpeta PYTHON">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 5</span> Estructura del proyecto Python</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 6: Flujo Python -->
+                        <div class="slide-section" id="flujo-python">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">4</span> Flujo de Ejecución en Python</h3>
+                            <div class="lang-card python">
+                                <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                <ol>
+                                    <li>El usuario accede a la URL principal de la aplicación (<code>/</code>).</li>
+                                    <li>Flask detecta la ruta <code>/</code> y ejecuta la función <code>root()</code>, que es el primer punto de entrada del sistema.</li>
+                                    <li>Dentro de la función, el servidor localiza el archivo <code>index.html</code> que se encuentra en la raíz del proyecto.</li>
+                                    <li>El archivo <code>index.html</code> se abre y su contenido se lee completamente en memoria.</li>
+                                    <li>Ese contenido se renderiza usando Jinja, lo que permite interpretar expresiones como <code>url_for</code> para cargar correctamente estilos e imágenes.</li>
+                                    <li>Finalmente, Flask envía la página ya procesada al navegador del usuario, mostrando la pantalla inicial del sistema.</li>
+                                </ol>
+                                <div class="info-box">
+                                    <h6 class="fw-bold mb-2"><i class="bi bi-question-circle me-1"></i> ¿Qué es <code>render_template_string</code>?</h6>
+                                    <pre class="code-box mb-2">return render_template_string(content)</pre>
+                                    <ul class="mb-0">
+                                        <li>Tomar un HTML</li>
+                                        <li>Procesarlo con Jinja (el motor de plantillas)</li>
+                                        <li>Convertirlo en una página lista para el navegador</li>
+                                    </ul>
+                                </div>
+                                <div class="slide-img-container mt-3" data-aos="fade-up">
+                                    <img src="../static/assets/img/sesiones/slide6_1.png" alt="Archivo app.py">
+                                    <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 6</span> Archivo: app.py</div>
+                                </div>
+                                <div class="slide-img-container mt-2" data-aos="fade-up">
+                                    <img src="../static/assets/img/sesiones/slide6_8.png" alt="Imports de Python en app.py">
+                                    <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 6</span> Imports del módulo app.py</div>
+                                </div>
+                                <div class="slide-img-container mt-2" data-aos="fade-up">
+                                    <img src="../static/assets/img/sesiones/slide6_9.png" alt="Código de la función root() en Flask">
+                                    <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 6</span> Función root() — Punto de entrada en Flask</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 7: Head del Index -->
+                        <div class="slide-section" id="head-index">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">5</span> Head del Index.html</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul class="mb-0">
+                                            <li>Es un archivo HTML estático (<code>.html</code>).</li>
+                                            <li>No depende de ningún framework.</li>
+                                            <li>Los recursos (CSS, imágenes) se cargan con rutas directas.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul class="mb-0">
+                                            <li>Es una plantilla HTML renderizada por el backend.</li>
+                                            <li>Depende de un framework (por ejemplo, Flask).</li>
+                                            <li>Los recursos se cargan de forma dinámica usando el backend.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide7_7.png" alt="Head del index.html en Python (Flask)">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 7</span> Head en Python — usa url_for() para recursos</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide7_8.png" alt="Head del index.html en PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 7</span> Head en PHP — rutas directas a recursos</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide7_9.png" alt="Estructura carpeta PYTHON">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 7</span> Estructura de archivos Python</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide7_1.png" alt="Estructura carpeta PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 7</span> Estructura de archivos PHP</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 8-9: Body del Index -->
+                        <div class="slide-section" id="body-index">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">6</span> Body del Index.html</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul class="mb-0">
+                                            <li>Se llama directamente a un archivo PHP.</li>
+                                            <li>Ese archivo ejecuta la lógica.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul class="mb-0">
+                                            <li>Se llama a una ruta del backend.</li>
+                                            <li>El backend decide qué vista mostrar.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide8_6.png" alt="Body del index.html en PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 8</span> Body del Index en PHP — llama a archivo PHP</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide9_6.png" alt="Body del index.html en Python">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 9</span> Body del Index en Python — llama a ruta Flask</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide8_7.png" alt="Línea de código PHP enlace">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 8</span> PHP: enlace a backend/index.php</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide9_7.png" alt="Línea de código Python enlace">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 9</span> Python: enlace a ruta /index</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide8_8.png" alt="Estructura carpeta PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 8</span> Estructura de archivos PHP</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide9_8.png" alt="Estructura carpeta Python">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 9</span> Estructura de archivos Python</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 10: Inicialización -->
+                        <div class="slide-section" id="inicializacion">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">7</span> Inicialización del Backend</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Importa librerías del framework Flask.</li>
+                                            <li>Importa módulos propios del proyecto.</li>
+                                            <li>Inicializa la aplicación (Flask).</li>
+                                            <li>Define carpetas de templates y recursos estáticos.</li>
+                                            <li>Configura la clave de sesiones.</li>
+                                        </ul>
+                                        <div class="info-box">
+                                            <p class="mb-0"><strong>En Python existen dos formas de renderizar:</strong><br>
+                                            <code>render_template</code> para plantillas<br>
+                                            <code>render_template_string</code> para HTML cargado como texto.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul class="mb-0">
+                                            <li>Incluye archivos necesarios para el funcionamiento.</li>
+                                            <li>Carga clases, constantes y la conexión a la base de datos.</li>
+                                            <li>Cada archivo PHP actúa como parte del backend.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container mt-3" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide10_9.png" alt="Archivo app.py">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 10</span> Archivo: app.py</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide10_7.png" alt="Inicialización del backend en Python">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 10</span> Python: imports, app Flask y secret_key</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container mt-3" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide10_1.png" alt="Estructura carpeta PHP backend">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 10</span> Estructura PHP backend</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide10_8.png" alt="Código PHP require_once">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 10</span> PHP: require_once para archivos necesarios</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 11: Obtención de datos -->
+                        <div class="slide-section" id="obtencion-datos">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">8</span> Obtención de Datos y Almacenamiento en Sesión</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul class="mb-0">
+                                            <li>Se usa para enviar información al servidor.</li>
+                                            <li>Modifica o procesa datos.</li>
+                                            <li>Los datos no viajan en la URL.</li>
+                                            <li>Se usa en formularios (login).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul class="mb-0">
+                                            <li><code>__DIR__</code> es una constante mágica de PHP.</li>
+                                            <li>Representa la ruta absoluta del directorio actual.</li>
+                                            <li>Se usa para evitar errores de rutas relativas.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide11_4.png" alt="Archivo app.py">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 11</span> Archivo: app.py</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide11_2.png" alt="Obtención de datos en Python">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 11</span> Python: consulta BD y almacenamiento en sesión</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide11_5.png" alt="Estructura carpeta PHP backend">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 11</span> Estructura PHP backend</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide11_3.png" alt="Obtención de datos en PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 11</span> PHP: consulta BD y almacenamiento en $_SESSION</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 12: Formulario Dinámico -->
+                        <div class="slide-section" id="formulario-dinamico">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">9</span> Generación Dinámica del Formulario</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul class="mb-0">
+                                            <li>Usa Jinja (<code>{% for %}</code>), para generar HTML dinámico.</li>
+                                            <li>El HTML solo presenta datos enviados por el backend.</li>
+                                            <li>Inserta los valores directamente en la plantilla.</li>
+                                            <li>Usa variables del diccionario.</li>
+                                            <li>Llama a una ruta del backend.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul class="mb-0">
+                                            <li>Usa <code>foreach</code> dentro del HTML.</li>
+                                            <li>Ejecuta código PHP embebido en la vista.</li>
+                                            <li>Genera las opciones con <code>echo</code>.</li>
+                                            <li>Accede a métodos del objeto.</li>
+                                            <li>Llama directamente a un archivo PHP.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide12_4.png" alt="Estructura carpeta Python frontend">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 12</span> Estructura frontend Python (templates)</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide12_3.png" alt="Formulario dinámico en Python (Jinja)">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 12</span> Python: generación dinámica con Jinja {% for %}</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide12_5.png" alt="Estructura carpeta PHP frontend">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 12</span> Estructura frontend PHP (template)</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide12_2.png" alt="Formulario dinámico en PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 12</span> PHP: generación dinámica con foreach y echo</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 13: Control del Flujo -->
+                        <div class="slide-section" id="control-flujo">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">10</span> Control del Flujo y Visualización de Datos</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul class="mb-0">
+                                            <li>Utiliza una ruta (<code>/verNotebook</code>) definida en Flask para controlar el acceso.</li>
+                                            <li>Flask decide qué función ejecutar según la ruta y el método (GET o POST).</li>
+                                            <li>Recupera los datos almacenados en la sesión usando <code>session.get</code>.</li>
+                                            <li>Lee la información enviada desde el formulario mediante <code>request.form</code> o <code>request.args</code>.</li>
+                                            <li>Selecciona el elemento correspondiente desde la estructura de datos.</li>
+                                            <li>Envía los datos a la vista utilizando <code>render_template</code>, renderizando el HTML dinámicamente.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul class="mb-0">
+                                            <li>El flujo se controla mediante un archivo PHP accedido directamente.</li>
+                                            <li>El archivo se ejecuta cuando el formulario apunta a él.</li>
+                                            <li>Recupera los datos almacenados en la sesión usando <code>$_SESSION</code>.</li>
+                                            <li>Lee la información enviada desde el formulario mediante <code>$_POST</code> o <code>$_GET</code>.</li>
+                                            <li>Selecciona el elemento correspondiente desde el arreglo de datos.</li>
+                                            <li>Incluye directamente la vista que mostrará la información al usuario.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide13_5.png" alt="Archivo app.py">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 13</span> Archivo: app.py</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide13_2.png" alt="Código ruta verNotebook">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 13</span> Python: @app.route('/verNotebook')</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide13_3.png" alt="Control de flujo verNotebook en Python">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 13</span> Python: función ver_notebook() en Flask</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide13_7.png" alt="Estructura carpeta PHP backend">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 13</span> Estructura PHP backend</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide13_4.png" alt="Control de flujo verNotebook en PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 13</span> PHP: archivo verNotebook.php</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide13_6.png" alt="Estructura carpeta Python backend">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 13</span> Estructura Python backend</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 14-15: Vista Detalle -->
+                        <div class="slide-section" id="vista-detalle">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">11</span> Vista de Detalle del Notebook</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Es una plantilla HTML con Jinja.</li>
+                                            <li>Los datos llegan desde el backend mediante <code>render_template</code>.</li>
+                                            <li>Se accede a los valores usando variables dinámicas.</li>
+                                        </ul>
+                                        <pre class="code-box">{{ objData.marca }}
+{{ objData.codigo }}
+{{ objData.precio|int }}</pre>
+                                        <ul class="mb-0">
+                                            <li>Jinja se encarga de insertar los datos directamente en el HTML.</li>
+                                            <li>La vista solo se dedica a mostrar información, no a procesarla.</li>
+                                            <li>Mantiene una clara separación entre lógica (backend) y presentación (frontend).</li>
+                                            <li>Incluye un botón "Continuar" que redirige nuevamente al <code>/index</code>, permitiendo volver a seleccionar otro notebook.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>Es un archivo PHP que mezcla HTML y código PHP.</li>
+                                            <li>Los datos se obtienen directamente desde el objeto.</li>
+                                        </ul>
+                                        <pre class="code-box">&lt;?php echo $obj-&gt;getMarca(); ?&gt;
+&lt;?php echo $obj-&gt;getCodigo(); ?&gt;
+&lt;?php echo number_format($obj-&gt;getPrecio()); ?&gt;</pre>
+                                        <ul class="mb-0">
+                                            <li>El procesamiento y la visualización están más mezclados.</li>
+                                            <li>PHP ejecuta el código dentro del HTML en tiempo de ejecución.</li>
+                                            <li>La vista tiene más control directo sobre los datos.</li>
+                                            <li>Incluye un botón "Continuar" que redirige a <code>index.php</code>, reiniciando el flujo del sistema.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide14_3.png" alt="Estructura carpeta Python templates">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 14</span> Estructura Python templates</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide14_2.png" alt="Vista detalle Notebook en Python">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 14</span> Python: vista verNotebook.html con Jinja</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide15_3.png" alt="Estructura carpeta PHP template">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 15</span> Estructura PHP template</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide15_2.png" alt="Vista detalle Notebook en PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 15</span> PHP: vista verNotebook.php con echo</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 16: Navegación Login -->
+                        <div class="slide-section" id="navegacion-login">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">12</span> Navegación hacia el Formulario de Login</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <p>El enlace apunta directamente a un archivo PHP.</p>
+                                        <pre class="code-box">&lt;a href="FormularioLogin.php" class="btn btn-principal"&gt;Ir al Login&lt;/a&gt;</pre>
+                                        <p class="mb-0"><strong>Al hacer clic:</strong> El servidor ejecuta <code>FormularioLogin.php</code> → Se muestra el formulario de login.</p>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <p>El enlace apunta a una ruta del backend.</p>
+                                        <pre class="code-box">&lt;a href="/FormularioLogin" class="btn btn-principal"&gt;Ir al Login&lt;/a&gt;</pre>
+                                        <p class="mb-0"><strong>Al hacer clic:</strong> El navegador solicita la ruta <code>/FormularioLogin</code> → Flask ejecuta la función asociada → Se renderiza el formulario de login.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide16_4.png" alt="Navegación al login en Python">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 16</span> Python: enlace a ruta /FormularioLogin</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide16_3.png" alt="Navegación al login en PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 16</span> PHP: enlace directo a FormularioLogin.php</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide-img-container mt-3" data-aos="fade-up">
+                                <img src="../static/assets/img/sesiones/slide16_2.png" alt="Código render_template">
+                                <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 16</span> Python: return render_template('index.html', notebooksData=notebooks)</div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide16_6.png" alt="Estructura carpeta Python templates">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 16</span> Estructura Python templates</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide16_5.png" alt="Estructura carpeta PHP template">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 16</span> Estructura PHP template</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 17: Carga Login -->
+                        <div class="slide-section" id="carga-login">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">13</span> Carga del Formulario de Login</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul class="mb-0">
+                                            <li>Se define una ruta llamada <code>/FormularioLogin</code>.</li>
+                                            <li>Flask ejecuta la función asociada a la ruta.</li>
+                                            <li>Se recuperan los datos desde la sesión.</li>
+                                            <li>Se renderiza la vista <code>FormularioLogin.html</code> usando Jinja.</li>
+                                            <li>El backend controla completamente qué se muestra.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul class="mb-0">
+                                            <li>Se accede directamente al archivo <code>FormularioLogin.php</code>.</li>
+                                            <li>Se inicia la sesión con <code>session_start()</code>.</li>
+                                            <li>Se obtienen los datos desde <code>$_SESSION</code>.</li>
+                                            <li>Se incluye la plantilla del formulario de login.</li>
+                                            <li>El archivo PHP se ejecuta al ser solicitado.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide17_5.png" alt="Archivo app.py">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 17</span> Archivo: app.py</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide17_2.png" alt="Código ruta FormularioLogin">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 17</span> Python: @app.route('/FormularioLogin')</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide17_3.png" alt="Carga del login en Python">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 17</span> Python: función formulario_login()</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide17_4.png" alt="Carga del login en PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 17</span> PHP: FormularioLogin.php</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide17_7.png" alt="Estructura carpeta Python backend">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 17</span> Estructura Python backend (formularioLogin.py)</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide17_6.png" alt="Estructura carpeta PHP backend">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 17</span> Estructura PHP backend (FormularioLogin.php)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 18-19: Formulario Login -->
+                        <div class="slide-section" id="formulario-login">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">14</span> Formulario de Login</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul class="mb-0">
+                                            <li>Es una plantilla HTML con Jinja.</li>
+                                            <li>El formulario envía los datos mediante POST a la ruta <code>/validar</code>.</li>
+                                            <li>La lista de usuarios se genera dinámicamente usando Jinja.</li>
+                                            <li>Los datos (<code>objData</code>) llegan desde el backend a través de <code>render_template</code>.</li>
+                                            <li>El HTML se encarga únicamente de mostrar el formulario, no de procesar la información.</li>
+                                            <li>Al presionar LOGIN, el flujo continúa hacia la validación en el backend.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul class="mb-0">
+                                            <li>Es un archivo PHP que mezcla HTML y código PHP.</li>
+                                            <li>El formulario envía los datos mediante POST al archivo <code>validar.php</code>.</li>
+                                            <li>La lista de usuarios se genera usando código PHP dentro del HTML.</li>
+                                            <li>El archivo accede directamente a los datos disponibles en el servidor.</li>
+                                            <li>Al presionar LOGIN, se ejecuta el archivo <code>validar.php</code> para procesar la información.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide18_3.png" alt="Estructura carpeta Python templates">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 18</span> Estructura Python templates (FormularioLogin.html)</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide18_2.png" alt="Formulario de Login en Python">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 18</span> Python: FormularioLogin.html con Jinja</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide19_3.png" alt="Estructura carpeta PHP template">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 19</span> Estructura PHP template (FormularioLogin.php)</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide19_2.png" alt="Formulario de Login en PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 19</span> PHP: FormularioLogin.php con foreach</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 20-21: Validación -->
+                        <div class="slide-section" id="validacion-login">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">15</span> Validación de Login y Manejo de Sesión</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <h6 class="fw-bold">Login</h6>
+                                        <ul>
+                                            <li>El usuario completa el formulario de login.</li>
+                                            <li>El formulario envía los datos (usuario y clave) mediante POST a la ruta <code>/validar</code>.</li>
+                                            <li>Flask recibe los datos usando <code>request.form</code>.</li>
+                                            <li>Se ejecuta una consulta a la base de datos para verificar si el usuario existe.</li>
+                                            <li>Si los datos son correctos: El login se considera válido → El usuario puede continuar al sistema.</li>
+                                            <li>Si los datos son incorrectos: Se renderiza una vista de error.</li>
+                                        </ul>
+                                        <h6 class="fw-bold">Sesión</h6>
+                                        <ul class="mb-0">
+                                            <li>Flask utiliza el objeto <code>session</code>.</li>
+                                            <li>La sesión se guarda en el servidor usando una clave secreta (<code>secret_key</code>).</li>
+                                            <li>Se almacenan datos importantes, por ejemplo:</li>
+                                        </ul>
+                                        <pre class="code-box">session['listaNote'] = notebooks</pre>
+                                        <p class="mb-0">Estos datos quedan disponibles en todas las rutas mientras la sesión esté activa. La sesión permite mantener información entre páginas sin volver a consultar la base de datos.</p>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <h6 class="fw-bold">Login</h6>
+                                        <ul>
+                                            <li>El usuario completa el formulario de login.</li>
+                                            <li>El formulario envía los datos mediante POST al archivo <code>validar.php</code>.</li>
+                                            <li>PHP recibe los datos usando <code>$_POST</code>.</li>
+                                            <li>Se ejecuta una consulta SQL para verificar usuario y contraseña.</li>
+                                            <li>Si los datos son correctos: El login se considera válido → Se redirige al siguiente archivo del sistema.</li>
+                                            <li>Si los datos son incorrectos: Se incluye directamente una vista de error.</li>
+                                        </ul>
+                                        <h6 class="fw-bold">Sesión</h6>
+                                        <ul class="mb-0">
+                                            <li>PHP maneja sesiones con <code>session_start()</code>.</li>
+                                            <li>Los datos se guardan en la superglobal <code>$_SESSION</code>.</li>
+                                        </ul>
+                                        <pre class="code-box">$_SESSION['listaNote'] = $notebooks;</pre>
+                                        <p class="mb-0">La sesión permanece activa mientras el navegador esté abierto o hasta que se cierre explícitamente. Permite compartir datos entre distintos archivos PHP.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide20_4.png" alt="Archivo app.py">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 20</span> Archivo: app.py</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide20_2.png" alt="Código ruta validar">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 20</span> Python: @app.route('/validar')</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide20_3.png" alt="Validación de login en Python">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 20</span> Python: función validar() con request.form</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide20_5.png" alt="Estructura carpeta Python backend">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 20</span> Estructura Python backend (validar.py)</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide21_3.png" alt="Estructura carpeta PHP backend">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 21</span> Estructura PHP backend (validar.php)</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide21_2.png" alt="Validación de login en PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 21</span> PHP: validar.php con $_POST y mysqli</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 22-23: Error Auth -->
+                        <div class="slide-section" id="error-auth">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">16</span> Manejo de Error de Autenticación</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Es una plantilla HTML con Jinja.</li>
+                                            <li>Se muestra cuando el login falla en la ruta <code>/validar</code>.</li>
+                                            <li>El backend decide mostrar esta vista usando <code>render_template</code>.</li>
+                                            <li>Usa <code>url_for</code> para cargar correctamente CSS e imágenes.</li>
+                                            <li>Muestra un mensaje indicando que el usuario o la contraseña son incorrectos.</li>
+                                        </ul>
+                                        <pre class="code-box">&lt;a href="/FormularioLogin"&gt;Intentar de Nuevo&lt;/a&gt;</pre>
+                                        <p class="mb-0">Permite volver al login sin perder el flujo del sistema.</p>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>Es un archivo PHP con HTML.</li>
+                                            <li>Se muestra cuando la validación falla en <code>validar.php</code>.</li>
+                                            <li>El archivo de validación incluye directamente esta vista.</li>
+                                        </ul>
+                                        <pre class="code-box">include __DIR__ . '/../frontend/templates/ErrorAutenticacion.php';</pre>
+                                        <ul>
+                                            <li>Los recursos se cargan usando rutas directas: <code>&lt;img src="../img/logo.png"&gt;</code></li>
+                                            <li>Muestra el mismo mensaje de error al usuario.</li>
+                                        </ul>
+                                        <pre class="code-box">&lt;a href="FormularioLogin.php"&gt;Intentar de Nuevo&lt;/a&gt;</pre>
+                                        <p class="mb-0">Reinicia el flujo del login desde el archivo correspondiente.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide22_3.png" alt="Estructura carpeta Python templates">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 22</span> Estructura Python templates</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide22_2.png" alt="Error de autenticación en Python">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 22</span> Python: ErrorAutenticacion.html con url_for</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide23_3.png" alt="Estructura carpeta PHP template">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 23</span> Estructura PHP template</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide23_2.png" alt="Error de autenticación en PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 23</span> PHP: ErrorAutenticacion.php con rutas directas</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diapositiva 24-26: Visualización Notebook -->
+                        <div class="slide-section" id="visualizacion-notebook">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">17</span> Visualización del Notebook Seleccionado</h3>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Se define una ruta llamada <code>/verNotebook</code> que acepta GET y POST.</li>
+                                            <li>Flask ejecuta la función asociada a la ruta.</li>
+                                            <li>Se recupera la lista de notebooks desde la sesión.</li>
+                                            <li>Se obtiene el valor enviado por el formulario (<code>op</code>) usando:
+                                                <ul>
+                                                    <li><code>request.form</code> si es POST</li>
+                                                    <li><code>request.args</code> si es GET</li>
+                                                </ul>
+                                            </li>
+                                            <li>Se selecciona el notebook correspondiente a partir de la sesión.</li>
+                                            <li>Finalmente, se renderiza la vista <code>verNotebook.html</code> enviando el objeto seleccionado.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>Se accede directamente al archivo <code>verNotebook.php</code>.</li>
+                                            <li>Se inicia la sesión con <code>session_start()</code>.</li>
+                                            <li>Se obtiene la lista de notebooks desde <code>$_SESSION</code>.</li>
+                                            <li>Se lee el valor enviado por el formulario (<code>op</code>) usando <code>$_POST</code> o <code>$_GET</code>.</li>
+                                            <li>Se selecciona el notebook correspondiente.</li>
+                                            <li>Se incluye directamente la plantilla del frontend.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide24_5.png" alt="Archivo app.py">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 24</span> Archivo: app.py</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide24_2.png" alt="Código ruta verNotebook">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 24</span> Python: @app.route('/verNotebook')</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide24_3.png" alt="Visualización Notebook en Python">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 24</span> Python: función ver_notebook() completa</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide24_4.png" alt="Visualización Notebook en PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 24</span> PHP: verNotebook.php completo</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide24_6.png" alt="Estructura carpeta Python backend">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 24</span> Estructura Python backend (verNotebook.py)</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide24_7.png" alt="Estructura carpeta PHP backend">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 24</span> Estructura PHP backend (verNotebook.php)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide25_3.png" alt="Estructura carpeta Python templates">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 25</span> Estructura Python templates</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide25_2.png" alt="Vista detalle Notebook Python">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 25</span> Python: vista de detalle verNotebook.html</div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="slide-img-container" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide26_3.png" alt="Estructura carpeta PHP template">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 26</span> Estructura PHP template</div>
+                                    </div>
+                                    <div class="slide-img-container mt-2" data-aos="fade-up">
+                                        <img src="../static/assets/img/sesiones/slide26_2.png" alt="Vista detalle Notebook PHP">
+                                        <div class="slide-img-caption"><i class="bi bi-image"></i> <span class="badge-slide">Diap. 26</span> PHP: vista de detalle verNotebook.php</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer-modern mt-5">
+        <div class="container text-center">
+            <p class="mb-0 text-white-50">© 2026 Python Academy · Módulo Especial de Comparativa Backend</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../static/assets/js/effects.js"></script>
+    <script src="../static/assets/js/navbar-nested.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+
+        // Sidebar scroll spy
+        const sections = document.querySelectorAll('.slide-section');
+        const sidebarLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
+        const progressBar = document.querySelector('.sidebar-progress-bar');
+
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY + 150;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (window.scrollY / docHeight) * 100;
+            if (progressBar) progressBar.style.width = scrollPercent + '%';
+
+            sections.forEach(section => {
+                if (section.offsetTop <= scrollPos && (section.offsetTop + section.offsetHeight) > scrollPos) {
+                    sidebarLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + section.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
