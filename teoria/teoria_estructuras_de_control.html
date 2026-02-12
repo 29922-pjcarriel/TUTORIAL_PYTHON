@@ -10,7 +10,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
-  
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -32,6 +32,7 @@
       max-height: calc(100vh - 120px);
       overflow-y: auto;
     }
+
     .sidebar-nav h5 {
       font-weight: 700;
       color: #1a1a2e;
@@ -45,9 +46,11 @@
       padding: 0;
       margin: 0;
     }
+
     .sidebar-nav li {
       margin-bottom: 0.5rem;
     }
+
     .sidebar-nav a {
       display: block;
       padding: 0.6rem 1rem;
@@ -58,30 +61,36 @@
       transition: all 0.3s ease;
       border-left: 3px solid transparent;
     }
+
     .sidebar-nav a:hover {
       background: rgba(102, 126, 234, 0.1);
       color: #667eea;
       border-left-color: #667eea;
       padding-left: 1.2rem;
     }
+
     .sidebar-nav a.active {
       background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
       color: #667eea;
       font-weight: 600;
       border-left-color: #667eea;
     }
+
     /* Scrollbar personalizada */
     .sidebar-nav::-webkit-scrollbar {
       width: 4px;
     }
+
     .sidebar-nav::-webkit-scrollbar-track {
       background: #f1f5f9;
       border-radius: 4px;
     }
+
     .sidebar-nav::-webkit-scrollbar-thumb {
       background: #667eea;
       border-radius: 4px;
     }
+
     /* Indicador de progreso */
     .sidebar-progress {
       height: 4px;
@@ -90,11 +99,118 @@
       margin-bottom: 1rem;
       overflow: hidden;
     }
+
     .sidebar-progress-bar {
       height: 100%;
       background: linear-gradient(90deg, #667eea, #764ba2);
       width: 0%;
       transition: width 0.3s ease;
+    }
+
+    /* Estilos para el editor de código simulado */
+    .code-editor {
+      background: #1e1e1e;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .editor-header {
+      background: #252526;
+      padding: 8px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+
+    .editor-title {
+      color: #ccc;
+      font-size: 0.85rem;
+      font-family: monospace;
+    }
+
+    .editor-content {
+      padding: 15px;
+      overflow-x: auto;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #d4d4d4;
+    }
+
+    .editor-content .keyword {
+      color: #569cd6;
+    }
+
+    /* if, else, for, while */
+    .editor-content .string {
+      color: #ce9178;
+    }
+
+    /* "text" */
+    .editor-content .number {
+      color: #b5cea8;
+    }
+
+    /* 123 */
+    .editor-content .comment {
+      color: #6a9955;
+    }
+
+    /* # comment */
+    .editor-content .function {
+      color: #dcdcaa;
+    }
+
+    /* print */
+
+    .btn-run {
+      background: #4caf50;
+      color: white;
+      border: none;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.2s;
+    }
+
+    .btn-run:hover {
+      background: #45a049;
+    }
+
+    .console-output {
+      background: #000;
+      color: #0f0;
+      font-family: 'Consolas', 'Monaco', monospace;
+      padding: 10px;
+      border-radius: 0 0 8px 8px;
+      /* Rounded only at bottom if inside editor, or all if separate */
+      border-top: 1px solid #333;
+      font-size: 0.9rem;
+      min-height: 40px;
+      display: none;
+      /* Hidden by default */
+      animation: fadeIn 0.3s ease;
+    }
+
+    .console-output.show {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
   </style>
 
@@ -108,7 +224,7 @@
   <div class="page-loader">
     <div class="loader-spinner"></div>
   </div>
-    <!-- Navbar -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
@@ -146,7 +262,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver
+                  todo
                   el temario</a></li>
             </ul>
           </li>
@@ -228,23 +345,30 @@
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/crud_vehiculo.html"><i class="bi bi-car-front-fill me-2 text-primary"></i>CRUD Vehículo</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/introduccion.html"><i
+                    class="bi bi-info-circle me-2 text-primary"></i>Introducción</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/operadores.html"><i
+                    class="bi bi-funnel me-2 text-info"></i>Operadores</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/estructuras_control.html"><i
+                    class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/funciones.html"><i
+                    class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i
+                    class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i
+                    class="bi bi-box me-2 text-purple"></i>POO</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i
+                    class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/sesiones.html"><i
+                    class="bi bi-shield-lock me-2 text-secondary"></i>Sesiones y Login</a></li>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/crud_vehiculo.html"><i
+                    class="bi bi-car-front-fill me-2 text-primary"></i>CRUD Vehículo</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i
+                    class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-glow btn-sm ms-2" href="../teoria.html">
-              Comenzar <i class="bi bi-arrow-right ms-1"></i>
-            </a>
           </li>
         </ul>
       </div>
@@ -252,115 +376,187 @@
   </nav>
 
   <main class="main">
-Estructuras de Control - Python Academy
 
-  <!-- Hero Interno -->
-  <section class="hero-internal">
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-    <div class="container relative">
-      <span class="badge-custom animate-on-scroll">TEMA 8</span>
-      <h1 class="animate-on-scroll delay-1">Estructuras de Control</h1>
-      <p class="animate-on-scroll delay-2">
-        Controla el flujo de tu programa: toma decisiones y repite tareas automáticamente.
-      </p>
-    </div>
-  </section>
-
-<section class="section py-5">
-  <div class="container">
-    <div class="row justify-content-start">
-      <!-- Sidebar Navigation -->
-      <div class="col-lg-3 d-none d-lg-block">
-                                <nav class="sidebar-nav">
-          <div class="sidebar-progress">
-            <div class="sidebar-progress-bar"></div>
-          </div>
-          <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
-          <ul>
-            <li><a href="#condicionales" class="active">Condicionales (if / elif / else)</a></li>
-            <li><a href="#bucles">Bucle For</a></li>
-            <li><a href="#control-flujo">Bucle While</a></li>
-            <li><a href="#sentencias-control">Break, Continue y Pass</a></li>
-          </ul>
-        </nav>
+    <!-- Hero Interno -->
+    <section class="hero-internal">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="container relative">
+        <span class="badge-custom animate-on-scroll">TEMA 8</span>
+        <h1 class="animate-on-scroll delay-1">Estructuras de Control</h1>
+        <p class="animate-on-scroll delay-2">
+          Controla el flujo de tu programa: toma decisiones, repite tareas y maneja la lógica de manera eficiente.
+        </p>
       </div>
+    </section>
 
-      <!-- Main Content -->
-      <div class="col-lg-8">
-
-        <h3 class="fw-bold mb-3" id="condicionales">Condicionales (if / elif / else)</h3>
-        <p>Permiten ejecutar código solo si se cumple una condición.</p>
-        
-        <div class="card border-primary mb-4">
-            <div class="card-body bg-light font-monospace">
-edad = 18<br><br>
-if edad < 18:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;print("Eres menor de edad")<br>
-elif edad == 18:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;print("Acabas de cumplir la mayoría")<br>
-else:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;print("Eres adulto")
-            </div>
-        </div>
-
-        <h3 class="fw-bold mt-5 mb-3" id="bucles">Bucle For</h3>
-        <p>Se utiliza para iterar sobre una secuencia (lista, string, rango).</p>
-        <div class="bg-dark text-white p-3 rounded mb-4 font-monospace">
-# Imprimir números del 0 al 4<br>
-for i in range(5):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;print(i)
-        </div>
-
-        <h3 class="fw-bold mt-5 mb-3" id="control-flujo">Bucle While</h3>
-        <p>Repite el código mientras una condición sea verdadera. ¡Cuidado con los bucles infinitos!</p>
-        <div class="bg-light border p-3 rounded mb-4 font-monospace">
-contador = 5<br>
-while contador > 0:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;print(f"Cuenta regresiva: {contador}")<br>
-&nbsp;&nbsp;&nbsp;&nbsp;contador -= 1
-        </div>
-
-        <h3 class="fw-bold mt-5 mb-3" id="sentencias-control">Sentencias de Control de Bucles</h3>
-        <p>Estas palabras clave permiten alterar el flujo normal de los bucles:</p>
-        
-        <div class="row g-3 mb-4">
-          <div class="col-md-4">
-            <div class="p-3 border rounded bg-white h-100">
-              <h6 class="text-danger fw-bold">break</h6>
-              <p class="small text-muted">Termina el bucle inmediatamente.</p>
-            </div>
+    <section class="section py-5">
+      <div class="container">
+        <div class="row justify-content-start">
+          <!-- Sidebar Navigation -->
+          <div class="col-lg-3 d-none d-lg-block">
+            <nav class="sidebar-nav">
+              <div class="sidebar-progress">
+                <div class="sidebar-progress-bar"></div>
+              </div>
+              <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
+              <ul>
+                <li><a href="#condicionales" class="active">Condicionales (If)</a></li>
+                <li><a href="#bucles">Bucle For</a></li>
+                <li><a href="#while">Bucle While</a></li>
+                <li><a href="#control-flujo">Break & Continue</a></li>
+              </ul>
+            </nav>
           </div>
-          <div class="col-md-4">
-            <div class="p-3 border rounded bg-white h-100">
-              <h6 class="text-warning fw-bold">continue</h6>
-              <p class="small text-muted">Salta a la siguiente iteración.</p>
+
+          <!-- Main Content -->
+          <div class="col-lg-8">
+
+            <!-- Condicionales -->
+            <h3 class="fw-bold mb-3" id="condicionales">1. Condicionales (if / elif / else)</h3>
+            <p class="lead text-muted mb-4">
+              Permiten que el programa tome decisiones y ejecute bloques de código diferentes según se cumplan o no
+              ciertas condiciones.
+            </p>
+            <p>
+              En Python, la indentación (sangría) es obligatoria y define qué código pertenece al bloque condicional.
+            </p>
+
+            <div class="code-editor">
+              <div class="editor-header">
+                <span class="editor-title">ejemplo_condicional.py</span>
+                <button class="btn-run" onclick="runCode('condicional')"><i class="bi bi-play-fill"></i>
+                  Ejecutar</button>
+              </div>
+              <div class="editor-content">
+                <span class="keyword">edad</span> = <span class="number">20</span>
+
+                <span class="keyword">if</span> edad < <span class="number">18</span>:
+                  <span class="function">print</span>(<span class="string">"Eres menor de edad"</span>)
+                  <span class="keyword">elif</span> edad == <span class="number">18</span>:
+                  <span class="function">print</span>(<span class="string">"¡Felicidades! Acabas de cumplir la
+                    mayoría"</span>)
+                  <span class="keyword">else</span>:
+                  <span class="function">print</span>(<span class="string">"Eres adulto, tienes acceso completo"</span>)
+              </div>
+              <div id="out-condicional" class="console-output"></div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="p-3 border rounded bg-white h-100">
-              <h6 class="text-secondary fw-bold">pass</h6>
-              <p class="small text-muted">No hace nada (placeholder).</p>
+
+            <!-- Bucle For -->
+            <h3 class="fw-bold mt-5 mb-3" id="bucles">2. Bucle For</h3>
+            <p>
+              El bucle <code>for</code> en Python se utiliza para iterar sobre una secuencia (como una lista, una tupla,
+              un diccionario o una cadena de texto). Funciona como un iterador "para cada elemento en...".
+            </p>
+
+            <h5 class="fw-bold mt-4">Iterando un rango</h5>
+            <p>La función <code>range()</code> es muy útil para generar secuencias numéricas.</p>
+
+            <div class="code-editor">
+              <div class="editor-header">
+                <span class="editor-title">ejemplo_for.py</span>
+                <button class="btn-run" onclick="runCode('for')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+              </div>
+              <div class="editor-content">
+                <span class="comment"># Imprimir tabla del 5</span>
+                <span class="function">print</span>(<span class="string">"--- Tabla del 5 ---"</span>)
+
+                <span class="keyword">for</span> i <span class="keyword">in</span> <span
+                  class="function">range</span>(<span class="number">1</span>, <span class="number">4</span>):
+                resultado = <span class="number">5</span> * i
+                <span class="function">print</span>(<span class="function">f</span><span class="string">"5 x {i} =
+                  {resultado}"</span>)
+
+                <span class="comment"># Iterando una lista</span>
+                frutas = [<span class="string">"Manzana"</span>, <span class="string">"Pera"</span>, <span
+                  class="string">"Uva"</span>]
+                <span class="keyword">for</span> fruta <span class="keyword">in</span> frutas:
+                <span class="function">print</span>(<span class="function">f</span><span class="string">"Fruta:
+                  {fruta}"</span>)
+              </div>
+              <div id="out-for" class="console-output"></div>
             </div>
+
+            <!-- Bucle While -->
+            <h3 class="fw-bold mt-5 mb-3" id="while">3. Bucle While</h3>
+            <p>
+              El bucle <code>while</code> repite un bloque de código mientras una condición específica sea verdadera. Es
+              útil cuando no sabes de antemano cuántas veces necesitas iterar.
+            </p>
+
+            <div class="code-editor">
+              <div class="editor-header">
+                <span class="editor-title">ejemplo_while.py</span>
+                <button class="btn-run" onclick="runCode('while')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+              </div>
+              <div class="editor-content">
+                contador = <span class="number">3</span>
+
+                <span class="keyword">while</span> contador > <span class="number">0</span>:
+                <span class="function">print</span>(<span class="function">f</span><span class="string">"Cuenta
+                  regresiva: {contador}"</span>)
+                contador -= <span class="number">1</span>
+
+                <span class="function">print</span>(<span class="string">"¡Despegue!"</span>)
+              </div>
+              <div id="out-while" class="console-output"></div>
+            </div>
+
+
+            <!-- Control de Flujo -->
+            <h3 class="fw-bold mt-5 mb-3" id="control-flujo">4. Sentencias de Control (Break & Continue)</h3>
+            <p>A veces necesitas detener un bucle antes de tiempo o saltar una iteración específica.</p>
+
+            <div class="row g-4 mb-3">
+              <div class="col-md-6">
+                <div class="p-3 border rounded bg-white h-100 shadow-sm">
+                  <h5 class="text-danger fw-bold"><i class="bi bi-stop-circle me-2"></i>break</h5>
+                  <p class="small text-muted mb-0">Detiene el bucle por completo y sale de él, continuando con el resto
+                    del programa.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded bg-white h-100 shadow-sm">
+                  <h5 class="text-warning fw-bold"><i class="bi bi-skip-forward me-2"></i>continue</h5>
+                  <p class="small text-muted mb-0">Detiene la iteración actual y salta inmediatamente a la siguiente
+                    vuelta del bucle.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="code-editor">
+              <div class="editor-header">
+                <span class="editor-title">ejemplo_break_continue.py</span>
+                <button class="btn-run" onclick="runCode('break')"><i class="bi bi-play-fill"></i> Ejecutar</button>
+              </div>
+              <div class="editor-content">
+                <span class="comment"># Ejemplo de break</span>
+                <span class="keyword">for</span> num <span class="keyword">in</span> <span
+                  class="function">range</span>(<span class="number">10</span>):
+                <span class="keyword">if</span> num == <span class="number">3</span>:
+                <span class="function">print</span>(<span class="string">"Encontré el 3, deteniendo ciclo..."</span>)
+                <span class="keyword">break</span>
+                <span class="function">print</span>(<span class="function">f</span><span class="string">"Numero:
+                  {num}"</span>)
+              </div>
+              <div id="out-break" class="console-output"></div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+              <a href="teoria_operadores.html" class="btn btn-outline-secondary rounded-pill px-4">
+                <i class="bi bi-arrow-left me-2"></i> Anterior
+              </a>
+              <a href="teoria_manejoFormularios.html" class="btn btn-primary rounded-pill px-4">
+                Siguiente: Manejo de Formularios <i class="bi bi-arrow-right ms-2"></i>
+              </a>
+            </div>
+
           </div>
         </div>
-
-        <div class="d-flex justify-content-between mt-5 pt-4 border-top">
-           <a href="teoria_operadores.html" class="btn btn-outline-secondary rounded-pill px-4">
-             <i class="bi bi-arrow-left me-2"></i> Anterior
-           </a>
-           <a href="teoria_manejoFormularios.html" class="btn btn-primary rounded-pill px-4">
-             Siguiente: Manejo de Formularios <i class="bi bi-arrow-right ms-2"></i>
-           </a>
-        </div>
-
       </div>
-    </div>
-  </div>
-</section>
+    </section>
   </main>
 
-    <!-- Footer Moderno -->
   <!-- Footer -->
   <footer class="footer-modern">
     <div class="container">
@@ -433,10 +629,10 @@ while contador > 0:<br>
 
   <script>
     // Sidebar Scroll Spy - Resaltar sección activa al hacer scroll
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
       const sections = [];
-      
+
       // Obtener todas las secciones referenciadas
       sidebarLinks.forEach(link => {
         const id = link.getAttribute('href').substring(1);
@@ -445,22 +641,22 @@ while contador > 0:<br>
           sections.push({ id, element: section, link });
         }
       });
-      
+
       // Función para actualizar el link activo
       function updateActiveLink() {
         let currentSection = sections[0];
         const scrollPosition = window.scrollY + 150;
-        
+
         sections.forEach(section => {
           if (section.element.offsetTop <= scrollPosition) {
             currentSection = section;
           }
         });
-        
+
         sidebarLinks.forEach(link => link.classList.remove('active'));
         if (currentSection) {
           currentSection.link.classList.add('active');
-          
+
           // Actualizar barra de progreso
           const progressBar = document.querySelector('.sidebar-progress-bar');
           if (progressBar) {
@@ -470,10 +666,10 @@ while contador > 0:<br>
           }
         }
       }
-      
+
       // Scroll suave al hacer clic en links
       sidebarLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
           e.preventDefault();
           const targetId = this.getAttribute('href').substring(1);
           const target = document.getElementById(targetId);
@@ -485,7 +681,7 @@ while contador > 0:<br>
           }
         });
       });
-      
+
       // Escuchar scroll
       window.addEventListener('scroll', updateActiveLink);
       updateActiveLink();
@@ -502,7 +698,29 @@ while contador > 0:<br>
       offset: 50
     });
   </script>
-<script src="../static/assets/js/navbar-nested.js"></script>
-</body>
-</html>
 
+  <!-- Funcionalidad de Ejecución de Código Simulado -->
+  <script>
+    const OUTPUTS = {
+      'condicional': "Eres adulto, tienes acceso completo",
+      'for': "--- Tabla del 5 ---\n5 x 1 = 5\n5 x 2 = 10\n5 x 3 = 15\nFruta: Manzana\nFruta: Pera\nFruta: Uva",
+      'while': "Cuenta regresiva: 3\nCuenta regresiva: 2\nCuenta regresiva: 1\n¡Despegue!",
+      'break': "Numero: 0\nNumero: 1\nNumero: 2\nEncontré el 3, deteniendo ciclo..."
+    };
+
+    function runCode(id) {
+      const outputDiv = document.getElementById('out-' + id);
+      outputDiv.classList.remove('show');
+      outputDiv.innerHTML = '<span style="color: yellow;">Running script...</span>';
+      outputDiv.classList.add('show');
+
+      // Simular delay
+      setTimeout(() => {
+        outputDiv.innerText = OUTPUTS[id];
+      }, 600);
+    }
+  </script>
+  <script src="../static/assets/js/navbar-nested.js"></script>
+</body>
+
+</html>
