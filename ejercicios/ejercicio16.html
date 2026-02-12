@@ -1,8 +1,5 @@
 
 <!DOCTYPE html>
->>>>>>> c5a1852cbd487177481a33340f39584450d526ab
-=======
-﻿<!DOCTYPE html>
 
 <html lang="es">
 
@@ -342,72 +339,364 @@
 
             <!-- 👇 Tus compañeros cambian este texto -->
             <p class="mb-2">
-              Aquí escribe el enunciado del ejercicio (qué se debe realizar y cuál es el objetivo).
+              En este ejercicio se implementa el concepto de <b>Interfaces</b> en Python utilizando <code>ABC</code>.
+              Se crea una interfaz llamada <b>InterfazFigura</b> que define el “contrato” de métodos que TODA figura debe tener:
+              <b>area()</b>, <b>perimetro()</b>, <b>get_area()</b>, <b>get_perimetro()</b> y <b>get_tipo()</b>.
             </p>
-
             <p class="mb-0 hint">
-              Objetivo: explica claramente qué aprenderá el estudiante con este ejercicio.
+              Luego, la clase <b>Figura</b> implementa esa interfaz y las clases hijas (Cuadrado, Rectángulo, Triángulo, Rombo y Pentágono)
+              calculan área y perímetro. Con Flask se muestra un formulario web para ingresar datos y ver resultados.
             </p>
+
           </div>
 
-          <!-- ✅ EXPLICACIÓN DEL CÓDIGO (EDITAR AQUÍ) -->
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-3">Explicación del código (paso a paso)</h4>
 
-          <div class="explain-card mb-4">
-            <h4 class="fw-bold mb-3">Explicación del código (paso a paso)</h4>
+  <!-- 1 -->
+  <h5 class="fw-bold mb-2">1) ¿Qué es una interfaz?</h5>
+  <p class="mb-3">
+    En este ejercicio se implementa el concepto de <b>Interfaces</b> en Python utilizando el módulo
+    <code>abc</code>. Una interfaz define un conjunto de métodos que todas las clases deben implementar.
+    Es decir, funciona como un <b>contrato</b>: cualquier clase que herede de ella está obligada a tener esos métodos.
+  </p>
 
-            <!-- ===== BLOQUE 1 ===== -->
-            <h5 class="fw-bold mb-2">1) ¿Qué hace el programa?</h5>
-            <p class="mb-3">
-              Describe en 2-3 líneas la lógica general del ejercicio.
-            </p>
+  <!-- 2 -->
+  <h5 class="fw-bold mb-2">2) InterfazFigura (el contrato)</h5>
+  <p class="mb-2">
+    En el archivo <code>interfaz_figura.py</code> se define la interfaz <b>InterfazFigura</b>, que obliga a que todas
+    las figuras implementen los siguientes métodos:
+  </p>
 
-            <!-- ===== BLOQUE 2 ===== -->
-            <h5 class="fw-bold mb-2">2) Entradas del usuario</h5>
-            <p class="mb-2">
-              Explica qué datos ingresa el usuario y cómo se validan.
-            </p>
+<pre class="code-box mb-3"><code>from abc import ABC, abstractmethod
+
+class InterfazFigura(ABC):
+
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def perimetro(self):
+        pass
+
+    @abstractmethod
+    def get_area(self):
+        pass
+
+    @abstractmethod
+    def get_perimetro(self):
+        pass
+
+    @abstractmethod
+    def get_tipo(self):
+        pass
+</code></pre>
+
+  <p class="hint">
+    Si una clase no implementa todos estos métodos, Python generará un error al intentar crear el objeto.
+  </p>
+
+  <!-- 3 -->
+  <h5 class="fw-bold mb-2">3) Clase Figura (implementación base)</h5>
+  <p class="mb-3">
+    La clase <b>Figura</b> implementa la interfaz y define atributos comunes para todas las figuras:
+    tipo, área y perímetro. Además, implementa los métodos <code>get_area()</code>,
+    <code>get_perimetro()</code> y <code>get_tipo()</code>.  
+    Las clases hijas solo deben preocuparse por calcular el área y el perímetro.
+  </p>
+
+  <!-- 4 -->
+  <h5 class="fw-bold mb-2">4) Clases hijas</h5>
+  <p class="mb-3">
+    Las clases <b>Cuadrado, Rectángulo, Triángulo, Rombo y Pentágono</b> heredan de la clase Figura.
+    Cada una implementa su propia lógica en los métodos <code>area()</code> y <code>perimetro()</code>.
+    De esta forma, todas las figuras se pueden usar de manera uniforme dentro del programa.
+  </p>
+
+  <!-- 5 -->
+  <h5 class="fw-bold mb-2">5) Integración con Flask</h5>
+  <p class="mb-3">
+    El archivo principal de Flask recibe los datos del formulario mediante el método <b>POST</b>.
+    Dependiendo del tipo de figura seleccionada, el programa crea el objeto correspondiente,
+    ejecuta los métodos de cálculo y envía el resultado al archivo HTML para mostrarlo al usuario.
+  </p>
+
+  <!-- 6 -->
+  <h5 class="fw-bold mb-2">6) Formulario y comportamiento en el navegador</h5>
+  <p class="mb-0">
+    El archivo <code>form_figuras.html</code> contiene el formulario donde el usuario selecciona la figura e ingresa
+    los valores necesarios. Además, se utiliza JavaScript para habilitar o deshabilitar los campos según el tipo
+    de figura seleccionada, mejorando la experiencia del usuario.
+  </p>
+
+</div>
 
 
-            <pre class="code-box mb-3"><code># Ejemplo de bloque de cÃ³digo
-# Tus compañeros pegan aquí el código real (con indentación)
-numero = int(input("Ingrese un número: "))</code></pre>
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-3">Archivos del proyecto</h4>
+
+<pre class="code-box">InterfacesPOO/
+│
+├── AbstractasPOO.py   (tu app Flask)
+│
+├── poo_abstractas/
+│   ├── interfaz_figura.py
+│   ├── figura_abc.py
+│   ├── cuadrado.py
+│   ├── rectangulo.py
+│   ├── triangulo.py
+│   ├── rombo.py
+│   └── pentagono.py
+│
+└── templates/
+    └── form_figuras.html
+</pre>
+
+  <p class="hint mb-0">
+    Crea la estructura anterior y copia el código de cada archivo.
+  </p>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_abstractas/interfaz_figura.py</h5>
+
+<pre class="code-box"><code id="codeInterfazFigura">from abc import ABC, abstractmethod
+
+class InterfazFigura(ABC):
+    """
+    Interfaz que define el contrato
+    de todas las figuras geométricas
+    """
+
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def perimetro(self):
+        pass
+
+    @abstractmethod
+    def get_area(self):
+        pass
+
+    @abstractmethod
+    def get_perimetro(self):
+        pass
+
+    @abstractmethod
+    def get_tipo(self):
+        pass
+</code></pre>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_abstractas/figura_abc.py</h5>
+
+<pre class="code-box"><code id="codeFiguraABC16">from abc import ABC
+from .interfaz_figura import InterfazFigura
+
+class Figura(InterfazFigura, ABC):
+    """
+    Clase abstracta que IMPLEMENTA la interfaz
+    y centraliza atributos comunes
+    """
+
+    def __init__(self, tipo):
+        self._tipo = tipo
+        self._area = 0.0
+        self._perimetro = 0.0
+
+    def get_tipo(self):
+        return self._tipo
+
+    def get_area(self):
+        return self._area
+
+    def get_perimetro(self):
+        return self._perimetro
+</code></pre>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_abstractas/cuadrado.py</h5>
+
+<pre class="code-box"><code id="codeCuadrado16">from .figura_abc import Figura
+
+class Cuadrado(Figura):
+
+    def __init__(self, tipo, l1):
+        super().__init__(tipo)
+        self.__lado = float(l1)
+
+    def area(self):
+        self._area = self.__lado ** 2
+
+    def perimetro(self):
+        self._perimetro = self.__lado * 4
+</code></pre>
+</div>
 
 
-            <!-- ===== BLOQUE 3 ===== -->
-            <h5 class="fw-bold mb-2">3) Proceso / Cálculo</h5>
-            <p class="mb-2">
-              Explica la parte principal de la lógica (bucles, condicionales, funciones, etc.).
-            </p>
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_abstractas/rectangulo.py</h5>
 
-            <pre class="code-box mb-3"><code># Ejemplo
-resultado = 1
-for i in range(1, numero + 1):
-    resultado *= i</code></pre>
+<pre class="code-box"><code id="codeRectangulo16">from .figura_abc import Figura
 
-            <!-- ===== BLOQUE 4 ===== -->
-            <h5 class="fw-bold mb-2">4) Salida / Resultados</h5>
-            <p class="mb-2">
-              Explica qué se muestra al final y por qué.
-            </p>
+class Rectangulo(Figura):
 
-            <pre class="code-box"><code>print("El resultado es:", resultado)</code></pre>
+    def __init__(self, tipo, l1, l2):
+        super().__init__(tipo)
+        self.__base = float(l1)
+        self.__altura = float(l2)
 
-            <p class="hint mt-3 mb-0">
+    def area(self):
+        self._area = self.__base * self.__altura
 
-              Consejo: No se salten pasos. Explicar “por qué” es más importante que solo pegar código.
-            </p>
-          </div>
+    def perimetro(self):
+        self._perimetro = (2 * self.__base) + (2 * self.__altura)
+</code></pre>
+</div>
 
-          <!-- ✅ BOTÓN EJECUTAR -->
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_abstractas/triangulo.py</h5>
 
-          <div class="ej-actions">
-            <a href="##formulario" class="btn btn-primary btn-pill btn-lg">
-              Ejecutar ejercicio
-            </a>
-          </div>
+<pre class="code-box"><code id="codeTriangulo16">from .figura_abc import Figura
+import math
+
+class Triangulo(Figura):
+
+    def __init__(self, tipo, l1, l2, l3):
+        super().__init__(tipo)
+        self.__a = float(l1)
+        self.__b = float(l2)
+        self.__c = float(l3)
+
+    def perimetro(self):
+        self._perimetro = self.__a + self.__b + self.__c
+
+    def area(self):
+        self.perimetro()
+        s = self._perimetro / 2
+        try:
+            self._area = math.sqrt(
+                s * (s - self.__a) *
+                (s - self.__b) *
+                (s - self.__c)
+            )
+        except ValueError:
+            self._area = 0.0
+</code></pre>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_abstractas/rombo.py</h5>
+
+<pre class="code-box"><code id="codeRombo16">from .figura_abc import Figura
+import math
+
+class Rombo(Figura):
+
+    def __init__(self, tipo, l1, l2, l3):
+        super().__init__(tipo)
+        self.__a = float(l1)
+        self.__b = float(l2)
+        self.__c = float(l3)
+
+    def area(self):
+        p = (self.__a + self.__b + self.__c) / 2
+        try:
+            area_triangulo = math.sqrt(
+                p * (p - self.__a) *
+                (p - self.__b) *
+                (p - self.__c)
+            )
+        except ValueError:
+            area_triangulo = 0.0
+
+        self._area = area_triangulo * 2
+
+    def perimetro(self):
+        self._perimetro = self.__a * 4
+</code></pre>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_abstractas/pentagono.py</h5>
+<pre class="code-box"><code id="codePentagono16">from .figura_abc import Figura
+import math
+
+class Pentagono(Figura):
+
+    def __init__(self, tipo, l1, l2, l3):
+        super().__init__(tipo)
+        self.__lado_cuadrado = float(l1)
+        self.__lado_b = float(l2)
+        self.__lado_c = float(l3)
+
+    def area(self):
+        area_cuadrado = self.__lado_cuadrado ** 2
+
+        p = (self.__lado_cuadrado + self.__lado_b + self.__lado_c) / 2
+        try:
+            area_triangulo = math.sqrt(
+                p * (p - self.__lado_cuadrado) *
+                (p - self.__lado_b) *
+                (p - self.__lado_c)
+            )
+        except ValueError:
+            area_triangulo = 0.0
+
+        self._area = area_cuadrado + area_triangulo
+
+    def perimetro(self):
+        self._perimetro = (3 * self.__lado_cuadrado) + self.__lado_b + self.__lado_c
+</code></pre>
+</div>
 
 
           <!-- ✅ FORMULARIO / SALIDA (sale después del botón) -->
+<div id="formulario" class="form-shell">
+  <div class="form-card">
+
+    <h4 class="fw-bold mb-3 text-center">Interfaces (Figuras)</h4>
+
+    <form onsubmit="return simularInterfaces(event);">
+
+      <div class="mb-3">
+        <label class="form-label">Seleccione figura</label>
+        <select id="tipoFig" class="form-select" onchange="habilitarCamposFig()">
+          <option value="">Seleccione…</option>
+          <option value="cuadrado">Cuadrado</option>
+          <option value="rectangulo">Rectángulo</option>
+          <option value="triangulo">Triángulo</option>
+          <option value="rombo">Rombo</option>
+          <option value="pentagono">Pentágono</option>
+        </select>
+      </div>
+
+      <div class="mb-2">
+        <label id="lbl1Fig" class="form-label">l1</label>
+        <input id="l1Fig" type="number" step="any" class="form-control" placeholder="Ingrese l1">
+      </div>
+
+      <div class="mb-2">
+        <label id="lbl2Fig" class="form-label">l2</label>
+        <input id="l2Fig" type="number" step="any" class="form-control" placeholder="Ingrese l2">
+      </div>
+
+      <div class="mb-3">
+        <label id="lbl3Fig" class="form-label">l3</label>
+        <input id="l3Fig" type="number" step="any" class="form-control" placeholder="Ingrese l3">
+      </div>
+
+      <button class="btn btn-primary w-100">Calcular (Simulación)</button>
+
+      <div id="msgFig" class="alert mt-3 d-none" role="alert"></div>
+    </form>
+  </div>
+</div>
 
 
           <!-- ✅ ANTERIOR / SIGUIENTE -->
@@ -507,6 +796,206 @@ for i in range(1, numero + 1):
       offset: 50
     });
   </script>
+
+  <script>
+  // ====== "INTERFAZ" SIMULADA EN JS ======
+  // Contrato: todas las figuras deben tener area() y perimetro()
+  class InterfazFigura {
+    area() { throw new Error("Debe implementar area()"); }
+    perimetro() { throw new Error("Debe implementar perimetro()"); }
+  }
+
+  // Clase base Figura (implementa parte común)
+  class Figura extends InterfazFigura {
+    constructor(tipo) {
+      super();
+      this.tipo = tipo;
+      this._area = 0;
+      this._perimetro = 0;
+    }
+    get_area() { return this._area; }
+    get_perimetro() { return this._perimetro; }
+    get_tipo() { return this.tipo; }
+  }
+
+  // ====== FIGURAS ======
+  class Cuadrado extends Figura {
+    constructor(lado) {
+      super("cuadrado");
+      this.lado = lado;
+    }
+    area() { this._area = this.lado * this.lado; }
+    perimetro() { this._perimetro = this.lado * 4; }
+  }
+
+  class Rectangulo extends Figura {
+    constructor(b, h) {
+      super("rectangulo");
+      this.b = b; this.h = h;
+    }
+    area() { this._area = this.b * this.h; }
+    perimetro() { this._perimetro = 2 * (this.b + this.h); }
+  }
+
+  class Triangulo extends Figura {
+    constructor(a, b, c) {
+      super("triangulo");
+      this.a = a; this.b = b; this.c = c;
+    }
+    perimetro() { this._perimetro = this.a + this.b + this.c; }
+    area() {
+      this.perimetro();
+      const s = this._perimetro / 2;
+      const val = s * (s - this.a) * (s - this.b) * (s - this.c);
+      this._area = val > 0 ? Math.sqrt(val) : 0;
+    }
+  }
+
+  class Rombo extends Figura {
+    constructor(d1, d2) {
+      super("rombo");
+      this.d1 = d1; this.d2 = d2;
+    }
+    area() { this._area = (this.d1 * this.d2) / 2; }
+    perimetro() {
+      // lado = sqrt((d1/2)^2 + (d2/2)^2)
+      const lado = Math.sqrt((this.d1/2)**2 + (this.d2/2)**2);
+      this._perimetro = 4 * lado;
+    }
+  }
+
+  class Pentagono extends Figura {
+    constructor(lado) {
+      super("pentagono");
+      this.lado = lado;
+    }
+    area() {
+      // pentágono regular
+      this._area = (5 * this.lado**2) / (4 * Math.tan(Math.PI/5));
+    }
+    perimetro() { this._perimetro = this.lado * 5; }
+  }
+
+  // ====== UI helpers ======
+  function habilitarCamposFig() {
+    const tipo = document.getElementById("tipoFig").value;
+
+    const l1 = document.getElementById("l1Fig");
+    const l2 = document.getElementById("l2Fig");
+    const l3 = document.getElementById("l3Fig");
+
+    const lbl1 = document.getElementById("lbl1Fig");
+    const lbl2 = document.getElementById("lbl2Fig");
+    const lbl3 = document.getElementById("lbl3Fig");
+
+    // defaults
+    lbl1.textContent = "l1";
+    lbl2.textContent = "l2";
+    lbl3.textContent = "l3";
+
+    l1.disabled = false; l2.disabled = false; l3.disabled = false;
+
+    // reset values
+    l1.value = ""; l2.value = ""; l3.value = "";
+
+    if (tipo === "cuadrado") {
+      lbl1.textContent = "Lado";
+      l2.disabled = true;
+      l3.disabled = true;
+    } else if (tipo === "rectangulo") {
+      lbl1.textContent = "Base";
+      lbl2.textContent = "Altura";
+      l3.disabled = true;
+    } else if (tipo === "triangulo") {
+      lbl1.textContent = "Lado A";
+      lbl2.textContent = "Lado B";
+      lbl3.textContent = "Lado C";
+    } else if (tipo === "rombo") {
+      lbl1.textContent = "Diagonal 1";
+      lbl2.textContent = "Diagonal 2";
+      l3.disabled = true;
+    } else if (tipo === "pentagono") {
+      lbl1.textContent = "Lado";
+      l2.disabled = true;
+      l3.disabled = true;
+    } else {
+      l1.disabled = true; l2.disabled = true; l3.disabled = true;
+    }
+  }
+
+  function mostrarMsgFig(tipo, html) {
+    const box = document.getElementById("msgFig");
+    box.classList.remove("d-none", "alert-success", "alert-danger", "alert-warning");
+    box.classList.add(tipo);
+    box.innerHTML = html;
+  }
+
+  function numVal(id) {
+    const el = document.getElementById(id);
+    if (el.disabled) return null;
+    const v = parseFloat(el.value);
+    return isNaN(v) ? null : v;
+  }
+
+  function simularInterfaces(event) {
+    event.preventDefault();
+
+    const tipo = document.getElementById("tipoFig").value;
+    if (!tipo) {
+      mostrarMsgFig("alert-warning", "❗ Seleccione una figura.");
+      return false;
+    }
+
+    const a = numVal("l1Fig");
+    const b = numVal("l2Fig");
+    const c = numVal("l3Fig");
+
+    // Validación por figura
+    if (tipo === "cuadrado" || tipo === "pentagono") {
+      if (a === null || a <= 0) return mostrarMsgFig("alert-warning", "❗ Ingrese un lado válido (> 0)."), false;
+    }
+    if (tipo === "rectangulo") {
+      if (a === null || b === null || a <= 0 || b <= 0) return mostrarMsgFig("alert-warning", "❗ Ingrese base y altura válidas (> 0)."), false;
+    }
+    if (tipo === "triangulo") {
+      if (a === null || b === null || c === null || a <= 0 || b <= 0 || c <= 0)
+        return mostrarMsgFig("alert-warning", "❗ Ingrese 3 lados válidos (> 0)."), false;
+
+      // desigualdad triangular
+      if (!(a + b > c && a + c > b && b + c > a))
+        return mostrarMsgFig("alert-danger", "❌ Los lados no forman un triángulo válido."), false;
+    }
+    if (tipo === "rombo") {
+      if (a === null || b === null || a <= 0 || b <= 0)
+        return mostrarMsgFig("alert-warning", "❗ Ingrese diagonales válidas (> 0)."), false;
+    }
+
+    // Crear objeto según tipo
+    let fig = null;
+    if (tipo === "cuadrado") fig = new Cuadrado(a);
+    if (tipo === "rectangulo") fig = new Rectangulo(a, b);
+    if (tipo === "triangulo") fig = new Triangulo(a, b, c);
+    if (tipo === "rombo") fig = new Rombo(a, b);
+    if (tipo === "pentagono") fig = new Pentagono(a);
+
+    // Ejecutar contrato
+    fig.area();
+    fig.perimetro();
+
+    mostrarMsgFig(
+      "alert-success",
+      `✅ <b>Figura:</b> ${fig.get_tipo()}<br>
+       <b>Área:</b> ${fig.get_area().toFixed(2)}<br>
+       <b>Perímetro:</b> ${fig.get_perimetro().toFixed(2)}`
+    );
+
+    return false; // solo simulación (NO envía)
+  }
+
+  // Al cargar: deshabilita campos hasta escoger figura
+  document.addEventListener("DOMContentLoaded", habilitarCamposFig);
+</script>
+
 </body>
 
 </html>
