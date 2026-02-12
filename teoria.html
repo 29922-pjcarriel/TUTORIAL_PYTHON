@@ -8,7 +8,7 @@
     <meta name="description" content="Aprende los fundamentos de Python con nuestra teoría estructurada.">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@600;700;800&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap 5.3 -->
@@ -23,454 +23,59 @@
     <!-- Custom Effects CSS -->
     <link href="static/assets/css/custom-effects.css" rel="stylesheet">
     <link href="static/assets/css/navbar-nested.css" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Hero para páginas internas */
-        .page-hero {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            padding: 140px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            opacity: 0.1;
-        }
-
-        .page-hero-title {
-            font-size: 3rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .page-hero-subtitle {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 600px;
-        }
-
-        /* Breadcrumb */
-        .breadcrumb-custom {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            padding: 10px 20px;
-            display: inline-flex;
-        }
-
-        .breadcrumb-custom a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .breadcrumb-custom a:hover {
-            color: white;
-        }
-
-        .breadcrumb-custom .separator {
-            color: rgba(255, 255, 255, 0.4);
-            margin: 0 10px;
-        }
-
-        .breadcrumb-custom .current {
-            color: white;
-            font-weight: 500;
-        }
-
-        /* Content Section */
-        .content-section {
-            padding: 80px 0;
-            background: #f8fafc;
-        }
-
-        /* Tema Cards */
-        .tema-card {
-            background: white;
-            border-radius: 20px;
-            padding: 0;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .tema-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
-        }
-
-        .tema-card-header {
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tema-card-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
-            transform: rotate(45deg);
-        }
-
-        .tema-card-header .number {
-            font-size: 3rem;
-            font-weight: 800;
-            opacity: 0.3;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-        }
-
-        .tema-card-header .icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .tema-card-header h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin: 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .tema-card-body {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .tema-card-body p {
-            color: #666;
-            font-size: 0.95rem;
-            flex-grow: 1;
-            margin-bottom: 1rem;
-        }
-
-        .tema-card-body .btn-tema {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.3s;
-        }
-
-        .tema-card-body .btn-tema:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            color: white;
-        }
-
-        /* Gradient variations */
-        .gradient-1 {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .gradient-2 {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .gradient-3 {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
-
-        .gradient-4 {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-        }
-
-        .gradient-5 {
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-        }
-
-        .gradient-6 {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            color: #333 !important;
-        }
-
-        /* Search Box */
-        .search-box {
-            background: white;
-            border-radius: 50px;
-            padding: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            display: flex;
-            align-items: center;
-            max-width: 500px;
-            margin: 0 auto 40px;
-        }
-
-        .search-box input {
-            border: none;
-            outline: none;
-            padding: 12px 20px;
-            flex-grow: 1;
-            font-size: 1rem;
-            border-radius: 50px;
-        }
-
-        .search-box button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            padding: 12px 24px;
-            border-radius: 50px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .search-box button:hover {
-            transform: scale(1.05);
-        }
-
-        /* Progress Path */
-        .progress-path {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .progress-step {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #e2e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: #64748b;
-            transition: all 0.3s;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .progress-step:hover,
-        .progress-step.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .progress-step.completed {
-            background: #22c55e;
-            color: white;
-        }
-        
-                .team-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .team-list span {
-            padding: 6px 14px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.08);
-            color: #e0e0e0;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-        }
-
-        .team-list span:hover {
-            background: linear-gradient(45deg, #0dcaf0, #6f42c1);
-            color: white;
-            transform: translateY(-2px);
-        }
-    </style>
+    <link href="static/assets/css/custom.css" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- Page Loader -->
-    <div class="page-loader">
+    <div class="page-loader active">
         <div class="loader-spinner"></div>
     </div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
-        <div class="container">
-            <a class="navbar-brand navbar-brand-custom" href="index.html">
-                <i class="bi bi-braces me-2"></i>Python Academy
+        <div class="container-fluid container-lg">
+            <a class="navbar-brand" href="index.html" style="font-weight: 800; color: #0f172a; font-size: 1.3rem; font-family: 'Montserrat', sans-serif;">
+                <span>Python</span><span style="background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Academy</span>
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="bi bi-list fs-3"></i>
+                <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center gap-2">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-custom" href="index.html">
-                            <i class="bi bi-house me-1"></i> Inicio
-                        </a>
+                        <a class="nav-link text-dark" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-link-custom dropdown-toggle active" href="#" data-bs-toggle="dropdown">
-                            <i class="bi bi-book me-1"></i> Teoría
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-                            <li><a class="dropdown-item py-2" href="teoria/teoria_infraestructura.html"><i
-                                        class="bi bi-server me-2 text-primary"></i>Infraestructura Backend</a></li>
-                            <li><a class="dropdown-item py-2" href="teoria/teoria_historia.html"><i
-                                        class="bi bi-clock-history me-2 text-primary"></i>Historia de Python</a></li>
-                            <li><a class="dropdown-item py-2" href="teoria/teoria_htmlpyhon.html"><i
-                                        class="bi bi-code-slash me-2 text-primary"></i>HTML y Python</a></li>
-                            <li><a class="dropdown-item py-2" href="teoria/teoria_sintaxisComentarios.html"><i
-                                        class="bi bi-chat-text me-2 text-primary"></i>Sintaxis y Comentarios</a></li>
-                            <li><a class="dropdown-item py-2" href="teoria/teoria_variablesConstantes.html"><i
-                                        class="bi bi-box me-2 text-primary"></i>Variables y Constantes</a></li>
-                            <li><a class="dropdown-item py-2" href="teoria/teoria_tiposDatos.html"><i
-                                        class="bi bi-type me-2 text-primary"></i>Tipos de Datos</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item py-2 fw-semibold" href="teoria.html"><i
-                                        class="bi bi-grid me-2"></i>Ver todo
-                                    el temario</a></li>
+                        <a class="nav-link dropdown-toggle text-dark active" href="#" data-bs-toggle="dropdown">Teoría</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="teoria.html">Ver Temario Completo</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="teoria/teoria_historia.html">Historia de Python</a></li>
+                            <li><a class="dropdown-item" href="teoria/teoria_tiposDatos.html">Tipos de Datos</a></li>
+                            <li><a class="dropdown-item" href="teoria/teoria_estructuras_de_control.html">Estructuras de Control</a></li>
+                            <li><a class="dropdown-item" href="teoria/teoria_poo.html">POO y Herencia</a></li>
+                            <li><a class="dropdown-item" href="teoria/teoria_infraestructura.html">Infraestructura Web</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                            <i class="bi bi-code-square me-1"></i> Ejercicios
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
-                                        class="bi bi-input-cursor-text me-2 text-success"></i>Procesamiento de
-                                    formularios</a>
-                                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio1.html">Formulario
-                                            request.form</a></li>
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio2.html">Formulario
-                                            request.files</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
-                                        class="bi bi-diagram-3 me-2 text-success"></i>Estructuras de Control</a>
-                                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio3.html">Factorial</a></li>
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio4.html">Triángulo de
-                                            Pascal</a></li>
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio5.html">Es Primo</a></li>
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio6.html">Validar Cédula</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
-                                        class="bi bi-list-ul me-2 text-success"></i>Arreglos</a>
-                                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio7.html">Ejemplo 01</a></li>
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio8.html">Ejemplo 02</a></li>
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio9.html">Arreglo</a></li>
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio10.html">Matriz</a></li>
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio11.html">Cubo</a></li>
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio12.html">Tablas Dinámicas</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item py-2 dropdown-toggle" href="#"><i
-                                        class="bi bi-diagram-2 me-2 text-success"></i>POO</a>
-                                <ul class="dropdown-menu dropdown-submenu shadow-lg border-0 rounded-3">
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio13.html">Clases</a></li>
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio14.html">Herencia</a></li>
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio15.html">Abstracta</a></li>
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio16.html">Interfaces</a></li>
-                                    <li><a class="dropdown-item" href="ejercicios/ejercicio17.html">Polimorfismo</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item py-2 fw-semibold" href="ejercicios.html"><i
-                                        class="bi bi-grid me-2"></i>Ver todos los ejercicios</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                            <i class="bi bi-database me-1"></i> Temas Avanzados
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-                            <li><a class="dropdown-item py-2" href="CRUD/Vehiculo-Parte I.html"><i
-                                        class="bi bi-car-front me-2 text-danger"></i>Vehículo - Parte I</a></li>
-                            <li><a class="dropdown-item py-2" href="CRUD/Vehiculo-Parte II.html"><i
-                                        class="bi bi-car-front-fill me-2 text-danger"></i>Vehículo - Parte II</a></li>
-                            <li><a class="dropdown-item py-2" href="CRUD/Vehiculo-Parte III.html"><i
-                                        class="bi bi-gear-wide-connected me-2 text-danger"></i>Vehículo - Parte III</a>
-                            </li>
-                            <li><a class="dropdown-item py-2" href="CRUD/Session y login.html"><i
-                                        class="bi bi-lock me-2 text-danger"></i>Session y Login</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item py-2 fw-semibold" href="explicacion_crud.html"><i
-                                        class="bi bi-grid me-2"></i>Ver Resumen</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                            <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-                            <li><a class="dropdown-item py-2" href="PythonVsPHP/sintaxis.html"><i
-                                        class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
-                            <li><a class="dropdown-item py-2" href="PythonVsPHP/ecosistema.html"><i
-                                        class="bi bi-boxes me-2 text-info"></i>Ecosistema</a>
-                            </li>
-                            <li><a class="dropdown-item py-2" href="PythonVsPHP/rendimiento.html"><i
-                                        class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
-                            <li><a class="dropdown-item py-2" href="PythonVsPHP/despliegue.html"><i
-                                        class="bi bi-cloud-upload me-2 text-success"></i>Despliegue</a></li>
-                            <li><a class="dropdown-item py-2" href="PythonVsPHP/mercado.html"><i
-                                        class="bi bi-briefcase me-2 text-warning"></i>Mercado Laboral</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item py-2 fw-semibold" href="PythonvsPHP.html"><i
-                                        class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+                        <a class="nav-link dropdown-toggle text-dark" href="#" data-bs-toggle="dropdown">Prácticas</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="ejercicios.html">Catálogo de Ejercicios</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="ejercicios/ejercicio3.html">Factorial</a></li>
+                            <li><a class="dropdown-item" href="ejercicios/ejercicio5.html">Números Primos</a></li>
+                            <li><a class="dropdown-item" href="ejercicios/ejercicio6.html">Validador Cédula</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-glow btn-sm ms-2" href="teoria.html">
-                            Comenzar <i class="bi bi-arrow-right ms-1"></i>
-                        </a>
+                        <a class="nav-link text-dark" href="PythonvsPHP.html">Python vs PHP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="explicacion_crud.html" style="background: #3b82f6; color: white; border-radius: 6px; padding: 0.5rem 1rem !important;">Proyecto CRUD</a>
                     </li>
                 </ul>
             </div>
@@ -487,10 +92,10 @@
             </div>
 
             <h1 class="page-hero-title" data-aos="fade-up">
-                <i class="bi bi-book-half me-3"></i>Temario Completo
+                <span style="color: #60a5fa;">Contenido Teórico</span> Estructurado
             </h1>
             <p class="page-hero-subtitle" data-aos="fade-up" data-aos-delay="100">
-                12 temas estructurados para dominar Python desde los fundamentos hasta programación orientada a objetos
+                Domina los fundamentos de Python a través de 11 módulos educativos diseñados progresivamente. Desde sintaxis básica hasta programación orientada a objetos
             </p>
         </div>
     </section>
@@ -511,7 +116,7 @@
                 <!-- Tema 1 -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-1">
+                        <div class="tema-card-header">
                             <span class="number">01</span>
                             <span class="icon"><i class="bi bi-server"></i></span>
                             <h3>Infraestructura Backend</h3>
@@ -529,7 +134,7 @@
                 <!-- Tema 2 -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-2">
+                        <div class="tema-card-header">
                             <span class="number">02</span>
                             <span class="icon"><i class="bi bi-clock-history"></i></span>
                             <h3>Historia de Python</h3>
@@ -547,7 +152,7 @@
                 <!-- Tema 3 -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-3">
+                        <div class="tema-card-header">
                             <span class="number">03</span>
                             <span class="icon"><i class="bi bi-code-slash"></i></span>
                             <h3>HTML y Python (Web)</h3>
@@ -565,7 +170,7 @@
                 <!-- Tema 4 -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-4">
+                        <div class="tema-card-header">
                             <span class="number">04</span>
                             <span class="icon"><i class="bi bi-chat-text"></i></span>
                             <h3>Sintaxis y Comentarios</h3>
@@ -583,7 +188,7 @@
                 <!-- Tema 5 -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-5">
+                        <div class="tema-card-header">
                             <span class="number">05</span>
                             <span class="icon"><i class="bi bi-box"></i></span>
                             <h3>Variables y Constantes</h3>
@@ -601,7 +206,7 @@
                 <!-- Tema 6 -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="350">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-1">
+                        <div class="tema-card-header">
                             <span class="number">06</span>
                             <span class="icon"><i class="bi bi-type"></i></span>
                             <h3>Tipos de Datos</h3>
@@ -619,7 +224,7 @@
                 <!-- Tema 7 -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-2">
+                        <div class="tema-card-header">
                             <span class="number">07</span>
                             <span class="icon"><i class="bi bi-plus-slash-minus"></i></span>
                             <h3>Operadores</h3>
@@ -637,7 +242,7 @@
                 <!-- Tema 8 -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-3">
+                        <div class="tema-card-header">
                             <span class="number">08</span>
                             <span class="icon"><i class="bi bi-diagram-3"></i></span>
                             <h3>Estructuras de Control</h3>
@@ -656,8 +261,8 @@
 
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-5">
-                            <span class="number">9</span>
+                        <div class="tema-card-header">
+                            <span class="number">09</span>
                             <span class="icon"><i class="bi bi-input-cursor-text"></i></span>
                             <h3>Manejo de Formularios</h3>
                         </div>
@@ -674,7 +279,7 @@
                 <!-- Tema 10 -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-1">
+                        <div class="tema-card-header">
                             <span class="number">10</span>
                             <span class="icon"><i class="bi bi-list-ul"></i></span>
                             <h3>Arreglos (Colecciones)</h3>
@@ -692,7 +297,7 @@
                 <!-- Tema 11 -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="350">
                     <div class="tema-card">
-                        <div class="tema-card-header gradient-2">
+                        <div class="tema-card-header">
                             <span class="number">11</span>
                             <span class="icon"><i class="bi bi-diagram-2"></i></span>
                             <h3>Programación Orientada a Objetos</h3>
@@ -712,12 +317,11 @@
 
         <!-- CTA -->
         <div class="text-center mt-5 pt-4" data-aos="fade-up">
-            <div class="d-inline-block p-4 rounded-4"
-                style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);">
-                <h4 class="fw-bold mb-2">¿Listo para practicar?</h4>
-                <p class="text-muted mb-3">Aplica lo aprendido con nuestros ejercicios interactivos</p>
-                <a href="ejercicios.html" class="btn btn-glow">
-                    <i class="bi bi-code-square me-2"></i> Ver Ejercicios
+            <div style="display: inline-block; padding: 2.5rem; border-radius: 8px; background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%); border: 2px solid #bfdbfe;">
+                <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: #0f172a; font-family: 'Montserrat', sans-serif; font-size: 1.3rem;">¿Listo para Aplicar lo Aprendido?</h4>
+                <p style="color: #4b5563; margin-bottom: 1.5rem; font-size: 0.95rem;">Complementa tu aprendizaje teórico con ejercicios prácticos de programación directamente en la plataforma</p>
+                <a href="ejercicios.html" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%); color: white; padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                    <i class="bi bi-code-square"></i> Explorar Ejercicios Prácticos
                 </a>
             </div>
         </div>
@@ -734,7 +338,7 @@
                         <i class="bi bi-braces me-2"></i>Python Academy
                     </h4>
                     <p class="footer-text">
-                        Proyecto académico de aprendizaje en Python y Flask.
+                        Plataforma educativa desarrollada como proyecto final para la asignatura de Tecnologías Web. Integrando conocimientos de Backend y Frontend moderno.
                     </p>
                 </div>
 
@@ -744,10 +348,8 @@
                         <li><a href="index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
                         <li><a href="teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
                         <li><a href="ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
-                        <li><a href="explicacion_crud.html"><i class="bi bi-chevron-right"></i> Temas
-                                Avanzados</a></li>
+                        <li><a href="explicacion_crud.html"><i class="bi bi-chevron-right"></i> Temas Avanzados</a></li>
                         <li><a href="PythonvsPHP.html"><i class="bi bi-chevron-right"></i> Comparativa</a></li>
-
                     </ul>
                 </div>
 
@@ -758,12 +360,11 @@
                     </h5>
 
                     <div class="team-list">
-                        <span>Karla Molina</span>
-                        <span>Josue Tapia</span>
-                        <span>Nicol Yarpas</span>
-                        <span>Naomi Obando</span>
-                        <span>Pamela Carriel</span>
-                        <span>Estefano</span>
+                        <span>Reimundo Melanie</span>
+                        <span>Carvajal Nicole</span>
+                        <span>Ramírez Carlos</span>
+                        <span>Obando Alison</span>
+                        <span>Caiza Carriel Estefano</span>
                     </div>
                 </div>
             </div>
@@ -782,31 +383,43 @@
     </script>
 
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 50
-        });
-
-        // Simple search filter
-        document.getElementById('searchInput').addEventListener('input', function (e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const cards = document.querySelectorAll('.tema-card');
-
-            cards.forEach(card => {
-                const text = card.textContent.toLowerCase();
-                const parent = card.closest('.col-md-6');
-
-                if (text.includes(searchTerm)) {
-                    parent.style.display = '';
-                    parent.style.animation = 'fadeInUp 0.5s ease';
-                } else {
-                    parent.style.display = 'none';
-                }
+        // Simular carga de página y ocultar loader
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.page-loader');
+            if (loader) {
+                setTimeout(() => {
+                    loader.classList.remove('active');
+                }, 1000);
+            }
+            
+            // Inicializar animaciones AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 50
             });
         });
+
+        // Filtro de búsqueda para temas
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', function (e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const cards = document.querySelectorAll('.tema-card');
+
+                cards.forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    const parent = card.closest('.col-md-6');
+
+                    if (text.includes(searchTerm)) {
+                        parent.style.display = '';
+                    } else {
+                        parent.style.display = 'none';
+                    }
+                });
+            });
+        }
     </script>
 </body>
 
