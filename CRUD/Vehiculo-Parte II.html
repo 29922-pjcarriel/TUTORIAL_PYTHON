@@ -149,7 +149,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver todo
+              <li><a class="dropdown-item py-2 fw-semibold" href="../teoria.html"><i class="bi bi-grid me-2"></i>Ver
+                  todo
                   el temario</a></li>
             </ul>
           </li>
@@ -249,7 +250,8 @@
                     class="bi bi-braces-asterisk me-2 text-warning"></i>Funciones</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/excepciones.html"><i
                     class="bi bi-exclamation-triangle me-2 text-danger"></i>Excepciones</a></li>
-              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i class="bi bi-box me-2 text-purple"></i>POO</a>
+              <li><a class="dropdown-item py-2" href="../PythonVsPHP/poo.html"><i
+                    class="bi bi-box me-2 text-purple"></i>POO</a>
               </li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/conexion_mysql.html"><i
                     class="bi bi-database me-2 text-success"></i>Conexión a MySQL</a></li>
@@ -258,7 +260,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i
+                    class="bi bi-grid me-2"></i>Ver
                   Comparativa</a></li>
             </ul>
           </li>
@@ -289,7 +292,8 @@
         <h3 class="section-title">1. Enunciado del Ejercicio (Vehículo - Parte II)</h3>
 
         <p>
-          En esta parte se conecta el proyecto en <b>Flask (Python)</b> con una base de datos <b>MySQL</b> usando la librería
+          En esta parte se conecta el proyecto en <b>Flask (Python)</b> con una base de datos <b>MySQL</b> usando la
+          librería
           <code>pymysql</code>. El objetivo es completar:
         </p>
 
@@ -317,7 +321,8 @@
     └── (fotos de vehículos)</code></pre>
 
         <div class="alert alert-secondary mb-0">
-          <b>Nota:</b> si tu carpeta se llama <code>Imagenes</code> y en Flask defines <code>static_folder='imagenes'</code>,
+          <b>Nota:</b> si tu carpeta se llama <code>Imagenes</code> y en Flask defines
+          <code>static_folder='imagenes'</code>,
           en Linux eso puede fallar. Deben coincidir exacto (mayúsculas/minúsculas).
         </div>
 
@@ -345,7 +350,7 @@ def conectar():
         return None, f"Error de conexión: {str(e)}"</code></pre>
 
         <div class="alert alert-success">
-           <b>¿Por qué DictCursor?</b> Porque devuelve filas como diccionario:
+          <b>¿Por qué DictCursor?</b> Porque devuelve filas como diccionario:
           <code>{"placa": "...", "motor": "..."}</code> y es más fácil renderizar HTML.
         </div>
 
@@ -357,7 +362,8 @@ def conectar():
 
         <ul>
           <li><b>GET</b>: usando el parámetro <code>d</code> (codificado en base64) para decidir operación.</li>
-          <li><b>POST</b>: usando el botón <code>Guardar</code> y el campo <code>op</code> para saber si es vehículo o matrícula.</li>
+          <li><b>POST</b>: usando el botón <code>Guardar</code> y el campo <code>op</code> para saber si es vehículo o
+            matrícula.</li>
         </ul>
 
         <pre class="code-box"><code>from flask import Flask, request
@@ -429,7 +435,7 @@ elif op == "mat_det":
     html += m.get_detail_matricula(id_)</code></pre>
 
         <div class="alert alert-success mb-0">
-           <b>Idea clave:</b> Flask solo “orquesta”, y tus clases (Vehiculo/Matricula) hacen el SQL y devuelven HTML.
+          <b>Idea clave:</b> Flask solo “orquesta”, y tus clases (Vehiculo/Matricula) hacen el SQL y devuelven HTML.
         </div>
 
         <!-- 7 -->
@@ -452,7 +458,8 @@ elif op == "mat_det":
         html += m.save_matricula(request.form)</code></pre>
 
         <div class="alert alert-secondary">
-          📌 <b>¿Por qué validar placa?</b> Porque la placa es el identificador principal del vehículo y no puede venir vacía.
+          📌 <b>¿Por qué validar placa?</b> Porque la placa es el identificador principal del vehículo y no puede venir
+          vacía.
         </div>
 
         <!-- 8 -->
@@ -462,7 +469,8 @@ elif op == "mat_det":
         </p>
         <ul>
           <li>Leer el archivo desde <code>request.files</code></li>
-          <li>Guardar en carpeta (por ejemplo <code>Imagenes/</code>) o guardar en la BD como BLOB/base64 (según diseño)</li>
+          <li>Guardar en carpeta (por ejemplo <code>Imagenes/</code>) o guardar en la BD como BLOB/base64 (según diseño)
+          </li>
         </ul>
 
         <pre class="code-box"><code># Ejemplo conceptual
@@ -472,7 +480,8 @@ if archivo and archivo.filename:
     archivo.save("Imagenes/" + nombre)</code></pre>
 
         <div class="alert alert-info">
-          En tu caso, como importas <code>base64</code>, también es posible convertir la imagen a base64 si lo necesitas.
+          En tu caso, como importas <code>base64</code>, también es posible convertir la imagen a base64 si lo
+          necesitas.
         </div>
 
         <!-- 9 -->

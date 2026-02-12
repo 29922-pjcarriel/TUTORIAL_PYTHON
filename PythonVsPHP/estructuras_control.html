@@ -134,7 +134,7 @@
                     class="bi bi-grid me-2"></i>Ver Resumen</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
             <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
@@ -217,12 +217,11 @@
                                 PHP usa llaves para definir bloques, mientras que Python usa indentación.
                             </div>
 
-                            <div class="code-comparison">
-                                <div class="code-block">
-                                    <div class="code-block-header php-header">
-                                        <i class="bi bi-filetype-php"></i> PHP
-                                    </div>
-<pre><span class="variable">$nota</span> = <span class="number">15</span>;
+                            <div class="compare-row">
+                                <div class="compare-col">
+<div class="lang-card php">
+<span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+<pre class="code-box"><span class="variable">$nota</span> = <span class="number">15</span>;
 
 <span class="keyword">if</span> (<span class="variable">$nota</span> &gt;= <span class="number">18</span>) {
     <span class="function">echo</span> <span class="string">"Excelente"</span>;
@@ -231,12 +230,12 @@
 } <span class="keyword">else</span> {
     <span class="function">echo</span> <span class="string">"Desaprobado"</span>;
 }</pre>
-                                </div>
-                                <div class="code-block">
-                                    <div class="code-block-header python-header">
-                                        <i class="bi bi-filetype-py"></i> PYTHON
-                                    </div>
-<pre><span class="variable">nota</span> = <span class="number">15</span>
+</div>
+</div>
+                                <div class="compare-col">
+<div class="lang-card python">
+<span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+<pre class="code-box"><span class="variable">nota</span> = <span class="number">15</span>
 
 <span class="keyword">if</span> <span class="variable">nota</span> &gt;= <span class="number">18</span>:
     <span class="function">print</span>(<span class="string">"Excelente"</span>)
@@ -244,7 +243,8 @@
     <span class="function">print</span>(<span class="string">"Aprobado"</span>)
 <span class="keyword">else</span>:
     <span class="function">print</span>(<span class="string">"Desaprobado"</span>)</pre>
-                                </div>
+</div>
+</div>
                             </div>
                         </div>
 
@@ -258,49 +258,49 @@
                             </div>
 
                             <h5 class="fw-bold mt-3 mb-3">Ternario Simple</h5>
-                            <div class="code-comparison">
-                                <div class="code-block">
-                                    <div class="code-block-header php-header">
-                                        <i class="bi bi-filetype-php"></i> PHP
-                                    </div>
-<pre><span class="variable">$nota</span> = <span class="number">15</span>;
+                            <div class="compare-row">
+                                <div class="compare-col">
+<div class="lang-card php">
+<span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+<pre class="code-box"><span class="variable">$nota</span> = <span class="number">15</span>;
 
 <span class="comment">// Ternario simple</span>
 <span class="function">echo</span> (<span class="variable">$nota</span> &gt;= <span class="number">11</span>) ? <span class="string">"Aprobado"</span> : <span class="string">"Desaprobado"</span>;</pre>
-                                </div>
-                                <div class="code-block">
-                                    <div class="code-block-header python-header">
-                                        <i class="bi bi-filetype-py"></i> PYTHON
-                                    </div>
-<pre><span class="variable">nota</span> = <span class="number">15</span>
+</div>
+</div>
+                                <div class="compare-col">
+<div class="lang-card python">
+<span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+<pre class="code-box"><span class="variable">nota</span> = <span class="number">15</span>
 
 <span class="comment"># Ternario simple</span>
 <span class="variable">mensaje</span> = <span class="string">"Aprobado"</span> <span class="keyword">if</span> <span class="variable">nota</span> &gt;= <span class="number">11</span> <span class="keyword">else</span> <span class="string">"Desaprobado"</span>
 <span class="function">print</span>(<span class="variable">mensaje</span>)</pre>
-                                </div>
+</div>
+</div>
                             </div>
 
                             <h5 class="fw-bold mt-4 mb-3">Ternario Anidado</h5>
-                            <div class="code-comparison">
-                                <div class="code-block">
-                                    <div class="code-block-header php-header">
-                                        <i class="bi bi-filetype-php"></i> PHP
-                                    </div>
-<pre><span class="variable">$nota</span> = <span class="number">15</span>;
+                            <div class="compare-row">
+                                <div class="compare-col">
+<div class="lang-card php">
+<span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+<pre class="code-box"><span class="variable">$nota</span> = <span class="number">15</span>;
 
 <span class="function">echo</span> (<span class="variable">$nota</span> &gt;= <span class="number">18</span>) ? <span class="string">"Excelente"</span> :
      (<span class="variable">$nota</span> &gt;= <span class="number">11</span>) ? <span class="string">"Aprobado"</span> :
      <span class="string">"Desaprobado"</span>;</pre>
-                                </div>
-                                <div class="code-block">
-                                    <div class="code-block-header python-header">
-                                        <i class="bi bi-filetype-py"></i> PYTHON
-                                    </div>
-<pre><span class="variable">nota</span> = <span class="number">15</span>
+</div>
+</div>
+                                <div class="compare-col">
+<div class="lang-card python">
+<span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+<pre class="code-box"><span class="variable">nota</span> = <span class="number">15</span>
 
 <span class="variable">mensaje</span> = <span class="string">"Excelente"</span> <span class="keyword">if</span> <span class="variable">nota</span> &gt;= <span class="number">18</span> <span class="keyword">else</span> <span class="string">"Aprobado"</span> <span class="keyword">if</span> <span class="variable">nota</span> &gt;= <span class="number">11</span> <span class="keyword">else</span> <span class="string">"Desaprobado"</span>
 <span class="function">print</span>(<span class="variable">mensaje</span>)</pre>
-                                </div>
+</div>
+</div>
                             </div>
                         </div>
 
@@ -319,35 +319,34 @@
                             </div>
 
                             <h5 class="fw-bold mt-3 mb-3">Recorrer un arreglo con índice</h5>
-                            <div class="code-comparison">
-                                <div class="code-block">
-                                    <div class="code-block-header php-header">
-                                        <i class="bi bi-filetype-php"></i> PHP
-                                    </div>
-<pre><span class="variable">$numeros</span> = <span class="function">array</span>(<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>);
+                            <div class="compare-row">
+                                <div class="compare-col">
+<div class="lang-card php">
+<span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+<pre class="code-box"><span class="variable">$numeros</span> = <span class="function">array</span>(<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>);
 
 <span class="keyword">foreach</span> (<span class="variable">$numeros</span> <span class="keyword">as</span> <span class="variable">$indice</span> =&gt; <span class="variable">$valor</span>) {
     <span class="function">echo</span> <span class="variable">$indice</span> . <span class="string">": "</span> . <span class="variable">$valor</span> . <span class="string">"&lt;br&gt;"</span>;
 }</pre>
-                                </div>
-                                <div class="code-block">
-                                    <div class="code-block-header python-header">
-                                        <i class="bi bi-filetype-py"></i> PYTHON
-                                    </div>
-<pre><span class="variable">numeros</span> = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]
+</div>
+</div>
+                                <div class="compare-col">
+<div class="lang-card python">
+<span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+<pre class="code-box"><span class="variable">numeros</span> = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]
 
 <span class="keyword">for</span> <span class="variable">indice</span>, <span class="variable">valor</span> <span class="keyword">in</span> <span class="builtin">enumerate</span>(<span class="variable">numeros</span>):
     <span class="function">print</span>(<span class="string">f"{indice}: {valor}"</span>)</pre>
-                                </div>
+</div>
+</div>
                             </div>
 
                             <h5 class="fw-bold mt-4 mb-3">Recorrer un arreglo asociativo / diccionario</h5>
-                            <div class="code-comparison">
-                                <div class="code-block">
-                                    <div class="code-block-header php-header">
-                                        <i class="bi bi-filetype-php"></i> PHP
-                                    </div>
-<pre><span class="variable">$persona</span> = <span class="function">array</span>(
+                            <div class="compare-row">
+                                <div class="compare-col">
+<div class="lang-card php">
+<span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+<pre class="code-box"><span class="variable">$persona</span> = <span class="function">array</span>(
     <span class="string">"nombre"</span> =&gt; <span class="string">"Ana"</span>,
     <span class="string">"edad"</span> =&gt; <span class="number">22</span>
 );
@@ -355,19 +354,20 @@
 <span class="keyword">foreach</span> (<span class="variable">$persona</span> <span class="keyword">as</span> <span class="variable">$clave</span> =&gt; <span class="variable">$valor</span>) {
     <span class="function">echo</span> <span class="variable">$clave</span> . <span class="string">": "</span> . <span class="variable">$valor</span> . <span class="string">"&lt;br&gt;"</span>;
 }</pre>
-                                </div>
-                                <div class="code-block">
-                                    <div class="code-block-header python-header">
-                                        <i class="bi bi-filetype-py"></i> PYTHON
-                                    </div>
-<pre><span class="variable">persona</span> = {
+</div>
+</div>
+                                <div class="compare-col">
+<div class="lang-card python">
+<span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+<pre class="code-box"><span class="variable">persona</span> = {
     <span class="string">"nombre"</span>: <span class="string">"Ana"</span>,
     <span class="string">"edad"</span>: <span class="number">22</span>
 }
 
 <span class="keyword">for</span> <span class="variable">clave</span>, <span class="variable">valor</span> <span class="keyword">in</span> <span class="variable">persona</span>.<span class="function">items</span>():
     <span class="function">print</span>(<span class="variable">clave</span>, <span class="string">":"</span>, <span class="variable">valor</span>)</pre>
-                                </div>
+</div>
+</div>
                             </div>
                         </div>
 
@@ -387,23 +387,23 @@
                                 En Python, el segundo valor de range es exclusivo, por eso se usa 6 para llegar hasta 5.
                             </div>
 
-                            <div class="code-comparison">
-                                <div class="code-block">
-                                    <div class="code-block-header php-header">
-                                        <i class="bi bi-filetype-php"></i> PHP
-                                    </div>
-<pre><span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt;= <span class="number">5</span>; <span class="variable">$i</span>++) {
+                            <div class="compare-row">
+                                <div class="compare-col">
+<div class="lang-card php">
+<span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+<pre class="code-box"><span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt;= <span class="number">5</span>; <span class="variable">$i</span>++) {
     <span class="function">echo</span> <span class="variable">$i</span> . <span class="string">"&lt;br&gt;"</span>;
 }</pre>
-                                </div>
-                                <div class="code-block">
-                                    <div class="code-block-header python-header">
-                                        <i class="bi bi-filetype-py"></i> PYTHON
-                                    </div>
-<pre><span class="comment"># range(inicio, fin)</span>
+</div>
+</div>
+                                <div class="compare-col">
+<div class="lang-card python">
+<span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+<pre class="code-box"><span class="comment"># range(inicio, fin)</span>
 <span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="number">1</span>, <span class="number">6</span>):
     <span class="function">print</span>(<span class="variable">i</span>)</pre>
-                                </div>
+</div>
+</div>
                             </div>
                         </div>
 
@@ -422,28 +422,28 @@
                                 <code>"&lt;br&gt;"</code> → salto de línea en HTML. Python agrega el salto de línea automáticamente.
                             </div>
 
-                            <div class="code-comparison">
-                                <div class="code-block">
-                                    <div class="code-block-header php-header">
-                                        <i class="bi bi-filetype-php"></i> PHP
-                                    </div>
-<pre><span class="variable">$contador</span> = <span class="number">1</span>;
+                            <div class="compare-row">
+                                <div class="compare-col">
+<div class="lang-card php">
+<span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+<pre class="code-box"><span class="variable">$contador</span> = <span class="number">1</span>;
 
 <span class="keyword">while</span> (<span class="variable">$contador</span> &lt;= <span class="number">5</span>) {
     <span class="function">echo</span> <span class="variable">$contador</span> . <span class="string">"&lt;br&gt;"</span>;
     <span class="variable">$contador</span>++;
 }</pre>
-                                </div>
-                                <div class="code-block">
-                                    <div class="code-block-header python-header">
-                                        <i class="bi bi-filetype-py"></i> PYTHON
-                                    </div>
-<pre><span class="variable">contador</span> = <span class="number">1</span>
+</div>
+</div>
+                                <div class="compare-col">
+<div class="lang-card python">
+<span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+<pre class="code-box"><span class="variable">contador</span> = <span class="number">1</span>
 
 <span class="keyword">while</span> <span class="variable">contador</span> &lt;= <span class="number">5</span>:
     <span class="function">print</span>(<span class="variable">contador</span>)
     <span class="variable">contador</span> += <span class="number">1</span></pre>
-                                </div>
+</div>
+</div>
                             </div>
                         </div>
 
@@ -462,23 +462,22 @@
                                 <code>"&lt;br&gt;"</code> → salto de línea en HTML. Python agrega el salto de línea automáticamente.
                             </div>
 
-                            <div class="code-comparison">
-                                <div class="code-block">
-                                    <div class="code-block-header php-header">
-                                        <i class="bi bi-filetype-php"></i> PHP
-                                    </div>
-<pre><span class="variable">$contador</span> = <span class="number">10</span>;
+                            <div class="compare-row">
+                                <div class="compare-col">
+<div class="lang-card php">
+<span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+<pre class="code-box"><span class="variable">$contador</span> = <span class="number">10</span>;
 
 <span class="keyword">do</span> {
     <span class="function">echo</span> <span class="variable">$contador</span> . <span class="string">"&lt;br&gt;"</span>;
     <span class="variable">$contador</span>++;
 } <span class="keyword">while</span> (<span class="variable">$contador</span> &lt;= <span class="number">5</span>);</pre>
-                                </div>
-                                <div class="code-block">
-                                    <div class="code-block-header python-header">
-                                        <i class="bi bi-filetype-py"></i> PYTHON
-                                    </div>
-<pre><span class="variable">contador</span> = <span class="number">10</span>
+</div>
+</div>
+                                <div class="compare-col">
+<div class="lang-card python">
+<span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+<pre class="code-box"><span class="variable">contador</span> = <span class="number">10</span>
 
 <span class="keyword">while</span> <span class="boolean">True</span>:
     <span class="function">print</span>(<span class="variable">contador</span>)
@@ -486,7 +485,8 @@
 
     <span class="keyword">if</span> <span class="variable">contador</span> &gt; <span class="number">5</span>:
         <span class="keyword">break</span></pre>
-                                </div>
+</div>
+</div>
                             </div>
                         </div>
 
@@ -504,11 +504,10 @@
 
                             <!-- PHP switch -->
                             <h5 class="fw-bold mt-3 mb-3">PHP - switch</h5>
-                            <div class="code-block mb-4">
-                                <div class="code-block-header php-header">
-                                    <i class="bi bi-filetype-php"></i> PHP
-                                </div>
-<pre><span class="variable">$dia</span> = <span class="number">3</span>;
+                            <div class="compare-col">
+<div class="lang-card php">
+<span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+<pre class="code-box"><span class="variable">$dia</span> = <span class="number">3</span>;
 
 <span class="keyword">switch</span> (<span class="variable">$dia</span>) {
     <span class="keyword">case</span> <span class="number">1</span>:
@@ -523,15 +522,15 @@
     <span class="keyword">default</span>:
         <span class="function">echo</span> <span class="string">"Día no válido"</span>;
 }</pre>
-                            </div>
+</div>
+</div>
 
                             <!-- Python equivalents -->
                             <h5 class="fw-bold mt-3 mb-3">Python - if/elif (alternativa clásica)</h5>
-                            <div class="code-block mb-4">
-                                <div class="code-block-header python-header">
-                                    <i class="bi bi-filetype-py"></i> PYTHON
-                                </div>
-<pre><span class="variable">dia</span> = <span class="number">3</span>
+                            <div class="compare-col">
+<div class="lang-card python">
+<span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+<pre class="code-box"><span class="variable">dia</span> = <span class="number">3</span>
 
 <span class="keyword">if</span> <span class="variable">dia</span> == <span class="number">1</span>:
     <span class="function">print</span>(<span class="string">"Lunes"</span>)
@@ -541,14 +540,14 @@
     <span class="function">print</span>(<span class="string">"Miércoles"</span>)
 <span class="keyword">else</span>:
     <span class="function">print</span>(<span class="string">"Día no válido"</span>)</pre>
-                            </div>
+</div>
+</div>
 
                             <h5 class="fw-bold mt-3 mb-3">Python 3.10+ - match/case</h5>
-                            <div class="code-block mb-4">
-                                <div class="code-block-header python-header">
-                                    <i class="bi bi-filetype-py"></i> PYTHON
-                                </div>
-<pre><span class="variable">dia</span> = <span class="number">3</span>
+                            <div class="compare-col">
+<div class="lang-card python">
+<span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+<pre class="code-box"><span class="variable">dia</span> = <span class="number">3</span>
 
 <span class="keyword">match</span> <span class="variable">dia</span>:
     <span class="keyword">case</span> <span class="number">1</span>:
@@ -559,7 +558,8 @@
         <span class="function">print</span>(<span class="string">"Miércoles"</span>)
     <span class="keyword">case</span> _:
         <span class="function">print</span>(<span class="string">"Día no válido"</span>)</pre>
-                            </div>
+</div>
+</div>
                         </div>
 
                         <!-- Navegación entre páginas -->

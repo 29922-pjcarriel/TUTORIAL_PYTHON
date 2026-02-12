@@ -17,34 +17,7 @@
     <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
     <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
 
-    <style>
-        .sidebar-nav { position: sticky; top: 100px; background: white; border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); max-height: calc(100vh - 120px); overflow-y: auto; }
-        .sidebar-nav h5 { font-weight: 700; color: #1a1a2e; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid #667eea; }
-        .sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
-        .sidebar-nav li { margin-bottom: 0.5rem; }
-        .sidebar-nav a { display: block; padding: 0.6rem 1rem; color: #64748b; text-decoration: none; border-radius: 8px; font-size: 0.9rem; transition: all 0.3s ease; border-left: 3px solid transparent; }
-        .sidebar-nav a:hover { background: rgba(102,126,234,0.1); color: #667eea; border-left-color: #667eea; padding-left: 1.2rem; }
-        .sidebar-nav a.active { background: linear-gradient(135deg, rgba(102,126,234,0.15) 0%, rgba(118,75,162,0.15) 100%); color: #667eea; font-weight: 600; border-left-color: #667eea; }
-        .sidebar-progress { height: 4px; background: #e2e8f0; border-radius: 4px; margin-bottom: 1rem; overflow: hidden; }
-        .sidebar-progress-bar { height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); width: 0%; transition: width 0.3s ease; }
-
-        .compare-row { display: flex; gap: 1.5rem; margin: 1.5rem 0; flex-wrap: wrap; }
-        .compare-col { flex: 1; min-width: 280px; }
-        .lang-card { border-radius: 16px; padding: 1.5rem; height: 100%; border: 1px solid rgba(0,0,0,0.08); }
-        .lang-card.python { background: linear-gradient(135deg, rgba(55,118,171,0.08) 0%, rgba(255,212,59,0.08) 100%); border-left: 4px solid #3776ab; }
-        .lang-card.php { background: linear-gradient(135deg, rgba(119,123,180,0.08) 0%, rgba(137,147,190,0.08) 100%); border-left: 4px solid #777bb4; }
-        .lang-badge { display: inline-block; padding: 4px 14px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-bottom: 1rem; }
-        .lang-badge.python { background: linear-gradient(135deg, #3776ab, #ffd43b); color: white; }
-        .lang-badge.php { background: linear-gradient(135deg, #777bb4, #8993be); color: white; }
-
-        .slide-section { padding: 2rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
-        .slide-section:last-child { border-bottom: none; }
-        .slide-number { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); color: white; font-weight: 700; font-size: 0.8rem; margin-right: 10px; }
-
-        .code-box { background: #0f172a; color: #e2e8f0; padding: 18px; border-radius: 12px; font-family: 'Fira Code', ui-monospace, monospace; font-size: 0.88rem; overflow-x: auto; margin: 12px 0; border: 1px solid rgba(255,255,255,0.1); white-space: pre; }
-        .info-box { background: rgba(102,126,234,0.08); border-radius: 12px; padding: 1.2rem; border-left: 4px solid #667eea; margin: 1rem 0; }
-        .warning-box { background: rgba(239,68,68,0.08); border-radius: 12px; padding: 1.2rem; border-left: 4px solid #ef4444; margin: 1rem 0; }
-    </style>
+    
 </head>
 
 <body>
@@ -164,7 +137,7 @@
                     class="bi bi-grid me-2"></i>Ver Resumen</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
             <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>

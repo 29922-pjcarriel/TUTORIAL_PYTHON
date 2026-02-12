@@ -136,7 +136,7 @@
                     class="bi bi-grid me-2"></i>Ver Resumen</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
             <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-arrow-left-right me-1"></i> Python VS PHP
             </a>
@@ -286,13 +286,12 @@
                                 <i class="bi bi-link-45deg"></i> AND
                             </div>
 
-                            <div class="code-comparison">
+                            <div class="compare-row">
                                 <!-- PHP -->
-                                <div class="code-block">
-                                    <div class="code-block-header php-header">
-                                        <i class="bi bi-filetype-php"></i> PHP
-                                    </div>
-<pre><span class="variable">$a</span> = <span class="boolean">true</span>;
+                                <div class="compare-col">
+<div class="lang-card php">
+<span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+<pre class="code-box"><span class="variable">$a</span> = <span class="boolean">true</span>;
 <span class="variable">$b</span> = <span class="boolean">false</span>;
 
 <span class="keyword">if</span> (<span class="variable">$a</span> <span class="keyword">&amp;&amp;</span> <span class="variable">$b</span>) {
@@ -304,13 +303,13 @@
 <span class="keyword">if</span> (<span class="variable">$a</span> <span class="keyword">and</span> <span class="variable">$a</span>) {
     <span class="function">echo</span> <span class="string">"Verdadero"</span>; <span class="comment">// Esto se imprime</span>
 }</pre>
-                                </div>
+</div>
+</div>
                                 <!-- Python -->
-                                <div class="code-block">
-                                    <div class="code-block-header python-header">
-                                        <i class="bi bi-filetype-py"></i> PYTHON
-                                    </div>
-<pre><span class="variable">a</span> = <span class="boolean">True</span>
+                                <div class="compare-col">
+<div class="lang-card python">
+<span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+<pre class="code-box"><span class="variable">a</span> = <span class="boolean">True</span>
 <span class="variable">b</span> = <span class="boolean">False</span>
 
 <span class="keyword">if</span> <span class="variable">a</span> <span class="keyword">and</span> <span class="variable">b</span>:
@@ -320,7 +319,8 @@
 
 <span class="keyword">if</span> <span class="variable">a</span> <span class="keyword">and</span> <span class="variable">a</span>:
     <span class="function">print</span>(<span class="string">"Verdadero"</span>)  <span class="comment"># Se imprime</span></pre>
-                                </div>
+</div>
+</div>
                             </div>
                         </div>
 
@@ -330,13 +330,12 @@
                                 <i class="bi bi-link-45deg"></i> OR
                             </div>
 
-                            <div class="code-comparison">
+                            <div class="compare-row">
                                 <!-- PHP -->
-                                <div class="code-block">
-                                    <div class="code-block-header php-header">
-                                        <i class="bi bi-filetype-php"></i> PHP
-                                    </div>
-<pre><span class="variable">$a</span> = <span class="boolean">true</span>;
+                                <div class="compare-col">
+<div class="lang-card php">
+<span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+<pre class="code-box"><span class="variable">$a</span> = <span class="boolean">true</span>;
 <span class="variable">$b</span> = <span class="boolean">false</span>;
 
 <span class="keyword">if</span> (<span class="variable">$a</span> <span class="keyword">||</span> <span class="variable">$b</span>) {
@@ -346,13 +345,13 @@
 <span class="keyword">if</span> (<span class="variable">$b</span> <span class="keyword">or</span> <span class="variable">$b</span>) {
     <span class="function">echo</span> <span class="string">"Verdadero"</span>; <span class="comment">// No se imprime, ambos son false</span>
 }</pre>
-                                </div>
+</div>
+</div>
                                 <!-- Python -->
-                                <div class="code-block">
-                                    <div class="code-block-header python-header">
-                                        <i class="bi bi-filetype-py"></i> PYTHON
-                                    </div>
-<pre><span class="variable">a</span> = <span class="boolean">True</span>
+                                <div class="compare-col">
+<div class="lang-card python">
+<span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+<pre class="code-box"><span class="variable">a</span> = <span class="boolean">True</span>
 <span class="variable">b</span> = <span class="boolean">False</span>
 
 <span class="keyword">if</span> <span class="variable">a</span> <span class="keyword">or</span> <span class="variable">b</span>:
@@ -360,7 +359,8 @@
 
 <span class="keyword">if</span> <span class="variable">b</span> <span class="keyword">or</span> <span class="variable">b</span>:
     <span class="function">print</span>(<span class="string">"Verdadero"</span>)  <span class="comment"># No se imprime</span></pre>
-                                </div>
+</div>
+</div>
                             </div>
                         </div>
 
@@ -370,32 +370,32 @@
                                 <i class="bi bi-link-45deg"></i> NOT
                             </div>
 
-                            <div class="code-comparison">
+                            <div class="compare-row">
                                 <!-- PHP -->
-                                <div class="code-block">
-                                    <div class="code-block-header php-header">
-                                        <i class="bi bi-filetype-php"></i> PHP
-                                    </div>
-<pre><span class="variable">$a</span> = <span class="boolean">true</span>;
+                                <div class="compare-col">
+<div class="lang-card php">
+<span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+<pre class="code-box"><span class="variable">$a</span> = <span class="boolean">true</span>;
 
 <span class="keyword">if</span> (<span class="keyword">!</span><span class="variable">$a</span>) {
     <span class="function">echo</span> <span class="string">"Verdadero"</span>;
 } <span class="keyword">else</span> {
     <span class="function">echo</span> <span class="string">"Falso"</span>; <span class="comment">// Se imprime</span>
 }</pre>
-                                </div>
+</div>
+</div>
                                 <!-- Python -->
-                                <div class="code-block">
-                                    <div class="code-block-header python-header">
-                                        <i class="bi bi-filetype-py"></i> PYTHON
-                                    </div>
-<pre><span class="variable">a</span> = <span class="boolean">True</span>
+                                <div class="compare-col">
+<div class="lang-card python">
+<span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+<pre class="code-box"><span class="variable">a</span> = <span class="boolean">True</span>
 
 <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable">a</span>:
     <span class="function">print</span>(<span class="string">"Verdadero"</span>)
 <span class="keyword">else</span>:
     <span class="function">print</span>(<span class="string">"Falso"</span>)  <span class="comment"># Se imprime</span></pre>
-                                </div>
+</div>
+</div>
                             </div>
                         </div>
 
