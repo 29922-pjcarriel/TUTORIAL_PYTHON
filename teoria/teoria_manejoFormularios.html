@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -240,12 +240,7 @@
               </div>
               <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
               <ul>
-                <li><a href="#funciones">Funciones</a></li>
-                <li><a href="#sintaxis-funciones">Sintaxis</a></li>
-                <li><a href="#parametros-funcion">Parámetros</a></li>
-                <li><a href="#parametros-defecto">Parámetros por defecto</a></li>
-                <li><a href="#devolucion-valores">Devolución de valores</a></li>
-                <li><a href="#importacion-modulos">Importación de módulos</a></li>
+                <li><a href="#funciones">Funciones en Python</a></li>
                 <li><a href="#formularios-html" class="active">Manejo de Formularios</a></li>
                 <li><a href="#estructura-formulario">Estructura de un Formulario HTML</a></li>
                 <li><a href="#procesamiento-flask">Procesamiento con Flask</a></li>
@@ -260,249 +255,63 @@
           <!-- Main Content -->
           <div class="col-lg-8">
 
-   
+            <h3 class="fw-bold mt-5" id="funciones">Funciones en Python</h3>
+            <p>
+              Una <strong>función</strong> es un bloque de código reutilizable que realiza una tarea específica. 
+              En Python, se definen con la palabra clave <code>def</code>.
+            </p>
+
+            <div class="card shadow-sm border-0 mb-4">
+              <div class="card-header bg-dark text-white">Sintaxis Básica</div>
+              <div class="card-body bg-light font-monospace">
+<pre class="mb-0">
+def nombre_funcion(parametro1, parametro2):
+    # Bloque de código
+    resultado = parametro1 + parametro2
+    return resultado
+</pre>
+              </div>
+            </div>
+
+            <h5 class="fw-bold mt-4">Tipos de Funciones</h5>
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <div class="p-3 border rounded bg-white h-100">
+                  <h6 class="text-primary fw-bold">Sin retorno (Void)</h6>
+                  <p class="small text-muted mb-2">Realizan una acción pero no devuelven un valor.</p>
+                  <code class="d-block bg-light p-2 rounded">
+                    def saludar(nombre):<br>
+                    &nbsp;&nbsp;print(f"Hola {nombre}")
+                  </code>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded bg-white h-100">
+                  <h6 class="text-success fw-bold">Con retorno (Return)</h6>
+                  <p class="small text-muted mb-2">Devuelven un dato para ser usado después.</p>
+                  <code class="d-block bg-light p-2 rounded">
+                    def sumar(a, b):<br>
+                    &nbsp;&nbsp;return a + b
+                  </code>
+                </div>
+              </div>
+            </div>
+
+            <h5 class="fw-bold mt-4">Parámetros y Argumentos</h5>
+            <p>Python es muy flexible con los parámetros:</p>
+            <ul class="list-group list-group-flush mb-4">
+              <li class="list-group-item">
+                <strong>Posicionales:</strong> Se asignan en orden. <code>restar(10, 5)</code>
+              </li>
+              <li class="list-group-item">
+                <strong>Nombrados (Keyword):</strong> Se asignan por nombre. <code>restar(b=5, a=10)</code>
+              </li>
+              <li class="list-group-item">
+                <strong>Por defecto:</strong> Valores opcionales. <code>def saludar(msg="Hola"):</code>
+              </li>
+            </ul>
+
             <hr class="my-5">
-
-            <h3 class="fw-bold mt-5" id="funciones">Funciones</h3>
-
-            <p>
-              Una <b>función</b> es un bloque de código reutilizable que se encarga de realizar una tarea específica
-              dentro de un
-              programa. En Python, las funciones permiten organizar el código en secciones lógicas, facilitando su
-              lectura,
-              depuración y mantenimiento.
-            </p>
-
-            <p class="mb-4">
-              Las funciones pueden <b>recibir datos de entrada</b> (parámetros), procesarlos internamente y
-              <b>devolver</b> un
-              resultado al programa principal.
-            </p>
-
-            <!-- SINTAXIS -->
-            <h4 class="fw-bold mt-5" id="sintaxis-funciones">Sintaxis</h4>
-            <p>La sintaxis básica para definir una función en Python es:</p>
-
-            <div class="row g-4 mb-4">
-              <!-- CÓDIGO -->
-              <div class="col-md-6">
-                <div class="card shadow-sm border-0 h-100">
-                  <div class="card-header bg-dark text-white">
-                    Código Python
-                  </div>
-                  <div class="card-body bg-light font-monospace">
-                    <pre>
-def sumar():
-    # bloque de código referente a la función
-    return "resultado"
-</pre>
-                  </div>
-                </div>
-              </div>
-
-              <!-- VISTA -->
-              <div class="col-md-6">
-                <div class="card shadow-sm border-0 h-100">
-                  <div class="card-header bg-primary text-white">
-                    ¿Cómo se interpreta?
-                  </div>
-                  <div class="card-body">
-                    <ul class="mb-0">
-                      <li><b>def</b>: palabra clave para definir una función</li>
-                      <li><b>sumar</b>: nombre único de la función</li>
-                      <li><b>()</b>: parámetros (si hay)</li>
-                      <li><b>return</b>: devuelve un valor (opcional)</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- PARÁMETROS -->
-            <h4 class="fw-bold mt-5" id="parametros-funcion">Parámetros de la función</h4>
-            <p>
-              Los <b>parámetros</b> permiten que una función trabaje con diferentes valores sin necesidad de modificar
-              su código
-              interno.
-            </p>
-
-            <div class="row g-4 mb-4">
-              <!-- CÓDIGO -->
-              <div class="col-md-6">
-                <div class="card shadow-sm border-0 h-100">
-                  <div class="card-header bg-dark text-white">
-                    Código Python
-                  </div>
-                  <div class="card-body bg-light font-monospace">
-                    <pre>
-def sumar(a, b):
-    resultado = a + b
-    return resultado
-</pre>
-                  </div>
-                </div>
-              </div>
-
-              <!-- VISTA -->
-              <div class="col-md-6">
-                <div class="card shadow-sm border-0 h-100">
-                  <div class="card-header bg-success text-white">
-                    Vista en pantalla (ejemplo)
-                  </div>
-                  <div class="card-body">
-                    <div class="border rounded p-3 bg-light">
-                      <p class="mb-1"><b>Llamada:</b> <code>sumar(5, 6)</code></p>
-                      <p class="mb-0"><b>Resultado:</b> <code>11</code></p>
-                    </div>
-                    <p class="small mt-3 mb-0">
-                      Aquí <code>a</code> y <code>b</code> son los valores que recibe la función.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- PARÁMETROS POR DEFECTO -->
-            <h4 class="fw-bold mt-5" id="parametros-defecto">Parámetros por defecto</h4>
-
-            <p>
-              Un parámetro por defecto es un valor que se asigna en la definición de la función.
-              Si al llamar la función no se envía ese valor, Python usa el valor por defecto automáticamente.
-            </p>
-
-            <div class="row g-4 mb-4">
-              <!-- CÓDIGO -->
-              <div class="col-md-6">
-                <div class="card shadow-sm border-0 h-100">
-                  <div class="card-header bg-dark text-white">
-                    Código Python
-                  </div>
-                  <div class="card-body bg-light font-monospace">
-                    <pre>
-def sumar(a=4):
-    resultado = a + 2
-    return resultado
-
-print(sumar())
-</pre>
-                  </div>
-                </div>
-              </div>
-
-              <!-- VISTA -->
-              <div class="col-md-6">
-                <div class="card shadow-sm border-0 h-100">
-                  <div class="card-header bg-warning text-dark">
-                    Vista en pantalla
-                  </div>
-                  <div class="card-body">
-                    <div class="border rounded p-3 bg-light">
-                      <p class="mb-1"><b>Como no mando a:</b> se usa <code>a = 4</code></p>
-                      <p class="mb-0"><b>Salida:</b> <code>6</code></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- DEVOLUCIÓN DE VALORES -->
-            <h4 class="fw-bold mt-5" id="devolucion-valores">Devolución de valores</h4>
-
-            <p>
-              Para que una función devuelva un resultado se utiliza la palabra clave <code>return</code>.
-              Si una función no tiene <code>return</code>, devuelve automáticamente <code>None</code>.
-            </p>
-
-            <div class="row g-4 mb-4">
-              <!-- CÓDIGO -->
-              <div class="col-md-6">
-                <div class="card shadow-sm border-0 h-100">
-                  <div class="card-header bg-dark text-white">
-                    Código Python
-                  </div>
-                  <div class="card-body bg-light font-monospace">
-                    <pre>
-def sumar(a, b):
-    resultado = a + b
-    return resultado
-
-print(sumar(5, 6))
-</pre>
-                  </div>
-                </div>
-              </div>
-
-              <!-- VISTA -->
-              <div class="col-md-6">
-                <div class="card shadow-sm border-0 h-100">
-                  <div class="card-header bg-info text-dark">
-                    Vista en pantalla
-                  </div>
-                  <div class="card-body">
-                    <div class="border rounded p-3 bg-light">
-                      <p class="mb-1"><b>Salida:</b></p>
-                      <code>11</code>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- IMPORTACIÓN DE MÓDULOS -->
-            <h4 class="fw-bold mt-5" id="importacion-modulos">Importación de módulos</h4>
-
-            <p>
-              Python permite organizar el código en <b>módulos</b> (archivos .py) para reutilizar funciones y clases.
-              Con <code>import</code> puedes cargar un módulo completo, y con <code>from</code> puedes importar
-              elementos
-              específicos.
-            </p>
-
-            <div class="row g-4 mb-4">
-
-              <!-- CÓDIGO -->
-              <div class="col-md-6">
-                <div class="card shadow-sm border-0 h-100">
-                  <div class="card-header bg-dark text-white">
-                    Código Python
-                  </div>
-                  <div class="card-body bg-light font-monospace">
-                    <pre>
-import funciones #importa el contenido de este archivo
-print(funciones.sumar(2,3)) #como un objeto se llama a la funcion especifica
-
-from funciones import sumar #del archivo funciones se importa solo la funcion sumar
-print(sumar(3,2)) #se llama a la funcion y se envia parametros
-</pre>
-                  </div>
-                </div>
-              </div>
-
-              <!-- VISUAL -->
-              <div class="col-md-6">
-                <div class="card shadow-sm border-0 h-100">
-                  <div class="card-header bg-primary text-white">
-                    ¿Cómo se vería en pantalla?
-                  </div>
-                  <div class="card-body">
-                    <div class="border rounded p-3 bg-light">
-                      <p class="mb-1"><b>Salida en consola:</b></p>
-                      <code>5</code><br>
-                      <code>5</code>
-                    </div>
-
-                    <p class="small mt-3 mb-0">
-                      ✔ Con <b>import funciones</b> accedes usando
-                      <code>funciones.sumar()</code><br>
-                      ✔ Con <b>from funciones import sumar</b> llamas
-                      directamente <code>sumar()</code>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
 
             <h3 class="fw-bold mt-5" id="formularios-html">
               Manejo de Formularios con Flask
@@ -938,43 +747,6 @@ def upload():
                 <form id="quizForm">
 
                   <div class="quiz-step" data-step="0">
-                    <label><strong>1.</strong> ¿Qué palabra clave se usa para definir una función en Python?</label>
-                    <div class="mt-2">
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="q1" id="q1a" value="def" checked>
-                        <label class="form-check-label" for="q1a">def</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="q1" id="q1b" value="function">
-                        <label class="form-check-label" for="q1b">function</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="q1" id="q1c" value="func">
-                        <label class="form-check-label" for="q1c">func</label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="quiz-step d-none" data-step="1">
-                    <label><strong>2.</strong> Indica la instrucción que devuelve un valor desde una función:</label>
-                    <input type="text" class="form-control mt-2" id="q2" placeholder="Respuesta corta">
-                  </div>
-
-                  <div class="quiz-step d-none" data-step="2">
-                    <label><strong>3.</strong> En el siguiente código, ¿qué imprime <code>sumar(2,3)</code>?</label>
-                    <pre class="small bg-dark text-white p-2 rounded">def sumar(a, b):
-    return a + b
-</pre>
-                    <input type="text" class="form-control mt-2" id="q3" placeholder="Número">
-                  </div>
-
-                  <div class="quiz-step d-none" data-step="3">
-                    <label><strong>4.</strong> ¿Cómo se importa solo la función <code>sumar</code> desde el módulo
-                      <code>funciones</code>?</label>
-                    <input type="text" class="form-control mt-2" id="q4" placeholder="Ej: from ... import ...">
-                  </div>
-
-                  <div class="quiz-step d-none" data-step="4">
                     <label><strong>5.</strong> ¿Qué atributo HTML identifica el campo que será leído en el
                       backend?</label>
                     <input type="text" class="form-control mt-2" id="q5" placeholder="Ej: name">
@@ -1570,12 +1342,7 @@ Recibido: ${nombre} - ${edad}`;
         }
       });
 
-      showStep(current);
     });
   </script>
-
-
-
 </body>
-
 </html>

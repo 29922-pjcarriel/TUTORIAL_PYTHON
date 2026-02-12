@@ -1,10 +1,10 @@
-﻿ï»¿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Herencia Â· Python Academy</title>
+  <title>Herencia · Python Academy</title>
   <meta name="description" content="Ejercicio de herencia en POO.">
 
   <link
@@ -324,7 +324,7 @@
 
         <div class="hero-top-actions">
           <a href="../ejercicios.html" class="btn btn-outline-secondary btn-pill-sm">
-            <i class="bi bi-arrow-left me-1"></i> Volver al menÃº
+            <i class="bi bi-arrow-left me-1"></i> Volver al menú
           </a>
         </div>
 
@@ -347,23 +347,23 @@
             <p class="mb-2">
               Implementar un sistema que utilice <strong>Herencia</strong> para gestionar diferentes tipos de personas
               en una empresa. Se debe crear una clase base <code>Persona</code> y una clase derivada
-              <code>Empleado</code> que aÃ±ada atributos de sueldo y cargo, calculando automÃ¡ticamente beneficios
+              <code>Empleado</code> que añada atributos de sueldo y cargo, calculando automáticamente beneficios
               adicionales.
             </p>
             <p class="mb-0 hint">
-              Objetivo: Comprender cÃ³mo las clases pueden heredar atributos y mÃ©todos de otras, permitiendo la
-              reutilizaciÃ³n de cÃ³digo y la creaciÃ³n de jerarquÃ­as lÃ³gicas.
+              Objetivo: Comprender cómo las clases pueden heredar atributos y métodos de otras, permitiendo la
+              reutilización de código y la creación de jerarquías lógicas.
             </p>
           </div>
 
-          <!-- EXPLICACIÃ“N DEL CÃ“DIGO (EDITAR AQUÃ) -->
+          <!-- EXPLICACIÓN DEL CÓDIGO (EDITAR AQUÍ) -->
           <div class="explain-card mb-4">
-            <h4 class="fw-bold mb-3">ExplicaciÃ³n del cÃ³digo (paso a paso)</h4>
+            <h4 class="fw-bold mb-3">Explicación del código (paso a paso)</h4>
 
             <h5 class="fw-bold mb-2">1) Clase Base: Persona</h5>
             <p class="mb-3">
-              Definimos los atributos comunes como nombre y edad. Todos los empleados son personas, por lo que heredarÃ¡n
-              estas caracterÃ­sticas.
+              Definimos los atributos comunes como nombre y edad. Todos los empleados son personas, por lo que heredarán
+              estas características.
             </p>
             <pre class="code-box mb-3"><code>class Persona:
     def __init__(self, nombre, edad):
@@ -372,7 +372,7 @@
 
             <h5 class="fw-bold mb-2">2) Clase Derivada: Empleado</h5>
             <p class="mb-2">
-              La clase <code>Empleado</code> hereda de <code>Persona</code> usando <code>super()</code> y aÃ±ade el
+              La clase <code>Empleado</code> hereda de <code>Persona</code> usando <code>super()</code> y añade el
               sueldo.
             </p>
             <pre class="code-box mb-3"><code>class Empleado(Persona):
@@ -380,7 +380,7 @@
         super().__init__(nombre, edad)
         self.sueldo = sueldo</code></pre>
 
-            <h5 class="fw-bold mb-2">3) LÃ³gica de Negocio</h5>
+            <h5 class="fw-bold mb-2">3) Lógica de Negocio</h5>
             <p class="mb-2">
               El programa calcula un bono del 10% basado en el sueldo base del empleado.
             </p>
@@ -388,18 +388,18 @@
     return self.sueldo * 1.10</code></pre>
 
             <p class="hint mt-3 mb-0">
-              La herencia permite que el Empleado tenga 'nombre' sin haberlo definido explÃ­citamente en su propia clase.
+              La herencia permite que el Empleado tenga 'nombre' sin haberlo definido explícitamente en su propia clase.
             </p>
           </div>
 
-          <!-- Ã¢Å“â€¦ BOTÃ±â€œN EJECUTAR -->
+          <!-- ✅ BOTÓN EJECUTAR -->
           <div class="ej-actions">
             <a href="##formulario" class="btn btn-primary btn-pill btn-lg">
               Ejecutar ejercicio
             </a>
           </div>
 
-          <!-- âœ… FORMULARIO / SALIDA -->
+          <!-- ✅ FORMULARIO / SALIDA -->
           <div id="formulario" class="mt-5 animate-in fade-in">
             <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
               <div class="card-header bg-success text-white p-3">
@@ -410,7 +410,7 @@
                   <div class="row g-3">
                     <div class="col-md-6">
                       <label class="form-label fw-bold">Nombre Completo:</label>
-                      <input type="text" id="nombre-h" class="form-control" placeholder="Ej: Juan PÃ©rez" required>
+                      <input type="text" id="nombre-h" class="form-control" placeholder="Ej: Juan Pérez" required>
                     </div>
                     <div class="col-md-3">
                       <label class="form-label fw-bold">Edad:</label>
@@ -434,7 +434,7 @@
                         <div class="col-md-6">
                           <p class="mb-1 text-muted">Datos Heredados de Persona:</p>
                           <p class="mb-0"><strong>Nombre:</strong> <span id="res-nombre-h">-</span></p>
-                          <p class="mb-0"><strong>Edad:</strong> <span id="res-edad-h">-</span> aÃ±os</p>
+                          <p class="mb-0"><strong>Edad:</strong> <span id="res-edad-h">-</span> años</p>
                         </div>
                         <div class="col-md-6">
                           <p class="mb-1 text-muted">Datos de Clase Empleado:</p>
@@ -585,4 +585,3 @@
 </body>
 
 </html>
-

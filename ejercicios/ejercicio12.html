@@ -1,11 +1,11 @@
-﻿ï»¿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Tablas dinámicas · Python Academy</title>
-  <meta name="description" content="ImplementaciÃ±Â³n de tablas dinÃ¡micas.">
+  <meta name="description" content="Implementación de tablas dinámicas.">
 
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
@@ -324,13 +324,13 @@
 
         <div class="hero-top-actions">
           <a href="../ejercicios.html" class="btn btn-outline-secondary btn-pill-sm">
-            <i class="bi bi-arrow-left me-1"></i> Volver al menÃº
+            <i class="bi bi-arrow-left me-1"></i> Volver al menú
           </a>
         </div>
 
         <span class="badge bg-primary mb-3">Arreglos</span>
         <h1 class="display-5 mb-2">Tablas dinámicas</h1>
-        <p class="lead text-muted">Implementacón de tablas dinámicas.</p>
+        <p class="lead text-muted">Implementación de tablas dinámicas.</p>
       </div>
     </section>
     <!-- HERO -->
@@ -339,12 +339,12 @@
     <section class="ej-wrap">
       <div class="container">
         <div class="ej-panel">
-          <!-- DEFINICIÃ±â€œN -->
+          <!-- DEFINICIÓN -->
           <div class="explain-card mb-4">
-            <h4 class="fw-bold mb-2">¿Qué son las tablas dinímicas?</h4>
+            <h4 class="fw-bold mb-2">¿Qué son las tablas dinámicas?</h4>
 
             <p>
-              Una <strong>tabla dinímica</strong> es una tabla que no se construye
+              Una <strong>tabla dinámica</strong> es una tabla que no se construye
               de forma fija, sino que se genera automáticamente a partir de los
               datos contenidos en arreglos o matrices.
             </p>
@@ -364,7 +364,7 @@ tabla[filas][columnas] generadas dinámicamente
             <h4 class="fw-bold mb-2">Enunciado</h4>
 
             <p>
-              Desarrollar un programa que represente paí­ses, provincias y ciudades
+              Desarrollar un programa que represente países, provincias y ciudades
               mediante arreglos multidimensionales y genere dinámicamente tablas
               HTML que muestren esta información organizada por país.
             </p>
@@ -375,7 +375,7 @@ tabla[filas][columnas] generadas dinámicamente
             </p>
           </div>
 
-          <!-- JUSTIFICACIÃ±â€œN -->
+          <!-- JUSTIFICACIÓN -->
           <div class="explain-card mb-4">
             <h4 class="fw-bold mb-2">
               ¿Por qué este ejercicio es de tablas dinámicas?
@@ -458,7 +458,7 @@ for pais:
             <p>
               Se aplican estilos para que las tablas queden centradas, con fondo blanco, bordes limpios y texto
               alineado.
-              Como las tablas se generan por código, este CSS asegura que todas se vean iguales sin importar cuÃ¡ntas
+              Como las tablas se generan por código, este CSS asegura que todas se vean iguales sin importar cuántas
               columnas o filas existan.
             </p>
             <pre class="code-box">table{
@@ -492,7 +492,7 @@ td, th{
             <!-- 6 -->
             <h5 class="fw-bold mt-4">6) Evitar desbordes (scroll horizontal)</h5>
             <p>
-              Como el ejercicio puede tener muchas provincias (muchas columnas), en pantallas pequeÃ±Â±as la tabla podrí­a
+              Como el ejercicio puede tener muchas provincias (muchas columnas), en pantallas pequeñas la tabla podría
               salirse del contenedor.
               Con <code>overflow-x:auto</code> se habilita un scroll horizontal para mantener el diseño estable.
             </p>
@@ -517,8 +517,8 @@ td, th{
             <!-- 8 -->
             <h5 class="fw-bold mt-4">8) Estructura principal <code>paises</code></h5>
             <p>
-              <code>paises</code> es un diccionario anidado (3 niveles): paí­s -> provincia -> lista de ciudades.
-              Esta estructura permite construir tablas dinÃ¡micas porque el número de provincias define las columnas
+              <code>paises</code> es un diccionario anidado (3 niveles): país -> provincia -> lista de ciudades.
+              Esta estructura permite construir tablas dinámicas porque el número de provincias define las columnas
               y el máximo número de ciudades define las filas.
             </p>
             <pre class="code-box">paises = {
@@ -531,7 +531,7 @@ td, th{
             <!-- 9 -->
             <h5 class="fw-bold mt-4">9) Generación dinámica de tablas</h5>
             <p>
-              Se recorre cada paí­s y se genera una tabla HTML. Primero se calcula <code>maxFilas</code> con el máximo
+              Se recorre cada país y se genera una tabla HTML. Primero se calcula <code>maxFilas</code> con el máximo
               tamaño de listas
               (para que todas las columnas tengan la misma cantidad de filas). Luego se construye el encabezado con
               provincias y el cuerpo
@@ -543,7 +543,7 @@ for pais, infoPais in paises.items():
 
     maxFilas = max(len(c) for c in infoPais.values())
 
-    html = f"&lt;br&gt;&lt;strong&gt;PAIS: {pais}&lt;/strong&gt;&lt;br&gt;"
+    html = f"&lt;br&gt;&lt;strong&gt;PAÍS: {pais}&lt;/strong&gt;&lt;br&gt;"
     html += "&lt;table&gt;"
     html += f"&lt;tr&gt;&lt;th colspan='{len(infoPais)}' bgcolor='#EC7063'&gt;{pais}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;"
 
@@ -556,7 +556,7 @@ for pais, infoPais in paises.items():
             <p>
               En la fila 0 se imprime la capital con <code>blink</code>. En las demás filas se imprime la ciudad si
               existe.
-              Si no existe (provincia con menos ciudades), se agrega una celda vací­a para mantener alineadas las
+              Si no existe (provincia con menos ciudades), se agrega una celda vacía para mantener alineadas las
               columnas.
             </p>
             <pre class="code-box">for i in range(maxFilas):
@@ -575,7 +575,7 @@ for pais, infoPais in paises.items():
             <!-- 11 -->
             <h5 class="fw-bold mt-4">11) Render final (enviar tablas a la vista)</h5>
             <p>
-              Se devuelve la plantilla renderizada y se enví­an las variables que la vista necesita:
+              Se devuelve la plantilla renderizada y se envían las variables que la vista necesita:
               <code>mostrar</code> para controlar la presentación y <code>tablas</code> para imprimir los HTML
               generados.
               Para que se vean como HTML real, en la plantilla debes imprimirlas usando <code>|safe</code>.
@@ -591,7 +591,7 @@ for pais, infoPais in paises.items():
 
 
 
-          <!-- CÃ“DIGO COMPLETO -->
+          <!-- CÓDIGO COMPLETO -->
           <div class="explain-card mb-4">
             <h4 class="fw-bold">Código completo del ejercicio (Python)</h4>
             <p class="hint">
@@ -611,13 +611,13 @@ app = Flask(__name__)
 # =====================================================
 PAISES = {
     "ECUADOR": {
-        "Pichincha": ["Quito", "Cayambe", "RumiÃ±ahui", "Mejí­a"],
+        "Pichincha": ["Quito", "Cayambe", "Rumiñahui", "Mejía"],
         "Guayas": ["Guayaquil", "Durán", "Milagro", "Daule"],
         "Azuay": ["Cuenca", "Gualaceo", "Paute"]
     },
     "COLOMBIA": {
         "Cundinamarca": ["Bogotá", "Soacha"],
-        "Antioquia": ["Medellí­n", "Envigado", "Rionegro"],
+        "Antioquia": ["Medellín", "Envigado", "Rionegro"],
         "Valle del Cauca": ["Cali", "Palmira", "Yumbo"]
     },
     "USA": {
@@ -628,7 +628,7 @@ PAISES = {
 }
 
 # =====================================================
-# TEMPLATE HTML (INLINE PARA FINES ACADÃ‰MICOS)
+# TEMPLATE HTML (INLINE PARA FINES ACADÉMICOS)
 # =====================================================
 HTML = """
 &lt;!DOCTYPE html&gt;
@@ -676,7 +676,7 @@ th{
 &lt;h2&gt;TABLAS DINÁMICAS - PROVINCIAS&lt;/h2&gt;
 
 &lt;form method="POST"&gt;
-  &lt;label&gt;&lt;strong&gt;Seleccione un paí­s:&lt;/strong&gt;&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+  &lt;label&gt;&lt;strong&gt;Seleccione un país:&lt;/strong&gt;&lt;/label&gt;&lt;br&gt;&lt;br&gt;
   &lt;select name="pais" required&gt;
     &lt;option value=""&gt;-- Seleccione --&lt;/option&gt;
     {% for p in paises %}
@@ -718,7 +718,7 @@ def ejecutar():
 
         max_filas = max(len(cantones) for cantones in provincias.values())
 
-        tabla = f"&lt;h3&gt;Paí­s: {pais_seleccionado}&lt;/h3&gt;"
+        tabla = f"&lt;h3&gt;País: {pais_seleccionado}&lt;/h3&gt;"
         tabla += "&lt;table&gt;"
         tabla += "&lt;tr&gt;"
 
@@ -757,7 +757,7 @@ if __name__ == "__main__":
 
 
 
-          <!-- âœ… FORMULARIO / SALIDA -->
+          <!-- ✅ FORMULARIO / SALIDA -->
           <div id="formulario" class="mt-5 animate-in fade-in">
             <style>
               .tabla-dinamica {
@@ -806,7 +806,7 @@ if __name__ == "__main__":
               </div>
               <div class="card-body p-4 bg-light text-center">
                 <div class="mb-4">
-                  <label class="form-label fw-bold">Seleccione un paí­s:</label>
+                  <label class="form-label fw-bold">Seleccione un país:</label>
                   <select id="pais-selector" class="form-select w-50 mx-auto rounded-pill border-primary shadow-sm">
                     <option value="">-- Seleccione --</option>
                     <option value="ECUADOR">ECUADOR</option>
@@ -822,12 +822,12 @@ if __name__ == "__main__":
                 <hr class="my-4">
 
                 <div id="resultado-tablas" class="animate-in slide-in-top d-none">
-                  <!-- La tabla se renderiza aquÃ­ -->
+                  <!-- La tabla se renderiza aquí -->
                 </div>
 
                 <div id="placeholder-msg" class="py-5 text-muted">
                   <i class="bi bi-info-circle fs-1 mb-3 d-block"></i>
-                  Selecciona un paí­s y presiona el botón para visualizar la tabla dinÃ¡mica.
+                  Selecciona un país y presiona el botón para visualizar la tabla dinámica.
                 </div>
               </div>
             </div>
@@ -837,13 +837,13 @@ if __name__ == "__main__":
             function generarTablasDinamicas() {
               const PAISES = {
                 "ECUADOR": {
-                  "Pichincha": ["Quito", "Cayambe", "Rumiñahui", "Meji­a"],
+                  "Pichincha": ["Quito", "Cayambe", "Rumiñahui", "Mejía"],
                   "Guayas": ["Guayaquil", "Durán", "Milagro", "Daule"],
                   "Azuay": ["Cuenca", "Gualaceo", "Paute"]
                 },
                 "COLOMBIA": {
                   "Cundinamarca": ["Bogotá", "Soacha"],
-                  "Antioquia": ["Medellí­n", "Envigado", "Rionegro"],
+                  "Antioquia": ["Medellín", "Envigado", "Rionegro"],
                   "Valle del Cauca": ["Cali", "Palmira", "Yumbo"]
                 },
                 "USA": {
@@ -871,7 +871,7 @@ if __name__ == "__main__":
 
               let html = `
                 <div class="mb-4 text-start">
-                  <h3 class="fw-bold text-primary mb-3">Paí­s: ${paisSeleccionado}</h3>
+                  <h3 class="fw-bold text-primary mb-3">País: ${paisSeleccionado}</h3>
                   <div class="table-responsive rounded-3 overflow-hidden shadow-sm">
                     <table class="tabla-dinamica">
                       <thead>
@@ -911,7 +911,7 @@ if __name__ == "__main__":
           </script>
 
 
-          <!-- Ã¢Å“â€¦ ANTERIOR / SIGUIENTE -->
+          <!-- ANTERIOR / SIGUIENTE -->
         </div>
       </div>
     </section>
@@ -936,7 +936,7 @@ if __name__ == "__main__":
             <i class="bi bi-braces me-2"></i>Python Academy
           </h4>
           <p class="footer-text">
-            Proyecto acadÃ©mico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
+            Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
             apasionados por la programación.
           </p>
           <div class="d-flex gap-3 mt-4">
@@ -967,7 +967,7 @@ if __name__ == "__main__":
         </div>
 
         <div class="col-lg-3 col-md-4">
-          <h5 class="footer-title">Tecnologí­as</h5>
+          <h5 class="footer-title">Tecnologías</h5>
           <div class="d-flex flex-wrap gap-2 mt-3">
             <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
             <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
@@ -980,7 +980,7 @@ if __name__ == "__main__":
 
       <div class="footer-bottom">
         <p class="mb-0">
-          2026 <strong>Python Academy</strong>. Proyecto académico  Flask & Python
+          2026 <strong>Python Academy</strong>. Proyecto académico Flask & Python
         </p>
       </div>
     </div>
@@ -1007,4 +1007,3 @@ if __name__ == "__main__":
 </body>
 
 </html>
-

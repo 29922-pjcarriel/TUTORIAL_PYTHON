@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -11,8 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Bootstrap 5.3 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -21,9 +20,11 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Custom Effects CSS -->
+    <link href="static/assets/css/main.css" rel="stylesheet">
     <link href="static/assets/css/custom-effects.css" rel="stylesheet">
     <link href="static/assets/css/navbar-nested.css" rel="stylesheet">
     <link href="static/assets/css/custom.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -33,8 +34,10 @@
         <div class="loader-spinner"></div>
     </div>
 
+
+
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top ">
         <div class="container-fluid container-lg">
             <a class="navbar-brand" href="index.html" style="font-weight: 800; color: #0f172a; font-size: 1.3rem; font-family: 'Montserrat', sans-serif;">
                 <span>Python</span><span style="background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Academy</span>
@@ -47,6 +50,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
+
                         <a class="nav-link text-dark" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -54,6 +58,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="teoria.html">Ver Temario Completo</a></li>
                             <li><hr class="dropdown-divider"></li>
+
                             <li><a class="dropdown-item" href="teoria/teoria_historia.html">Historia de Python</a></li>
                             <li><a class="dropdown-item" href="teoria/teoria_tiposDatos.html">Tipos de Datos</a></li>
                             <li><a class="dropdown-item" href="teoria/teoria_estructuras_de_control.html">Estructuras de Control</a></li>
@@ -62,15 +67,6 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-<<<<<<< HEAD
-                        <a class="nav-link dropdown-toggle text-dark" href="#" data-bs-toggle="dropdown">Prácticas</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="ejercicios.html">Catálogo de Ejercicios</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="ejercicios/ejercicio3.html">Factorial</a></li>
-                            <li><a class="dropdown-item" href="ejercicios/ejercicio5.html">Números Primos</a></li>
-                            <li><a class="dropdown-item" href="ejercicios/ejercicio6.html">Validador Cédula</a></li>
-=======
                         <a class="nav-link nav-link-custom dropdown-toggle" href="#" data-bs-toggle="dropdown">
                             <i class="bi bi-code-square me-1"></i> Ejercicios
                         </a>
@@ -174,11 +170,7 @@
                             </li>
                             <li><a class="dropdown-item py-2 fw-semibold" href="PythonvsPHP.html"><i
                                         class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
->>>>>>> bf3c11660a03a5b59ccb2799d7999b26294cbb73
                         </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="PythonvsPHP.html">Python vs PHP</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="explicacion_crud.html" style="background: #3b82f6; color: white; border-radius: 6px; padding: 0.5rem 1rem !important;">Proyecto CRUD</a>
@@ -187,6 +179,7 @@
             </div>
         </div>
     </nav>
+
 
     <!-- Page Hero -->
     <section class="page-hero">
@@ -206,6 +199,7 @@
         </div>
     </section>
 
+
     <!-- Content Section -->
     <section class="content-section">
         <div class="container">
@@ -215,6 +209,7 @@
                 <input type="text" placeholder="Buscar tema..." id="searchInput">
                 <button type="button"><i class="bi bi-search me-2"></i>Buscar</button>
             </div>
+
 
             <!-- Topics Grid -->
             <div class="row g-4" id="temasGrid">
