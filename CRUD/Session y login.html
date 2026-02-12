@@ -20,10 +20,25 @@
 
   <style>
     .hero-crud {
-      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       padding: 120px 0 80px;
-      color: white;
+      color: #ffffff;
+      /* texto blanco */
     }
+
+    .hero-crud h1 {
+      color: #ffffff;
+    }
+
+    .hero-crud .lead {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .hero-crud .badge {
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+
 
     .crud-panel {
       border-radius: 20px;
@@ -75,7 +90,7 @@
     }
 
     .section-title {
-      border-left: 4px solid #8b5cf6;
+      border-left: 4px solid #3b82f6;
       padding-left: 15px;
       margin: 30px 0 20px;
       font-weight: 700;
@@ -260,26 +275,38 @@
         </div>
 
         <!-- EJERCICIO 1 -->
-        <h3 class="section-title">Ejercicio 1: Gestión de Sesiones (Notebooks)</h3>
+        <h3 class="section-title">1. Enunciado del Ejercicio (Sesiones)</h3>
 
         <p>
-          Este primer ejercicio se centra exclusivamente en el <b>manejo de variables de sesión</b> en Flask.
-          No utilizamos base de datos ni validación de usuarios; simplemente seleccionamos un producto y lo mantenemos
-          en la memoria de la sesión.
+          En este módulo construiremos un <b></b>sistema de catálogo de computadoras</b> aplicando el concepto de
+          <b>Sesiones HTTP</b>
+          usando <b>Python con Flask</b> como backend.
         </p>
 
-        <div class="alert alert-secondary mt-3">
-          <b>Objetivo:</b> Seleccionar una marca en la página principal y que el sistema "recuerde" esta selección en la
-          página de detalles, persistiendo la información durante la navegación.
-        </div>
+        <p>
+          <b>Importante:</b> Este ejercicio se centra en la persistencia de datos temporal en el servidor.
+          No utilizaremos base de datos en esta etapa, ya que el objetivo es comprender el funcionamiento interno del
+          objeto <code>session</code> de Flask y cómo "recordar" la selección del usuario entre distintas páginas.
+        </p>
 
-        <h5 class="mt-4 mb-2 fw-bold text-primary"><i class="bi bi-code-slash me-2"></i>Componentes de este Ejercicio
-        </h5>
+        <p>
+          En este ejercicio el estudiante aprenderá a:
+        </p>
+
         <ul>
-          <li><b>app.py:</b> Script simple que configura <code>session["marca_seleccionada"]</code>.</li>
-          <li><b>templates/index.html:</b> Formulario de selección de marca.</li>
-          <li><b>templates/verNotebook.html:</b> Vista que recupera la variable <code>session</code>.</li>
+          <li><b>Configurar la clave secreta (Secret Key):</b> Elemento esencial para firmar criptográficamente las
+            cookies de sesión.</li>
+          <li><b>Gestionar el diccionario <code>session</code>:</b> Almacenar y recuperar valores (en este caso, la
+            marca de una notebook) a través de distintas peticiones.</li>
+          <li><b>Implementar lógica de navegación:</b> Mantener el estado del usuario consistente mientras navega desde
+            la selección hasta el detalle del producto.</li>
         </ul>
+
+        <div class="alert alert-secondary mt-3">
+          <b>Concepto Clave:</b> Una sesión permite almacenar información específica de un usuario de una solicitud a
+          otra. Se implementa sobre cookies firmadas, lo que garantiza que los datos no puedan ser manipulados por el
+          cliente.
+        </div>
 
         <div class="video-container mt-4">
           <div class="video-placeholder">
@@ -294,48 +321,67 @@
         <hr class="my-5">
 
         <!-- EJERCICIO 2 -->
-        <h3 class="section-title">Ejercicio 2: Login con MySQL</h3>
+        <h3 class="section-title">2. Enunciado del Ejercicio (Login de Usuarios)</h3>
 
         <p>
-          Este segundo ejercicio es independiente del anterior. Aquí implementamos un sistema completo de
-          <b>Autenticación de Usuarios</b>
-          utilizando una base de datos MySQL (<code>sesionesbd</code>) y una estructura de archivos más organizada.
+          En este módulo construiremos un <b>sistema de autenticación de usuarios</b> completo, aplicando validación de
+          credenciales
+          usando <b>Python con Flask</b> como backend y <b>MySQL</b> como base de datos.
         </p>
 
-        <h5 class="mt-4 mb-2 fw-bold text-primary"><i class="bi bi-folder2-open me-2"></i>Estructura de Archivos
-          (Ejercicio Login)</h5>
-        <p>Organizamos el código separando clases, paginas (vistas) y controlador:</p>
+        <p>
+          <b>Importante:</b> Este ejercicio introduce una arquitectura de software más robusta.
+          Separaremos el código en <b>controladores</b> (app.py), <b>vistas</b> (carpetas html) y <b>clases</b> (lógica
+          de negocio), simulando un entorno de desarrollo profesional independiente del ejercicio anterior.
+        </p>
+
+        <p>
+          En este ejercicio el estudiante aprenderá a:
+        </p>
+
+        <ul>
+          <li><b>Conectar Flask con MySQL:</b> Utilizar el conector oficial para realizar consultas a la base de datos
+            <code>sesionesbd</code>.</li>
+          <li><b>Validar credenciales:</b> Verificar usuario y contraseña mediante consultas SQL seguras.</li>
+          <li><b>Gestionar el estado de autenticación:</b> Crear y verificar variables de sesión como
+            <code>session['login'] = True</code> para controlar el acceso.</li>
+          <li><b>Proteger rutas:</b> Implementar lógica que impida el acceso a páginas internas (Dashboard) si el
+            usuario no ha iniciado sesión.</li>
+          <li><b>Implementar Logout:</b> Cerrar la sesión de forma segura eliminando los datos almacenados.</li>
+        </ul>
+
+        <h5 class="mt-4 mb-2 fw-bold text-primary"><i class="bi bi-folder2-open me-2"></i>Estructura Arquitectónica</h5>
+        <p>Organizamos el código en capas para mejorar la mantenibilidad:</p>
         <div class="code-box">
           <pre class="m-0">
-|-- app.py              # Controlador Principal (Login + MySQL)
+|-- app.py              # Controlador Principal (Orquesta el flujo)
 |
-|-- paginas/            # Carpeta para las Vistas HTML
-|   |-- index.html      # Página de Bienvenida / Menú
-|   |-- login.html      # Formulario de Acceso
-|   |-- home.html       # Página Principal (Dashboard)
-|   |-- error.html      # Pantalla de Error de Login
+|-- paginas/            # Capa de Presentación (Vistas HTML)
+|   |-- index.html      # Landing Page
+|   |-- login.html      # Interfaz de Entrada
+|   |-- home.html       # Área Privada (Dashboard)
+|   |-- error.html      # Feedback de Error
 |
-|-- clases11/           # Clases de Negocio
-|   |-- notebook.py     # Clase 'Notebook'
+|-- clases11/           # Capa de Negocio (Modelos)
+|   |-- notebook.py     # Clase de Objeto
 </pre>
         </div>
 
-        <h5 class="mt-4 mb-2 fw-bold text-primary"><i class="bi bi-diagram-3 me-2"></i>Lógica de Funcionamiento</h5>
-        <ol>
-          <li><b>Inicio:</b> El usuario accede a la ruta <code>/</code> o <code>/login</code> para ver el formulario.
-          </li>
-          <li><b>Validación (MySQL):</b> Al enviar el formulario a <code>/validar</code>, Flask conecta con la base de
-            datos <code>sesionesbd</code>.</li>
-          <li><b>Verificación:</b>
-            <ul>
-              <li>Si existe el usuario: Se crea <code>session["usuario"]</code> y <code>session["login"] = True</code>.
-              </li>
-              <li>Si NO existe: Se muestra la vista <code>error.html</code>.</li>
-            </ul>
-          </li>
-          <li><b>Acceso:</b> Si el login es correcto, el sistema renderiza la vista protegida con los datos del usuario.
-          </li>
-        </ol>
+        <div class="alert alert-info mt-3">
+          <b>Flujo de Seguridad:</b> El sistema validará credenciales contra MySQL. Si son válidas, activará la sesión.
+          Cada vez que el usuario intente ver una notebook, el sistema verificará primero si la sesión está activa.
+        </div>
+
+
+        <div class="text-center mt-4">
+          <a class="btn btn-success btn-lg rounded-pill" href="../static/assets/sql/Script_Sesiones_BD.sql" download>
+            <i class="bi bi-download me-2"></i> Descargar Script SQL (Base de Datos)
+          </a>
+        </div>
+
+        <p class="text-muted text-center mt-3 mb-0">
+          Descarga el script, crea la base de datos y ejecuta el archivo para generar las tablas.
+        </p>
 
         <div class="video-container mt-4">
           <div class="video-placeholder">
