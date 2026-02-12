@@ -165,10 +165,7 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-=======
   <!-- Navbar -->
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
   <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
@@ -341,11 +338,9 @@
 
           <div class="explain-card">
             <h4 class="fw-bold mb-2">Enunciado</h4>
-<<<<<<< HEAD
             <p>
               Diseñar una jerarquía donde animales (Perro, Gato, Vaca) y entidades mecánicas (Cucu) implementen un protocolo común llamado <strong>Parlanchin</strong>. 
               El sistema debe permitir que cualquier objeto "parlanchín" emita su propio sonido y mensaje sin importar su clase específica.
-=======
 
             <p class="mb-2">
               Desarrollar un ejercicio de <b>Polimorfismo</b> en Python aplicando <b>POO</b> y <b>Flask</b>.
@@ -359,7 +354,6 @@
               Objetivo: comprender cómo el mismo método <code>habla()</code> se comporta diferente según el objeto
               (polimorfismo),
               integrándolo con un formulario web en Flask y, si está vivo, reproducir un sonido asociado al animal.
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
             </p>
           </div>
 
@@ -374,14 +368,12 @@
           </div>
 
           <div class="explain-card mb-4">
-<<<<<<< HEAD
             <h4 class="fw-bold mb-3">Explicación detallada del código</h4>
 <h5 class="fw-bold">1) Importación de protocolos y tipado</h5>
             <p>
               Para implementar polimorfismo basado en interfaces, utilizamos <code>Protocol</code> y 
               <code>runtime_checkable</code> del módulo <code>typing</code>. Esto permite 
               definir un contrato que diferentes clases (animales o relojes) pueden seguir.
-=======
             <h4 class="fw-bold mb-3">Explicación del código (paso a paso)</h4>
 
             <h5 class="fw-bold mb-2">1) ¿Qué hace el programa?</h5>
@@ -389,61 +381,51 @@
               El sistema permite elegir un animal y ejecutar el método <code>habla()</code>.
               Aunque todos los animales usan el mismo nombre de método, cada clase devuelve un mensaje distinto.
               Eso es <b>polimorfismo</b>.
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
             </p>
             <pre class="code-box">from typing import Protocol, runtime_checkable
 from flask import request</pre>
 
-<<<<<<< HEAD
             <h5 class="fw-bold mt-4">2) Definición del Protocolo <code>Parlanchin</code></h5>
             <p>
               El protocolo <code>Parlanchin</code> actúa como una interfaz. Cualquier clase 
               que desee ser "parlanchina" debe implementar obligatoriamente los métodos <code>habla()</code> 
               y <code>sonido()</code>.
-=======
             <h5 class="fw-bold mb-2">2) Interfaz / Contrato (Parlanchin)</h5>
             <p class="mb-3">
               Se define una interfaz (contrato) llamada <code>Parlanchin</code> que obliga a implementar el método
               <code>habla()</code>.
               Esto asegura que cualquier “animal parlante” tenga ese método. :contentReference[oaicite:2]{index=2}
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
             </p>
             <pre class="code-box">@runtime_checkable
 class Parlanchin(Protocol):
     def habla(self) -> str: ...
     def sonido(self) -> str: ...</pre>
 
-<<<<<<< HEAD
             <h5 class="fw-bold mt-4">3) Clase Base <code>Animal</code></h5>
             <p>
               Definimos una clase base para los seres vivos que contiene el atributo <code>especie</code>. 
               Esta clase sirve para organizar la jerarquía, aunque el polimorfismo real se dará en los métodos 
               de sonido.
-=======
             <h5 class="fw-bold mb-2">3) Clase base Animal</h5>
             <p class="mb-3">
               La clase abstracta <code>Animal</code> hereda de <code>Parlanchin</code> y centraliza atributos comunes
               como tipo y estado.
               Las clases hijas solo implementan su versión de <code>habla()</code>.
               :contentReference[oaicite:3]{index=3}
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
             </p>
             <pre class="code-box">class Animal:
     def __init__(self, especie):
         self.especie = especie</pre>
 
-<<<<<<< HEAD
             <h5 class="fw-bold mt-4">4) Implementación Polimórfica: <code>Perro</code></h5>
             <p>
               La clase <code>Perro</code> hereda de <code>Animal</code> e implementa los métodos del 
               protocolo. Su comportamiento al "hablar" es específico para su especie, 
               devolviendo un ladrido.
-=======
             <h5 class="fw-bold mb-2">4) Clases hijas (Polimorfismo)</h5>
             <p class="mb-3">
               Perro, Gato, Vaca, Dinosaurio y Cucú implementan <code>habla()</code> con mensajes diferentes.
               Con el mismo llamado <code>obj.habla()</code>, el resultado cambia según el objeto.
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
             </p>
             <pre class="code-box">class Perro(Animal):
     def habla(self):
@@ -451,37 +433,31 @@ class Parlanchin(Protocol):
     def sonido(self):
         return "perro.mp3"</pre>
 
-<<<<<<< HEAD
             <h5 class="fw-bold mt-4">5) Diversidad de Formas: <code>Gato</code> y <code>Vaca</code></h5>
             <p>
               Otras clases como <code>Gato</code> y <code>Vaca</code> implementan los mismos métodos 
               pero con resultados distintos (Miau y Muuu). Aquí es donde reside el polimorfismo: 
               mismos nombres de métodos, distintos resultados.
-=======
             <h5 class="fw-bold mb-2">5) Formulario + JavaScript</h5>
             <p class="mb-3">
               En la página web se usan radios para elegir animal y un <code>select</code> para elegir el tipo.
               Con JavaScript se cargan dinámicamente las opciones del select según el animal seleccionado.
               :contentReference[oaicite:5]{index=5}
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
             </p>
             <pre class="code-box">class Gato(Animal):
     def habla(self):
         return "¡Miau!"</pre>
 
-<<<<<<< HEAD
             <h5 class="fw-bold mt-4">6) Polimorfismo fuera de la jerarquía: <code>Cucu</code></h5>
             <p>
               Una de las grandes ventajas de los Protocolos es que una clase como <code>Cucu</code> (que es un reloj, 
               no un animal) puede ser tratada como <code>Parlanchin</code> porque implementa los métodos requeridos.
-=======
             <h5 class="fw-bold mb-2">6) Flask y reproducción de sonido</h5>
             <p class="mb-0">
               Flask recibe el formulario por POST, arma el resultado y, si el animal está vivo, se muestra un
               reproductor de audio
               con el sonido correspondiente. Si está muerto, no se reproduce sonido.
               :contentReference[oaicite:6]{index=6}
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
             </p>
             <pre class="code-box">class Cucu:
     def habla(self):
@@ -524,7 +500,6 @@ if opcion == "perro":
 """</pre>
 
           </div>
-<<<<<<< HEAD
 
 
           <div class="explain-card mb-4">
@@ -540,7 +515,7 @@ from flask import Flask, request
 import datetime
 
 app = Flask(__name__)
-=======
+</pre>
           <div class="explain-card mb-4">
             <h4 class="fw-bold mb-3">Archivos del proyecto</h4>
 
@@ -586,7 +561,6 @@ app = Flask(__name__)
             </div>
 
             <pre class="code-box"><code id="codeApp17">from flask import Flask, render_template_string, request
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
 
 # =====================================================
 # PROTOCOLO (INTERFAZ)
@@ -667,8 +641,7 @@ def ejecutar():
 
 if __name__ == "__main__":
     app.run(debug=True)
-<<<<<<< HEAD
-</pre>
+</code></pre>
           </div>
 <div class="ej-actions">
             <a href="#formulario" class="btn btn-primary btn-pill btn-lg">
@@ -679,7 +652,7 @@ if __name__ == "__main__":
           <div id="formulario" class="mt-5 animate-in fade-in">
             <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
               <div class="card-header bg-primary text-white p-3">
-                <h5 class="mb-0"><i class="bi bi-megaphone me-2"></i>Simulador de Polimorfismo (Protocolo Parlanchin)</h5>
+                <h5 class="mb-0 fw-bold"><i class="bi bi-megaphone me-2"></i>Simulador de Polimorfismo (Protocolo Parlanchin)</h5>
               </div>
               <div class="card-body p-4 bg-light">
                 <p class="text-muted mb-4">Seleccione una entidad para instanciar su clase. Aunque son objetos distintos, todos responden al método <code>habla()</code> de forma polimórfica.</p>
@@ -728,8 +701,6 @@ if __name__ == "__main__":
                   </div>
                 </div>
               </div>
-=======
-</code></pre>
           </div>
 
           <div class="explain-card mb-4">
@@ -914,12 +885,10 @@ python app.py
 
                 <div id="msgPoly" class="alert mt-3 d-none" role="alert"></div>
               </form>
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
             </div>
           </div>
 
           <script>
-<<<<<<< HEAD
             function procesarPolimorfismo(e) {
               e.preventDefault();
               const entidad = document.getElementById('entidad-poli').value;
@@ -964,77 +933,79 @@ python app.py
           <a href="ejercicio16.html" class="btn btn-outline-primary btn-pill"><i class="bi bi-arrow-left me-1"></i> Anterior (Interfaces)</a>
           <a href="../explicacion_crud.html" class="btn btn-dark btn-pill">Ir al Módulo CRUD <i class="bi bi-database-fill ms-1"></i></a>
         </div>
-=======
-            const ANIMALS_JS = {
-              perro: { label: "Tipo de raza", opciones: ["Pastor Alemán", "Bulldog", "Labrador"], mensaje: "El perro dice: Guau!" },
-              gato: { label: "Tipo de hábitat", opciones: ["Casa", "Campo", "Tejado"], mensaje: "El gato dice: Miau!" },
-              vaca: { label: "Tipo de entorno", opciones: ["Granja", "Campo", "Establo"], mensaje: "La vaca dice: Muuu!" },
-              dinosaurio: { label: "Era", opciones: ["Jurásico", "Cretácico", "Triásico"], mensaje: "El dinosaurio ruge!" },
-              cucu: { label: "Tipo de vuelo", opciones: ["Planeado", "Corto", "Alto"], mensaje: "El cucú canta: cucú!" }
-            };
+    </div>
 
-            function animalSeleccionadoJS() {
-              const radios = document.getElementsByName("animalJS");
-              for (const r of radios) if (r.checked) return r.value;
-              return "";
-            }
+    <script>
+        const ANIMALS_JS = {
+          perro: { label: "Tipo de raza", opciones: ["Pastor Alemán", "Bulldog", "Labrador"], mensaje: "El perro dice: Guau!" },
+          gato: { label: "Tipo de hábitat", opciones: ["Casa", "Campo", "Tejado"], mensaje: "El gato dice: Miau!" },
+          vaca: { label: "Tipo de entorno", opciones: ["Granja", "Campo", "Establo"], mensaje: "La vaca dice: Muuu!" },
+          dinosaurio: { label: "Era", opciones: ["Jurásico", "Cretácico", "Triásico"], mensaje: "El dinosaurio ruge!" },
+          cucu: { label: "Tipo de vuelo", opciones: ["Planeado", "Corto", "Alto"], mensaje: "El cucú canta: cucú!" }
+        };
 
-            function actualizarTipoJS() {
-              const a = animalSeleccionadoJS();
-              if (!a) return;
+        function animalSeleccionadoJS() {
+          const radios = document.getElementsByName("animalJS");
+          for (const r of radios) if (r.checked) return r.value;
+          return "";
+        }
 
-              const info = ANIMALS_JS[a];
-              document.getElementById("lblTipoJS").innerText = info.label;
+        function actualizarTipoJS() {
+          const a = animalSeleccionadoJS();
+          if (!a) return;
 
-              const sel = document.getElementById("tipoJS");
-              sel.innerHTML = "";
-              info.opciones.forEach(op => {
-                const opt = document.createElement("option");
-                opt.value = op;
-                opt.text = op;
-                sel.add(opt);
-              });
-            }
+          const info = ANIMALS_JS[a];
+          document.getElementById("lblTipoJS").innerText = info.label;
 
-            function mostrarMsgPoly(tipo, html) {
-              const box = document.getElementById("msgPoly");
-              box.classList.remove("d-none", "alert-success", "alert-danger", "alert-warning");
-              box.classList.add(tipo);
-              box.innerHTML = html;
-            }
+          const sel = document.getElementById("tipoJS");
+          sel.innerHTML = "";
+          info.opciones.forEach(op => {
+            const opt = document.createElement("option");
+            opt.value = op;
+            opt.text = op;
+            sel.add(opt);
+          });
+        }
 
-            function simularPolimorfismo(event) {
-              event.preventDefault();
+        function mostrarMsgPoly(tipo, html) {
+          const box = document.getElementById("msgPoly");
+          box.classList.remove("d-none", "alert-success", "alert-danger", "alert-warning");
+          box.classList.add(tipo);
+          box.innerHTML = html;
+        }
 
-              const a = animalSeleccionadoJS();
-              if (!a) return mostrarMsgPoly("alert-warning", "❗ Seleccione un animal."), false;
+        function simularPolimorfismo(event) {
+          event.preventDefault();
 
-              const tipoSel = document.getElementById("tipoJS").value;
-              const vivo = document.getElementById("estadoJS").checked;
+          const a = animalSeleccionadoJS();
+          if (!a) return mostrarMsgPoly("alert-warning", "❗ Seleccione un animal."), false;
 
-              const info = ANIMALS_JS[a];
+          const tipoSel = document.getElementById("tipoJS").value;
+          const vivo = document.getElementById("estadoJS").checked;
 
-              if (!vivo) {
-                mostrarMsgPoly("alert-danger", `❌ El <b>${a}</b> está <b>MUERTO</b>, no puede hablar.`);
-                return false;
-              }
+          const info = ANIMALS_JS[a];
 
-              mostrarMsgPoly(
-                "alert-success",
-                `✅ <b>${info.mensaje}</b><br>
-       <b>${info.label}:</b> ${tipoSel}<br>
-       <b>Estado:</b> VIVO<br><br>
-       <em>(En simulación JS no se reproduce audio. En Flask sí se reproduce con mp3.)</em>`
-              );
+          if (!vivo) {
+            mostrarMsgPoly("alert-danger", `❌ El <b>${a}</b> está <b>MUERTO</b>, no puede hablar.`);
+            return false;
+          }
 
-              return false;
-            }
+          mostrarMsgPoly(
+            "alert-success",
+            `✅ <b>${info.mensaje}</b><br>
+     <b>${info.label}:</b> ${tipoSel}<br>
+     <b>Estado:</b> VIVO<br><br>
+     <em>(En simulación JS no se reproduce audio. En Flask sí se reproduce con mp3.)</em>`
+          );
 
-            document.addEventListener("DOMContentLoaded", () => {
-              // deja el select vacío hasta elegir animal
-              document.getElementById("tipoJS").innerHTML = "";
-            });
-          </script>
+          return false;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          // deja el select vacío hasta elegir animal
+          document.getElementById("tipoJS").innerHTML = "";
+        });
+    </script>
 
 
 
@@ -1052,16 +1023,12 @@ python app.py
         Anterior</a>
       <a href="../ejercicios.html" class="btn btn-outline-primary btn-pill"><i class="bi bi-arrow-left me-1"></i>
         Volver al Temario</a>
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
     </div>
 
   </main>
 
-<<<<<<< HEAD
-=======
   <!-- Footer Moderno -->
   <!-- Footer -->
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
   <footer class="footer-modern">
     <div class="container">
       <div class="row g-5">
@@ -1085,14 +1052,11 @@ python app.py
             <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
             <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
             <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
-<<<<<<< HEAD
             <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
-=======
             <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> Temas Avanzados</a>
             </li>
 
 
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
           </ul>
         </div>
 
@@ -1120,11 +1084,8 @@ python app.py
 
       <div class="footer-bottom mt-5">
         <p class="mb-0">
-<<<<<<< HEAD
           © 2026 <strong>Python Academy</strong>. Proyecto académico • Universidad de las Fuerzas Armadas ESPE.
-=======
           © 2026 <strong>Python Academy</strong>. Proyecto académico • Flask & Python
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
         </p>
       </div>
     </div>
@@ -1147,8 +1108,5 @@ python app.py
     });
   </script>
 </body>
-<<<<<<< HEAD
-=======
 
->>>>>>> 103a46b388d0bb124c00833ddf3f8008a1699f8b
 </html>
