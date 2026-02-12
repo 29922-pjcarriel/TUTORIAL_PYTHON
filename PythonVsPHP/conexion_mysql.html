@@ -169,6 +169,13 @@
                                 <li><a href="#acceso">Acceso a la Configuración</a></li>
                                 <li><a href="#conexion">Función Conexión</a></li>
                                 <li><a href="#sql">Consultas SQL</a></li>
+                                <li><a href="#html-dinamico">HTML Dinámico</a></li>
+                                <li><a href="#get-post">GET y POST</a></li>
+                                <li><a href="#punto-entrada">Punto de Entrada</a></li>
+                                <li><a href="#captura-get">Captura GET</a></li>
+                                <li><a href="#captura-post-form">Captura POST (Form)</a></li>
+                                <li><a href="#captura-post-logica">Captura POST (Lógica)</a></li>
+                                <li><a href="#mensajes-errores">Mensajes de Errores</a></li>
                             </ul>
                             <hr>
                             <a href="../PythonvsPHP.html" class="btn btn-sm btn-outline-secondary w-100 rounded-pill mt-2"><i class="bi bi-arrow-left me-2"></i>Volver al Índice</a>
@@ -258,6 +265,10 @@ PORT   = <span style="color:#fbbf24;">3306</span></pre>
                         <!-- 4: Función Conexión -->
                         <div class="slide-section" id="conexion">
                             <h3 class="fw-bold mb-3"><span class="slide-number">4</span> Función Conexión</h3>
+                            <p>PHP crea la conexión instanciando la clase nativa <code>mysqli</code>, Python crea la conexión llamando a una función del módulo <code>mysql.connector</code>.</p>
+                            <div class="info-box" data-aos="fade-up">
+                                <p class="mb-0"><i class="bi bi-info-circle me-1"></i> <strong>Diferencia clave:</strong> PHP usa una clase para la conexión, mientras que Python utiliza una función del módulo importado. Ambos requieren manejo de errores para evitar fallos en la aplicación.</p>
+                            </div>
                             <div class="compare-row">
                                 <div class="compare-col">
                                     <div class="lang-card php">
@@ -302,8 +313,10 @@ objetoVehiculo = <span style="color:#60a5fa;">Vehiculo</span>(cn)</pre>
                         <!-- 5: Consultas SQL -->
                         <div class="slide-section" id="sql">
                             <h3 class="fw-bold mb-3"><span class="slide-number">5</span> Definición y Ejecución de Consulta SQL</h3>
+                            <p>Una vez establecida la conexión, es necesario definir y ejecutar las consultas SQL para interactuar con la base de datos. Ambos lenguajes permiten escribir consultas SQL de forma similar, pero difieren en la sintaxis de strings y en el método de ejecución.</p>
 
                             <h6 class="fw-bold mt-3"><i class="bi bi-file-earmark-code me-1 text-primary"></i> Definición del SQL</h6>
+                            <p>PHP usa strings normales para el SQL, Python usa strings multilínea que mejoran la legibilidad.</p>
                             <div class="compare-row">
                                 <div class="compare-col">
                                     <div class="lang-card php">
@@ -339,10 +352,16 @@ objetoVehiculo = <span style="color:#60a5fa;">Vehiculo</span>(cn)</pre>
                             </div>
 
                             <h6 class="fw-bold mt-4"><i class="bi bi-play-circle me-1 text-success"></i> Ejecución de la Consulta</h6>
+                            <p>PHP ejecuta el SQL directamente desde el objeto conexión, Python requiere un cursor para ejecutar consultas.</p>
                             <div class="compare-row">
                                 <div class="compare-col">
                                     <div class="lang-card php">
                                         <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <ul>
+                                            <li>PHP ejecuta el SQL directamente desde el objeto conexión.</li>
+                                            <li>El método <code>query()</code> ejecuta la consulta y devuelve el resultado.</li>
+                                            <li>No requiere crear un cursor adicional.</li>
+                                        </ul>
                                         <pre class="code-box"><span style="color:#fbbf24;">$res</span> = <span style="color:#fbbf24;">$this</span>-&gt;con-&gt;query(<span style="color:#fbbf24;">$sql</span>);</pre>
                                         <p class="mb-0">Devuelve un objeto <code>mysqli_result</code> que se recorre con <code>fetch_assoc()</code>.</p>
                                     </div>
@@ -350,11 +369,390 @@ objetoVehiculo = <span style="color:#60a5fa;">Vehiculo</span>(cn)</pre>
                                 <div class="compare-col">
                                     <div class="lang-card python">
                                         <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <ul>
+                                            <li>Python requiere un cursor para ejecutar consultas.</li>
+                                            <li>El cursor actúa como intermediario entre la conexión y la base de datos.</li>
+                                            <li>Permite configurar cómo se devuelven los resultados.</li>
+                                        </ul>
                                         <pre class="code-box">cursor = <span style="color:#fbbf24;">self</span>.__con.cursor(dictionary=<span style="color:#14dfe8;">True</span>)
 cursor.execute(sql)</pre>
                                         <p class="mb-0">El parámetro <code>dictionary=True</code> devuelve cada fila como un diccionario (clave → nombre de columna).</p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- 6: ¿Cómo Construimos HTML Dinámico? -->
+                        <div class="slide-section" id="html-dinamico">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">6</span> ¿Cómo Construimos HTML Dinámico?</h3>
+                            <p>Al construir HTML dinámico, es necesario insertar variables en cadenas de texto. PHP y Python tienen diferentes estrategias para lograr esto.</p>
+                            
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP - Concatenación</span>
+                                        <p>Se insertan variables en cadenas usando concatenación con el operador <code>.</code> (punto) cuando se concatenan usando comillas dobles <code>""</code>.</p>
+                                        <pre class="code-box"><span style="color:#94a3b8;">// Ejemplo de concatenación en PHP</span>
+<span style="color:#fbbf24;">$html</span> = <span style="color:#a3ff12;">""</span>;
+<span style="color:#fbbf24;">$html</span> .= <span style="color:#a3ff12;">"&lt;html&gt;"</span>;
+<span style="color:#fbbf24;">$html</span> .= <span style="color:#a3ff12;">"  &lt;div class='row'&gt;"</span>;
+
+<span style="color:#94a3b8;">// Insertar variables directamente</span>
+&lt;<span style="color:#f97316;">input</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"hidden"</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"id"</span> <span style="color:#60a5fa;">value</span>=<span style="color:#a3ff12;">"<span style="color:#fbbf24;">$id</span>"</span>&gt;
+&lt;<span style="color:#f97316;">input</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"hidden"</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"op"</span> <span style="color:#60a5fa;">value</span>=<span style="color:#a3ff12;">"<span style="color:#fbbf24;">$op</span>"</span>&gt;
+
+<span style="color:#fbbf24;">$html</span> .= <span style="color:#a3ff12;">"  &lt;/div&gt;"</span>;
+<span style="color:#fbbf24;">$html</span> .= <span style="color:#a3ff12;">"&lt;/html&gt;"</span>;
+
+<span style="color:#c084fc;">return</span> <span style="color:#fbbf24;">$html</span>;</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python - F-Strings</span>
+                                        <p>Una f-string es una cadena de texto en Python que permite insertar variables o expresiones directamente dentro de la cadena, usando <code>f""</code> y llaves <code>{}</code>.</p>
+                                        <pre class="code-box"><span style="color:#94a3b8;"># Ejemplo de f-strings en Python</span>
+html = <span style="color:#a3ff12;">""</span>
+html += <span style="color:#a3ff12;">"&lt;html&gt;"</span>
+html += <span style="color:#a3ff12;">"  &lt;div class='row'&gt;"</span>
+
+<span style="color:#94a3b8;"># Insertar variables con f-strings</span>
+html += <span style="color:#a3ff12;">f'&lt;input type="hidden" name="id" value="<span style="color:#fbbf24;">{id}</span>"&gt;'</span>
+html += <span style="color:#a3ff12;">f'&lt;input type="hidden" name="op" value="<span style="color:#fbbf24;">{op}</span>"&gt;'</span>
+
+html += <span style="color:#a3ff12;">"  &lt;/div&gt;"</span>
+html += <span style="color:#a3ff12;">"&lt;/html&gt;"</span>
+
+<span style="color:#c084fc;">return</span> html</pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-box" data-aos="fade-up">
+                                <p class="mb-0"><i class="bi bi-info-circle me-1"></i> <strong>Diferencia clave:</strong> PHP usa concatenación con el operador <code>.</code> mientras que Python usa f-strings con <code>f""</code> y llaves <code>{}</code> para una sintaxis más limpia y legible.</p>
+                            </div>
+                        </div>
+
+                        <!-- 7: Manejo del GET y POST -->
+                        <div class="slide-section" id="get-post">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">7</span> Manejo del GET y POST</h3>
+                            <p>Cuando un usuario llena un formulario en una página web, los datos deben enviarse al servidor. PHP y Python permiten recibir esos datos usando dos métodos principales: <strong>GET</strong> y <strong>POST</strong>.</p>
+                            
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card python" style="background: linear-gradient(135deg, rgba(76,175,80,0.08) 0%, rgba(139,195,74,0.08) 100%);">
+                                        <h5 class="fw-bold mb-3">GET</h5>
+                                        <ul>
+                                            <li>Envía los datos por la URL.</li>
+                                            <li>Visible en la barra de direcciones.</li>
+                                            <li>Ideal para búsquedas o información que no sea sensible.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card php" style="background: linear-gradient(135deg, rgba(255,152,0,0.08) 0%, rgba(255,193,7,0.08) 100%);">
+                                        <h5 class="fw-bold mb-3">POST</h5>
+                                        <ul>
+                                            <li>Envía los datos por el cuerpo de la solicitud.</li>
+                                            <li>No visible en la URL.</li>
+                                            <li>Ideal para contraseñas, registros, formularios de contacto.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8: Punto de Entrada de la Aplicación -->
+                        <div class="slide-section" id="punto-entrada">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">8</span> Punto de Entrada de la Aplicación</h3>
+                            
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP</span>
+                                        <p><strong>No necesita definir rutas explícitas para recibir las solicitudes.</strong></p>
+                                        <p>Cuando alguien abre <code>index.php?=xxx</code>, PHP automáticamente pone los datos de GET en <code>$_GET</code> y los de POST en <code>$_POST</code>.</p>
+                                        <div class="info-box">
+                                            <p class="mb-0">En PHP basta con acceder a las variables globales <code>$_GET</code> y <code>$_POST</code>. En Python (Flask) necesitas definir rutas y usar <code>request</code> para acceder a los datos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python</span>
+                                        <p><strong>Necesita definir rutas usando <code>@app.route("/")</code>.</strong></p>
+                                        <p>Para recibir datos, usamos <code>request.args</code> para GET y <code>request.form</code> para POST.</p>
+                                        <pre class="code-box"><span style="color:#c084fc;">from</span> flask <span style="color:#c084fc;">import</span> Flask, request
+
+<span style="color:#fbbf24;">@app.route</span>(<span style="color:#a3ff12;">"/"</span>, methods=[<span style="color:#a3ff12;">"GET"</span>, <span style="color:#a3ff12;">"POST"</span>])</pre>
+                                        <pre class="code-box">request.args:  <span style="color:#94a3b8;"># GET</span>
+request.form:  <span style="color:#94a3b8;"># POST</span></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 9: ¿Cómo se Captura GET? -->
+                        <div class="slide-section" id="captura-get">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">9</span> ¿Cómo se Captura GET?</h3>
+                            <p>Los datos GET viajan en la URL. Ambos lenguajes decodifican el parámetro <code>d</code> en base64 y extraen la operación y el id para determinar qué acción ejecutar.</p>
+                            
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP — index.php</span>
+                                        <pre class="code-box"><span style="color:#c084fc;">if</span>(isset($_GET[<span style="color:#a3ff12;">"d"</span>])){
+    <span style="color:#c084fc;">echo</span> <span style="color:#a3ff12;">"&lt;br&gt;PETICIÓN GET &lt;br&gt;"</span>;
+    <span style="color:#c084fc;">echo</span> <span style="color:#a3ff12;">"&lt;pre&gt;"</span>;
+    print_r($_GET);
+    <span style="color:#c084fc;">echo</span> <span style="color:#a3ff12;">"&lt;/pre&gt;"</span>;
+
+    <span style="color:#94a3b8;">// 2.2 DETALLE id</span>
+    <span style="color:#fbbf24;">$dato</span> = base64_decode($_GET[<span style="color:#a3ff12;">"d"</span>]);
+    <span style="color:#fbbf24;">$tmp</span>  = explode(<span style="color:#a3ff12;">"/"</span>, <span style="color:#fbbf24;">$dato</span>);
+
+    <span style="color:#fbbf24;">$op</span> = <span style="color:#fbbf24;">$tmp</span>[0];
+    <span style="color:#fbbf24;">$id</span> = <span style="color:#fbbf24;">$tmp</span>[1];
+
+    <span style="color:#c084fc;">if</span>(<span style="color:#fbbf24;">$op</span> == <span style="color:#a3ff12;">"det"</span>){
+        <span style="color:#c084fc;">echo</span> <span style="color:#fbbf24;">$v</span>-&gt;get_detall_vehiculo(<span style="color:#fbbf24;">$id</span>);
+    }<span style="color:#c084fc;">elseif</span>(<span style="color:#fbbf24;">$op</span> == <span style="color:#a3ff12;">"act"</span>){
+        <span style="color:#c084fc;">echo</span> <span style="color:#fbbf24;">$v</span>-&gt;get_form(<span style="color:#fbbf24;">$id</span>);
+    }<span style="color:#c084fc;">elseif</span>(<span style="color:#fbbf24;">$op</span> == <span style="color:#a3ff12;">"new"</span>){
+        <span style="color:#c084fc;">echo</span> <span style="color:#fbbf24;">$v</span>-&gt;get_form();
+    }<span style="color:#c084fc;">elseif</span>(<span style="color:#fbbf24;">$op</span> == <span style="color:#a3ff12;">"del"</span>){
+        <span style="color:#c084fc;">echo</span> <span style="color:#fbbf24;">$v</span>-&gt;delete_vehiculo(<span style="color:#fbbf24;">$id</span>);
+    }
+}</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python — app.py</span>
+                                        <pre class="code-box"><span style="color:#c084fc;">if</span> <span style="color:#a3ff12;">'d'</span> <span style="color:#c084fc;">in</span> request.args:
+    contenido += <span style="color:#a3ff12;">"&lt;br&gt;PETICIÓN GET &lt;br&gt;"</span>
+    contenido += <span style="color:#a3ff12;">"&lt;pre&gt;"</span>
+    contenido += <span style="color:#14dfe8;">str</span>(dict(request.args))
+    contenido += <span style="color:#a3ff12;">"&lt;/pre&gt;"</span>
+
+    <span style="color:#94a3b8;"># 2.2 DETALLE id</span>
+    dato = base64.b64decode(request.args.get(<span style="color:#a3ff12;">"d"</span>)).decode(<span style="color:#a3ff12;">"utf-8"</span>)
+    tmp  = dato.split(<span style="color:#a3ff12;">"/"</span>)
+
+    op = tmp[0]
+    id = tmp[1]
+
+    <span style="color:#c084fc;">if</span> op == <span style="color:#a3ff12;">"det"</span>:
+        contenido += v.get_detail_vehiculo(id)
+    <span style="color:#c084fc;">elif</span> op == <span style="color:#a3ff12;">"act"</span>:
+        contenido += v.get_form(id)
+    <span style="color:#c084fc;">elif</span> op == <span style="color:#a3ff12;">"new"</span>:
+        contenido += v.get_form()
+    <span style="color:#c084fc;">elif</span> op == <span style="color:#a3ff12;">"del"</span>:
+        contenido += v.delete_vehiculo(id)</pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-box" data-aos="fade-up">
+                                <p class="mb-0"><i class="bi bi-info-circle me-1"></i> En ambos lenguajes, el parámetro <code>d</code> llega codificado en <strong>base64</strong>. Se decodifica y se separa con <code>/</code> para obtener la operación (<code>det</code>, <code>act</code>, <code>new</code>, <code>del</code>) y el <code>id</code> del registro.</p>
+                            </div>
+                        </div>
+
+                        <!-- 10: ¿Cómo se Captura POST? - Formulario HTML -->
+                        <div class="slide-section" id="captura-post-form">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">10</span> ¿Cómo se Captura POST? — Formulario HTML</h3>
+                            <p>El formulario HTML utiliza el método <code>POST</code> con <code>enctype="multipart/form-data"</code> para enviar datos al servidor, incluyendo archivos como fotos.</p>
+                            
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP — class.vehiculo.php</span>
+                                        <pre class="code-box"><span style="color:#94a3b8;">// Formulario con acción a index.php</span>
+&lt;<span style="color:#f97316;">form</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"Form_vehiculo"</span>
+      <span style="color:#60a5fa;">method</span>=<span style="color:#a3ff12;">"POST"</span>
+      <span style="color:#60a5fa;">action</span>=<span style="color:#a3ff12;">"index.php"</span>
+      <span style="color:#60a5fa;">enctype</span>=<span style="color:#a3ff12;">"multipart/form-data"</span>&gt;
+  &lt;<span style="color:#f97316;">input</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"hidden"</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"id"</span>
+         <span style="color:#60a5fa;">value</span>=<span style="color:#a3ff12;">"' . <span style="color:#fbbf24;">$id</span> . '"</span>&gt;
+  &lt;<span style="color:#f97316;">input</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"hidden"</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"op"</span>
+         <span style="color:#60a5fa;">value</span>=<span style="color:#a3ff12;">"' . <span style="color:#fbbf24;">$op</span> . '"</span>&gt;
+
+  <span style="color:#94a3b8;">// Campo de archivo</span>
+  &lt;<span style="color:#f97316;">div</span> <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"col-sm-4 form-group"</span>&gt;
+    &lt;<span style="color:#f97316;">label</span> <span style="color:#60a5fa;">for</span>=<span style="color:#a3ff12;">"foto"</span>&gt;Foto&lt;/<span style="color:#f97316;">label</span>&gt;
+    &lt;<span style="color:#f97316;">input</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"file"</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"foto"</span> <span style="color:#a3ff12;">' . <span style="color:#fbbf24;">$flag</span> . '</span>&gt;
+  &lt;/<span style="color:#f97316;">div</span>&gt;
+
+  <span style="color:#94a3b8;">// Botón guardar</span>
+  &lt;<span style="color:#f97316;">button</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"submit"</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"Guardar"</span>
+          <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"btn btn-primary"</span>&gt;
+    &lt;<span style="color:#f97316;">i</span> <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"fa fa-save"</span>&gt;&lt;/<span style="color:#f97316;">i</span>&gt; Guardar
+  &lt;/<span style="color:#f97316;">button</span>&gt;
+&lt;/<span style="color:#f97316;">form</span>&gt;</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python — vehiculo.py</span>
+                                        <pre class="code-box"><span style="color:#94a3b8;"># Formulario con acción a ruta "/"</span>
+&lt;<span style="color:#f97316;">form</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"Form_vehiculo"</span>
+      <span style="color:#60a5fa;">method</span>=<span style="color:#a3ff12;">"POST"</span>
+      <span style="color:#60a5fa;">action</span>=<span style="color:#a3ff12;">"/"</span>
+      <span style="color:#60a5fa;">enctype</span>=<span style="color:#a3ff12;">"multipart/form-data"</span>&gt;
+  &lt;<span style="color:#f97316;">input</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"hidden"</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"id"</span>
+         <span style="color:#60a5fa;">value</span>=<span style="color:#a3ff12;">"<span style="color:#fbbf24;">{id}</span>"</span>&gt;
+  &lt;<span style="color:#f97316;">input</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"hidden"</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"op"</span>
+         <span style="color:#60a5fa;">value</span>=<span style="color:#a3ff12;">"<span style="color:#fbbf24;">{op}</span>"</span>&gt;
+
+  <span style="color:#94a3b8;"># Campo de archivo</span>
+  &lt;<span style="color:#f97316;">div</span> <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"col-sm-4 form-group"</span>&gt;
+    &lt;<span style="color:#f97316;">label</span> <span style="color:#60a5fa;">for</span>=<span style="color:#a3ff12;">"foto"</span>&gt;Foto&lt;/<span style="color:#f97316;">label</span>&gt;
+    &lt;<span style="color:#f97316;">input</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"file"</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"foto"</span> <span style="color:#fbbf24;">{flag}</span>&gt;
+  &lt;/<span style="color:#f97316;">div</span>&gt;
+
+  <span style="color:#94a3b8;"># Botón guardar</span>
+  &lt;<span style="color:#f97316;">button</span> <span style="color:#60a5fa;">type</span>=<span style="color:#a3ff12;">"submit"</span> <span style="color:#60a5fa;">name</span>=<span style="color:#a3ff12;">"Guardar"</span>
+          <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"btn btn-primary"</span>&gt;
+    &lt;<span style="color:#f97316;">i</span> <span style="color:#60a5fa;">class</span>=<span style="color:#a3ff12;">"fa fa-save"</span>&gt;&lt;/<span style="color:#f97316;">i</span>&gt; Guardar
+  &lt;/<span style="color:#f97316;">button</span>&gt;
+&lt;/<span style="color:#f97316;">form</span>&gt;</pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-box" data-aos="fade-up">
+                                <p class="mb-0"><i class="bi bi-info-circle me-1"></i> <strong>Diferencia clave:</strong> PHP usa concatenación (<code>. $id .</code>) para insertar variables en el HTML, mientras que Python usa f-strings (<code>{id}</code>). El formulario PHP apunta a <code>index.php</code>, el de Python apunta a la ruta <code>/</code>.</p>
+                            </div>
+                        </div>
+
+                        <!-- 11: ¿Cómo se Captura POST? - Lógica Backend -->
+                        <div class="slide-section" id="captura-post-logica">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">11</span> ¿Cómo se Captura POST? — Lógica Backend</h3>
+                            <p>Al recibir el formulario por POST, el backend verifica los datos y decide si guardar un nuevo registro o actualizar uno existente.</p>
+                            
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP — index.php</span>
+                                        <pre class="code-box">}<span style="color:#c084fc;">else</span>{
+    <span style="color:#c084fc;">if</span>(isset($_POST[<span style="color:#a3ff12;">'Guardar'</span>])){
+        <span style="color:#c084fc;">echo</span> <span style="color:#a3ff12;">"&lt;br&gt;PETICIÓN POST ...... &lt;br&gt;"</span>;
+        <span style="color:#c084fc;">echo</span> <span style="color:#a3ff12;">"&lt;pre&gt;"</span>;
+        print_r($_POST);
+        <span style="color:#c084fc;">echo</span> <span style="color:#a3ff12;">"&lt;/pre&gt;"</span>;
+    }
+
+    <span style="color:#c084fc;">if</span>(isset($_POST[<span style="color:#a3ff12;">'Guardar'</span>]) &amp;&amp; $_POST[<span style="color:#a3ff12;">'op'</span>]==<span style="color:#a3ff12;">"new"</span>){
+        <span style="color:#fbbf24;">$v</span>-&gt;save_vehiculo();
+    }<span style="color:#c084fc;">elseif</span>(isset($_POST[<span style="color:#a3ff12;">'Guardar'</span>]) &amp;&amp; $_POST[<span style="color:#a3ff12;">'op'</span>]==<span style="color:#a3ff12;">"update"</span>){
+        <span style="color:#fbbf24;">$v</span>-&gt;update_vehiculo();
+    }<span style="color:#c084fc;">else</span>{
+        <span style="color:#c084fc;">echo</span> <span style="color:#fbbf24;">$v</span>-&gt;get_list();
+    }
+}</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python — app.py</span>
+                                        <pre class="code-box"><span style="color:#c084fc;">else</span>:
+    <span style="color:#c084fc;">if</span> <span style="color:#a3ff12;">"Guardar"</span> <span style="color:#c084fc;">in</span> request.form:
+        contenido += <span style="color:#a3ff12;">"&lt;br&gt;PETICIÓN POST ...... &lt;br&gt;"</span>
+        contenido += <span style="color:#a3ff12;">"&lt;pre&gt;"</span>
+        contenido += <span style="color:#14dfe8;">str</span>(dict(request.form))
+        contenido += <span style="color:#a3ff12;">"&lt;/pre&gt;"</span>
+
+    <span style="color:#94a3b8;"># PARTE III</span>
+    <span style="color:#c084fc;">if</span> <span style="color:#a3ff12;">"Guardar"</span> <span style="color:#c084fc;">in</span> request.form <span style="color:#c084fc;">and</span> request.form.get(<span style="color:#a3ff12;">"op"</span>) == <span style="color:#a3ff12;">"new"</span>:
+        contenido = v.save_vehiculo()
+
+    <span style="color:#c084fc;">elif</span> <span style="color:#a3ff12;">"Guardar"</span> <span style="color:#c084fc;">in</span> request.form <span style="color:#c084fc;">and</span> request.form.get(<span style="color:#a3ff12;">"op"</span>) == <span style="color:#a3ff12;">"update"</span>:
+        contenido = v.update_vehiculo()
+
+    <span style="color:#c084fc;">else</span>:
+        contenido = v.get_list()
+
+    <span style="color:#94a3b8;"># ==========================</span>
+    <span style="color:#94a3b8;"># AQUÍ SE "IMPRIME" TODO</span>
+    <span style="color:#94a3b8;"># ==========================</span>
+    <span style="color:#c084fc;">return</span> get_html_structure(contenido)</pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-box" data-aos="fade-up">
+                                <p class="mb-0"><i class="bi bi-info-circle me-1"></i> PHP usa <code>$_POST</code> e <code>isset()</code> para verificar los datos. Python usa <code>request.form</code> e <code>in</code> para la misma validación. Ambos determinan si se guarda (<code>new</code>) o se actualiza (<code>update</code>) según el campo <code>op</code>.</p>
+                            </div>
+                        </div>
+
+                        <!-- 12: Mensajes de Errores -->
+                        <div class="slide-section" id="mensajes-errores">
+                            <h3 class="fw-bold mb-3"><span class="slide-number">12</span> Mensajes de Errores</h3>
+                            <p>Ambos lenguajes generan HTML dinámico para mostrar alertas de error al usuario, utilizando Bootstrap para el estilo visual.</p>
+                            
+                            <div class="compare-row">
+                                <div class="compare-col">
+                                    <div class="lang-card php">
+                                        <span class="lang-badge php"><i class="bi bi-filetype-php me-1"></i> PHP — class.vehiculo.php</span>
+                                        <pre class="code-box"><span style="color:#c084fc;">private function</span> <span style="color:#60a5fa;">message_error</span>(<span style="color:#fbbf24;">$tipo</span>){
+    <span style="color:#fbbf24;">$html</span> = <span style="color:#a3ff12;">''</span>
+    . <span style="color:#a3ff12;">'&lt;div class="row"&gt;'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'  &lt;div class="col-md-8 col-md-offset-2"&gt;'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'    &lt;div class="alert alert-danger
+              alert-dismissible" role="alert"&gt;'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'      &lt;button type="button" class="close"
+                data-dismiss="alert"
+                aria-label="Close"&gt;'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'        &lt;span aria-hidden="true"&gt;
+                &amp;times;&lt;/span&gt;'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'      &lt;/button&gt;'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'      &lt;i class="fa fa-exclamation-circle"&gt;
+            &lt;/i&gt; &lt;strong&gt;Error:&lt;/strong&gt;
+            Error al '</span> . <span style="color:#fbbf24;">$tipo</span> . <span style="color:#a3ff12;">' &lt;br&gt;'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'      Favor contactar a administrador.'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'    &lt;/div&gt;'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'    &lt;div style="text-align: center;
+              margin-top: 20px;"&gt;'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'      &lt;a href="index.php"
+              class="btn btn-default"&gt;'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'        &lt;i class="fa fa-arrow-left"&gt;
+                &lt;/i&gt; Regresar'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'      &lt;/a&gt;'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'    &lt;/div&gt;'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'  &lt;/div&gt;'</span> . <span style="color:#a3ff12;">"\n"</span>
+    . <span style="color:#a3ff12;">'&lt;/div&gt;'</span>;
+    <span style="color:#c084fc;">return</span> <span style="color:#fbbf24;">$html</span>;
+}</pre>
+                                    </div>
+                                </div>
+                                <div class="compare-col">
+                                    <div class="lang-card python">
+                                        <span class="lang-badge python"><i class="bi bi-filetype-py me-1"></i> Python — vehiculo.py</span>
+                                        <pre class="code-box"><span style="color:#c084fc;">def</span> <span style="color:#60a5fa;">__message_error</span>(<span style="color:#fbbf24;">self</span>, tipo):
+
+    <span style="color:#c084fc;">return</span> <span style="color:#a3ff12;">f'''</span>
+    <span style="color:#a3ff12;">&lt;div class="alert alert-danger
+         alert-dismissible fade in" role="alert"&gt;</span>
+      <span style="color:#a3ff12;">&lt;button type="button" class="close"
+              data-dismiss="alert"
+              aria-label="Close"&gt;</span>
+        <span style="color:#a3ff12;">&lt;span aria-hidden="true"&gt;
+              &amp;times;&lt;/span&gt;</span>
+      <span style="color:#a3ff12;">&lt;/button&gt;</span>
+      <span style="color:#a3ff12;">&lt;strong&gt;&lt;i class="fa fa-exclamation-circle"&gt;
+      &lt;/i&gt; Error:&lt;/strong&gt; Al</span> <span style="color:#fbbf24;">{tipo}</span><span style="color:#a3ff12;">.</span>
+      <span style="color:#a3ff12;">Favor contactar a administrador.</span>
+    <span style="color:#a3ff12;">&lt;/div&gt;</span>
+    <span style="color:#a3ff12;">&lt;div style="text-align: center;
+         margin-top: 20px;"&gt;</span>
+      <span style="color:#a3ff12;">&lt;a href="/" class="btn btn-primary"&gt;</span>
+        <span style="color:#a3ff12;">&lt;i class="fa fa-arrow-left"&gt;&lt;/i&gt;
+        Regresar</span>
+      <span style="color:#a3ff12;">&lt;/a&gt;</span>
+    <span style="color:#a3ff12;">&lt;/div&gt;</span>
+    <span style="color:#a3ff12;">'''</span></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-box" data-aos="fade-up">
+                                <p class="mb-0"><i class="bi bi-info-circle me-1"></i> PHP construye el HTML con concatenación (<code>.</code>) y saltos de línea (<code>\n</code>). Python usa f-strings con triple comilla (<code>f'''...'''</code>) para escribir el HTML multilínea de forma más legible, insertando la variable <code>{tipo}</code> directamente.</p>
                             </div>
                         </div>
 
