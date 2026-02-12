@@ -1,11 +1,11 @@
-﻿ï»¿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Matriz Â· Python Academy</title>
-  <meta name="description" content="Manejo de matrices (listas anidadas).">
+  <title>Matriz · Python Academy</title>
+  <meta name="description" content="Matriz asociativa (diccionario) y tabla dinámica.">
 
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
@@ -80,26 +80,6 @@
       justify-content: center;
     }
 
-    .form-shell {
-      margin-top: 22px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .form-card {
-      width: 100%;
-      max-width: 720px;
-      border-radius: 18px;
-      border: 1px solid rgba(0, 0, 0, .08);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, .06);
-      background: #fff;
-      padding: 22px;
-    }
-
-    .form-card * {
-      max-width: 100%;
-    }
-
     .ej-nav-bottom {
       margin-top: 26px;
       padding-top: 18px;
@@ -137,27 +117,8 @@
       font-size: .95rem;
       color: #556;
     }
-
-    .python-notice {
-      background: linear-gradient(135deg, #3776ab 0%, #ffd43b 100%);
-      border-radius: 16px;
-      padding: 24px;
-      color: white;
-      margin-top: 20px;
-    }
-
-    .python-notice h5 {
-      color: white;
-      font-weight: 700;
-    }
-
-    .python-notice code {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 2px 8px;
-      border-radius: 4px;
-      color: white;
-    }
   </style>
+
   <link href="../static/assets/css/custom-effects.css" rel="stylesheet">
   <link href="../static/assets/css/navbar-nested.css" rel="stylesheet">
 </head>
@@ -168,8 +129,7 @@
     <div class="loader-spinner"></div>
   </div>
 
-
-  <!-- Navbar Moderno -->
+  <!-- Navbar Moderno (NO TOCADO) -->
   <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
     <div class="container">
       <a class="navbar-brand navbar-brand-custom" href="../index.html">
@@ -260,7 +220,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver todos los ejercicios</a></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../ejercicios.html"><i class="bi bi-grid me-2"></i>Ver
+                  todos los ejercicios</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -291,8 +252,7 @@
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/sintaxis.html"><i
                     class="bi bi-code-slash me-2 text-primary"></i>Sintaxis</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/ecosistema.html"><i
-                    class="bi bi-boxes me-2 text-info"></i>Ecosistema</a>
-              </li>
+                    class="bi bi-boxes me-2 text-info"></i>Ecosistema</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/rendimiento.html"><i
                     class="bi bi-speedometer2 me-2 text-danger"></i>Rendimiento</a></li>
               <li><a class="dropdown-item py-2" href="../PythonVsPHP/despliegue.html"><i
@@ -304,7 +264,8 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver Comparativa</a></li>
+              <li><a class="dropdown-item py-2 fw-semibold" href="../PythonvsPHP.html"><i class="bi bi-grid me-2"></i>Ver
+                  Comparativa</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -321,167 +282,219 @@
     <!-- HERO -->
     <section class="hero-ej">
       <div class="container text-center">
-
         <div class="hero-top-actions">
           <a href="../ejercicios.html" class="btn btn-outline-secondary btn-pill-sm">
-            <i class="bi bi-arrow-left me-1"></i> Volver al menÃº
+            <i class="bi bi-arrow-left me-1"></i> Volver al menú
           </a>
         </div>
 
         <span class="badge bg-primary mb-3">Arreglos</span>
-        <h1 class="display-5 mb-2">Matriz</h1>
-        <p class="lead text-muted">Manejo de matrices (listas anidadas).</p>
+        <h1 class="display-5 mb-2">Matriz asociativa</h1>
+        <p class="lead text-muted">Diccionario de provincias con ciudades y tabla dinámica.</p>
       </div>
     </section>
-    <!-- HERO -->
 
-
-    <!-- CONTENIDO -->
     <section class="ej-wrap">
       <div class="container">
         <div class="ej-panel">
 
+          <!-- ENUNCIADO -->
           <div class="explain-card mb-4">
             <h4 class="fw-bold mb-2">Enunciado</h4>
             <p class="mb-2">
-              Crear una aplicaciÃ³n que genere una <strong>Matriz (lista de listas)</strong> de N x M elementos con
-              nÃºmeros aleatorios, calcule la suma de todos sus elementos y la presente de forma visualmente atractiva.
+              Crear una estructura con <strong>cantones (índices numéricos)</strong> y un diccionario
+              <strong>ciudades (matriz asociativa)</strong> donde cada provincia tenga una lista de ciudades.
+              Luego calcular cuántas provincias hay, el máximo número de ciudades por provincia y mostrar
+              una <strong>tabla</strong> con columnas dinámicas.
             </p>
             <p class="mb-0 hint">
-              Objetivo: Comprender cÃ³mo Python maneja listas anidadas para representar estructuras bidimensionales y
-              cÃ³mo iterar sobre ellas.
+              Objetivo: entender cómo se combinan listas y diccionarios para construir una matriz asociativa
+              y cómo generar una tabla en base al máximo de elementos.
             </p>
           </div>
 
-          <!-- Ã¢Å“â€¦ EXPLICACIÃ±â€œN DEL CÃ±â€œDIGO (EDITAR AQUÃ±) -->
+          <!-- TEORIA (solo del ejercicio) -->
           <div class="explain-card mb-4">
-            <h4 class="fw-bold mb-3">ExplicaciÃ³n del cÃ³digo (paso a paso)</h4>
+            <h4 class="fw-bold mb-3">Explicación del código (paso a paso)</h4>
 
-            <!-- ===== BLOQUE 1 ===== -->
-            <h5 class="fw-bold mb-2">1) Â¿QuÃ© hace el programa?</h5>
+            <h5 class="fw-bold mb-2">1) Índices numéricos: cantones</h5>
             <p class="mb-3">
-              Describe en 2-3 lÃ­neas la lÃ³gica general del ejercicio.
+              Primero se define una lista de listas llamada <strong>cantones</strong>. Cada fila contiene cantones
+              y se accede por posición, por ejemplo: <strong>cantones[1][0]</strong>.
             </p>
+            <pre class="code-box mb-3"><code>const cantones = [
+  ["QUITO", "CAYAMBE"],
+  ["GUAYAQUIL", "DAULE"],
+  ["CUENCA", "GUALACEO"],
+  ["PORTOVIEJO", "MANTA", "CHONE", "CRUCITA"]
+];</code></pre>
 
-            <!-- ===== BLOQUE 2 ===== -->
-            <h5 class="fw-bold mb-2">2) Entradas del usuario</h5>
+            <h5 class="fw-bold mb-2">2) Matriz asociativa: ciudades</h5>
+            <p class="mb-3">
+              Luego se arma un diccionario (objeto) donde la clave es la provincia y el valor es una lista
+              de ciudades. En "Guayas" se reutiliza lo que ya existe en cantones para no repetir valores.
+            </p>
+            <pre class="code-box mb-3"><code>const ciudades = {
+  "Pichincha": ["QUITO", "CAYAMBE", "RUMIÑAHUI"],
+  "Guayas": [cantones[1][0], cantones[1][1], "PLAYAS"],
+  "Azuay": ["Cuenca"],
+  "Manabi": cantones[3],
+  "Tunguragua": ["Ambato"]
+};</code></pre>
+
+            <h5 class="fw-bold mb-2">3) Cálculos: número de provincias y máximo de columnas</h5>
             <p class="mb-2">
-              Explica quÃ© datos ingresa el usuario y cÃ³mo se validan.
+              <strong>num_provincias</strong> es la cantidad de claves del diccionario.
+              <strong>max_colum</strong> es el tamaño de la lista más larga de ciudades (para saber cuántas columnas crear).
             </p>
+            <pre class="code-box mb-3"><code>const num_provincias = Object.keys(ciudades).length;
 
-            <pre class="code-box mb-3"><code># Ejemplo de bloque de cÃ³digo
-# Tus compaÃ±Â±eros pegan aquÃ­ el cÃ³digo real (con indentaciÃ±Â³n)
-numero = int(input("Ingrese un nÃºmero: "))</code></pre>
+let max_colum = 0;
+for (const provincia in ciudades) {
+  max_colum = Math.max(max_colum, ciudades[provincia].length);
+}</code></pre>
 
-            <!-- ===== BLOQUE 3 ===== -->
-            <h5 class="fw-bold mb-2">3) Proceso / CÃ¡lculo</h5>
-            <p class="mb-2">
-              Explica la parte principal de la lÃ³gica (bucles, condicionales, funciones, etc.).
-            </p>
-
-            <pre class="code-box mb-3"><code># Ejemplo
-resultado = 1
-for i in range(1, numero + 1):
-    resultado *= i</code></pre>
-
-            <!-- ===== BLOQUE 4 ===== -->
-            <h5 class="fw-bold mb-2">4) Salida / Resultados</h5>
-            <p class="mb-2">
-              Explica quÃ© se muestra al final y por quÃ©.
-            </p>
-
-            <pre class="code-box"><code>print("El resultado es:", resultado)</code></pre>
-
-            <p class="hint mt-3 mb-0">
-              Consejo: No se salten pasos. Explicar Ã¢â‚¬Å“por quÃ±Â©Ã¢â‚¬Â es mÃ¡s importante que solo pegar cÃ³digo.
+            <h5 class="fw-bold mb-2">4) Salida: tabla con columnas dinámicas</h5>
+            <p class="mb-0">
+              Se construye una tabla HTML: una columna para "Provincia" y luego "Ciudad 1..N"
+              según el máximo encontrado. Si una provincia tiene menos ciudades, las celdas quedan vacías.
             </p>
           </div>
 
-          <!-- Ã¢Å“â€¦ BOTÃ±â€œN EJECUTAR -->
-          <div class="ej-actions">
-            <a href="##formulario" class="btn btn-primary btn-pill btn-lg">
-              Ejecutar ejercicio
-            </a>
-          </div>
+                  
 
-          <!-- âœ… FORMULARIO / SALIDA -->
+          <!-- FORMULARIO / RESULTADO -->
           <div id="formulario" class="mt-5 animate-in fade-in">
             <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
               <div class="card-header bg-primary text-white p-3">
-                <h5 class="mb-0"><i class="bi bi-grid-3x3 me-2"></i>Generador de Matrices Aleatorias</h5>
+                <h5 class="mb-0">
+                  <i class="bi bi-grid-3x3 me-2"></i>Tabla de Provincias y Ciudades
+                </h5>
               </div>
+
               <div class="card-body p-4 bg-light text-center">
-                <div class="row g-3 justify-content-center mb-4">
-                  <div class="col-md-3">
-                    <label class="form-label fw-bold">Filas:</label>
-                    <input type="number" id="filas" class="form-control" value="3" min="1" max="10">
-                  </div>
-                  <div class="col-md-3">
-                    <label class="form-label fw-bold">Columnas:</label>
-                    <input type="number" id="columnas" class="form-control" value="3" min="1" max="10">
-                  </div>
-                </div>
-                <button onclick="generarMatriz()" class="btn btn-primary btn-pill btn-lg px-5">
-                  <i class="bi bi-gear-fill me-2"></i>Generar y Sumar
-                </button>
-              </div>
-            </div>
+<div class="row g-3 justify-content-center mb-3">
+  <div class="col-md-4">
+    <div class="border rounded-4 bg-white p-3 shadow-sm">
+      <div class="fw-bold text-muted mb-1">
+        <i class="bi bi-geo-alt me-1"></i> Número de provincias
+      </div>
+      <div id="num-provincias" class="fs-3 fw-bold text-primary">0</div>
+    </div>
+  </div>
 
-            <div id="resultado-matriz" class="card border-0 shadow-lg rounded-4 mt-4 d-none">
-              <div class="card-body p-4">
-                <div class="text-center mb-4">
-                  <span class="badge bg-success rounded-pill px-3 py-2 mb-2">Resultado del Proceso</span>
-                  <h3 id="suma-total" class="display-5 fw-bold text-dark">Suma: 0</h3>
+  <div class="col-md-4">
+    <div class="border rounded-4 bg-white p-3 shadow-sm">
+      <div class="fw-bold text-muted mb-1">
+        <i class="bi bi-columns-gap me-1"></i> Máximo de columnas
+      </div>
+      <div id="max-columnas" class="fs-3 fw-bold text-primary">0</div>
+    </div>
+  </div>
+</div>
+
+                <p class="text-muted mb-4">
+                  Presiona "Generar" para crear la tabla dinámica según el máximo de ciudades por provincia.
+                </p>
+
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                  <button type="button" class="btn btn-primary btn-pill px-5" onclick="generarTablaCiudades()">
+                    <i class="bi bi-gear-fill me-2"></i>Generar
+                  </button>
+
+                  <button type="button" class="btn btn-outline-secondary btn-pill px-5" onclick="reiniciarTablaCiudades()">
+                    <i class="bi bi-arrow-clockwise me-2"></i>Reiniciar
+                  </button>
                 </div>
 
-                <div class="table-responsive">
-                  <table class="table table-bordered text-center align-middle" id="tabla-matriz">
-                    <!-- La matriz se genera aquÃ­ -->
-                  </table>
+                <!-- TABLA -->
+                <div id="tabla-wrap" class="mt-4 d-none">
+                  <div class="table-responsive">
+                    <table class="table table-bordered text-center align-middle" id="tabla-ciudades">
+                      <!-- Se llena con JS -->
+                    </table>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>
 
-          <script>
-            function generarMatriz() {
-              const f = parseInt(document.getElementById('filas').value);
-              const c = parseInt(document.getElementById('columnas').value);
-              const tabla = document.getElementById('tabla-matriz');
-              const resCard = document.getElementById('resultado-matriz');
-              const sumaText = document.getElementById('suma-total');
+         <script>
+  const ciudades = {
+    "Pichincha": ["QUITO", "CAYAMBE", "RUMIÑAHUI"],
+    "Guayas": ["GUAYAQUIL", "DAULE", "PLAYAS"],
+    "Azuay": ["Cuenca"],
+    "Manabi": ["PORTOVIEJO", "MANTA", "CHONE", "CRUCITA"],
+    "Tunguragua": ["Ambato"]
+  };
 
-              if (f < 1 || c < 1 || f > 10 || c > 10) {
-                alert("Por favor elige dimensiones entre 1 y 10");
-                return;
-              }
+  function generarTablaCiudades() {
+    const tabla = document.getElementById("tabla-ciudades");
+    const wrap = document.getElementById("tabla-wrap");
 
-              let html = '';
-              let suma = 0;
+    const entries = Object.entries(ciudades);
 
-              for (let i = 0; i < f; i++) {
-                html += '<tr>';
-                for (let j = 0; j < c; j++) {
-                  const num = Math.floor(Math.random() * 100);
-                  suma += num;
-                  html += `<td class="p-3 fw-bold" style="background: rgba(13, 110, 253, ${num / 200 + 0.05})">${num}</td>`;
-                }
-                html += '</tr>';
-              }
+    const numProvincias = entries.length;
 
-              tabla.innerHTML = html;
-              sumaText.textContent = `Suma Total: ${suma}`;
-              resCard.classList.remove('d-none');
-              resCard.scrollIntoView({ behavior: 'smooth' });
-            }
-          </script>
+    let maxCol = 0;
+    for (let i = 0; i < entries.length; i++) {
+      const lista = entries[i][1];
+      if (lista.length > maxCol) maxCol = lista.length;
+    }
+
+    maxCol = Math.min(maxCol, 4);
+
+    document.getElementById("num-provincias").textContent = String(numProvincias);
+    document.getElementById("max-columnas").textContent = String(maxCol);
+
+    let html = '<thead>';
+    html += '<tr>';
+    html += '<th colspan="' + maxCol + '" style="background:#f26c5b;color:#111;font-weight:800;">ECUADOR</th>';
+    html += '</tr>';
+    html += '</thead>';
+
+    html += '<tbody>';
+    for (let i = 0; i < entries.length; i++) {
+      const lista = entries[i][1];
+
+      html += '<tr>';
+      for (let j = 0; j < maxCol; j++) {
+        const valor = (j < lista.length) ? lista[j] : "";
+
+        if (valor === "") {
+          html += '<td style="background:#3f3f3f;color:transparent;">&nbsp;</td>';
+        } else {
+          html += '<td>' + valor + '</td>';
+        }
+      }
+      html += '</tr>';
+    }
+    html += '</tbody>';
+
+    tabla.innerHTML = html;
+    wrap.classList.remove("d-none");
+    wrap.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function reiniciarTablaCiudades() {
+    const tabla = document.getElementById("tabla-ciudades");
+    const wrap = document.getElementById("tabla-wrap");
+
+    tabla.innerHTML = "";
+    wrap.classList.add("d-none");
+
+    document.getElementById("num-provincias").textContent = "0";
+    document.getElementById("max-columnas").textContent = "0";
+
+    document.getElementById("formulario").scrollIntoView({ behavior: "smooth" });
+  }
+</script>
 
 
-          <!-- Ã¢Å“â€¦ ANTERIOR / SIGUIENTE -->
         </div>
       </div>
     </section>
-
 
     <!-- ANTERIOR / SIGUIENTE -->
     <div class="ej-nav-bottom">
@@ -490,9 +503,6 @@ for i in range(1, numero + 1):
       <a href="ejercicio11.html" class="btn btn-primary btn-pill">Siguiente <i class="bi bi-arrow-right ms-1"></i></a>
     </div>
 
-    </div>
-    </div>
-    </section>
   </main>
 
   <!-- Footer Moderno -->
@@ -504,8 +514,8 @@ for i in range(1, numero + 1):
             <i class="bi bi-braces me-2"></i>Python Academy
           </h4>
           <p class="footer-text">
-            Proyecto acadÃ©mico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
-            apasionados por la programaciÃ³n.
+            Proyecto académico de aprendizaje en Python y Flask, desarrollado de forma colaborativa por estudiantes
+            apasionados por la programación.
           </p>
           <div class="d-flex gap-3 mt-4">
             <a href="#" class="text-white fs-5 icon-hover-scale"><i class="bi bi-github"></i></a>
@@ -515,13 +525,12 @@ for i in range(1, numero + 1):
         </div>
 
         <div class="col-lg-2 col-md-4">
-          <h5 class="footer-title">NavegaciÃ³n</h5>
+          <h5 class="footer-title">Navegación</h5>
           <ul class="footer-links">
             <li><a href="../index.html"><i class="bi bi-chevron-right"></i> Inicio</a></li>
-            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> TeorÃ­a</a></li>
+            <li><a href="../teoria.html"><i class="bi bi-chevron-right"></i> Teoría</a></li>
             <li><a href="../ejercicios.html"><i class="bi bi-chevron-right"></i> Ejercicios</a></li>
             <li><a href="../explicacion_crud.html"><i class="bi bi-chevron-right"></i> CRUD</a></li>
-
           </ul>
         </div>
 
@@ -535,7 +544,7 @@ for i in range(1, numero + 1):
         </div>
 
         <div class="col-lg-3 col-md-4">
-          <h5 class="footer-title">TecnologÃ­as</h5>
+          <h5 class="footer-title">Tecnologías</h5>
           <div class="d-flex flex-wrap gap-2 mt-3">
             <span class="badge bg-primary bg-opacity-25 text-white px-3 py-2">Python</span>
             <span class="badge bg-success bg-opacity-25 text-white px-3 py-2">Flask</span>
@@ -548,7 +557,7 @@ for i in range(1, numero + 1):
 
       <div class="footer-bottom">
         <p class="mb-0">
-          Â© 2026 <strong>Python Academy</strong>. Proyecto acadÃ©mico â€¢ Flask & Python
+          © 2026 <strong>Python Academy</strong>. Proyecto académico • Flask & Python
         </p>
       </div>
     </div>
@@ -563,11 +572,11 @@ for i in range(1, numero + 1):
 
   <script src="../static/assets/js/effects.js"></script>
   <script src="../static/assets/js/navbar-nested.js"></script>
+
   <script>
-    // Initialize AOS
     AOS.init({
       duration: 800,
-      easing: 'ease-out-cubic',
+      easing: "ease-out-cubic",
       once: true,
       offset: 50
     });
@@ -575,4 +584,3 @@ for i in range(1, numero + 1):
 </body>
 
 </html>
-
