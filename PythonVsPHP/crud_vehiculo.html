@@ -29,8 +29,15 @@
         body,
         html,
         .main,
-        .container {
+        .container,
+        .container.py-5,
+        .container.py-5 > .row {
             overflow: visible !important;
+        }
+
+        /* Sidebar column stretches full height so sticky nav travels the whole page */
+        .col-lg-3.d-none.d-lg-block {
+            position: relative;
         }
 
         .code-demo {
@@ -424,7 +431,7 @@
                             <li><a href="#manejo-rutas-post">Manejo de solicitudes POST</a></li>
                             <li><a href="#registro-insert">Registro de Vehículos (INSERT)</a></li>
                             <li><a href="#carga-imagen-bd">Carga de Imagen y Registro BD</a></li>
-                            <li><a href="#update-vehiculo">Actualización (UPDATE)</a></li>
+                            <li><a href="#update-vehiculo-p3">Actualización (UPDATE)</a></li>
                             <li><a href="#flujo-operaciones">Flujo de Operaciones CRUD</a></li>
                             <li><a href="#infografia-resumen">Infografía: Duelo CRUD</a></li>
                         </ul>
@@ -3182,7 +3189,7 @@
 
                         <!-- SECCIÓN: ACTUALIZACIÓN DE VEHÍCULOS (UPDATE) -->
                         <div class="section-block mb-5 bg-white rounded-4 p-4 p-md-5 border" data-aos="fade-up">
-                            <h2 id="update-vehiculo" class="fw-bold mb-4 text-primary">Actualización de Vehículos (UPDATE)</h2>
+                            <h2 id="update-vehiculo-p3" class="fw-bold mb-4 text-primary">Actualización de Vehículos (UPDATE)</h2>
                             <p class="text-secondary mb-4">Ambos lenguajes actualizan los datos del vehículo en la base de datos, diferenciándose en la forma de ejecutar y controlar la transacción.</p>
 
                             <div class="row g-4">
@@ -3570,88 +3577,122 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Sidebar scroll spy logic synced with sesiones.html
-            // Adapted for structure: Link -> ID on H2 -> Parent Section Block
             const sidebarLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
             const progressBar = document.querySelector('.sidebar-progress-bar');
-            const sidebarNav = document.querySelector('.sidebar-nav');
+            const sidebarList = document.querySelector('.sidebar-nav ul');
 
+            // Build sections array: map each link to its target element
             const sections = Array.from(sidebarLinks).map(link => {
                 const id = link.getAttribute('href').substring(1);
                 const element = document.getElementById(id);
-                // If the element is an H2 (header), we want to track its PARENT container (the section block)
-                // If it's a div (maybe a container), track itself.
-                // Fallback to element if no .section-block parent found.
                 const container = element ? (element.closest('.section-block') || element) : null;
-
-                return {
-                    link: link,
-                    container: container,
-                    id: id
-                };
+                return { link, container, id };
             }).filter(item => item.container);
 
+            // Helper: get true offset from top of document (handles nested offsets)
+            function getOffsetTop(el) {
+                let top = 0;
+                while (el) {
+                    top += el.offsetTop;
+                    el = el.offsetParent;
+                }
+                return top;
+            }
+
+            // Scroll the sidebar list so the active link is visible
+            // Uses scrollTop math instead of scrollIntoView to avoid moving the page
+            function scrollSidebarToActive(activeLink) {
+                if (!sidebarList || !activeLink) return;
+                const li = activeLink.closest('li');
+                if (!li) return;
+                // Calculate li position relative to the scrollable list
+                const liTop = li.offsetTop - sidebarList.offsetTop;
+                const liBottom = liTop + li.offsetHeight;
+                const listScrollTop = sidebarList.scrollTop;
+                const listHeight = sidebarList.clientHeight;
+                // If above visible area, scroll up
+                if (liTop < listScrollTop) {
+                    sidebarList.scrollTo({ top: liTop - 8, behavior: 'smooth' });
+                }
+                // If below visible area, scroll down
+                else if (liBottom > listScrollTop + listHeight) {
+                    sidebarList.scrollTo({ top: liBottom - listHeight + 8, behavior: 'smooth' });
+                }
+            }
+
+            let lastActiveIndex = -1;
+
             function updateActiveLink() {
-                const scrollPos = window.scrollY + 180; // Offset consistent with header
+                const scrollPos = window.scrollY + 180;
                 const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-                // 1. Update Progress
+                // 1. Progress bar
                 if (progressBar) {
-                    const scrollPercent = (window.scrollY / (docHeight || 1)) * 100;
-                    progressBar.style.width = scrollPercent + '%';
+                    const pct = Math.min(100, (window.scrollY / (docHeight || 1)) * 100);
+                    progressBar.style.width = pct + '%';
                 }
 
-                // 2. Check Sections (Robust "Last Active" Logic)
-                // Instead of checking if we are strictly INSIDE, we check which section we have most recently passed.
-                // This handles gaps and variable heights much better.
-
+                // 2. Determine active section
                 let currentActiveIndex = -1;
-
                 sections.forEach((item, index) => {
-                    const section = item.container;
-                    // Check if the section's TOP is above the current scroll line
-                    if (section.offsetTop <= scrollPos) {
+                    if (getOffsetTop(item.container) <= scrollPos) {
                         currentActiveIndex = index;
                     }
                 });
 
-                // Reset all
-                sidebarLinks.forEach(l => l.classList.remove('active'));
-
-                // Activate the last passed section
-                if (currentActiveIndex !== -1) {
-                    sections[currentActiveIndex].link.classList.add('active');
+                // Only update DOM if changed
+                if (currentActiveIndex !== lastActiveIndex) {
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    if (currentActiveIndex !== -1) {
+                        sections[currentActiveIndex].link.classList.add('active');
+                        scrollSidebarToActive(sections[currentActiveIndex].link);
+                    }
+                    lastActiveIndex = currentActiveIndex;
                 }
             }
 
-            // Click Handler
+            // Click handler — smooth scroll to section
             sidebarLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
+                    const clickedLink = this;
+                    const targetId = clickedLink.getAttribute('href').substring(1);
                     const target = document.getElementById(targetId);
-                    if (target) {
-                        // Offset for fixed header
-                        const offset = 140;
-                        const elementPosition = target.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    if (!target) return;
 
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: "smooth"
-                        });
+                    // Use getBoundingClientRect for accurate position from current viewport
+                    const offset = 130;
+                    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    const targetTop = target.getBoundingClientRect().top + currentScroll - offset;
 
-                        // Update hash
-                        setTimeout(() => {
-                            history.pushState(null, null, '#' + targetId);
-                            // Force update after scroll
-                            updateActiveLink();
-                        }, 500);
-                    }
+                    // Immediately highlight clicked link
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    clickedLink.classList.add('active');
+                    scrollSidebarToActive(clickedLink);
+
+                    // Smooth scroll the page
+                    window.scrollTo({ top: targetTop, behavior: 'smooth' });
+
+                    // Update URL hash after scroll settles
+                    setTimeout(() => {
+                        history.replaceState(null, null, '#' + targetId);
+                        updateActiveLink();
+                    }, 800);
                 });
             });
 
-            window.addEventListener('scroll', updateActiveLink);
+            // Throttled scroll listener for performance
+            let ticking = false;
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    window.requestAnimationFrame(function () {
+                        updateActiveLink();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
             // Initial call
             updateActiveLink();
         });
