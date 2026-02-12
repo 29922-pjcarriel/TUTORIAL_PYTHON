@@ -1,9 +1,5 @@
 
 <!DOCTYPE html>
->>>>>>> c5a1852cbd487177481a33340f39584450d526ab
-=======
-﻿<!DOCTYPE html>
-
 <html lang="es">
 
 <head>
@@ -499,6 +495,246 @@ from flask import request, render_template_string</code></pre>
           </div>
 
 
+
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-3">Archivos del proyecto</h4>
+
+<pre class="code-box">AbstractasPOO/
+│
+├── AbstractasPOO.py
+│
+├── poo_abstractas/
+│   ├── figura_abc.py
+│   ├── cuadrado.py
+│   ├── rectangulo.py
+│   ├── triangulo.py
+│   ├── rombo.py
+│   └── pentagono.py
+│
+└── templates/
+    └── form_figuras.html
+</pre>
+
+  <p class="hint mb-0">
+    Crea la estructura anterior y copia el código de cada archivo.
+  </p>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: AbstractasPOO.py</h5>
+
+<pre class="code-box"><code id="codeApp">from flask import Flask, render_template, request
+from poo_abstractas.cuadrado import Cuadrado
+from poo_abstractas.rectangulo import Rectangulo
+from poo_abstractas.triangulo import Triangulo
+from poo_abstractas.rombo import Rombo
+from poo_abstractas.pentagono import Pentagono
+
+app = Flask(__name__)
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    resultado = None
+
+    if request.method == "POST":
+        tipo = request.form.get("tipo")
+        l1 = float(request.form.get("l1", 0))
+        l2 = float(request.form.get("l2", 0))
+        l3 = float(request.form.get("l3", 0))
+
+        figura = None
+
+        if tipo == "cuadrado":
+            figura = Cuadrado(l1)
+        elif tipo == "rectangulo":
+            figura = Rectangulo(l1, l2)
+        elif tipo == "triangulo":
+            figura = Triangulo(l1, l2, l3)
+        elif tipo == "rombo":
+            figura = Rombo(l1, l2)
+        elif tipo == "pentagono":
+            figura = Pentagono(l1)
+
+        if figura:
+            resultado = {
+                "tipo": tipo,
+                "area": figura.area(),
+                "perimetro": figura.perimetro()
+            }
+
+    return render_template("form_figuras.html", resultado=resultado)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+</code></pre>
+
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: templates/form_figuras.html</h5>
+
+<pre class="code-box"><code id="codeHtml">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;Figuras Abstractas&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h2&gt;Formulario de Figuras&lt;/h2&gt;
+
+&lt;form method="post"&gt;
+    Tipo:
+    &lt;select name="tipo"&gt;
+        &lt;option value="cuadrado"&gt;Cuadrado&lt;/option&gt;
+        &lt;option value="rectangulo"&gt;Rectángulo&lt;/option&gt;
+        &lt;option value="triangulo"&gt;Triángulo&lt;/option&gt;
+        &lt;option value="rombo"&gt;Rombo&lt;/option&gt;
+        &lt;option value="pentagono"&gt;Pentágono&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;br&gt;
+
+    Lado 1: &lt;input name="l1"&gt;&lt;br&gt;
+    Lado 2: &lt;input name="l2"&gt;&lt;br&gt;
+    Lado 3: &lt;input name="l3"&gt;&lt;br&gt;
+
+    &lt;button&gt;Calcular&lt;/button&gt;
+&lt;/form&gt;
+
+{% if resultado %}
+&lt;p&gt;Área: {{resultado.area}}&lt;/p&gt;
+&lt;p&gt;Perímetro: {{resultado.perimetro}}&lt;/p&gt;
+{% endif %}
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_abstractas/figura_abc.py</h5>
+
+
+<pre class="code-box"><code id="codeFiguraABC">from abc import ABC, abstractmethod
+
+class Figura(ABC):
+
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def perimetro(self):
+        pass
+</code></pre>
+</div>
+
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_abstractas/cuadrado.py</h5>
+
+<pre class="code-box"><code id="codeCuadrado">from .figura_abc import Figura
+
+class Cuadrado(Figura):
+
+    def __init__(self, lado):
+        self.lado = float(lado)
+
+    def area(self):
+        return self.lado ** 2
+
+    def perimetro(self):
+        return self.lado * 4
+</code></pre>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_abstractas/rectangulo.py</h5>
+<pre class="code-box"><code id="codeRectangulo">from .figura_abc import Figura
+
+class Rectangulo(Figura):
+
+    def __init__(self, base, altura):
+        self.base = float(base)
+        self.altura = float(altura)
+
+    def area(self):
+        return self.base * self.altura
+
+    def perimetro(self):
+        return 2 * (self.base + self.altura)
+</code></pre>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_abstractas/triangulo.py</h5>
+
+<pre class="code-box"><code id="codeTriangulo">from .figura_abc import Figura
+import math
+
+class Triangulo(Figura):
+
+    def __init__(self, a, b, c):
+        self.a = float(a)
+        self.b = float(b)
+        self.c = float(c)
+
+    def area(self):
+        s = (self.a + self.b + self.c) / 2
+        try:
+            return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
+        except ValueError:
+            return 0.0
+
+    def perimetro(self):
+        return self.a + self.b + self.c
+</code></pre>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_abstractas/rombo.py</h5>
+
+<pre class="code-box"><code id="codeRombo">from .figura_abc import Figura
+import math
+
+class Rombo(Figura):
+
+    def __init__(self, d1, d2):
+        self.d1 = float(d1)
+        self.d2 = float(d2)
+
+    def area(self):
+        return (self.d1 * self.d2) / 2
+
+    def perimetro(self):
+        # lado = sqrt((d1/2)^2 + (d2/2)^2)
+        lado = math.sqrt((self.d1 / 2) ** 2 + (self.d2 / 2) ** 2)
+        return 4 * lado
+</code></pre>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_abstractas/pentagono.py</h5>
+
+<pre class="code-box"><code id="codePentagono">from .figura_abc import Figura
+import math
+
+class Pentagono(Figura):
+
+    def __init__(self, lado):
+        self.lado = float(lado)
+
+    def area(self):
+        # fórmula del pentágono regular
+        return (5 * self.lado ** 2) / (4 * math.tan(math.pi / 5))
+
+    def perimetro(self):
+        return self.lado * 5
+</code></pre>
+</div>
+
+
           <!-- ✅ Ejecutar -->
 
           <div class="ej-actions">
@@ -607,6 +843,8 @@ from flask import request, render_template_string</code></pre>
       offset: 50
     });
   </script>
+
+  
 </body>
 
 </html>

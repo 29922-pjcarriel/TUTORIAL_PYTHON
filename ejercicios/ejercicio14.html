@@ -1,8 +1,5 @@
 
 <!DOCTYPE html>
->>>>>>> c5a1852cbd487177481a33340f39584450d526ab
-=======
-﻿<!DOCTYPE html>
 
 <html lang="es">
 
@@ -381,6 +378,200 @@
               La herencia permite que el Empleado tenga 'nombre' sin haberlo definido explícitamente en su propia clase.
             </p>
           </div>
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-3">Archivos del proyecto</h4>
+
+<pre class="code-box">HerenciaPOO/
+│
+├── HerenciaPOO.py
+│
+├── poo_herencia/
+│   ├── figura.py
+│   ├── cuadrado.py
+│   ├── rectangulo.py
+│   └── triangulo.py
+│
+└── templates/
+    └── figuras_herencia.html
+</pre>
+
+  <p class="hint mb-0">
+    Crea la estructura anterior y copia el código de cada archivo.
+  </p>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: HerenciaPOO.py</h5>
+
+<pre class="code-box"><code>from flask import Flask, render_template
+import sys
+import os
+
+# Ajuste de ruta necesario para importar las clases correctamente
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+# Importa las clases derivadas
+from poo_herencia.cuadrado import Cuadrado
+from poo_herencia.rectangulo import Rectangulo
+from poo_herencia.triangulo import Triangulo
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    # 1. Objeto Cuadrado
+    C1 = Cuadrado(4)
+    C1.area()
+    C1.perimetro()
+
+    # 2. Objeto Rectángulo
+    R1 = Rectangulo("rectangulo", 5, 4)
+    R1.area()
+    R1.perimetro()
+
+    # 3. Objeto Triángulo
+    T1 = Triangulo("triangulo", 5, 4, 3)
+    T1.area()
+    T1.perimetro()
+
+    # Salida para template
+    resultados = [
+        {'titulo': "DATOS DEL CUADRADO", 'output': C1.get_output()},
+        {'titulo': "DATOS DEL RECTANGULO", 'output': R1.get_output()},
+        {'titulo': "DATOS DEL TRIANGULO", 'output': T1.get_output()},
+    ]
+
+    return render_template('figuras_herencia.html', resultados=resultados)
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5002)
+</code></pre>
+</div>
+
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_herencia/figura.py</h5>
+
+<pre class="code-box"><code>class Figura:
+    """Clase base para figuras geométricas."""
+
+    def __init__(self, dato=None):
+        self.__tipo = dato
+        self._area = 0.0
+        self._perimetro = 0.0
+
+    def get_tipo(self):
+        return self.__tipo
+
+    def area(self):
+        raise NotImplementedError("El método 'area' debe ser implementado en la clase derivada.")
+
+    def perimetro(self):
+        raise NotImplementedError("El método 'perimetro' debe ser implementado en la clase derivada.")
+
+    def get_output(self):
+        output = [
+            f"TIPO = {self.get_tipo()}",
+            f"AREA = {self._area:.2f}",
+            f"PERIMETRO = {int(self._perimetro)}"
+        ]
+        return output
+</code></pre>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_herencia/cuadrado.py</h5>
+
+<pre class="code-box"><code>from .figura import Figura
+
+class Cuadrado(Figura):
+    def __init__(self, l1=0):
+        super().__init__("cuadrado")
+        self.__lado = l1
+
+    def area(self):
+        self._area = self.__lado * self.__lado
+
+    def perimetro(self):
+        self._perimetro = self.__lado * 4
+
+    def get_output(self):
+        output = super().get_output()
+        output.insert(1, f"LADO = {self.__lado}")
+        return output
+</code></pre>
+</div>
+
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_herencia/rectangulo.py</h5>
+
+<pre class="code-box"><code>from .figura import Figura
+
+class Rectangulo(Figura):
+    def __init__(self, tipo, l1, l2):
+        super().__init__(tipo)
+        self.__lado1 = l1
+        self.__lado2 = l2
+
+    def area(self):
+        self._area = self.__lado1 * self.__lado2
+
+    def perimetro(self):
+        self._perimetro = (self.__lado1 * 2) + (self.__lado2 * 2)
+
+    def get_output(self):
+        output = super().get_output()
+        output.insert(1, f"LADO 1 = {self.__lado1}")
+        output.insert(2, f"LADO 2 = {self.__lado2}")
+        return output
+</code></pre>
+</div>
+
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: poo_herencia/triangulo.py</h5>
+
+<pre class="code-box"><code>from .figura import Figura
+import math
+
+class Triangulo(Figura):
+    def __init__(self, tipo, l1, l2, l3):
+        super().__init__(tipo)
+        self.__lado1 = l1
+        self.__lado2 = l2
+        self.__lado3 = l3
+
+    def perimetro(self):
+        self._perimetro = self.__lado1 + self.__lado2 + self.__lado3
+
+    def area(self):
+        self.perimetro()
+        sp = self._perimetro / 2
+        try:
+            self._area = math.sqrt(sp * (sp - self.__lado1) * (sp - self.__lado2) * (sp - self.__lado3))
+        except ValueError:
+            self._area = 0.0
+
+    def get_output(self):
+        output = super().get_output()
+        output.insert(1, f"LADO 1 = {self.__lado1}")
+        output.insert(2, f"LADO 2 = {self.__lado2}")
+        output.insert(3, f"LADO 3 = {self.__lado3}")
+        return output
+</code></pre>
+</div>
+
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-2">Ejecutar el proyecto</h4>
+
+<pre class="code-box"><code>pip install flask
+python HerenciaPOO.py
+</code></pre>
+
+  <p class="hint mb-0">
+    Abre el navegador en: <b>http://127.0.0.1:5002</b>
+  </p>
+</div>
 
 
           <!-- ✅ BOTÓN EJECUTAR -->
