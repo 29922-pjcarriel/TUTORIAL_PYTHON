@@ -20,7 +20,14 @@
   <link href="../static/assets/css/custom.css" rel="stylesheet">
 
   <style>
-    /* Sidebar Sticky Mejorado */
+    .array-box {
+      border: 2px solid #333;
+      padding: 10px 18px;
+      border-radius: 8px;
+      background: #fff;
+      font-weight: 600;
+    }
+
     .sidebar-nav {
       position: sticky;
       top: 100px;
@@ -72,6 +79,8 @@
       padding: 0;
       margin: 0;
     }
+    [id] { scroll-margin-top: 140px; }
+
 
     .sidebar-nav li {
       margin-bottom: 0.5rem;
@@ -136,6 +145,12 @@
       background: linear-gradient(90deg, #667eea, #764ba2);
       width: 0%;
       transition: width 0.3s ease;
+    }
+
+    .code-wide {
+      width: 100%;
+      font-size: 1.05rem;
+      line-height: 1.6;
     }
   </style>
 
@@ -326,10 +341,48 @@
               </div>
               <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
               <ul>
-                <li><a href="#lista" class="active">Listas</a></li>
-                <li><a href="#matrices">Matrices / Tablas</a></li>
-                <li><a href="#diccionarios">Diccionarios</a></li>
-              </ul>
+  <!-- 1) LISTAS -->
+  <li><a href="#lista" class="active">1. Listas</a></li>
+  <li><a href="#lista-indices">1.1 Índices en listas</a></li>
+  <li><a href="#lista-varios-tipos">1.2 Lista con varios tipos</a></li>
+  <li><a href="#arreglos-unidim">1.3 Arreglos unidimensionales</a></li>
+  <li><a href="#declaracion-listas">1.4 Declaración de listas</a></li>
+  <li><a href="#agregar-elementos">1.5 Agregar elementos</a></li>
+  <li><a href="#mostrar-elementos">1.6 Mostrar elementos</a></li>
+  <li><a href="#indices-negativos">1.7 Índices negativos</a></li>
+  <li><a href="#longitud-lista">1.8 Longitud (len)</a></li>
+  <li><a href="#bucle-lista">1.9 Elementos en bucle</a></li>
+  <li><a href="#rango">1.10 Rango (range)</a></li>
+  <li><a href="#remover">1.11 Remover (pop/remove)</a></li>
+
+  <hr class="my-2">
+
+  <!-- 2) MATRICES -->
+  <li><a href="#matrices">2. Matrices / Tablas</a></li>
+  <li><a href="#arreglos-multidim">2.0 Arreglos multidimensionales</a></li>
+  <li><a href="#matriz2d">2.1 Matriz bidimensional</a></li>
+  <li><a href="#cubo3d">2.2 Matriz tridimensional</a></li>
+  <li><a href="#listas-de-listas">2.3 Listas de listas</a></li>
+  <li><a href="#tabla-declarar">2.4 Declarar una tabla</a></li>
+  <li><a href="#tabla-mostrar">2.5 Mostrar elementos</a></li>
+  <li><a href="#tabla-bucle-for">2.6 Elementos en bucle</a></li>
+
+  <hr class="my-2">
+
+  <!-- 3) DICCIONARIOS -->
+  <li><a href="#diccionarios">3. Diccionarios</a></li>
+  <li><a href="#dict-intro">3.0 Introducción</a></li>
+  <li><a href="#dict-declare">3.1 Declarar</a></li>
+  <li><a href="#dict-show">3.2 Mostrar</a></li>
+  <li><a href="#dict-loop">3.3 Recorrer con for</a></li>
+
+  <hr class="my-2">
+
+  <!-- VIDEO + CUESTIONARIO -->
+  <li><a href="#video-arreglos">Video</a></li>
+  <li><a href="#cuestionario-arreglos">Cuestionario</a></li>
+</ul>
+
 
             </nav>
           </div>
@@ -343,7 +396,9 @@
             <h3 class="fw-bold mb-3" id="lista">1. Listas (Lists) / Arreglos de Datos</h3>
 
             <div class="card mb-4 border-0 shadow-sm">
-              <div class="card-header bg-primary text-white fw-bold">1. Listas (Lists)</div>
+              <!-- ya lo tienes como h3 lista, debajo agrega este id -->
+              <h5 class="fw-bold mt-4 mb-3" id="lista-indices">1.0 Índices en listas</h5>
+
               <div class="card-body">
 
                 <p>
@@ -352,38 +407,44 @@
                 </p>
                 <!-- DEMO VISUAL ÍNDICES LISTA -->
                 <div class="row g-4 mt-3">
-
-                  <!-- IZQUIERDA : Código -->
-                  <div class="col-md-6">
-                    <div style="
-      background:#1e1e1e;
-      color:#00ff9c;
-      font-family:Consolas, monospace;
-      padding:20px;
-      border-radius:12px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.25);
-      white-space:pre-line;
-    ">
-
+                  <!-- CÓDIGO (ANCHO) -->
+                  <div class="col-12">
+                    <div class="code-demo code-wide" id="code-lista-indices">
                       mi_lista = [2, 1, -6, 4]
 
-                      # Índices
-                      # 0 1 2 3
-
+                      print(mi_lista)
                     </div>
-                  </div>
 
-                  <!-- DERECHA : Visual -->
-                  <div class="col-md-6">
-                    <div class="bg-white p-4 rounded shadow-sm border text-center">
+                    <!-- BOTONES -->
+                    <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                      <button class="btn btn-primary rounded-pill px-4" id="btn-run-lista-indices" type="button">
+                        <i class="bi bi-play-fill me-1"></i> Ejecutar
+                      </button>
 
-                      <div class="d-flex justify-content-center gap-2 mb-2">
+                      <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-lista-indices"
+                        type="button">
+                        <i class="bi bi-eye-slash me-1"></i> Ocultar
+                      </button>
+                    </div>
 
+                    <!-- SALIDA (OCULTA) -->
+                    <div class="border rounded p-3 bg-white mt-3 text-center" id="out-lista-indices-box"
+                      style="display:none;">
+                      <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                      <pre class="font-monospace text-start m-0"
+                        style="background:#f8fafc; border:1px solid #e2e8f0; padding:14px; border-radius:10px;"
+                        id="out-lista-indices"></pre>
+                    </div>
+
+                    <!-- VISUAL + ÍNDICES (OCULTO) -->
+                    <div class="bg-white p-4 rounded shadow-sm border text-center mt-3" id="vis-lista-indices"
+                      style="display:none;">
+
+                      <div class="d-flex justify-content-center gap-2 mb-2 flex-wrap">
                         <div style="border:2px solid #333;padding:10px 18px;">2</div>
                         <div style="border:2px solid #333;padding:10px 18px;">1</div>
                         <div style="border:2px solid #333;padding:10px 18px;">-6</div>
                         <div style="border:2px solid #333;padding:10px 18px;">4</div>
-
                       </div>
 
                       <div class="d-flex justify-content-center gap-5 small text-muted">
@@ -393,22 +454,19 @@
                         <span>3</span>
                       </div>
 
-                      <div class="mt-2 small text-muted">
-                        índice
-                      </div>
-
+                      <div class="mt-2 small text-muted">índice</div>
                     </div>
-                  </div>
 
+                  </div>
                 </div>
 
-
-                <h5 class="fw-bold mt-4 mb-3">
-                  Ejemplo: Lista con varios tipos
-                </h5>
+                <h5 class="fw-bold mt-4 mb-3" id="lista-varios-tipos">1.2 Ejemplo: Lista con varios tipos</h5>
+                <p>
+                  Las listas en Python pueden almacenar elementos de diferentes tipos de datos al mismo tiempo.
+                  Esto las hace muy flexibles para guardar información variada dentro de una sola estructura.
                 <div class="row g-4 mb-3">
 
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <div style="
       background:#1e1e1e;
       color:#00ff9c;
@@ -427,7 +485,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <div class="bg-white p-4 rounded shadow-sm border text-center">
 
                       <div class="d-flex justify-content-center gap-2 flex-wrap mb-2">
@@ -451,7 +509,7 @@
 
 
                 <hr>
-                <h5 class="fw-bold mb-3">Arreglos unidimensionales</h5>
+                <h5 class="fw-bold mb-3" id="arreglos-unidim">1.3 Arreglos unidimensionales</h5>
                 <p>
                   Son listas que almacenan valores de forma secuencial en una sola dimensión.
                   <strong>Ejemplo:</strong>
@@ -461,7 +519,7 @@
                 <div class="row g-4 mb-4">
 
                   <!-- IZQUIERDA : Código -->
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <div style="
       background:#1e1e1e;
       color:#00ff9c;
@@ -482,7 +540,7 @@
                   </div>
 
                   <!-- DERECHA : Visual -->
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <div class="bg-white p-4 rounded shadow-sm border text-center">
 
                       <div class="d-flex justify-content-center gap-3 mb-2">
@@ -509,7 +567,7 @@
                 </div>
 
                 <hr>
-                <h5 class="fw-bold mb-3">Declaración de listas en Python</h5>
+                <h5 class="fw-bold mb-3" id="declaracion-listas">1.4 Declaración de listas en Python</h5>
 
                 <!-- TEORÍA -->
                 <p>
@@ -528,22 +586,42 @@
                 <!-- DEMO Código vs Visual -->
                 <div class="row g-4 mb-4">
 
-                  <!-- IZQUIERDA Código -->
-                  <div class="col-md-6">
-                    <div class="code-demo">
-
+                  <!-- CÓDIGO (ANCHO ARRIBA) -->
+                  <div class="col-12">
+                    <div class="code-demo code-wide" id="code-declarar-listas">
                       EjemploLista = []
                       otraLista = list()
 
                       EjemploLista = [1, 2, True, "Hola", 5.8]
                       otraLista = list([4, 9, False, "texto"])
 
+                      print(EjemploLista)
+                      print(otraLista)
                     </div>
-                  </div>
 
-                  <!-- DERECHA Visual -->
-                  <div class="col-md-6">
-                    <div class="visual-box text-center">
+                    <!-- BOTONES -->
+                    <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                      <button class="btn btn-primary rounded-pill px-4" id="btn-run-declarar-listas" type="button">
+                        <i class="bi bi-play-fill me-1"></i> Ejecutar
+                      </button>
+
+                      <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-declarar-listas"
+                        type="button">
+                        <i class="bi bi-eye-slash me-1"></i> Ocultar
+                      </button>
+                    </div>
+
+                    <!-- SALIDA (OCULTA HASTA EJECUTAR) -->
+                    <div class="border rounded p-3 bg-white mt-3 text-center" id="out-declarar-listas-box"
+                      style="display:none;">
+                      <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                      <pre class="font-monospace text-start m-0"
+                        style="background:#f8fafc; border:1px solid #e2e8f0; padding:14px; border-radius:10px;"
+                        id="out-declarar-listas"></pre>
+                    </div>
+
+                    <!-- VISUAL (OCULTA HASTA EJECUTAR) -->
+                    <div class="visual-box text-center mt-3" id="vis-declarar-listas" style="display:none;">
 
                       <p class="fw-semibold mb-2">Contenido de EjemploLista</p>
 
@@ -572,87 +650,10 @@
                 </div>
 
 
+
                 <hr>
 
-                <h5 class="fw-bold mb-3">Agregar elementos a la lista</h5>
-
-                <!-- TEORÍA -->
-                <p>
-                  También es posible agregar elementos a una lista después de haberla creado.
-                  Para ello se utiliza el método <code>append()</code>, que inserta un nuevo
-                  valor al final de la lista.
-                </p>
-
-                <p>
-                  Otra forma de añadir varios valores a la vez es unir listas usando el operador
-                  <code>+</code>, lo que permite concatenar los elementos sin llamar varias veces
-                  a <code>append()</code>.
-                </p>
-
-
-                <!-- DEMO append -->
-                <div class="row g-4 mb-4">
-
-                  <!-- Código -->
-                  <div class="col-md-6">
-                    <div class="code-demo">
-
-                      paises = []
-                      paises.append("Ecuador")
-                      paises.append("Perú")
-                      paises.append("Colombia")
-
-                    </div>
-                  </div>
-
-                  <!-- Visual -->
-                  <div class="col-md-6">
-                    <div class="visual-box text-center">
-
-                      <p class="fw-semibold mb-2">Resultado</p>
-
-                      <div class="matrix-row">
-                        <div class="array-box">Ecuador</div>
-                        <div class="array-box">Perú</div>
-                        <div class="array-box">Colombia</div>
-                      </div>
-
-                    </div>
-                  </div>
-
-                </div>
-
-
-                <!-- DEMO Unión de listas -->
-                <div class="row g-4 mb-4">
-
-                  <!-- Código -->
-                  <div class="col-md-6">
-                    <div class="code-demo">
-
-                      numeros = []
-                      numeros = numeros + [10,5,3]
-
-                    </div>
-                  </div>
-
-                  <!-- Visual -->
-                  <div class="col-md-6">
-                    <div class="visual-box text-center">
-
-                      <p class="fw-semibold mb-2">Lista resultante</p>
-
-                      <div class="matrix-row">
-                        <div class="array-box">10</div>
-                        <div class="array-box">5</div>
-                        <div class="array-box">3</div>
-                      </div>
-
-                    </div>
-                  </div>
-
-                </div>
-                <h5 class="fw-bold mb-3">Agregar elementos a la lista</h5>
+                <h5 class="fw-bold mb-3" id="agregar-elementos">1.5 Agregar elementos a la lista</h5>
 
                 <!-- TEORÍA -->
                 <p>
@@ -734,7 +735,7 @@
 
                 <hr>
 
-                <h5 class="fw-bold mb-3">Mostrar elementos de la lista</h5>
+                <h5 class="fw-bold mb-3" id="mostrar-elementos">1.6 Mostrar elementos de la lista</h5>
 
                 <!-- TEORÍA -->
                 <p>
@@ -811,9 +812,9 @@
                 <!-- ================= ÍNDICES NEGATIVOS ================= -->
                 <hr class="my-4">
 
-                <h6 class="fw-bold text-danger mb-3">
-                  Índices negativos (recorrido completo)
+                <h6 class="fw-bold text-danger mb-3" id="indices-negativos">1.7 Índices negativos (recorrido completo)
                 </h6>
+
 
                 <p>
                   Cuando usamos índices negativos, Python recorre la lista desde el final.
@@ -825,7 +826,7 @@
 
                   <!-- Código -->
                   <div class="col-md-6">
-                    <div class="code-demo">
+                    <div class="code-demo code-wide">
 
                       print(paises[-3])
                       print(paises[-2])
@@ -865,295 +866,876 @@
 
                 <hr>
 
-                <h5 class="mb-2">Longitud de una lista</h5>
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  cars = ["Ford", "Volvo", "BMW"]<br>
-                  x = len(cars)<br>
-                  print(x)
+                <h5 class="fw-bold mb-3 text-center" id="longitud-lista">1.8 Longitud de una lista</h5>
+
+                <p class="text-center mb-3">
+                  Utilizando el método <code>len()</code>, devuelve la longitud de la lista
+                  (número de elementos). <strong>Ejemplo:</strong>
+                </p>
+
+                <div class="code-demo code-wide">
+                  cars = ["Ford", "Volvo", "BMW"]
+
+                  x = len(cars)
+
+                  print(x) # Mostrará: 3 que corresponde al número de elementos de la lista.
                 </div>
 
-                <div class="border rounded p-2 bg-white text-center mb-3">
+                <div class="border rounded p-2 bg-white text-center mt-3 mb-3">
                   3
                 </div>
 
-                <hr>
-
-                <h5 class="mb-2">Elementos de la lista en bucle</h5>
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  edades = [20, 41, 6, 18, 23]<br>
-                  for edad in edades:<br>
-                  &nbsp;&nbsp;print(edad)
-                </div>
 
                 <hr>
 
-                <h5 class="mb-2">Rango (range) con índices</h5>
-                <p>Sirve para recorrer posiciones con <code>for</code> usando índices.</p>
+                <hr>
 
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  for i in range(len(edades)):<br>
-                  &nbsp;&nbsp;print(edades[i])
+                <h5 class="fw-bold mb-3 text-center" id="bucle-lista">1.9 Elementos de la lista en bucle</h5>
+
+                <p class="text-center mb-3">
+                  Para obtener o recorrer todos los elementos de una lista de forma simple; en este caso,
+                  los ciclos <code>for</code> van accediendo uno por uno a los elementos. <strong>Ejemplo:</strong>
+                </p>
+
+                <div class="code-demo code-wide">
+                  edades = [20, 41, 6, 18, 23]
+
+                  for edad in edades:
+                  print(edad)
+                </div>
+                <div class="border rounded p-3 bg-white mt-3 mb-3 text-center">
+                  <div class="fw-semibold mb-2">Salida en pantalla:</div>
+
+                  <div class="font-monospace d-inline-block text-center px-4 py-2 rounded"
+                    style="background:#f8fafc; border:1px solid #e2e8f0; min-width:140px;">
+                    20<br>
+                    41<br>
+                    6<br>
+                    18<br>
+                    23
+                  </div>
                 </div>
 
-                <p class="mb-2"><strong>También se puede con while:</strong></p>
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  indice = 0<br>
-                  while indice &lt; len(edades):<br>
-                  &nbsp;&nbsp;print(edades[indice])<br>
-                  &nbsp;&nbsp;indice += 1
-                </div>
+
 
                 <hr>
 
-                <h5 class="mb-2">Remover elementos de una lista</h5>
-                <p>
-                  <code>pop()</code> elimina por índice, y <code>remove()</code> elimina por valor (solo la primera
-                  coincidencia).
+                <h5 class="fw-bold mb-3 text-center" id="rango">1.10 Rango</h5>
+
+                <p class="text-center mb-4">
+                  Genera una secuencia de números enteros, usado comúnmente para recorrer índices en bucles de tipo
+                  <code>for</code>, mostrando el valor de la posición solicitada:
                 </p>
 
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  palabras = ['hola', 'hello', 'ola']<br>
-                  palabras.pop(1)<br>
-                  print(palabras)
+                <div class="code-demo code-wide" id="code-range-for">
+                  edades = [20, 41, 6, 18, 23]
+
+                  for i in range(len(edades)):
+                  print(edades[i])
                 </div>
 
-                <div class="border rounded p-2 bg-white text-center mb-4">
-                  ['hola', 'ola']
+                <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                  <button class="btn btn-primary rounded-pill px-4" id="btn-run-range-for">
+                    <i class="bi bi-play-fill me-1"></i> Ejecutar
+                  </button>
+
+                  <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-range-for" type="button">
+                    <i class="bi bi-eye-slash me-1"></i> Ocultar
+                  </button>
                 </div>
 
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  palabras = ['hola', 'hello', 'hello', 'ola']<br>
-                  palabras.remove('hello')<br>
-                  print(palabras)
-                </div>
 
-                <div class="border rounded p-2 bg-white text-center">
-                  ['hola', 'hello', 'ola']
-                </div>
-
-              </div>
-            </div>
-
-            <!-- ===================================================== -->
-            <!-- LISTAS DE LISTAS (MATRICES / TABLAS) -->
-            <!-- ===================================================== -->
-            <h5 class="fw-bold mb-3">Arreglos Multidimensionales</h5>
-
-            <p>
-              Son listas que contienen otras listas. Se pueden representar como matrices,
-              tablas o estructuras más complejas.
-            </p>
-
-
-            <!-- ================== MATRIZ BIDIMENSIONAL ================== -->
-            <hr class="my-4">
-
-            <h6 class="fw-bold text-primary mb-3">
-              Matriz bidimensional
-            </h6>
-
-            <div class="row g-4 mb-5">
-
-              <!-- Código -->
-              <div class="col-md-6">
-                <div class="code-demo">
-
-                  matriz = [
-                  [1, 2],
-                  [4, 5]
-                  ]
-
-                </div>
-              </div>
-
-              <!-- Visual -->
-              <div class="col-md-6">
-                <div class="visual-box">
-
-                  <div class="matrix-row">
-                    <div class="array-box">1</div>
-                    <div class="array-box">2</div>
+                <div class="border rounded p-3 bg-white mt-3 mb-4 text-center" id="out-range-for-box"
+                  style="display:none;">
+                  <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                  <div class="font-monospace d-inline-block text-center px-4 py-2 rounded"
+                    style="background:#f8fafc; border:1px solid #e2e8f0; min-width:200px;" id="out-range-for">
                   </div>
-
-                  <div class="matrix-row">
-                    <div class="array-box">4</div>
-                    <div class="array-box">5</div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-
-
-            <!-- ================== MATRIZ TRIDIMENSIONAL ================== -->
-            <hr class="my-4">
-
-            <h6 class="fw-bold text-success mb-3">
-              Matriz tridimensional
-            </h6>
-
-            <div class="row g-4 mb-4">
-
-              <!-- Código -->
-              <div class="col-md-6">
-                <div class="code-demo">
-
-                  cubo = [
-                  [[1, 2], [3, 4]],
-                  [[5, 6], [7, 8]]
-                  ]
-
-                </div>
-              </div>
-
-              <!-- Visual -->
-              <div class="col-md-6">
-
-
-                <div class="visual-box">
-
-                  <p class="fw-semibold mb-2">Capa 0</p>
-                  <div class="matrix-row">
-                    <div class="array-box">1</div>
-                    <div class="array-box">2</div>
-                  </div>
-                  <div class="matrix-row mb-3">
-                    <div class="array-box">3</div>
-                    <div class="array-box">4</div>
-                  </div>
-
-                  <p class="fw-semibold mb-2">Capa 1</p>
-                  <div class="matrix-row">
-                    <div class="array-box">5</div>
-                    <div class="array-box">6</div>
-                  </div>
-                  <div class="matrix-row">
-                    <div class="array-box">7</div>
-                    <div class="array-box">8</div>
-                  </div>
-
                 </div>
 
-              </div>
-
-            </div>
-
-
-            <h3 class="fw-bold mb-3" id="matrices">2. Listas de listas (Matrices / Tablas)</h3>
-
-            <div class="card mb-4 border-0 shadow-sm">
-              <div class="card-header bg-success text-white fw-bold">Listas de listas (Matrices)</div>
-              <div class="card-body">
-
-                <p>
-                  Una matriz es una lista que contiene otras listas. Para acceder a un valor se usan dos índices:
-                  <code>[fila][columna]</code>.
+                <p class="mt-4">
+                  Se observa que el ciclo <code>for</code> puede acceder directamente a los elementos y recorrerlos uno
+                  por uno,
+                  pero también se accede a ellos mediante sus índices; esto nos devolverá el mismo resultado.
                 </p>
 
-
-                <p class="mb-2"><strong>Matriz bidimensional:</strong></p>
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  matriz = [<br>
-                  &nbsp;&nbsp;[1, 2],<br>
-                  &nbsp;&nbsp;[4, 5]<br>
-                  ]
-                </div>
-
-                <p class="mb-2"><strong>Recorrer con for anidados:</strong></p>
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  for fila in matriz:<br>
-                  &nbsp;&nbsp;for col in fila:<br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;print(col)
-                </div>
-
-                <p class="mb-2"><strong>Ejemplo de tabla (como tu imagen):</strong></p>
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  EjemploTabla = [["Juan","Laura"],[21,32]]<br>
-                  print(EjemploTabla[0][0])<br>
-                  print(EjemploTabla[-1][1])<br>
-                  print(EjemploTabla[0])
-                </div>
-
-                <div class="border rounded p-2 bg-white mb-3">
-                  <strong>Salida:</strong> Juan — 32 — ['Juan','Laura']
-                </div>
-
-                <p class="mb-2"><strong>Recorrer con índices (for + range):</strong></p>
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  for i in range(len(EjemploTabla)):<br>
-                  &nbsp;&nbsp;for j in range(len(EjemploTabla[i])):<br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;print(EjemploTabla[i][j])
-                </div>
-
-                <p class="mb-2"><strong>Recorrer con while anidados:</strong></p>
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  fila = 0<br>
-                  while fila &lt; len(EjemploTabla):<br>
-                  &nbsp;&nbsp;columna = 0<br>
-                  &nbsp;&nbsp;while columna &lt; len(EjemploTabla[fila]):<br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;print(EjemploTabla[fila][columna])<br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;columna += 1<br>
-                  &nbsp;&nbsp;fila += 1
-                </div>
-
-              </div>
-            </div>
-
-            <!-- ===================================================== -->
-            <!-- DICCIONARIOS (según imágenes) -->
-            <!-- ===================================================== -->
-
-            <h3 class="fw-bold mb-3" id="diccionarios">3. Diccionarios (Dicts) / Listas Asociativas</h3>
-
-            <div class="card mb-4 border-0 shadow-sm">
-              <div class="card-header bg-warning text-dark fw-bold">3. Diccionarios (Dicts)</div>
-              <div class="card-body">
-
-                <p>
-                  Un diccionario almacena elementos como pares <strong>clave : valor</strong>.
-                  Se declara con llaves <code>{ }</code>.
+                <p class="mb-3">
+                  Incluso con el bucle <code>while</code> se puede recorrer los elementos de la lista, mediante los
+                  índices,
+                  para obtener el mismo resultado que el bucle <code>for</code>:
                 </p>
 
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  EjemploDiccionario = {}<br>
-                  otroDiccionario = {<br>
-                  &nbsp;&nbsp;"nombre": "Alberto",<br>
-                  &nbsp;&nbsp;"usuario": "alb545"<br>
-                  }
-                </div>
+                <div class="code-demo code-wide" id="code-range-while">
+                  indice = 0
 
-                <h6 class="fw-bold">Mostrar elementos del diccionario</h6>
-                <div class="bg-light p-3 font-monospace rounded mb-3">
-                  EjemploDiccionario = {<br>
-                  &nbsp;&nbsp;"nombre": "Juan",<br>
-                  &nbsp;&nbsp;"usuario": "jn123"<br>
-                  }<br><br>
-                  print(EjemploDiccionario["nombre"])<br>
-                  print(EjemploDiccionario["usuario"])
-                </div>
+                  while indice < len(edades): print(edades[indice]) indice +=1 </div>
 
-                <div class="border rounded p-2 bg-white text-center">
-                  Juan<br>jn123
-                </div>
+                    <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                      <button class="btn btn-success rounded-pill px-4" id="btn-run-range-while">
+                        <i class="bi bi-play-fill me-1"></i> Ejecutar
+                      </button>
 
+                      <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-range-while"
+                        type="button">
+                        <i class="bi bi-eye-slash me-1"></i> Ocultar
+                      </button>
+                    </div>
+
+
+                    <div class="border rounded p-3 bg-white mt-3 mb-3 text-center" id="out-range-while-box"
+                      style="display:none;">
+                      <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                      <div class="font-monospace d-inline-block text-center px-4 py-2 rounded"
+                        style="background:#f8fafc; border:1px solid #e2e8f0; min-width:200px;" id="out-range-while">
+                      </div>
+                    </div>
+
+                    <hr>
+
+                    <h5 class="fw-bold mb-3 text-center" id="remover">1.11 Remover elementos de una lista</h5>
+
+                    <p class="text-center mb-4">
+                      Puedes usar el método <code>.pop()</code> para eliminar un elemento de la lista, según el índice
+                      que se indique.
+                      <strong>Ejemplo:</strong>
+                    </p>
+
+                    <div class="code-demo code-wide">
+                      palabras = ['hola', 'hello', 'ola']
+                      palabras.pop(1)
+                      print(palabras) # Mostrará: ['hola', 'ola']
+                    </div>
+
+                    <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                      <button class="btn btn-primary rounded-pill px-4" id="btn-run-pop">
+                        <i class="bi bi-play-fill me-1"></i> Ejecutar
+                      </button>
+                      <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-pop" type="button">
+                        <i class="bi bi-eye-slash me-1"></i> Ocultar
+                      </button>
+                    </div>
+
+                    <div class="border rounded p-3 bg-white mt-3 mb-4 text-center" id="out-pop-box"
+                      style="display:none;">
+                      <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                      <div class="font-monospace d-inline-block text-center px-4 py-2 rounded"
+                        style="background:#f8fafc; border:1px solid #e2e8f0; min-width:260px;" id="out-pop"></div>
+                    </div>
+
+                    <p class="mt-4">
+                      Como vemos, el elemento ubicado en el índice 1 ("hello") se eliminó de la lista.
+                      Pero si no quieres usar los índices, puedes usar el valor del elemento que deseas borrar.
+                      Aplicando la función <code>.remove()</code>, se elimina un elemento según el valor que este tenga
+                      al interior de la lista.
+                      <strong>Ejemplo:</strong>
+                    </p>
+
+
+                    <div class="code-demo code-wide">
+                      palabras = ['hola', 'hello', 'hello', 'ola']
+                      palabras.remove('hello')
+                      print(palabras) # Mostrará: ['hola', 'hello', 'ola']
+                    </div>
+
+                    <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap align-items-center">
+                      <input id="remove-value" class="form-control" style="max-width: 260px; border-radius: 999px;"
+                        value="hello" placeholder="Valor a eliminar (remove)">
+
+                      <button class="btn btn-success rounded-pill px-4" id="btn-run-remove" type="button">
+                        <i class="bi bi-play-fill me-1"></i> Ejecutar
+                      </button>
+
+                      <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-remove" type="button">
+                        <i class="bi bi-eye-slash me-1"></i> Ocultar
+                      </button>
+                    </div>
+
+                    <div class="border rounded p-3 bg-white mt-3 mb-3 text-center" id="out-remove-box"
+                      style="display:none;">
+                      <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                      <div class="font-monospace d-inline-block text-center px-4 py-2 rounded"
+                        style="background:#f8fafc; border:1px solid #e2e8f0; min-width:260px;" id="out-remove"></div>
+                    </div>
+
+
+
+                    <p class="mt-4 mb-0">
+                      Se observa, que <code>remove</code> busca el elemento y lo borra, pero solo borrará el primer
+                      elemento que encuentre,
+                      no todos los que tengan ese valor.
+                    </p>
+
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div class="d-flex justify-content-between mt-5 pt-4 border-top">
-            <a href="teoria_ManejoFormularios.html" class="btn btn-outline-secondary rounded-pill px-4">
-              <i class="bi bi-arrow-left me-2"></i> Anterior: Manejo de Formularios
-            </a>
-            <a href="teoria_poo.html" class="btn btn-primary rounded-pill px-4">
-              Siguiente: Clase vs Objeto <i class="bi bi-arrow-right ms-2"></i>
-            </a>
-          </div>
+              <!-- ===================================================== -->
 
-        </div>
+              <!-- ===================================================== -->
+              <!-- LISTAS DE LISTAS (MATRICES / TABLAS) -->
+              <!-- ===================================================== -->
+              <h3 class="fw-bold mb-3" id="matrices">2. Listas de listas (Matrices / Tablas)</h3>
+
+              <div class="card mb-4 border-0 shadow-sm">
+                <div class="card-header bg-success text-white fw-bold">2. Matrices / Tablas (Listas de listas)</div>
+
+                <div class="card-body">
+
+                  <h5 class="fw-bold mb-3" id="arreglos-multidim">2.0 Arreglos Multidimensionales</h5>
+
+                  <p>
+                    Son listas que contienen otras listas. Se pueden representar como matrices,
+                    tablas o estructuras más complejas.
+                  </p>
+
+                  <hr class="my-4">
+
+                  <!-- ================== MATRIZ BIDIMENSIONAL ================== -->
+                  <h6 class="fw-bold text-primary mb-3" id="matriz2d">2.1 Matriz bidimensional</h6>
+                  <div class="mb-5">
+
+                    <!-- CÓDIGO (ANCHO) -->
+                    <div class="code-demo code-wide" id="code-matriz2d">
+                      matriz = [
+                      [1, 2],
+                      [4, 5]
+                      ]
+
+                      print(matriz)
+                    </div>
+
+                    <!-- BOTONES (DEBAJO) -->
+                    <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                      <button class="btn btn-primary rounded-pill px-4" id="btn-run-matriz2d">
+                        <i class="bi bi-play-fill me-1"></i> Ejecutar
+                      </button>
+
+                      <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-matriz2d" type="button">
+                        <i class="bi bi-eye-slash me-1"></i> Ocultar
+                      </button>
+                    </div>
+
+                    <!-- SALIDA REAL (OCULTA HASTA EJECUTAR) -->
+                    <div class="border rounded p-3 bg-white mt-3 text-center" id="out-matriz2d-box"
+                      style="display:none;">
+                      <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                      <pre class="font-monospace text-start m-0"
+                        style="background:#f8fafc; border:1px solid #e2e8f0; padding:14px; border-radius:10px;"
+                        id="out-matriz2d"></pre>
+                    </div>
+
+                    <!-- VISUAL (OCULTA HASTA EJECUTAR) -->
+                    <div class="visual-box mt-3" id="vis-matriz2d" style="display:none;">
+                      <div class="matrix-row">
+                        <div class="array-box">1</div>
+                        <div class="array-box">2</div>
+                      </div>
+                      <div class="matrix-row">
+                        <div class="array-box">4</div>
+                        <div class="array-box">5</div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- ================== MATRIZ TRIDIMENSIONAL ================== -->
+                  <h6 class="fw-bold text-success mb-3" id="cubo3d">2.2 Matriz tridimensional</h6>
+
+                  <div class="mb-4">
+
+                    <!-- CÓDIGO (ANCHO) -->
+                    <div class="code-demo code-wide" id="code-cubo3d">
+                      cubo = [
+                      [[1, 2], [3, 4]],
+                      [[5, 6], [7, 8]]
+                      ]
+
+                      print(cubo)
+                    </div>
+
+                    <!-- BOTONES (DEBAJO) -->
+                    <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                      <button class="btn btn-success rounded-pill px-4" id="btn-run-cubo3d">
+                        <i class="bi bi-play-fill me-1"></i> Ejecutar
+                      </button>
+
+                      <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-cubo3d" type="button">
+                        <i class="bi bi-eye-slash me-1"></i> Ocultar
+                      </button>
+                    </div>
+
+                    <!-- SALIDA REAL (OCULTA HASTA EJECUTAR) -->
+                    <div class="border rounded p-3 bg-white mt-3 text-center" id="out-cubo3d-box" style="display:none;">
+                      <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                      <pre class="font-monospace text-start m-0"
+                        style="background:#f8fafc; border:1px solid #e2e8f0; padding:14px; border-radius:10px;"
+                        id="out-cubo3d"></pre>
+                    </div>
+
+                    <!-- VISUAL (OCULTA HASTA EJECUTAR) -->
+                    <div class="visual-box mt-3" id="vis-cubo3d" style="display:none;">
+                      <p class="fw-semibold mb-2">Capa 0</p>
+                      <div class="matrix-row">
+                        <div class="array-box">1</div>
+                        <div class="array-box">2</div>
+                      </div>
+                      <div class="matrix-row mb-3">
+                        <div class="array-box">3</div>
+                        <div class="array-box">4</div>
+                      </div>
+
+                      <p class="fw-semibold mb-2">Capa 1</p>
+                      <div class="matrix-row">
+                        <div class="array-box">5</div>
+                        <div class="array-box">6</div>
+                      </div>
+                      <div class="matrix-row">
+                        <div class="array-box">7</div>
+                        <div class="array-box">8</div>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                  <!-- FIN-->
+
+                  <hr class="my-4">
+
+                  <h5 class="fw-bold mb-3 text-center" id="listas-de-listas">2.3 Listas de listas (Matrices)</h5>
+
+                  <p class="text-center mb-2">
+                    También llamadas tablas, no son más que matrices o listas que contienen listas.
+                  </p>
+                  <p class="text-center mb-4">
+                    Son utilizadas para almacenar múltiples valores en una única variable y siguen la misma lógica de
+                    las listas,
+                    pero con más niveles de “anidamiento”.
+                  </p>
+
+
+                  <h6 class="fw-bold mt-4" id="tabla-declarar">2.4 Declarar una tabla en Python</h6>
+                  <p class="mb-3">
+                    Como vimos en listas, las tablas se declaran de la misma manera que una lista:
+                  </p>
+
+                  <div class="code-demo code-wide" id="code-tabla-declarar">
+                    EjemploTabla = []
+                    otraTabla = [[], []]
+
+                    print(EjemploTabla)
+                    print(otraTabla)
+                  </div>
+
+                  <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                    <button class="btn btn-primary rounded-pill px-4" id="btn-run-tabla-declarar" type="button">
+                      <i class="bi bi-play-fill me-1"></i> Ejecutar
+                    </button>
+                    <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-tabla-declarar"
+                      type="button">
+                      <i class="bi bi-eye-slash me-1"></i> Ocultar
+                    </button>
+                  </div>
+
+                  <div class="border rounded p-3 bg-white mt-3 w-100 text-center" id="out-tabla-declarar-box"
+                    style="display:none;">
+                    <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                    <pre class="font-monospace mb-0 text-start d-inline-block" id="out-tabla-declarar"
+                      style="white-space: pre-wrap; min-width:240px;"></pre>
+                  </div>
+
+                  <p class="mt-3">
+                    Dentro de los corchetes agregamos las listas con sus elementos y así aplicamos los métodos ya vistos
+                    para agregar, quitar u obtener elementos.
+                  </p>
+
+                  <h6 class="fw-bold mt-4" id="tabla-mostrar">2.5 Mostrar elementos de la tabla</h6>
+
+                  <div class="code-demo code-wide" id="code-tabla-mostrar">
+                    EjemploTabla = [["Juan","Laura"],[21,32]]
+
+                    print(EjemploTabla[0][0])
+                    print(EjemploTabla[-1][1])
+                    print(EjemploTabla[0]) # Mostrará: ['Juan', 'Laura']
+                  </div>
+
+                  <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                    <button class="btn btn-success rounded-pill px-4" id="btn-run-tabla-mostrar" type="button">
+                      <i class="bi bi-play-fill me-1"></i> Ejecutar
+                    </button>
+                    <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-tabla-mostrar"
+                      type="button">
+                      <i class="bi bi-eye-slash me-1"></i> Ocultar
+                    </button>
+                  </div>
+
+                  <div class="border rounded p-3 bg-white mt-3 w-100 text-center" id="out-tabla-mostrar-box"
+                    style="display:none;">
+                    <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                    <pre class="font-monospace mb-0 text-start d-inline-block" id="out-tabla-mostrar"
+                      style="white-space: pre-wrap; min-width:240px;"></pre>
+                  </div>
+
+                  <p class="mt-3">
+                    Al tratarse de una matriz, se debe especificar el índice de la fila y de la columna para mostrar el
+                    valor del elemento.
+                  </p>
+
+                  <h6 class="fw-bold mt-4" id="tabla-bucle-for">2.6 Elementos de la tabla en bucle</h6>
+
+                  <p class="mb-3">
+                    Con el ciclo <code>for</code>, se accede uno por uno a los elementos de la tabla (fila y columna).
+                    Ejemplo:
+                  </p>
+
+                  <div class="code-demo code-wide" id="code-tabla-for">
+                    EjemploTabla = [["Juan","Laura"],[21,32]]
+
+                    for fila in EjemploTabla:
+                    for columna in fila:
+                    print(columna) # Mostrará: Juan - Laura - 21 - 32
+                  </div>
+
+                  <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                    <button class="btn btn-primary rounded-pill px-4" id="btn-run-tabla-for" type="button">
+                      <i class="bi bi-play-fill me-1"></i> Ejecutar
+                    </button>
+                    <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-tabla-for" type="button">
+                      <i class="bi bi-eye-slash me-1"></i> Ocultar
+                    </button>
+                  </div>
+
+                  <div class="border rounded p-3 bg-white mt-3 w-100 text-center" id="out-tabla-for-box"
+                    style="display:none;">
+                    <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                    <pre class="font-monospace mb-0 text-start d-inline-block" id="out-tabla-for"
+                      style="white-space: pre-wrap; min-width:240px;"></pre>
+                  </div>
+
+                  <p class="mt-4 mb-3">
+                    Para recorrer con índices, usamos ciclos <code>for</code> anidados con <code>range()</code>:
+                  </p>
+
+                  <div class="code-demo code-wide" id="code-tabla-range">
+                    EjemploTabla = [["Juan","Laura"],[21,32]]
+
+                    for i in range(len(EjemploTabla)):
+                    for j in range(len(EjemploTabla[i])):
+                    print(EjemploTabla[i][j])
+                  </div>
+
+                  <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                    <button class="btn btn-success rounded-pill px-4" id="btn-run-tabla-range" type="button">
+                      <i class="bi bi-play-fill me-1"></i> Ejecutar
+                    </button>
+                    <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-tabla-range" type="button">
+                      <i class="bi bi-eye-slash me-1"></i> Ocultar
+                    </button>
+                  </div>
+
+                  <div class="border rounded p-3 bg-white mt-3 w-100 text-center" id="out-tabla-range-box"
+                    style="display:none;">
+                    <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                    <pre class="font-monospace mb-0 text-start d-inline-block" id="out-tabla-range"
+                      style="white-space: pre-wrap; min-width:240px;"></pre>
+                  </div>
+
+                  <p class="mt-4 mb-3">
+                    Igual que en listas, también se puede recorrer una tabla con <code>while</code> usando contadores:
+                  </p>
+
+                  <div class="code-demo code-wide" id="code-tabla-while">
+                    EjemploTabla = [["Juan","Laura"],[21,32]]
+
+                    fila = 0
+                    while fila < len(EjemploTabla): columna=0 while columna < len(EjemploTabla[fila]):
+                      print(EjemploTabla[fila][columna]) columna +=1 fila +=1 </div>
+
+                      <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                        <button class="btn btn-primary rounded-pill px-4" id="btn-run-tabla-while" type="button">
+                          <i class="bi bi-play-fill me-1"></i> Ejecutar
+                        </button>
+                        <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-tabla-while"
+                          type="button">
+                          <i class="bi bi-eye-slash me-1"></i> Ocultar
+                        </button>
+                      </div>
+
+                      <div class="border rounded p-3 bg-white mt-3 w-100 text-center" id="out-tabla-while-box"
+                        style="display:none;">
+                        <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                        <pre class="font-monospace mb-0 text-start d-inline-block" id="out-tabla-while"
+                          style="white-space: pre-wrap; min-width:240px;"></pre>
+                      </div>
+
+                      <p class="mt-4">
+                        Usando <code>len()</code> obtenemos el tamaño y con <code>range()</code> recorremos las
+                        posiciones con índices.
+                        Se evidencia que al ser listas con listas, se pueden aplicar los mismos métodos que en arreglos
+                        unidimensionales
+                        para agregar, buscar y eliminar elementos.
+                      </p>
+
+
+                      <hr class="my-4">
+
+                      <!-- ================== FOR ANIDADO ================== -->
+                      <h6 class="fw-bold">Elementos de la tabla en bucle</h6>
+                      <p class="mb-3">
+                        Con el ciclo <code>for</code>, se accede uno por uno a los elementos de la tabla, recorriendo
+                        cada
+                        fila y luego cada columna.
+                        <strong>Ejemplo:</strong>
+                      </p>
+
+                      <div class="code-demo code-wide" id="code-tabla-for">
+                        EjemploTabla = [["Juan","Laura"],[21,32]]
+
+                        for fila in EjemploTabla:
+                        for columna in fila:
+                        print(columna) # Mostrará: Juan - Laura - 21 - 32
+                      </div>
+
+                      <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                        <button class="btn btn-primary rounded-pill px-4" id="btn-run-tabla-for">
+                          <i class="bi bi-play-fill me-1"></i> Ejecutar
+                        </button>
+
+                        <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-tabla-for"
+                          type="button">
+                          <i class="bi bi-eye-slash me-1"></i> Ocultar
+                        </button>
+                      </div>
+
+                      <div class="border rounded p-3 bg-white mt-3 text-center" id="out-tabla-for-box"
+                        style="display:none;">
+                        <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                        <pre class="font-monospace text-start m-0"
+                          style="background:#f8fafc; border:1px solid #e2e8f0; padding:14px; border-radius:10px;"
+                          id="out-tabla-for"></pre>
+                      </div>
+
+                      <p class="mt-4 mb-3">
+                        Para recorrer usando índices con <code>range()</code>, usamos dos bucles: uno para filas y otro
+                        para
+                        columnas:
+                      </p>
+
+                      <div class="code-demo code-wide" id="code-tabla-range">
+                        EjemploTabla = [["Juan","Laura"],[21,32]]
+
+                        for i in range(len(EjemploTabla)):
+                        for j in range(len(EjemploTabla[i])):
+                        print(EjemploTabla[i][j])
+                      </div>
+
+                      <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                        <button class="btn btn-success rounded-pill px-4" id="btn-run-tabla-range">
+                          <i class="bi bi-play-fill me-1"></i> Ejecutar
+                        </button>
+
+                        <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-tabla-range"
+                          type="button">
+                          <i class="bi bi-eye-slash me-1"></i> Ocultar
+                        </button>
+                      </div>
+
+                      <div class="border rounded p-3 bg-white mt-3 text-center" id="out-tabla-range-box"
+                        style="display:none;">
+                        <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                        <pre class="font-monospace text-start m-0"
+                          style="background:#f8fafc; border:1px solid #e2e8f0; padding:14px; border-radius:10px;"
+                          id="out-tabla-range"></pre>
+                      </div>
+
+                      <hr class="my-4">
+
+                      <!-- ================== WHILE ANIDADO ================== -->
+                      <p class="mt-4 mb-3">
+                        Igual que en listas, se puede usar <code>while</code> para recorrer filas y columnas, con
+                        contadores.
+                        <strong>Ejemplo:</strong>
+                      </p>
+
+                      <div class="code-demo code-wide" id="code-tabla-while">
+                        EjemploTabla = [["Juan","Laura"],[21,32]]
+
+                        fila = 0
+                        while fila < len(EjemploTabla): columna=0 while columna < len(EjemploTabla[fila]):
+                          print(EjemploTabla[fila][columna]) columna +=1 fila +=1 </div>
+
+                          <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                            <button class="btn btn-primary rounded-pill px-4" id="btn-run-tabla-while">
+                              <i class="bi bi-play-fill me-1"></i> Ejecutar
+                            </button>
+
+                            <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-tabla-while"
+                              type="button">
+                              <i class="bi bi-eye-slash me-1"></i> Ocultar
+                            </button>
+                          </div>
+
+                          <div class="border rounded p-3 bg-white mt-3 text-center" id="out-tabla-while-box"
+                            style="display:none;">
+                            <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                            <pre class="font-monospace text-start m-0"
+                              style="background:#f8fafc; border:1px solid #e2e8f0; padding:14px; border-radius:10px;"
+                              id="out-tabla-while"></pre>
+                          </div>
+
+                          <p class="mt-4 mb-0">
+                            Se evidencia que, al ser listas con listas en su interior, se pueden aplicar los mismos
+                            conceptos que en listas:
+                            agregar, buscar, eliminar y recorrer elementos, pero manejando índices por fila y columna.
+                          </p>
+
+
+
+                          <hr class="my-4">
+                          <h3 class="fw-bold mb-3" id="diccionarios">3. Diccionarios (Dicts) / Listas Asociativas</h3>
+
+                          <div class="card mb-4 border-0 shadow-sm">
+                           <div class="card-body">
+
+                              <div class="card-body">
+
+                                <h4 class="fw-bold text-center mb-3" id="dict-intro">3.0 Listas Asociativas
+                                  (Diccionarios)</h4>
+                                <p>
+                                  También llamadas listas con llaves, donde cada llave es un identificador único de una
+                                  posición de la lista,
+                                  es decir, en lugar de números, se usan llaves que generalmente son strings.
+                                </p>
+
+                                <p class="mb-4">
+                                  Tienen la misma lógica que las listas, pero nos permiten organizar e identificar de
+                                  manera única las posiciones de la lista,
+                                  usando las llaves. Un diccionario almacena múltiples elementos en su interior,
+                                  incluyendo otros diccionarios o listas,
+                                  incluso datos primitivos.
+                                </p>
+
+                                <hr class="my-4">
+
+                                <!-- ===================== DECLARAR DICCIONARIO ===================== -->
+                                <h5 class="fw-bold mb-2" id="dict-declare">3.1 Declarar un diccionario en Python</h5>
+                                <p>
+                                  Similar a declarar una tabla en Python, pero en lugar de usar corchetes
+                                  <code>[]</code>, usamos las llaves <code>{}</code>.
+                                  <strong>Ejemplo:</strong>
+                                </p>
+
+                                <div class="code-demo code-wide" id="code-dict-declare">
+                                  EjemploDiccionario = {}
+                                  otroDiccionario = {
+                                  "nombre": "Alberto",
+                                  "usuario": "alb545"
+                                  }
+                                </div>
+
+                                <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                                  <button class="btn btn-success rounded-pill px-4" id="btn-run-dict-declare"
+                                    type="button">
+                                    <i class="bi bi-play-fill me-1"></i> Ejecutar
+                                  </button>
+
+                                  <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-dict-declare"
+                                    type="button">
+                                    <i class="bi bi-eye-slash me-1"></i> Ocultar
+                                  </button>
+                                </div>
+
+                                <div class="border rounded p-3 bg-white mt-3 mb-4 text-center" id="out-dict-declare-box"
+                                  style="display:none;">
+                                  <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                                  <div class="font-monospace d-inline-block text-start px-4 py-2 rounded"
+                                    style="background:#f8fafc; border:1px solid #e2e8f0; min-width:280px;"
+                                    id="out-dict-declare"></div>
+                                </div>
+
+                                <p class="mb-4">
+                                  <br>
+                                  Una vez es declarado, podemos añadir elementos, quitarlos, obtenerlos, etc.
+                                  Como se puede ver, ahora los elementos se almacenan como clave – valor,
+                                  siendo “nombre” la clave y “Alberto” el valor asociado a la clave.
+                                </p>
+
+                                <hr class="my-4">
+
+                                <!-- ===================== MOSTRAR ELEMENTOS ===================== -->
+                                <h5 class="fw-bold mb-2" id="dict-show">3.2 Mostrar elementos del diccionario</h5>
+                                <p>
+                                  En este caso, además del valor en la posición, también contamos con llaves que tienen
+                                  información específica del diccionario.
+                                  <strong>Ejemplo:</strong>
+                                </p>
+
+                                <div class="code-demo code-wide" id="code-dict-show">
+                                  EjemploDiccionario = {
+                                  "nombre": "Juan",
+                                  "usuario": "jn123"
+                                  }
+
+                                  print(EjemploDiccionario["nombre"])
+                                  print(EjemploDiccionario["usuario"]) # Mostrará: Juan - jn123
+                                </div>
+
+                                <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                                  <button class="btn btn-primary rounded-pill px-4" id="btn-run-dict-show"
+                                    type="button">
+                                    <i class="bi bi-play-fill me-1"></i> Ejecutar
+                                  </button>
+
+                                  <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-dict-show"
+                                    type="button">
+                                    <i class="bi bi-eye-slash me-1"></i> Ocultar
+                                  </button>
+                                </div>
+
+                                <div class="border rounded p-3 bg-white mt-3 mb-4 text-center" id="out-dict-show-box"
+                                  style="display:none;">
+                                  <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                                  <div class="font-monospace d-inline-block text-start px-4 py-2 rounded"
+                                    style="background:#f8fafc; border:1px solid #e2e8f0; min-width:280px;"
+                                    id="out-dict-show"></div>
+                                </div>
+
+                                <p class="mb-4">
+                                  <br>
+                                  Se accede igual que las listas, mediante corchetes, especificando el nombre de la
+                                  llave del diccionario para obtener su valor.
+                                </p>
+
+                                <hr class="my-4">
+
+                                <!-- ===================== BUCLE EN DICCIONARIO ===================== -->
+                                <h5 class="fw-bold mb-2 text-center" id="dict-loop">3.3 Elementos del diccionario en
+                                  bucle</h5>
+
+                                <div class="code-demo code-wide" id="code-dict-loop">
+                                  otroDiccionario = {
+                                  "nombre": "Alberto",
+                                  "edad": "45",
+                                  "usuario": "alb545"
+                                  }
+
+                                  for llave in otroDiccionario:
+                                  print(llave, ": ", otroDiccionario[llave], sep="")
+                                  # Mostrará: nombre: Alberto, edad: 45, usuario: alb545
+                                </div>
+
+                                <div class="text-center mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                                  <button class="btn btn-success rounded-pill px-4" id="btn-run-dict-loop"
+                                    type="button">
+                                    <i class="bi bi-play-fill me-1"></i> Ejecutar
+                                  </button>
+
+                                  <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-hide-dict-loop"
+                                    type="button">
+                                    <i class="bi bi-eye-slash me-1"></i> Ocultar
+                                  </button>
+                                </div>
+
+                                <div class="border rounded p-3 bg-white mt-3 mb-0 text-center" id="out-dict-loop-box"
+                                  style="display:none;">
+                                  <div class="fw-semibold mb-2">Salida en pantalla:</div>
+                                  <div class="font-monospace d-inline-block text-start px-4 py-2 rounded"
+                                    style="background:#f8fafc; border:1px solid #e2e8f0; min-width:320px;"
+                                    id="out-dict-loop"></div>
+                                </div>
+
+                                <p class="mt-4 mb-0">
+                                  <br>
+                                  El ciclo <code>for</code> recorre una por una las llaves del diccionario y luego usar
+                                  esa llave para mostrar el valor asignado a la misma dentro del diccionario.
+                                  Mediante los corchetes, se accede a los valores asociados a las llaves actuales del
+                                  diccionario, y con el parámetro <code>sep=""</code>, se elimina el espacio adicional.
+                                </p>
+
+                              </div>
+
+                            </div>
+                          </div>
+                      </div>
+                      
+                      <!-- ===================== -->
+                      <!-- VIDEO + CUESTIONARIO  -->
+                      <!-- ===================== -->
+
+                      <hr class="my-5">
+
+                      <h3 class="fw-bold mb-3" id="video-arreglos">4. Video: Repaso de Arreglos</h3>
+
+                      <div class="card border-0 shadow-sm mb-5">
+                        <div class="card-body">
+                          <p class="mb-3">
+                            Mira este video para reforzar listas, matrices/tablas y diccionarios antes del cuestionario.
+                          </p>
+
+                          <div class="ratio ratio-16x9 rounded overflow-hidden border">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_AQUI" title="Video Arreglos"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowfullscreen></iframe>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!--CUESTIONARIO-->
+
+                      <h3 class="fw-bold mb-3" id="cuestionario">5. Cuestionario</h3>
+
+<div class="card border-0 shadow-sm mb-4" id="quiz">
+  <div class="card-body">
+
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+      <div class="fw-semibold">
+        Pregunta <span id="q-current">1</span> de <span id="q-total">1</span>
       </div>
+      <div class="small text-muted" id="q-status"></div>
+    </div>
+
+    <div class="p-3 rounded border bg-white">
+      <div class="fw-bold mb-2" id="q-title"></div>
+      <div id="q-options" class="d-grid gap-2"></div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-4 flex-wrap gap-2">
+      <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-prev" type="button">
+        <i class="bi bi-arrow-left me-1"></i> Anterior
+      </button>
+
+      <div class="d-flex gap-2 flex-wrap">
+        <button class="btn btn-primary rounded-pill px-4" id="btn-next" type="button">
+          Siguiente <i class="bi bi-arrow-right ms-1"></i>
+        </button>
+
+        <button class="btn btn-success rounded-pill px-4 d-none" id="btn-submit" type="button">
+          <i class="bi bi-check2-circle me-1"></i> Enviar y calificar todo
+        </button>
       </div>
+    </div>
+
+    <div class="border rounded p-3 bg-white mt-4 d-none" id="quiz-result-box">
+      <div class="fw-bold mb-2">Resultado</div>
+      <div id="quiz-result"></div>
+    </div>
+
+  </div>
+</div>
+
+
+
+                      <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                        <a href="teoria_ManejoFormularios.html" class="btn btn-outline-secondary rounded-pill px-4">
+                          <i class="bi bi-arrow-left me-2"></i> Anterior: Manejo de Formularios
+                        </a>
+                        <a href="teoria_poo.html" class="btn btn-primary rounded-pill px-4">
+                          Siguiente: Clase vs Objeto <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                      </div>
+
+                  </div>
+                </div>
+              </div>
     </section>
   </main>
 
@@ -1286,6 +1868,7 @@
     });
   </script>
 
+
   <script src="../static/assets/js/effects.js"></script>
   <script src="../static/assets/js/navbar-nested.js">
   </script>
@@ -1296,8 +1879,543 @@
       easing: 'ease-out-cubic',
       once: true,
       offset: 50
+      
     });
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const edades = [20, 41, 6, 18, 23];
+
+      function renderSalida(outId, boxId, lines) {
+        const out = document.getElementById(outId);
+        const box = document.getElementById(boxId);
+        if (!out || !box) return;
+
+        out.innerHTML = lines.map(v => String(v)).join("<br>");
+        box.style.display = "block";
+      }
+
+      function ocultarSalida(outId, boxId) {
+        const out = document.getElementById(outId);
+        const box = document.getElementById(boxId);
+        if (!out || !box) return;
+
+        out.innerHTML = "";
+        box.style.display = "none";
+      }
+
+      // Delegación de eventos: funciona siempre
+      document.addEventListener("click", function (e) {
+        const id = e.target.closest("button")?.id;
+        if (!id) return;
+
+        // FOR (range)
+        if (id === "btn-run-range-for") {
+          const salida = [];
+          for (let i = 0; i < edades.length; i++) salida.push(edades[i]);
+          renderSalida("out-range-for", "out-range-for-box", salida);
+        }
+
+        if (id === "btn-hide-range-for") {
+          ocultarSalida("out-range-for", "out-range-for-box");
+        }
+
+        // WHILE
+        if (id === "btn-run-range-while") {
+          const salida = [];
+          let indice = 0;
+          while (indice < edades.length) {
+            salida.push(edades[indice]);
+            indice++;
+          }
+          renderSalida("out-range-while", "out-range-while-box", salida);
+        }
+
+        if (id === "btn-hide-range-while") {
+          ocultarSalida("out-range-while", "out-range-while-box");
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      function show(outId, boxId, text) {
+        const out = document.getElementById(outId);
+        const box = document.getElementById(boxId);
+        if (!out || !box) return;
+
+        out.textContent = text;   // <- salida real con corchetes
+        box.style.display = "block";
+      }
+
+      function hide(outId, boxId) {
+        const out = document.getElementById(outId);
+        const box = document.getElementById(boxId);
+        if (!out || !box) return;
+
+        out.textContent = "";
+        box.style.display = "none";
+      }
+
+      document.addEventListener("click", function (e) {
+        const id = e.target.closest("button")?.id;
+        if (!id) return;
+
+        // 1) Declarar tabla
+        if (id === "btn-run-tabla-declarar") {
+          const salida =
+            `[]
+[[], []]`;
+          show("out-tabla-declarar", "out-tabla-declarar-box", salida);
+        }
+        if (id === "btn-hide-tabla-declarar") {
+          hide("out-tabla-declarar", "out-tabla-declarar-box");
+        }
+
+        // 2) Mostrar elementos
+        if (id === "btn-run-tabla-mostrar") {
+          const salida =
+            `Juan
+32
+['Juan', 'Laura']`;
+          show("out-tabla-mostrar", "out-tabla-mostrar-box", salida);
+        }
+        if (id === "btn-hide-tabla-mostrar") {
+          hide("out-tabla-mostrar", "out-tabla-mostrar-box");
+        }
+
+        // 3) For anidado
+        if (id === "btn-run-tabla-for") {
+          const salida =
+            `Juan
+Laura
+21
+32`;
+          show("out-tabla-for", "out-tabla-for-box", salida);
+        }
+        if (id === "btn-hide-tabla-for") {
+          hide("out-tabla-for", "out-tabla-for-box");
+        }
+
+        // 4) Range con índices
+        if (id === "btn-run-tabla-range") {
+          const salida =
+            `Juan
+             Laura
+              21
+              32`;
+          show("out-tabla-range", "out-tabla-range-box", salida);
+        }
+        if (id === "btn-hide-tabla-range") {
+          hide("out-tabla-range", "out-tabla-range-box");
+        }
+
+        // 5) While anidado
+        if (id === "btn-run-tabla-while") {
+          const salida =
+            `Juan
+              Laura
+              21
+              32`;
+          show("out-tabla-while", "out-tabla-while-box", salida);
+        }
+        if (id === "btn-hide-tabla-while") {
+          hide("out-tabla-while", "out-tabla-while-box");
+        }
+        // ===== LISTA: ÍNDICES =====
+        if (id === "btn-run-lista-indices") {
+          const salida = `[2, 1, -6, 4]`;
+
+          // mostrar salida
+          const outBox = document.getElementById("out-lista-indices-box");
+          const out = document.getElementById("out-lista-indices");
+          if (outBox && out) {
+            out.textContent = salida;
+            outBox.style.display = "block";
+          }
+
+          // mostrar visual
+          const vis = document.getElementById("vis-lista-indices");
+          if (vis) vis.style.display = "block";
+        }
+
+        if (id === "btn-hide-lista-indices") {
+          // ocultar salida
+          const outBox = document.getElementById("out-lista-indices-box");
+          const out = document.getElementById("out-lista-indices");
+          if (outBox && out) {
+            out.textContent = "";
+            outBox.style.display = "none";
+          }
+
+          // ocultar visual
+          const vis = document.getElementById("vis-lista-indices");
+          if (vis) vis.style.display = "none";
+        }
+
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      function show(outId, boxId, html) {
+        const out = document.getElementById(outId);
+        const box = document.getElementById(boxId);
+        if (!out || !box) return;
+        out.innerHTML = html;
+        box.style.display = "block";
+      }
+
+      function hide(outId, boxId) {
+        const out = document.getElementById(outId);
+        const box = document.getElementById(boxId);
+        if (!out || !box) return;
+        out.innerHTML = "";
+        box.style.display = "none";
+      }
+
+      document.addEventListener("click", function (e) {
+        const id = e.target.closest("button")?.id;
+        if (!id) return;
+
+        // ===== DECLARAR DICCIONARIO =====
+        if (id === "btn-run-dict-declare") {
+          // "Salida real" estilo Python (repr) para mostrar dict
+          const otroDiccionario = { nombre: "Alberto", usuario: "alb545" };
+          const salida = "{}<br>" + JSON.stringify(otroDiccionario).replace(/"/g, "'");
+          show("out-dict-declare", "out-dict-declare-box", salida);
+        }
+        if (id === "btn-hide-dict-declare") {
+          hide("out-dict-declare", "out-dict-declare-box");
+        }
+
+        // ===== MOSTRAR ELEMENTOS =====
+        if (id === "btn-run-dict-show") {
+          const EjemploDiccionario = { nombre: "Juan", usuario: "jn123" };
+
+          // Cada print va en línea nueva (como Python)
+          const salida = `${EjemploDiccionario.nombre}<br>${EjemploDiccionario.usuario}`;
+          show("out-dict-show", "out-dict-show-box", salida);
+        }
+        if (id === "btn-hide-dict-show") {
+          hide("out-dict-show", "out-dict-show-box");
+        }
+
+        // ===== BUCLE =====
+        if (id === "btn-run-dict-loop") {
+          const otroDiccionario = { nombre: "Alberto", edad: "45", usuario: "alb545" };
+
+          // Simula prints del for (una línea por iteración)
+          const salida =
+            `nombre: ${otroDiccionario.nombre}<br>` +
+            `edad: ${otroDiccionario.edad}<br>` +
+            `usuario: ${otroDiccionario.usuario}`;
+
+          show("out-dict-loop", "out-dict-loop-box", salida);
+        }
+        if (id === "btn-hide-dict-loop") {
+          hide("out-dict-loop", "out-dict-loop-box");
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("click", function (e) {
+      const id = e.target.closest("button")?.id;
+      if (!id) return;
+
+      function show(outId, boxId, visId, text) {
+        const out = document.getElementById(outId);
+        const box = document.getElementById(boxId);
+        const vis = document.getElementById(visId);
+        if (!out || !box) return;
+
+        out.textContent = text;
+        box.style.display = "block";
+        if (vis) vis.style.display = "block";
+      }
+
+      function hide(outId, boxId, visId) {
+        const out = document.getElementById(outId);
+        const box = document.getElementById(boxId);
+        const vis = document.getElementById(visId);
+        if (!out || !box) return;
+
+        out.textContent = "";
+        box.style.display = "none";
+        if (vis) vis.style.display = "none";
+      }
+
+      // ===== Declaración de listas =====
+      if (id === "btn-run-declarar-listas") {
+        const salida =
+          `[1, 2, True, 'Hola', 5.8]
+[4, 9, False, 'texto']`;
+        show("out-declarar-listas", "out-declarar-listas-box", "vis-declarar-listas", salida);
+      }
+
+      if (id === "btn-hide-declarar-listas") {
+        hide("out-declarar-listas", "out-declarar-listas-box", "vis-declarar-listas");
+      }
+    });
+  </script>
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      function renderSalida(outId, boxId, text) {
+        const out = document.getElementById(outId);
+        const box = document.getElementById(boxId);
+        if (!out || !box) return;
+        out.textContent = text;
+        box.style.display = "block";
+      }
+
+      function ocultarSalida(outId, boxId) {
+        const out = document.getElementById(outId);
+        const box = document.getElementById(boxId);
+        if (!out || !box) return;
+        out.textContent = "";
+        box.style.display = "none";
+      }
+
+      document.addEventListener("click", function (e) {
+        const id = e.target.closest("button")?.id;
+        if (!id) return;
+
+        // POP ejemplo
+        if (id === "btn-run-pop") {
+          const palabras = ["hola", "hello", "ola"];
+          palabras.splice(1, 1); // simula pop(1)
+          renderSalida("out-pop", "out-pop-box", JSON.stringify(palabras));
+        }
+        if (id === "btn-hide-pop") {
+          ocultarSalida("out-pop", "out-pop-box");
+        }
+
+        // REMOVE ejemplo (solo la primera coincidencia)
+        if (id === "btn-run-remove") {
+          const palabras = ["hola", "hello", "hello", "ola"];
+
+          const input = document.getElementById("remove-value");
+          const valor = (input?.value ?? "").trim();
+
+          if (!valor) {
+            renderSalida("out-remove", "out-remove-box", " Ingresa un valor para eliminar.");
+            return;
+          }
+
+          const idx = palabras.indexOf(valor); // remove borra SOLO la primera coincidencia
+          if (idx === -1) {
+            renderSalida("out-remove", "out-remove-box", `No se encontró: "${valor}"`);
+            return;
+          }
+
+          palabras.splice(idx, 1);
+
+          renderSalida("out-remove", "out-remove-box", JSON.stringify(palabras));
+        }
+
+        if (id === "btn-hide-remove") {
+          ocultarSalida("out-remove", "out-remove-box");
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      function show(outId, boxId, visId, text) {
+        const out = document.getElementById(outId);
+        const box = document.getElementById(boxId);
+        const vis = document.getElementById(visId);
+        if (!out || !box) return;
+
+        out.textContent = text;     // <- esto mantiene los corchetes como “salida real”
+        box.style.display = "block";
+        if (vis) vis.style.display = "block";
+      }
+
+      function hide(outId, boxId, visId) {
+        const out = document.getElementById(outId);
+        const box = document.getElementById(boxId);
+        const vis = document.getElementById(visId);
+        if (!out || !box) return;
+
+        out.textContent = "";
+        box.style.display = "none";
+        if (vis) vis.style.display = "none";
+      }
+
+      document.addEventListener("click", function (e) {
+        const id = e.target.closest("button")?.id;
+        if (!id) return;
+
+        // ===== 2D =====
+        if (id === "btn-run-matriz2d") {
+          const salida =
+            `[
+  [1, 2],
+  [4, 5]
+]`;
+          show("out-matriz2d", "out-matriz2d-box", "vis-matriz2d", salida);
+        }
+
+        if (id === "btn-hide-matriz2d") {
+          hide("out-matriz2d", "out-matriz2d-box", "vis-matriz2d");
+        }
+
+        // ===== 3D =====
+        if (id === "btn-run-cubo3d") {
+          const salida =
+            `[
+  [[1, 2], [3, 4]],
+  [[5, 6], [7, 8]]
+]`;
+          show("out-cubo3d", "out-cubo3d-box", "vis-cubo3d", salida);
+        }
+
+        if (id === "btn-hide-cubo3d") {
+          hide("out-cubo3d", "out-cubo3d-box", "vis-cubo3d");
+        }
+      });
+    });
+  </script>
+  <script>
+(function initQuiz(){
+  const root = document.getElementById("quiz");
+  if (!root) {
+    console.warn("No existe #quiz. Pegaste el bloque del cuestionario en otro lado o el HTML se rompió antes.");
+    return;
+  }
+
+  const quiz = [
+    { q:"¿Qué imprime?\nnums = [10, 20, 30, 40]\nprint(nums[-2])", opts:["10","20","30","40"], a:2 },
+    { q:"lista = [3, 1, 4]\n¿Qué hace lista.append(9)?", opts:["Agrega 9 al inicio","Agrega 9 al final","Reemplaza el último","No cambia la original"], a:1 },
+    { q:"m = [[1,2],[3,4]]\n¿Cuánto vale m[1][0]?", opts:["1","2","3","4"], a:2 },
+    { q:"p = ['hola','hello','ola']\np.pop(1)\nprint(p)", opts:["['hola','hello']","['hola','ola']","['hello','ola']","Error"], a:1 },
+    { q:"d = {'nombre':'Ana','edad':20}\n¿Cómo accedes a 'edad'?", opts:["d[edad]","d('edad')","d['edad']","d.edad"], a:2 },
+    { q:"¿Qué es correcto sobre remove('x')?", opts:["Elimina todas","Elimina solo la primera","Elimina por índice","Solo en diccionarios"], a:1 }
+  ];
+
+  let idx = 0;
+  const answers = new Array(quiz.length).fill(null);
+
+  const elCurrent = document.getElementById("q-current");
+  const elTotal = document.getElementById("q-total");
+  const elTitle = document.getElementById("q-title");
+  const elOptions = document.getElementById("q-options");
+  const elStatus = document.getElementById("q-status");
+
+  const btnPrev = document.getElementById("btn-prev");
+  const btnNext = document.getElementById("btn-next");
+  const btnSubmit = document.getElementById("btn-submit");
+
+  const resultBox = document.getElementById("quiz-result-box");
+  const resultEl = document.getElementById("quiz-result");
+
+  if (!elTitle || !elOptions || !btnPrev || !btnNext || !btnSubmit) {
+    console.warn("Faltan IDs del cuestionario. Revisa que pegaste todo el bloque HTML.");
+    return;
+  }
+
+  elTotal.textContent = quiz.length;
+
+  function saveSelection() {
+    const selected = document.querySelector(`input[name="q-${idx}"]:checked`);
+    if (selected) answers[idx] = Number(selected.value);
+  }
+
+  function render() {
+    const item = quiz[idx];
+
+    elCurrent.textContent = idx + 1;
+    elTitle.style.whiteSpace = "pre-line";
+    elTitle.textContent = item.q;
+
+    elOptions.innerHTML = "";
+    item.opts.forEach((opt, i) => {
+      const checked = answers[idx] === i ? "checked" : "";
+      elOptions.insertAdjacentHTML("beforeend", `
+        <label class="d-flex gap-2 align-items-start p-2 border rounded">
+          <input class="form-check-input mt-1" type="radio" name="q-${idx}" value="${i}" ${checked}>
+          <span>${opt}</span>
+        </label>
+      `);
+    });
+
+    btnPrev.disabled = idx === 0;
+
+    const last = idx === quiz.length - 1;
+    btnNext.classList.toggle("d-none", last);
+    btnSubmit.classList.toggle("d-none", !last);
+
+    const done = answers.filter(a => a !== null).length;
+    elStatus.textContent = `Respondidas: ${done}/${quiz.length}`;
+
+    resultBox.classList.add("d-none");
+    resultEl.innerHTML = "";
+  }
+
+  function gradeAll() {
+    let score = 0;
+    const parts = [];
+
+    quiz.forEach((item, i) => {
+      const user = answers[i];
+      const ok = user === item.a;
+      if (ok) score++;
+
+      parts.push(`
+        <div class="mb-3">
+          <div class="fw-semibold">Pregunta ${i + 1}:</div>
+          <div class="small text-muted" style="white-space:pre-line">${item.q}</div>
+          <div class="mt-1">
+            Tu respuesta: <b>${user === null ? "No respondida" : item.opts[user]}</b><br>
+            Correcta: <b>${item.opts[item.a]}</b><br>
+            <span class="${ok ? "text-success" : "text-danger"} fw-semibold">
+              ${ok ? "Correcta ✅" : "Incorrecta ❌"}
+            </span>
+          </div>
+        </div>
+        <hr>
+      `);
+    });
+
+    const percent = Math.round((score / quiz.length) * 100);
+    resultEl.innerHTML = `
+      <div class="mb-2">Puntaje: <b>${score}/${quiz.length}</b> (${percent}%)</div>
+      ${parts.join("")}
+    `;
+    resultBox.classList.remove("d-none");
+    resultBox.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  btnPrev.addEventListener("click", () => { saveSelection(); if (idx > 0) idx--; render(); });
+  btnNext.addEventListener("click", () => { saveSelection(); if (idx < quiz.length - 1) idx++; render(); });
+  btnSubmit.addEventListener("click", () => { saveSelection(); gradeAll(); });
+
+  document.addEventListener("change", (e) => {
+    if (e.target && e.target.matches(`input[name="q-${idx}"]`)) {
+      saveSelection();
+      const done = answers.filter(a => a !== null).length;
+      elStatus.textContent = `Respondidas: ${done}/${quiz.length}`;
+    }
+  });
+
+  render();
+})();
+</script>
+
+
+
+
+
+
 </body>
 
 </html>
