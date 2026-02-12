@@ -35,9 +35,9 @@
             overflow: visible !important;
         }
 
-        /* Sidebar column must not stretch to allow sticky */
+        /* Sidebar column stretches full height so sticky nav travels the whole page */
         .col-lg-3.d-none.d-lg-block {
-            align-self: start;
+            position: relative;
         }
 
         .code-demo {
@@ -3600,15 +3600,23 @@
             }
 
             // Scroll the sidebar list so the active link is visible
+            // Uses scrollTop math instead of scrollIntoView to avoid moving the page
             function scrollSidebarToActive(activeLink) {
                 if (!sidebarList || !activeLink) return;
                 const li = activeLink.closest('li');
                 if (!li) return;
-                const listRect = sidebarList.getBoundingClientRect();
-                const liRect = li.getBoundingClientRect();
-                // If li is outside visible area of the list, scroll it into view
-                if (liRect.top < listRect.top || liRect.bottom > listRect.bottom) {
-                    li.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                // Calculate li position relative to the scrollable list
+                const liTop = li.offsetTop - sidebarList.offsetTop;
+                const liBottom = liTop + li.offsetHeight;
+                const listScrollTop = sidebarList.scrollTop;
+                const listHeight = sidebarList.clientHeight;
+                // If above visible area, scroll up
+                if (liTop < listScrollTop) {
+                    sidebarList.scrollTo({ top: liTop - 8, behavior: 'smooth' });
+                }
+                // If below visible area, scroll down
+                else if (liBottom > listScrollTop + listHeight) {
+                    sidebarList.scrollTo({ top: liBottom - listHeight + 8, behavior: 'smooth' });
                 }
             }
 
@@ -3647,25 +3655,29 @@
             sidebarLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
+                    const clickedLink = this;
+                    const targetId = clickedLink.getAttribute('href').substring(1);
                     const target = document.getElementById(targetId);
                     if (!target) return;
 
+                    // Use getBoundingClientRect for accurate position from current viewport
                     const offset = 130;
-                    const top = getOffsetTop(target) - offset;
-
-                    window.scrollTo({ top, behavior: 'smooth' });
+                    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    const targetTop = target.getBoundingClientRect().top + currentScroll - offset;
 
                     // Immediately highlight clicked link
                     sidebarLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                    scrollSidebarToActive(this);
+                    clickedLink.classList.add('active');
+                    scrollSidebarToActive(clickedLink);
 
-                    // Update URL hash after scroll lands
+                    // Smooth scroll the page
+                    window.scrollTo({ top: targetTop, behavior: 'smooth' });
+
+                    // Update URL hash after scroll settles
                     setTimeout(() => {
-                        history.pushState(null, null, '#' + targetId);
+                        history.replaceState(null, null, '#' + targetId);
                         updateActiveLink();
-                    }, 600);
+                    }, 800);
                 });
             });
 
