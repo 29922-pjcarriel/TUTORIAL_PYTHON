@@ -98,73 +98,6 @@
         }
 
         /* Teal */
-    
-        /* Sidebar Styles */
-        .sidebar-nav {
-            position: sticky;
-            top: 100px;
-            background: white;
-            border-radius: 16px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            max-height: calc(100vh - 120px);
-            overflow-y: auto;
-        }
-        .sidebar-nav h5 {
-            font-weight: 700;
-            color: #1a1a2e;
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid #667eea;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .sidebar-nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .sidebar-nav li {
-            margin-bottom: 0.5rem;
-        }
-        .sidebar-nav a {
-            display: block;
-            padding: 0.6rem 1rem;
-            color: #64748b;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-        .sidebar-nav a:hover {
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            border-left-color: #667eea;
-            padding-left: 1.2rem;
-        }
-        .sidebar-nav a.active {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
-            color: #667eea;
-            font-weight: 600;
-            border-left-color: #667eea;
-        }
-        .sidebar-progress {
-            height: 4px;
-            background: #e2e8f0;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-        .sidebar-progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
     </style>
 </head>
 
@@ -315,6 +248,7 @@
   </nav>
 
     <main class="main">
+        <!-- Hero Section -->
         <section class="hero-intro">
             <div class="vs-container">
                 <div class="vs-title" data-aos="fade-down">PHP</div>
@@ -326,36 +260,11 @@
                 Implementación de CRUD Vehículo: Diferencias Estructurales y de Código
             </p>
         </section>
-        
-        <div class="container py-5">
-            <div class="row">
-                <!-- Sidebar -->
-                <div class="col-lg-3 d-none d-lg-block">
-                    <nav class="sidebar-nav">
-                        <div class="sidebar-progress">
-                            <div class="sidebar-progress-bar"></div>
-                        </div>
-                        <h5><i class="bi bi-list-check me-2"></i>Contenido</h5>
-                        <ul>
-                            <li><a href="#importacion-librerias-clase" class="active">Importación Librerías / Clase</a></li>
-<li><a href="#estructura-basica-html-php">Estructura Básica Html (Php)</a></li>
-<li><a href="#estructura-basica-html-python">Estructura Básica Html (Python)</a></li>
-<li><a href="#conexion-a-la-base-de-datos">Conexión A La Base De Datos</a></li>
 
-                        </ul>
-                        <hr class="my-4 border-secondary opacity-10">
-                        <a href="../index.html" class="btn btn-outline-secondary w-100 rounded-pill btn-sm">
-                            <i class="bi bi-arrow-left me-2"></i> Volver al Índice
-                        </a>
-                    </nav>
-                </div>
-                
-                <!-- Content -->
-                <div class="col-lg-9">
-                    
-        <div class="section-block mb-5 bg-white rounded-4 p-4 p-md-5 border" data-aos="fade-up">
-            
-                <h2 id="importacion-librerias-clase" class="fw-bold mb-4 text-primary">IMPORTACIÓN LIBRERÍAS / CLASE</h2>
+        <!-- 1. Importación Librerías / Clase -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="intro-section-title text-center mb-5" data-aos="fade-up">IMPORTACIÓN LIBRERÍAS / CLASE</h2>
 
                 <div class="row g-4">
                     <!-- PHP -->
@@ -425,12 +334,13 @@
                         </div>
                     </div>
                 </div>
-            
-        </div>
-        
-        <div class="section-block mb-5 bg-light rounded-4 p-4 p-md-5" data-aos="fade-up">
-            
-                <h2 id="estructura-basica-html-php" class="fw-bold mb-4 text-primary">ESTRUCTURA BÁSICA HTML (PHP)</h2>
+            </div>
+        </section>
+
+        <!-- 2. Estructura básica HTML PHP -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <h2 class="intro-section-title text-center mb-5" data-aos="fade-up">ESTRUCTURA BÁSICA HTML (PHP)</h2>
 
                 <div class="row justify-content-center">
                     <div class="col-lg-10" data-aos="zoom-in">
@@ -468,12 +378,13 @@
                         </div>
                     </div>
                 </div>
-            
-        </div>
-        
-        <div class="section-block mb-5 bg-white rounded-4 p-4 p-md-5 border" data-aos="fade-up">
-            
-                <h2 id="estructura-basica-html-python" class="fw-bold mb-4 text-primary">ESTRUCTURA BÁSICA HTML (PYTHON)</h2>
+            </div>
+        </section>
+
+        <!-- 3. Estructura básica HTML Python -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="intro-section-title text-center mb-5" data-aos="fade-up">ESTRUCTURA BÁSICA HTML (PYTHON)</h2>
 
                 <div class="row justify-content-center">
                     <div class="col-lg-10" data-aos="zoom-in">
@@ -526,9 +437,12 @@
                         </div>
                     </div>
                 </div>
-            
-        </div>
-        <div class="mb-5">
+            </div>
+        </section>
+
+        <!-- 4. Crear la conexión y objetoVehiculo -->
+        <section class="section-padding bg-light">
+            <div class="container">
                 <h2 class="intro-section-title text-center mb-5" data-aos="fade-up">CREAR LA CONEXIÓN Y OBJETO VEHICULO
                 </h2>
 
@@ -576,9 +490,12 @@
                     </div>
                 </div>
             </div>
-        <div class="section-block mb-5 bg-white rounded-4 p-4 p-md-5 border" data-aos="fade-up">
-            
-                <h2 id="conexion-a-la-base-de-datos" class="fw-bold mb-4 text-primary">CONEXIÓN A LA BASE DE DATOS</h2>
+        </section>
+
+        <!-- 5. Conexión a la Base de Datos -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="intro-section-title text-center mb-5" data-aos="fade-up">CONEXIÓN A LA BASE DE DATOS</h2>
 
                 <div class="row g-4">
                     <!-- PHP -->
@@ -651,12 +568,24 @@
                         <small class="text-muted">Ambos usan los mismos parámetros y UTF-8.</small>
                     </div>
                 </div>
-            
-        </div>
-        
+            </div>
+        </section>
+
+        <!-- Navegación Footer -->
+        <section class="section py-5 bg-light mt-5">
+            <div class="container text-center">
+                <h3 class="mb-4">Siguiente paso: Estructuras de Control</h3>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="sintaxis.html" class="btn btn-outline-secondary rounded-pill px-4 py-2">
+                        <i class="bi bi-arrow-left me-2"></i> Sintaxis
+                    </a>
+                    <a href="../PythonvsPHP.html" class="btn btn-primary rounded-pill px-4 py-2">
+                        Ver Comparativa General <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
                 </div>
             </div>
-        </div>
+        </section>
+
     </main>
 
     <footer class="footer-modern mt-0">
@@ -673,71 +602,6 @@
     <script>
         AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
     </script>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
-      const sections = [];
-      const progressBar = document.querySelector('.sidebar-progress-bar');
-      
-      // Map links to sections
-      sidebarLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if(href.startsWith('#')) {
-            const id = href.substring(1);
-            const section = document.getElementById(id);
-            if (section) {
-              sections.push({ id, element: section, link });
-            }
-        }
-      });
-      
-      function updateActiveLink() {
-        const scrollPosition = window.scrollY + 150;
-        let currentSection = sections[0];
-        
-        sections.forEach(section => {
-          // Check if section is somewhat in view
-          /* The closest section top that is above the scroll line OR if we are at bottom */
-           if (section.element.offsetTop <= scrollPosition) {
-             currentSection = section;
-           }
-        });
-        
-        sidebarLinks.forEach(link => link.classList.remove('active'));
-        if (currentSection) {
-          currentSection.link.classList.add('active');
-          
-          // Update progress
-          const index = sections.indexOf(currentSection);
-          const progress = ((index + 1) / sections.length) * 100;
-          if(progressBar) progressBar.style.width = progress + '%';
-        }
-      }
-      
-      // Click handler
-      sidebarLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          const href = this.getAttribute('href');
-          if(href.startsWith('#')) {
-              e.preventDefault();
-              const targetId = href.substring(1);
-              const target = document.getElementById(targetId);
-              if (target) {
-                window.scrollTo({
-                  top: target.offsetTop - 100,
-                  behavior: 'smooth'
-                });
-              }
-          }
-        });
-      });
-      
-      window.addEventListener('scroll', updateActiveLink);
-      updateActiveLink(); // Init
-    });
-    </script>
-
 </body>
 
 </html>
