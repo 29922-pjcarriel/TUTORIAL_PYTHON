@@ -412,6 +412,198 @@ for i in range(1, n + 1):
               <li>Si hay un error, se presenta un mensaje indicando el problema.</li>
             </ul>
           </div>
+<!-- ============================= -->
+<!-- ARCHIVOS DEL EJERCICIO 3 -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-3">8) Archivos del proyecto (Paso importante)</h4>
+
+  <p>
+    Para ejecutar este ejercicio en Flask (factorial lado servidor), crea esta estructura:
+  </p>
+
+<pre class="code-box">
+01.Clase3_Factorial/
+│
+├── app.py
+│
+└── templates/
+    ├── index.html
+    └── resultado.html
+</pre>
+
+  <p class="hint">
+    Ahora crea cada archivo y copia el código.
+  </p>
+</div>
+
+<!-- ============================= -->
+<!-- app.py -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: app.py (copiar y pegar)</h5>
+
+<pre class="code-box"><code>from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+def calcular_factorial(n: int) -&gt; int:
+    total = 1
+    for i in range(1, n + 1):
+        total *= i
+    return total
+
+# ✅ Acepta "/" y cualquier subruta que el lanzador invente
+@app.route("/", methods=["GET", "POST"])
+@app.route("/&lt;path:subruta&gt;", methods=["GET", "POST"])
+def index(subruta=None):
+    if request.method == "POST":
+        try:
+            numero = int(request.form.get("ingresoNumero", 0))
+            resultado = calcular_factorial(numero)
+            return render_template("resultado.html", numero=numero, resultado=resultado)
+        except Exception:
+            return render_template("resultado.html", numero=None, resultado=None)
+
+    return render_template("index.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
+</code></pre>
+
+  <p class="hint">
+    Este archivo recibe el número por <code>POST</code>, calcula el factorial con un <code>for</code> y muestra el resultado en otra vista.
+  </p>
+</div>
+
+<!-- ============================= -->
+<!-- templates/index.html -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: templates/index.html (copiar y pegar)</h5>
+
+<pre class="code-box"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Factorial - Lado Servidor&lt;/title&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;section class="container"&gt;
+  &lt;h3 class="text-center mb-4"&gt;Cálculo de Factorial&lt;/h3&gt;
+
+  &lt;form class="form-group" action="" method="post"&gt;
+
+    &lt;div class="mb-3"&gt;
+      &lt;label for="ingresoNumero" class="form-label"&gt;Ingrese un número:&lt;/label&gt;
+      &lt;input type="number" class="form-control"
+             name="ingresoNumero" id="ingresoNumero"
+             value="0" min="0" max="10" step="1" required&gt;
+    &lt;/div&gt;
+
+    &lt;button type="submit" class="btn btn-primary w-100"&gt;
+      Calcular
+    &lt;/button&gt;
+
+  &lt;/form&gt;
+&lt;/section&gt;
+
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+  <p class="hint">
+    Este formulario envía el número al servidor con método <code>POST</code>.
+  </p>
+</div>
+
+<!-- ============================= -->
+<!-- templates/resultado.html -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Archivo: templates/resultado.html (copiar y pegar)</h5>
+
+<pre class="code-box"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Resultado - Factorial&lt;/title&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;section class="container"&gt;
+  &lt;h3 class="text-center mb-4"&gt;Resultado&lt;/h3&gt;
+
+  &lt;div class="card shadow"&gt;
+    &lt;div class="card-body text-center"&gt;
+
+      {% if numero is not none %}
+        &lt;div class="alert alert-success"&gt;
+          El factorial de &lt;strong&gt;{{ numero }}&lt;/strong&gt; es:
+          &lt;br&gt;
+          &lt;strong&gt;{{ resultado }}&lt;/strong&gt;
+        &lt;/div&gt;
+      {% else %}
+        &lt;div class="alert alert-danger"&gt;
+          Error al procesar el número ingresado.
+        &lt;/div&gt;
+      {% endif %}
+
+      &lt;a href="/" class="btn btn-secondary w-100"&gt;Volver&lt;/a&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+  <p class="hint">
+    Aquí se muestra el resultado usando variables de Jinja: <code>{{ numero }}</code> y <code>{{ resultado }}</code>.
+  </p>
+</div>
+
+<!-- ============================= -->
+<!-- EJECUTAR -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h4 class="fw-bold mb-2">9) Ejecutar el proyecto</h4>
+
+<pre class="code-box"><code>pip install flask
+python app.py
+</code></pre>
+
+  <p class="hint">
+    Luego abre en tu navegador:<br>
+    <b>http://127.0.0.1:5000</b>
+  </p>
+</div>
+
+<!-- ============================= -->
+<!-- ERRORES COMUNES -->
+<!-- ============================= -->
+<div class="explain-card mb-4">
+  <h5 class="fw-bold mb-2">Errores comunes</h5>
+  <ul class="hint">
+    <li>No crear la carpeta <b>templates</b></li>
+    <li>Guardar mal el nombre: debe ser <b>resultado.html</b></li>
+    <li>No instalar Flask</li>
+    <li>Ejecutar en una carpeta diferente a donde está <b>app.py</b></li>
+  </ul>
+</div>
+
 
           <!-- INTERFAZ JS: FACTORIAL -->
           <div id="ejercicio-js" class="animate-in fade-in">
